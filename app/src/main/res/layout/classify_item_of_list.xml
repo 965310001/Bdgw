@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical">
+
+    <TextView
+        android:id="@+id/tv_text"
+        style="@style/TextStyle"
+        android:layout_width="match_parent"
+        android:layout_height="45dp"
+        android:gravity="center_vertical"
+        android:paddingStart="10dp"
+        android:paddingEnd="10dp" />
+
+    <me.goldze.common.widget.MultipleItemView
+        android:id="@+id/miv_1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:visibility="gone"
+        app:leftText="关于我们"
+        app:leftTextColor="@color/black"
+        app:ptleftIcon="@drawable/ic_launcher"
+        app:showBottomLine="false"
+        app:showTopLine="false"
+        app:rightText=""
+        app:showLeftIcon="false"
+        app:showRightIcon="false" />
+
+    <!--<View style="@style/HorizontalLine" />-->
+
+    <com.trecyclerview.TRecyclerView
+        android:id="@+id/rv_right"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/white"
+        android:visibility="gone" />
+
+
+</LinearLayout>

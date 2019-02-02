@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".ui.me.HelpActivity">
+
+    <include layout="@layout/item_title_layout" />
+
+    <me.goldze.common.widget.MultipleItemView
+        android:id="@+id/miv_1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:leftText="关于我们"
+        app:leftTextColor="@color/gray"
+        app:ptleftIcon="@drawable/ic_launcher"
+        app:rightText=""
+        app:showLeftIcon="true"
+        app:showRightIcon="true" />
+
+    <me.goldze.common.widget.MultipleItemView
+        android:id="@+id/miv_2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:leftText="客服中心"
+
+        app:leftTextColor="@color/gray"
+        app:ptleftIcon="@drawable/ic_launcher"
+        app:rightText=""
+
+        app:showLeftIcon="true"
+        app:showRightIcon="true" />
+
+    <me.goldze.common.widget.MultipleItemView
+        android:id="@+id/miv_3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+
+        app:leftText="站内公告"
+        app:leftTextColor="@color/gray"
+
+        app:ptleftIcon="@drawable/ic_launcher"
+        app:rightText=""
+        app:showLeftIcon="true"
+        app:showRightIcon="true" />
+
+    <me.goldze.common.widget.MultipleItemView
+        android:id="@+id/miv_4"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:leftText="扁担资讯"
+        app:leftTextColor="@color/gray"
+        app:ptleftIcon="@drawable/ic_launcher"
+        app:rightText=""
+        app:showLeftIcon="true"
+        app:showRightIcon="true" />
+
+    <me.goldze.common.widget.MultipleItemView
+        android:id="@+id/miv_5"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:leftText="系统分类"
+        app:leftTextColor="@color/gray"
+        app:ptleftIcon="@drawable/ic_launcher"
+        app:rightText=""
+        app:showLeftIcon="true"
+        app:showRightIcon="true" />
+
+</LinearLayout>

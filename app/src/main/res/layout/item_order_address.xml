@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout style="@style/width_match_height_warp"
+    android:padding="16dp"
+    xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <ImageView
+        android:id="@+id/iv_defualt_icon"
+        android:layout_width="@dimen/image_height_small"
+        android:layout_height="@dimen/image_height_small"
+        android:layout_centerVertical="true"
+        android:src="@drawable/ic_launcher" />
+
+    <TextView
+        android:id="@+id/tv_address"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:drawableRight="@drawable/icon_more"
+        android:paddingStart="15dp"
+        android:text="王先生 15949629529 默认 \n中国广东省珠海市市辖区福田路18号" />
+</RelativeLayout>

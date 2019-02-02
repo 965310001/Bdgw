@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.bdgw.cc">
+
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.CHANGE_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.CHANGE_WIFI_STATE" />
+
+    <application
+        android:name=".MyApplication"
+        android:allowBackup="true"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
+        android:roundIcon="@mipmap/ic_launcher_round"
+        android:supportsRtl="true"
+        android:theme="@style/AppTheme">
+        <activity android:name=".MainActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity android:name=".ui.RegisterActivity" />
+        <activity android:name=".ui.LoginActivity" />
+        <activity android:name=".ui.RetrieveActivity" />
+        <activity android:name=".ui.home.PreferentialActivity" />
+        <activity android:name=".ui.home.IntegralActivity" />
+        <activity android:name=".ui.home.OrderActivity" />
+        <activity android:name=".ui.home.RedActivity" />
+        <!-- <activity -->
+        <!-- android:name=".MainActivity" -->
+        <!-- android:launchMode="singleInstance" /> -->
+        <activity android:name=".ui.SearchActivity" />
+        <activity android:name=".ui.home.SearchListActivity" />
+        <activity android:name=".ui.home.ShoppingDetailsActivity" />
+        <activity android:name=".ui.me.AddressListActivity" />
+        <activity android:name=".ui.me.ModifyActivity" />
+        <activity android:name=".ui.classify.BuyActivity" />
+        <activity android:name=".ui.classify.DistributionActivity" />
+        <activity android:name=".ui.me.FundsActivity" />
+        <activity android:name=".ui.me.ExtractListActivity" />
+        <activity android:name=".ui.me.HelpActivity" />
+        <activity android:name=".ui.me.CollectionActivity" />
+        <!-- <activity android:name=".ui.me.RedEnvelopeActivity" /> -->
+        <activity android:name=".ui.me.RecommendationActivity" />
+        <activity android:name=".ui.me.DimensionalCodesActivity" />
+        <activity android:name=".ui.home.ShoppingActivity" />
+        <activity android:name=".ui.classify.ProductsActivity" />
+        <activity android:name=".ui.me.DefiniteActivity" />
+        <activity android:name=".ui.me.IntegralRecordActivity" />
+        <activity android:name=".ui.me.SettingActivity" />
+        <activity android:name=".ui.me.PersonInfoActivity" />
+        <activity android:name=".ui.shopping.DeliveryActivity" />
+        <activity android:name=".ui.shopping.OrderDetailsActivity" />
+        <activity android:name=".ui.shopping.EvaluationActivity" />
+        <activity android:name=".test.TestBaseActivity" />
+        <activity android:name=".ui.me.AfterSalesListActivity" />
+        <activity android:name=".ui.me.AfterSalesDetailsDctivity" />
+        <activity android:name=".ui.me.AfterSalesActivity" />
+        <activity android:name=".ui.me.AskActivity" />
+        <activity
+            android:name=".ui.me.ExtractActivity"
+            android:label="提现">
+            <!--是否显示后退-->
+            <meta-data
+                android:name="back"
+                android:value="false" />
+            <meta-data
+                android:name="isActionBar"
+                android:value="false" />
+        </activity>
+    </application>
+
+</manifest>

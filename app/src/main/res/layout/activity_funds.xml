@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".ui.me.FundsActivity">
+
+    <ImageView
+        android:layout_width="@dimen/image_height_most"
+        android:layout_height="@dimen/image_height_most"
+        android:layout_gravity="center"
+        android:background="@drawable/ic_launcher" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:text="可用资金"
+        android:textColor="@color/gray"
+        android:textSize="@dimen/text_14" />
+
+    <TextView
+        android:id="@+id/tv_money"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:text="925.91"
+        android:textColor="@color/orange"
+        android:textSize="@dimen/text_24" />
+
+    <TextView
+        android:id="@+id/tv_extract"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="@dimen/tab_bar"
+        android:layout_marginTop="@dimen/spacing_bigger"
+        android:layout_marginRight="@dimen/tab_bar"
+        android:background="@drawable/btn_login"
+        android:gravity="center"
+        android:paddingTop="@dimen/spacing_bigger"
+        android:paddingBottom="@dimen/spacing_bigger"
+        android:text="提取"
+        android:textColor="@color/white"
+        android:textSize="@dimen/text_16"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/ed_password" />
+
+    <TextView
+        android:id="@+id/tv_extract_list"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="@dimen/tab_bar"
+        android:layout_marginTop="@dimen/spacing_bigger"
+        android:layout_marginRight="@dimen/tab_bar"
+        android:background="@drawable/btn_login"
+        android:gravity="center"
+        android:paddingTop="@dimen/spacing_bigger"
+        android:paddingBottom="@dimen/spacing_bigger"
+        android:text="提取记录"
+        android:textColor="@color/white"
+        android:textSize="@dimen/text_16"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/ed_password" />
+
+    <TextView
+        android:id="@+id/tv_definite"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_marginTop="20dp"
+        android:text="查看资金明细"
+        android:textColor="@color/gray" />
+
+</LinearLayout>

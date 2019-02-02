@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="140dp"
+    android:padding="8dp">
+
+    <TextView
+        android:id="@+id/tv_num"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginRight="@dimen/dp_4"
+        android:layout_toLeftOf="@id/tv_state"
+        android:maxLines="1"
+        android:padding="4dp"
+        android:text="1000000001776202"
+        android:textColor="@color/gray"
+        android:textSize="@dimen/text_size_12" />
+
+    <ImageView
+        android:id="@+id/iv_icon"
+        android:layout_width="@dimen/image_height_most"
+        android:layout_height="@dimen/image_height_most"
+        android:layout_below="@id/tv_num"
+        android:src="@drawable/ic_launcher" />
+
+    <TextView
+        android:id="@+id/tv_des"
+        android:layout_width="match_parent"
+        android:layout_height="46dp"
+        android:layout_below="@id/tv_num"
+        android:layout_marginTop="5dp"
+        android:layout_marginRight="@dimen/dp_4"
+        android:layout_toRightOf="@id/iv_icon"
+        android:maxLines="2"
+        android:padding="4dp"
+        android:text="金河田 智能PLUS3000 额定300W台式机电源 工包 数量：1，单价：84.20元"
+        android:textSize="@dimen/text_size_12" />
+
+    <TextView
+        android:id="@+id/tv_reason"
+        android:layout_width="match_parent"
+        android:layout_height="56dp"
+        android:layout_below="@+id/tv_des"
+        android:layout_alignParentStart="true"
+        android:maxLines="2"
+        android:text="申请时间：2019/01/12 14:39提前换货:风扇不转，无没使用，无没开机，更换电源后就正常"
+        android:visibility="gone" />
+
+    <TextView
+        android:id="@+id/tv_state"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentEnd="true"
+        android:padding="4dp"
+        android:text="处理中"
+        android:textColor="@color/orange"
+        android:textSize="@dimen/text_12" />
+
+    <TextView
+        android:id="@+id/tv_typeservice"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/tv_reason"
+        android:text="请先发回确认 待买家寄回"
+        android:visibility="gone" />
+
+    <TextView
+        android:id="@+id/tv_canner"
+        android:layout_width="80dp"
+        android:layout_height="wrap_content"
+        android:layout_alignEnd="@+id/tv_state"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginBottom="5dp"
+        android:background="@drawable/btn_login"
+        android:gravity="center"
+        android:padding="4dp"
+        android:text="取消"
+        android:textColor="@color/white"
+        android:textSize="@dimen/text_12" />
+
+    <TextView
+        android:id="@+id/tv_detailed"
+        android:layout_width="80dp"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_marginEnd="20dp"
+        android:layout_marginBottom="5dp"
+        android:layout_toLeftOf="@id/tv_canner"
+        android:background="@drawable/btn_login"
+        android:gravity="center"
+        android:padding="4dp"
+        android:text="详情"
+        android:textColor="@color/white"
+        android:textSize="@dimen/text_12" />
+
+</RelativeLayout>

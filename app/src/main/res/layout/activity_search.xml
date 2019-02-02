@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".ui.SearchActivity">
+
+    <include layout="@layout/item_title_layout" />
+
+
+    <!--<me.goldze.xui.TitleBar-->
+        <!--android:id="@+id/title_bar"-->
+        <!--android:layout_width="match_parent"-->
+        <!--android:layout_height="wrap_content"-->
+        <!--android:visibility="gone"-->
+        <!--app:centerCustomView="@layout/layout_header_search"-->
+        <!--app:centerType="customView"-->
+        <!--app:leftBackground="@drawable/bg_button"-->
+        <!--app:leftImageResource="@drawable/ic_back"-->
+        <!--app:leftType="imageView"-->
+        <!--app:rightImageResource="@drawable/ic_search"-->
+        <!--app:rightType="imageView"-->
+        <!--app:showBottomLine="false"-->
+        <!--app:statusBarColor="@color/primary_dark"-->
+        <!--app:statusBarMode="light"-->
+        <!--app:titleBarColor="@color/primary" />-->
+
+    <TextView
+        android:id="@+id/tv_hot_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:paddingEnd="@dimen/spacing_bigger"
+        android:paddingTop="@dimen/spacing_bigger"
+        android:text="热搜"
+        android:textColor="@color/primary_text"
+        android:textSize="@dimen/text_16"
+        app:layout_constraintTop_toBottomOf="@+id/title_bar" />
+
+    <FrameLayout
+        android:id="@+id/layout_flow_or_loading"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@+id/tv_hot_title">
+
+        <android.support.design.internal.FlowLayout
+            android:id="@+id/layout_flow"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingLeft="@dimen/spacing_bigger"
+            android:paddingRight="@dimen/spacing_bigger" />
+
+        <!--
+                <com.xuexiang.xui.widget.flowlayout.FlowTagLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    app:msv_retryBtnId="@+id/layout_flow" />
+        -->
+    </FrameLayout>
+
+    <TextView
+        android:id="@+id/tv_search_history_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:paddingStart="@dimen/spacing_bigger"
+        android:paddingTop="@dimen/spacing_bigger"
+        android:text="历史搜索"
+        android:textColor="@color/primary_text"
+        android:textSize="@dimen/text_16"
+        app:layout_constraintTop_toBottomOf="@+id/layout_flow_or_loading" />
+
+    <android.support.v7.widget.RecyclerView
+        android:id="@+id/recycler_search_history"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:overScrollMode="never"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tv_search_history_title" />
+</LinearLayout>

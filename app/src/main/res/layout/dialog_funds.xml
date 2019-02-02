@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical">
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="提现金额" />
+
+    <EditText
+        android:id="@+id/ed_money"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="请输入金额"
+        android:inputType="numberDecimal"
+        android:maxLines="1"
+        android:textSize="@dimen/text_15" />
+
+
+    <!--<me.goldze.common.widget.MultipleItemView-->
+        <!--android:id="@+id/mv_use_integral"-->
+        <!--style="@style/width_match_height_warp"-->
+        <!--app:leftText="可提余额￥925.91"-->
+        <!--app:leftTextColor="@color/black"-->
+        <!--app:rightText="3.99"-->
+        <!--app:rightTextColor="@color/orange"-->
+        <!--app:showLeftIcon="false"-->
+        <!--app:showRightIcon="false" />-->
+
+    <com.xuexiang.xui.widget.edittext.materialedittext.MaterialEditText
+        android:id="@+id/ed_card"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="请填写银行名称和银行卡号"
+        android:inputType="number"
+        android:maxLines="1"
+        android:textSize="@dimen/text_15"
+        app:met_baseColor="@color/primary_text"
+        app:met_errorColor="@color/red"
+        app:met_floatingLabel="normal"
+        app:met_floatingLabelText="请填写银行名称和银行卡号"
+        app:met_floatingLabelTextColor="@color/primary_text"
+        app:met_maxCharacters="15"
+        app:met_minCharacters="1"
+        app:met_primaryColor="@color/primary"
+        app:met_textColorHint="@color/third_text" />
+
+</LinearLayout>

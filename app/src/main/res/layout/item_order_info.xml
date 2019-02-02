@@ -1,0 +1,134 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <me.goldze.common.widget.MultipleItemView
+        android:id="@+id/mv_order_number"
+        style="@style/width_match_height_warp"
+        app:leftText="订单编号 CS170926155954NO7"
+        app:pstsHasBottomLine="false"
+        app:pstsHasTopLine="false"
+        app:rightText=""
+        app:rightTextColor="@color/orange"
+        app:showLeftIcon="false"
+        app:showRightIcon="false" />
+
+    <me.goldze.common.widget.MultipleItemView
+        android:id="@+id/mv_time"
+        style="@style/width_match_height_warp"
+        app:leftText="下单时间 2017-09-26T08:01:57"
+        app:pstsDividerPadding="16dp"
+        app:pstsHasBottomLine="false"
+        app:pstsHasTopLine="true"
+        app:rightText=""
+        app:rightTextColor="@color/orange"
+        app:showLeftIcon="false"
+        app:showRightIcon="false" />
+
+
+    <me.goldze.common.widget.MultipleItemView
+        android:id="@+id/mv_buy_status"
+        style="@style/width_match_height_warp"
+        app:leftText="支付方式    支付宝支付"
+        app:pstsHasBottomLine="false"
+        app:pstsHasTopLine="false"
+        app:rightText=""
+        app:rightTextColor="@color/orange"
+        app:showLeftIcon="false"
+        app:showRightIcon="false" />
+
+    <me.goldze.common.widget.MultipleItemView
+        android:id="@+id/mv_distribution"
+        style="@style/width_match_height_warp"
+        app:leftText="配送信息    中通快递"
+        app:rightText=""
+        app:rightTextColor="@color/orange"
+        app:showLeftIcon="false"
+        app:showRightIcon="false" />
+
+    <me.goldze.common.widget.MultipleItemView
+        android:id="@+id/mv_invoice_info"
+        style="@style/width_match_height_warp"
+        app:leftText="发票信息    暂无信息"
+        app:rightText=""
+        app:rightTextColor="@color/orange"
+        app:showLeftIcon="false"
+        app:showRightIcon="false" />
+
+
+    <me.goldze.common.widget.MultipleItemView
+        android:id="@+id/mv_invoice_head"
+        style="@style/width_match_height_warp"
+        app:leftText="发票抬头    暂无信息"
+        app:rightText=""
+        app:rightTextColor="@color/orange"
+        app:showLeftIcon="false"
+        app:showRightIcon="false" />
+
+
+    <me.goldze.common.widget.MultipleItemView
+        android:id="@+id/mv_invoice_content"
+        style="@style/width_match_height_warp"
+        app:leftText="发票内容    暂无信息"
+        app:rightText=""
+        app:rightTextColor="@color/orange"
+        app:showLeftIcon="false"
+        app:showRightIcon="false" />
+
+
+    <me.goldze.common.widget.MultipleItemView
+        android:id="@+id/mv_price"
+        style="@style/width_match_height_warp"
+        app:leftText="商品金额"
+        app:rightText="3.99"
+        app:rightTextColor="@color/orange"
+        app:showLeftIcon="false"
+        app:showRightIcon="false" />
+
+    <me.goldze.common.widget.MultipleItemView
+        android:id="@+id/mv_freight"
+        style="@style/width_match_height_warp"
+        app:leftText="运费"
+        app:rightText="3.99"
+        app:rightTextColor="@color/orange"
+        app:showLeftIcon="false"
+        app:showRightIcon="false" />
+
+    <me.goldze.common.widget.MultipleItemView
+        android:id="@+id/mv_taxes"
+        style="@style/width_match_height_warp"
+        app:leftText="税费"
+        app:rightText="3.99"
+        app:rightTextColor="@color/orange"
+        app:showLeftIcon="false"
+        app:showRightIcon="false" />
+
+
+    <TextView
+        android:id="@+id/tv_actual_price"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="right"
+        android:padding="10dp"
+        android:text="1种，3件商品 小计(含税费):46.18" />
+
+    <TextView
+        android:id="@+id/tv_sub"
+        android:layout_width="100dp"
+        android:layout_height="wrap_content"
+        android:layout_gravity="right"
+        android:layout_margin="8dp"
+        android:layout_marginTop="@dimen/spacing_bigger"
+        android:background="@drawable/btn_login"
+        android:gravity="center"
+        android:padding="@dimen/spacing"
+        android:text="确认收货"
+        android:textColor="@color/white"
+        android:textSize="@dimen/text_12"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/ed_password" />
+</LinearLayout>

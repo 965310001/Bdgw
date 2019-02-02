@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:focusable="true"
+    android:focusableInTouchMode="true"
+    android:orientation="vertical"
+    tools:context=".ui.shopping.EvaluationActivity">
+
+    <include layout="@layout/item_title_layout" />
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/image_height_most"
+        android:padding="4dp">
+
+        <ImageView
+            android:id="@+id/iv_icon"
+            android:layout_width="@dimen/image_height_most"
+            android:layout_height="@dimen/image_height_most"
+            android:src="@mipmap/ic_launcher" />
+
+        <TextView
+            android:id="@+id/tv_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_toEndOf="@id/iv_icon"
+            android:maxLines="1"
+            android:padding="10dp"
+            android:text="点击相机后执行MultiImageSelector.create().count(MAX_PIC - imageUrls.size()).start(this, REQUEST_CODE_PICTURE); 调出选择图片界面, 选择完成会进入onActivityResult方法 我们就在该方法中处理选中的晒单图集合 回调的onActivityResult后核心的处理在handleCommentPicList方法里"
+            android:textSize="@dimen/text_size_12" />
+
+        <TextView
+            android:id="@+id/tv_price"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:layout_toEndOf="@id/iv_icon"
+            android:maxLines="1"
+            android:padding="10dp"
+            android:text="点击相机后执行MultiImageSelector.create().count(MAX_PIC - imageUrls.size()).start(this, REQUEST_CODE_PICTURE); 调出选择图片界面, 选择完成会进入onActivityResult方法 我们就在该方法中处理选中的晒单图集合 回调的onActivityResult后核心的处理在handleCommentPicList方法里"
+            android:textColor="@color/orange"
+            android:textSize="@dimen/text_size_12" />
+    </RelativeLayout>
+
+    <View style="@style/HorizontalLine" />
+
+    <com.xuexiang.xui.widget.edittext.materialedittext.MaterialEditText
+        android:id="@+id/ed_content"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="start"
+        android:hint="请输入评价内容"
+        android:inputType="text"
+        android:maxLines="3"
+        android:padding="4dp"
+        android:textSize="@dimen/text_15"
+        app:met_hideUnderline="true" />
+</LinearLayout>

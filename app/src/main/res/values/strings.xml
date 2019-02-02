@@ -1,0 +1,99 @@
+<resources>
+    <string name="app_name">Bdgw</string>
+
+    <string name="main_home">首页</string>
+    <string name="main_me">我的</string>
+    <string name="main_shopping">购物车</string>
+    <string name="main_classify">分类</string>
+
+    <!--********************************************************* 常用 ***************************************************************-->
+    <string name="login_submit_button">登录</string>
+    <string name="login_password_hint">密码</string>
+
+
+    <!--********************************************************** end ***************************************************************-->
+
+
+    <!-- *****************************************************************首页******************************************************************************* -->
+    <string name="home_login">登录</string>
+    <string name="phone">请输入登录的账号</string>
+    <string name="password">请输入登录密码</string>
+    <string name="recovery_password">忘记密码</string>
+
+    <!--四个状态栏-->
+    <string name="menu_preferential">优惠活动</string>
+    <string name="menu_integral">积分商城</string>
+    <string name="menu_order">订单</string>
+    <string name="menu_red">红包</string>
+
+    <string-array name="menu_item_title">
+        <item>@string/menu_preferential</item>
+        <item>@string/menu_integral</item>
+        <item>@string/menu_order</item>
+        <item>@string/menu_red</item>
+    </string-array>
+    <integer-array name="menu_item_icon">
+        <item>@drawable/tab_home_icon</item>
+        <item>@drawable/tab_works_icon</item>
+        <item>@drawable/tab_course_icon</item>
+        <item>@drawable/tab_mine_icon</item>
+    </integer-array>
+
+
+    <!-- *****************************************************************分类******************************************************************************* -->
+
+
+    <!-- *****************************************************************购物车******************************************************************************* -->
+    <string name="market_check_all">全选</string>
+    <string name="market_total">合计：</string>
+    <string name="market_next">下一步</string>
+    <string name="market_add_to_cart">加入购物车</string>
+    <string name="market_buy_now">立即购买</string>
+
+    <!-- *****************************************************************我的******************************************************************************* -->
+    <string name="user_integral">%d 积分</string>
+
+    <string name="item_info_order">我的订单</string>
+    <string name="item_info_all_order">查看全部订单</string>
+
+    <string name="item_info_collection">我的收藏</string>
+    <string name="item_info_address">管理收货地址</string>
+    <string name="item_info_redenvelope">我的红包</string>
+    <string name="item_info_recommendation">我的推荐</string>
+    <string name="item_info_funds">我的资金</string>
+    <string name="item_info_usehelp">使用帮助</string>
+    <string name="item_info_dimensional">我的推广二维码</string>
+
+    <string-array name="item_info_name">
+        <item>@string/item_info_collection</item>
+        <item>@string/item_info_address</item>
+        <item>@string/item_info_redenvelope</item>
+        <item>@string/item_info_recommendation</item>
+        <item>@string/item_info_funds</item>
+        <item>@string/item_info_usehelp</item>
+        <item>@string/item_info_dimensional</item>
+    </string-array>
+
+    <!--主页-->
+    <integer-array name="tab_icon">
+        <item>@drawable/tab_home_icon</item>
+        <item>@drawable/tab_works_icon</item>
+        <item>@drawable/tab_course_icon</item>
+        <item>@drawable/tab_mine_icon</item>
+    </integer-array>
+
+    <integer-array name="tab_icon_def">
+        <item>@drawable/tab_home_icon_def</item>
+        <item>@drawable/tab_works_icon_def</item>
+        <item>@drawable/tab_course_icon_def</item>
+        <item>@drawable/tab_mine_icon_def</item>
+    </integer-array>
+
+    <string-array name="tab_name">
+        <item>@string/main_home</item>
+        <item>@string/main_classify</item>
+        <item>@string/main_shopping</item>
+        <item>@string/main_me</item>
+    </string-array>
+
+</resources>

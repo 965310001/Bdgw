@@ -1,0 +1,171 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".ui.me.AskActivity">
+
+    <include layout="@layout/item_title_layout" />
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="140dp"
+        android:padding="8dp">
+
+        <TextView
+            android:id="@+id/tv_num"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentTop="true"
+            android:layout_marginRight="@dimen/dp_4"
+            android:layout_toLeftOf="@id/tv_state"
+            android:maxLines="1"
+            android:padding="4dp"
+            android:text="1000000001776202"
+            android:textColor="@color/gray"
+            android:textSize="@dimen/text_size_12" />
+
+        <ImageView
+            android:id="@+id/iv_icon"
+            android:layout_width="@dimen/image_height_most"
+            android:layout_height="@dimen/image_height_most"
+            android:layout_below="@id/tv_num"
+            android:src="@drawable/ic_launcher" />
+
+        <TextView
+            android:id="@+id/tv_des"
+            android:layout_width="match_parent"
+            android:layout_height="46dp"
+            android:layout_below="@id/tv_num"
+            android:layout_marginTop="5dp"
+            android:layout_marginRight="@dimen/dp_4"
+            android:layout_toRightOf="@id/iv_icon"
+            android:maxLines="2"
+            android:padding="4dp"
+            android:text="金河田 智能PLUS3000 额定300W台式机电源 工包 数量：1，单价：84.20元"
+            android:textSize="@dimen/text_size_12" />
+
+        <TextView
+            android:id="@+id/tv_reason"
+            android:layout_width="match_parent"
+            android:layout_height="56dp"
+            android:layout_below="@+id/tv_des"
+            android:layout_alignParentStart="true"
+            android:maxLines="2"
+            android:text="申请时间：2019/01/12 14:39提前换货:风扇不转，无没使用，无没开机，更换电源后就正常"
+            android:visibility="gone" />
+
+        <TextView
+            android:id="@+id/tv_state"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentEnd="true"
+            android:padding="4dp"
+            android:text="已确定"
+            android:textColor="@color/orange"
+            android:textSize="@dimen/text_12" />
+
+    </RelativeLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:padding="8dp">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="right"
+            android:text="售后类型"
+            android:textSize="@dimen/text_12" />
+
+        <TextView
+            android:id="@+id/tv_sub_state"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10dp"
+            android:drawableRight="@drawable/market_top"
+            android:gravity="center"
+            android:text="提前换货" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center|start"
+        android:orientation="horizontal"
+        android:padding="8dp">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="right"
+            android:text="        数量"
+            android:textSize="@dimen/text_12" />
+
+        <me.goldze.common.widget.CountClickView
+            android:id="@+id/ccv_click"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentEnd="true"
+            android:layout_marginLeft="10dp" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:padding="8dp">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="        描述"
+            android:textSize="@dimen/text_12" />
+
+        <com.xuexiang.xui.widget.edittext.materialedittext.MaterialEditText
+            android:id="@+id/ed_des"
+            android:layout_width="match_parent"
+            android:layout_height="200dp"
+            android:layout_marginLeft="10dp"
+            android:gravity="start"
+            android:hint="请您认真并如实填写申请售后原因及商品情况，字数限200字内。"
+            android:inputType="text"
+            android:maxLines="15"
+            android:textColor="@color/secondary_text"
+            android:textSize="@dimen/text_14"
+            app:met_baseColor="@color/primary_text"
+            app:met_errorColor="@color/red"
+            app:met_floatingLabel="none"
+            app:met_floatingLabelTextColor="@color/primary_text"
+            app:met_hideUnderline="true"
+            app:met_maxCharacters="200"
+            app:met_minCharacters="11"
+            app:met_primaryColor="@color/primary"
+            app:met_textColorHint="@color/third_text" />
+
+    </LinearLayout>
+
+    <TextView
+        android:id="@+id/tv_sub"
+        android:layout_width="80dp"
+        android:layout_height="wrap_content"
+        android:layout_alignEnd="@+id/tv_state"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentBottom="true"
+        android:layout_gravity="right"
+        android:layout_margin="8dp"
+        android:layout_marginBottom="5dp"
+        android:background="@drawable/btn_login"
+        android:gravity="center"
+        android:padding="8dp"
+        android:text="提交"
+        android:textColor="@color/white"
+        android:textSize="@dimen/text_12" />
+
+</LinearLayout>
+

@@ -1,0 +1,101 @@
+{
+  "cashgifts": [
+    {
+      "status": 0,
+      "id": 31,
+      "name": "注册有礼，首单可用",
+      "value": 9,
+      "effective": 1548007547,
+      "expires": 1550684760,
+      "condition": "0.00"
+    },
+    {
+      "status": 0,
+      "id": 32,
+      "name": "注册有礼，首单可用",
+      "value": 9,
+      "effective": 1548007547,
+      "expires": 1550684760,
+      "condition": "0.00"
+    },
+    {
+      "status": 0,
+      "id": 33,
+      "name": "7 - 选购商品，送你大红包",
+      "value": 50,
+      "effective": 1548016761,
+      "expires": 1550686020,
+      "condition": "999.00"
+    },
+    {
+      "status": 0,
+      "id": 34,
+      "name": "7 - 选购商品，送你大红包",
+      "value": 50,
+      "effective": 1548016761,
+      "expires": 1550686020,
+      "condition": "999.00"
+    },
+    {
+      "status": 0,
+      "id": 35,
+      "name": "7 - 选购商品，送你大红包",
+      "value": 50,
+      "effective": 1548016761,
+      "expires": 1550686020,
+      "condition": "999.00"
+    },
+    {
+      "status": 0,
+      "id": 36,
+      "name": "8 - 添加购物车，好礼送不停",
+      "value": 50,
+      "effective": 1548016755,
+      "expires": 1550686200,
+      "condition": "999.00"
+    },
+    {
+      "status": 0,
+      "id": 37,
+      "name": "8 - 添加购物车，好礼送不停",
+      "value": 50,
+      "effective": 1548016755,
+      "expires": 1550686200,
+      "condition": "999.00"
+    },
+    {
+      "status": 0,
+      "id": 38,
+      "name": "8 - 添加购物车，好礼送不停",
+      "value": 50,
+      "effective": 1548016755,
+      "expires": 1550686200,
+      "condition": "999.00"
+    },
+    {
+      "status": 0,
+      "id": 39,
+      "name": "8 - 添加购物车，好礼送不停",
+      "value": 50,
+      "effective": 1548016755,
+      "expires": 1550686200,
+      "condition": "999.00"
+    },
+    {
+      "status": 0,
+      "id": 40,
+      "name": "8 - 添加购物车，好礼送不停",
+      "value": 50,
+      "effective": 1548016755,
+      "expires": 1550686200,
+      "condition": "999.00"
+    }
+  ],
+  "paged": {
+    "total": 0,
+    "page": "1",
+    "size": "10",
+    "more": 0
+  },
+  "error_code": 0
+}

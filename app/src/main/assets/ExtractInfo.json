@@ -1,0 +1,35 @@
+{
+  "data": [
+    {
+      "status": "提现",
+      "money": "10",
+      "time": "2015-01-100",
+      "surplusmoney": "30"
+    },
+    {
+      "status": "提现",
+      "money": "90",
+      "time": "2015-2-10",
+      "surplusmoney": "40"
+    },
+    {
+      "status": "提现",
+      "money": "5",
+      "time": "2015-01-10",
+      "surplusmoney": "80"
+    },
+    {
+      "status": "转账",
+      "money": "5",
+      "time": "2015-01-10",
+      "surplusmoney": "80"
+    },
+    {
+      "status": "在线充值",
+      "money": "5",
+      "time": "2015-01-10",
+      "surplusmoney": "80"
+    }
+  ],
+  "error_code": 0
+}

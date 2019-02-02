@@ -1,0 +1,41 @@
+{
+  "vendors": [
+    {
+      "id": 5,
+      "code": "sto_express",
+      "name": "申通快递",
+      "desc": "江、浙、沪地区首重为15元/KG，其他地区18元/KG， 续重均为5-6元/KG， 云南地区为8元",
+      "price": {
+        "first": 15,
+        "step": 5
+      },
+      "fee": 15,
+      "is_additional": true
+    },
+    {
+      "id": 6,
+      "code": "post_mail",
+      "name": "邮局平邮",
+      "desc": "邮局平邮的描述内容。",
+      "price": {
+        "first": 3.5,
+        "step": 2.5
+      },
+      "fee": 3.5,
+      "is_additional": true
+    },
+    {
+      "id": 9,
+      "code": "zto",
+      "name": "中通速递",
+      "desc": "说明：保价费按照申报价值的2％交纳，保价费:100<=10000元，保价金额超过10000元的部分无效",
+      "price": {
+        "first": 10,
+        "step": 5
+      },
+      "fee": 10,
+      "is_additional": true
+    }
+  ],
+  "error_code": 0
+}

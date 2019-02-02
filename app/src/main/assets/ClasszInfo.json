@@ -1,0 +1,133 @@
+{
+  "data": [
+    {
+      "children": [
+        {
+          "children": [
+            {
+              "courseId": 13,
+              "id": 26,
+              "name": "夹克",
+              "order": 15000,
+              "parentChapterId": 25,
+              "userControlSetTop": false,
+              "visible": 1
+            },
+            {
+              "courseId": 13,
+              "id": 26,
+              "name": "T恤",
+              "order": 15000,
+              "parentChapterId": 25,
+              "userControlSetTop": false,
+              "visible": 1
+            },
+            {
+              "courseId": 13,
+              "id": 26,
+              "name": "针织衫",
+              "order": 15000,
+              "parentChapterId": 25,
+              "userControlSetTop": false,
+              "visible": 1
+            },
+            {
+              "courseId": 13,
+              "id": 26,
+              "name": "衬衫",
+              "order": 15000,
+              "parentChapterId": 25,
+              "userControlSetTop": false,
+              "visible": 1
+            }
+          ],
+          "courseId": 13,
+          "id": 60,
+          "name": "热卖选购",
+          "order": 1000,
+          "parentChapterId": 150,
+          "userControlSetTop": false,
+          "visible": 1
+        },
+        {
+          "children": [
+            {
+              "courseId": 13,
+              "id": 26,
+              "name": "新品T恤",
+              "order": 15000,
+              "parentChapterId": 25,
+              "userControlSetTop": false,
+              "visible": 1
+            },
+            {
+              "courseId": 13,
+              "id": 26,
+              "name": "短袖T恤",
+              "order": 15000,
+              "parentChapterId": 25,
+              "userControlSetTop": false,
+              "visible": 1
+            },
+            {
+              "courseId": 13,
+              "id": 26,
+              "name": "新品衬衫",
+              "order": 15000,
+              "parentChapterId": 25,
+              "userControlSetTop": false,
+              "visible": 1
+            }
+          ],
+          "courseId": 13,
+          "id": 169,
+          "name": "男士内搭",
+          "order": 1001,
+          "parentChapterId": 150,
+          "userControlSetTop": false,
+          "visible": 1
+        }
+      ],
+      "courseId": 13,
+      "id": 150,
+      "name": "男装",
+      "order": 1,
+      "parentChapterId": 0,
+      "userControlSetTop": false,
+      "visible": 1
+    },
+    {
+      "children": [
+        {
+          "children": [
+            {
+              "courseId": 13,
+              "id": 26,
+              "name": "打底衫",
+              "order": 15000,
+              "parentChapterId": 25,
+              "userControlSetTop": false,
+              "visible": 1
+            }
+          ],
+          "courseId": 13,
+          "id": 60,
+          "name": "上装",
+          "order": 1000,
+          "parentChapterId": 150,
+          "userControlSetTop": false,
+          "visible": 1
+        }
+      ],
+      "courseId": 13,
+      "id": 150,
+      "name": "女装",
+      "order": 1,
+      "parentChapterId": 0,
+      "userControlSetTop": false,
+      "visible": 1
+    }
+  ],
+  "errorCode": 0,
+  "errorMsg": ""
+}

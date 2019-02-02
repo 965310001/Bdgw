@@ -1,0 +1,22 @@
+{
+  "orderInfo": {
+    "orderId": "CS170926155954NO7",
+    "baseOrderId": null,
+    "beId": "12",
+    "customerId": "b0b2ef71776d465e83e189ca6f50b018",
+    "sourceType": 1,
+    "status": 5,
+    "orderType": 1,
+    "currency": 10,
+    "currencyAfterDiscount": 10,
+    "measureId": 1,
+    "measureName": null,
+    "createTime": "2017-09-26T07:59:10Z",
+    "paymentTime": "2017-09-26T07:59:22Z",
+    "lastUpdateTime": "2017-09-26T08:01:57Z",
+    "needAudit": false,
+    "contractId": null
+  },
+  "error_code": "CBC.0000",
+  "error_msg": "Success"
+}

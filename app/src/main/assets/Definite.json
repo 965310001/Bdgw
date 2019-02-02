@@ -1,0 +1,123 @@
+{
+  "paged": {
+    "total": 39,
+    "page": "1",
+    "size": "10",
+    "more": 1
+  },
+  "balances": [
+    {
+      "price": "0.35",
+      "action": "增加",
+      "memo": "余额收益",
+      "create_at": 1547193901,
+      "status": 1
+    },
+    {
+      "price": "0.35",
+      "action": "增加",
+      "memo": "余额收益",
+      "create_at": 1547107502,
+      "status": 1
+    },
+    {
+      "price": "0.35",
+      "action": "增加",
+      "memo": "余额收益",
+      "create_at": 1547021101,
+      "status": 1
+    },
+    {
+      "price": "0.35",
+      "action": "增加",
+      "memo": "余额收益",
+      "create_at": 1546934701,
+      "status": 1
+    },
+    {
+      "price": "0.35",
+      "action": "增加",
+      "memo": "余额收益",
+      "create_at": 1546848301,
+      "status": 1
+    },
+    {
+      "price": "0.35",
+      "action": "增加",
+      "memo": "余额收益",
+      "create_at": 1546761901,
+      "status": 1
+    },
+    {
+      "price": "0.35",
+      "action": "增加",
+      "memo": "余额收益",
+      "create_at": 1546675501,
+      "status": 1
+    },
+    {
+      "price": "0.35",
+      "action": "增加",
+      "memo": "余额收益",
+      "create_at": 1546589102,
+      "status": 1
+    },
+    {
+      "price": "0.35",
+      "action": "增加",
+      "memo": "余额收益",
+      "create_at": 1546502701,
+      "status": 1
+    },
+    {
+      "price": "0.35",
+      "action": "增加",
+      "memo": "余额收益",
+      "create_at": 1546416301,
+      "status": 1
+    },
+    {
+      "price": "0.16",
+      "action": "减少",
+      "memo": "测试",
+      "create_at": 1545095434,
+      "status": 2
+    },
+    {
+      "price": "10.00",
+      "action": "减少",
+      "memo": "支付订单 2018121521433332717",
+      "create_at": 1544852613,
+      "status": 2
+    },
+    {
+      "price": "10.00",
+      "action": "减少",
+      "memo": "追加使用余额支付订单：2018121521404481476",
+      "create_at": 1544852470,
+      "status": 2
+    },
+    {
+      "price": "20.00",
+      "action": "减少",
+      "memo": "支付订单 2018121521404481476",
+      "create_at": 1544852444,
+      "status": 2
+    },
+    {
+      "price": "15.00",
+      "action": "减少",
+      "memo": "支付订单 2018121521323118405",
+      "create_at": 1544851951,
+      "status": 2
+    },
+    {
+      "price": "10.00",
+      "action": "减少",
+      "memo": "支付订单 2018121521312513053",
+      "create_at": 1544851885,
+      "status": 2
+    }
+  ],
+  "error_code": 0
+}

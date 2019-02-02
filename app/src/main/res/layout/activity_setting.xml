@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".ui.me.SettingActivity">
+
+    <include layout="@layout/item_title_layout" />
+
+    <me.goldze.common.widget.MultipleItemView
+        android:id="@+id/miv_1"
+        style="@style/width_warp_height_warp"
+        android:layout_below="@id/rl_title_bar"
+        app:leftIconSize="@dimen/image_height_litter"
+        app:leftText="关于我们"
+        app:leftTextColor="@color/gray"
+        app:ptleftIcon="@drawable/ic_launcher"
+        app:rightText=""
+        app:showLeftIcon="true"
+        app:showRightIcon="true" />
+
+    <TextView
+        android:id="@+id/tv_exit"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_margin="@dimen/dp_40"
+        android:background="@drawable/btn_login"
+        android:gravity="center"
+        android:paddingTop="@dimen/spacing_bigger"
+        android:paddingBottom="@dimen/spacing_bigger"
+        android:text="退出登录"
+        android:textColor="@color/white"
+        android:textSize="@dimen/text_16" />
+</RelativeLayout>

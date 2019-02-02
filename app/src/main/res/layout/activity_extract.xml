@@ -1,0 +1,176 @@
+<?xml version="1.0" encoding="utf-8"?>
+<TableLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:padding="4dp"
+    android:stretchColumns="*"
+    tools:context=".ui.me.ExtractActivity">
+
+    <TableRow>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="@dimen/dp_40"
+            android:layout_span="1"
+            android:gravity="right|center"
+            android:paddingRight="10dp"
+            android:text="当前余额:"
+            android:textColor="@color/primary_light"
+            android:textSize="@dimen/text_12" />
+
+        <TextView
+            android:id="@+id/tv_total_money"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_span="3"
+            android:gravity="center_vertical"
+            android:text="35.50 元 (可提现金额)"
+            android:textColor="@color/primary_light"
+            android:textSize="@dimen/text_12" />
+
+    </TableRow>
+
+
+    <TableRow>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="@dimen/dp_40"
+            android:layout_span="1"
+            android:gravity="right|center"
+            android:paddingRight="10dp"
+            android:text="提现金额:"
+            android:textColor="@color/primary_light"
+            android:textSize="@dimen/text_12" />
+
+        <EditText
+            android:id="@+id/ed_draw_price"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_toEndOf="@+id/tv_draw_money"
+            android:background="@null"
+            android:hint="请输入提现金额"
+            android:inputType="numberDecimal"
+            android:textSize="@dimen/text_14" />
+
+    </TableRow>
+
+    <TableRow>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="@dimen/dp_40"
+            android:layout_span="1"
+            android:gravity="right|center"
+            android:paddingRight="10dp"
+            android:text="提现方式:"
+            android:textColor="@color/primary_light"
+            android:textSize="@dimen/text_12" />
+
+        <TextView
+            android:id="@+id/tv_draw_fun_status"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/tv_total_money"
+            android:layout_alignParentStart="true"
+            android:drawableRight="@drawable/market_top"
+            android:text="支付宝"
+            android:textSize="@dimen/text_12" />
+
+    </TableRow>
+
+    <TableRow>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="@dimen/dp_40"
+            android:layout_span="1"
+            android:gravity="right|center"
+            android:paddingRight="10dp"
+            android:text="真实姓名:"
+            android:textColor="@color/primary_light"
+            android:textSize="@dimen/text_12" />
+
+        <EditText
+            android:id="@+id/ed_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/tv_total_money"
+            android:layout_alignParentStart="true"
+            android:background="@null"
+            android:hint="请输入姓名"
+            android:text="陈文生15992387366"
+            android:textSize="@dimen/text_12" />
+
+    </TableRow>
+
+    <TableRow>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="@dimen/dp_40"
+            android:layout_span="1"
+            android:gravity="right|center"
+            android:paddingRight="10dp"
+            android:text="支付宝账号:"
+            android:textColor="@color/primary_light"
+            android:textSize="@dimen/text_12" />
+
+        <EditText
+            android:id="@+id/ed_number"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/tv_total_money"
+            android:layout_alignParentStart="true"
+            android:background="@null"
+            android:hint="请输入支付宝账号"
+            android:text="159496295229"
+            android:textSize="@dimen/text_12" />
+
+    </TableRow>
+
+    <TableRow>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="@dimen/dp_40"
+            android:layout_span="1"
+            android:gravity="right|center"
+            android:paddingRight="10dp"
+            android:text="备注:"
+            android:textColor="@color/primary_light"
+            android:textSize="@dimen/text_12" />
+
+        <EditText
+            android:id="@+id/ed_des"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_toEndOf="@+id/tv_draw_money"
+            android:background="@null"
+            android:hint="备注"
+            android:inputType="numberDecimal"
+            android:textSize="@dimen/text_14" />
+
+    </TableRow>
+
+    <TextView
+        android:id="@+id/tv_sub"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="@dimen/tab_bar"
+        android:layout_marginTop="20dp"
+        android:layout_marginRight="@dimen/tab_bar"
+        android:background="@drawable/btn_login"
+        android:gravity="center"
+        android:paddingTop="@dimen/spacing_bigger"
+        android:paddingBottom="@dimen/spacing_bigger"
+        android:text="提交申请"
+        android:textColor="@color/white"
+        android:textSize="@dimen/text_16" />
+
+
+</TableLayout>

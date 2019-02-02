@@ -1,0 +1,225 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:focusable="true"
+    android:focusableInTouchMode="true">
+
+    <TextView
+        android:id="@+id/layout_shimmer"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="80dp"
+        android:text="@string/app_name"
+        android:textColor="@color/primary_dark"
+        android:textSize="@dimen/text_24"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <com.xuexiang.xui.widget.edittext.materialedittext.MaterialEditText
+        android:id="@+id/ed_phone"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="@dimen/tab_bar"
+        android:layout_marginTop="@dimen/tab_bar"
+        android:layout_marginRight="@dimen/tab_bar"
+        android:hint="请输入手机号"
+        android:inputType="phone"
+        android:maxLines="1"
+        android:textColor="@color/secondary_text"
+        android:textSize="@dimen/text_15"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/layout_shimmer"
+        app:met_baseColor="@color/primary_text"
+        app:met_errorColor="@color/red"
+        app:met_floatingLabel="normal"
+        app:met_floatingLabelText="用户名"
+        app:met_floatingLabelTextColor="@color/primary_text"
+        app:met_maxCharacters="11"
+        app:met_minCharacters="11"
+        app:met_primaryColor="@color/primary"
+        app:met_textColorHint="@color/third_text" />
+
+    <com.xuexiang.xui.widget.edittext.materialedittext.MaterialEditText
+        android:id="@+id/ed_password"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="@dimen/tab_bar"
+        android:layout_marginTop="@dimen/spacing"
+        android:layout_marginRight="@dimen/tab_bar"
+        android:hint="请输入密码"
+        android:inputType="textPassword"
+        android:maxLines="1"
+        android:textSize="@dimen/text_15"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/ed_phone"
+        app:met_baseColor="@color/primary_text"
+        app:met_errorColor="@color/red"
+        app:met_floatingLabel="normal"
+        app:met_floatingLabelText="密码"
+        app:met_floatingLabelTextColor="@color/primary_text"
+        app:met_maxCharacters="15"
+        app:met_minCharacters="6"
+        app:met_primaryColor="@color/primary"
+        app:met_textColorHint="@color/third_text" />
+
+    <TextView
+        android:id="@+id/btn_login"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="@dimen/tab_bar"
+        android:layout_marginTop="@dimen/spacing_bigger"
+        android:layout_marginRight="@dimen/tab_bar"
+        android:background="@drawable/btn_login"
+        android:gravity="center"
+        android:paddingTop="@dimen/spacing_bigger"
+        android:paddingBottom="@dimen/spacing_bigger"
+        android:text="登录"
+        android:textColor="@color/white"
+        android:textSize="@dimen/text_16"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/ed_password" />
+
+    <TextView
+        android:id="@+id/tv_to_register"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="@dimen/tab_bar"
+        android:paddingTop="@dimen/spacing_bigger"
+        android:paddingBottom="@dimen/spacing_bigger"
+        android:text="还没有账号？去注册"
+        android:textColor="@color/primary"
+        android:textSize="@dimen/text_14"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/btn_login" />
+
+    <TextView
+        android:id="@+id/tv_retrievet"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="40dp"
+        app:layout_constraintLeft_toLeftOf="parent"
+
+        android:paddingTop="@dimen/spacing_bigger"
+        android:paddingBottom="@dimen/spacing_bigger"
+        android:text="忘记密码"
+        android:textColor="@color/primary"
+        android:textSize="@dimen/text_14"
+
+        app:layout_constraintTop_toBottomOf="@+id/btn_login" />
+
+</android.support.constraint.ConstraintLayout>
+
+    <!--
+    <RelativeLayout
+    android:layout_width="match_parent"
+    android:layout_height="@dimen/item_height_normal"
+    android:layout_marginLeft="@dimen/margin_large"
+    android:layout_marginTop="@dimen/dp_120"
+    android:layout_marginRight="@dimen/margin_large"
+    android:visibility="gone">
+
+    <ImageView
+        android:id="@+id/img_account"
+        android:layout_width="@dimen/dp_19"
+        android:layout_height="@dimen/dp_20"
+        android:layout_alignParentBottom="true"
+        android:layout_marginLeft="@dimen/margin_tiny"
+        android:layout_marginBottom="@dimen/margin_tiny"
+        android:scaleType="fitXY"
+        android:src="@drawable/icon_login_account" />
+
+    <EditText
+        android:id="@+id/et_phone"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_gravity="center"
+        android:layout_marginLeft="@dimen/margin_normal"
+        android:layout_marginBottom="@dimen/margin_tiny"
+        android:layout_toRightOf="@+id/img_account"
+        android:background="@null"
+        android:hint="@string/phone"
+        android:inputType="phone"
+        android:maxLength="11"
+        android:maxLines="1"
+        android:textColor="@android:color/black"
+        android:textColorHint="@color/tv_gray_deep"
+        android:textSize="@dimen/text_size_normal" />
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/line_height"
+        android:layout_alignParentBottom="true"
+        android:layout_marginLeft="@dimen/margin_normal"
+        android:layout_toRightOf="@+id/img_account"
+        android:background="@color/orange_light" />
+    </RelativeLayout>
+
+    <RelativeLayout
+    android:layout_width="match_parent"
+    android:layout_height="@dimen/item_height_normal"
+    android:layout_marginLeft="@dimen/margin_large"
+    android:layout_marginRight="@dimen/margin_large"
+    android:visibility="gone">
+
+    <ImageView
+        android:id="@+id/img_pw"
+        android:layout_width="@dimen/dp_18"
+        android:layout_height="@dimen/dp_20"
+        android:layout_alignParentBottom="true"
+        android:layout_marginLeft="@dimen/margin_tiny"
+        android:layout_marginBottom="@dimen/margin_tiny"
+        android:scaleType="fitXY"
+        android:src="@drawable/icon_login_pw" />
+
+    <EditText
+        android:id="@+id/et_password"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_gravity="center"
+        android:layout_marginLeft="@dimen/margin_normal"
+        android:layout_marginBottom="@dimen/margin_tiny"
+        android:layout_toRightOf="@+id/img_pw"
+        android:background="@null"
+        android:hint="@string/password"
+        android:inputType="textPassword"
+        android:maxLength="13"
+        android:maxLines="1"
+        android:textColor="@android:color/black"
+        android:textColorHint="@color/tv_gray_deep"
+        android:textSize="@dimen/text_size_normal" />
+
+    <CheckBox
+        android:id="@+id/iv_see_password"
+        android:layout_width="@dimen/image_height_litter"
+        android:layout_height="@dimen/image_height_litter"
+        android:layout_alignParentRight="true"
+        android:layout_centerVertical="true"
+        android:background="@drawable/image_password_bg"
+        android:button="@null"
+        android:scaleType="fitXY" />
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/line_height"
+        android:layout_alignParentBottom="true"
+        android:layout_marginLeft="@dimen/margin_normal"
+        android:layout_toRightOf="@+id/img_pw"
+        android:background="@color/orange_light" />
+    </RelativeLayout>
+
+    <TextView
+    android:id="@+id/tv_recovery_password"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:layout_gravity="right"
+    android:text="@string/recovery_password"
+    android:visibility="gone" />-->

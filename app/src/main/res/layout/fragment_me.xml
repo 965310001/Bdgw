@@ -1,0 +1,304 @@
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:leon="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".ui.me.MeFragment">
+
+    <android.support.v4.widget.NestedScrollView
+        android:id="@+id/content_layout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/x180"
+                android:background="@color/orange"
+                android:padding="10dp">
+
+                <ImageView
+                    android:id="@+id/iv_setting"
+                    android:layout_width="@dimen/x20"
+                    android:layout_height="@dimen/x20"
+                    android:layout_alignParentStart="true"
+                    android:layout_alignParentTop="true"
+                    android:background="@color/white" />
+
+                <ImageView
+                    android:id="@+id/iv_message"
+                    android:layout_width="@dimen/x20"
+                    android:layout_height="@dimen/x20"
+                    android:layout_alignParentEnd="true"
+                    android:background="@color/white" />
+
+                <ImageView
+                    android:id="@+id/iv_user_head"
+                    android:layout_width="@dimen/x60"
+                    android:layout_height="@dimen/y45"
+                    android:layout_centerInParent="true"
+                    android:background="@color/white" />
+
+                <TextView
+                    android:id="@+id/tv_login"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/iv_user_head"
+                    android:layout_centerHorizontal="true"
+                    android:layout_marginTop="20dp"
+                    android:text="登录/注册"
+                    android:textColor="@color/white"
+                    android:textSize="@dimen/x12" />
+
+                <TextView
+                    android:id="@+id/tv_user_integral"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentStart="true"
+                    android:layout_alignParentBottom="true"
+                    android:gravity="center"
+                    android:text="0积分"
+                    android:textColor="@color/white"
+                    android:textSize="@dimen/x12" />
+
+                <TextView
+                    android:id="@+id/tv_integral_record"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentEnd="true"
+                    android:layout_alignParentBottom="true"
+                    android:text="积分记录"
+                    android:textColor="@color/white"
+                    android:textSize="@dimen/x12" />
+            </RelativeLayout>
+
+            <!--<me.goldze.common.widget.MultipleItemView-->
+            <!--android:id="@+id/me_item_info_order"-->
+            <!--android:layout_width="match_parent"-->
+            <!--android:layout_height="wrap_content"-->
+            <!--leon:LtextSize="12"-->
+            <!--leon:isShowRightText="true"-->
+            <!--leon:ptleftIcon="@drawable/market_icon_checkbox_checked"-->
+            <!--leon:leftIconSize="@dimen/image_height_small"-->
+            <!--leon:leftText="@string/item_info_order"-->
+            <!--leon:leftTextMarginLeft="10dp"-->
+            <!--leon:rightText="@string/item_info_all_order"-->
+            <!--leon:rightTextColor="@color/gray"-->
+            <!--leon:rightTextSize="12"  />-->
+
+            <com.leon.lib.settingview.LSettingItem
+                android:id="@+id/me_item_info_order"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                leon:LtextSize="12"
+                leon:isShowRightText="true"
+                leon:leftIcon="@drawable/market_icon_checkbox_checked"
+                leon:leftIconSize="@dimen/image_height_litter"
+                leon:leftText="@string/item_info_order"
+                leon:leftTextMarginLeft="10dp"
+                leon:rightText="@string/item_info_all_order"
+                leon:rightTextColor="@color/gray"
+                leon:rightTextSize="12" />
+
+            <android.support.design.widget.TabLayout
+                android:id="@+id/tabs"
+                android:layout_width="match_parent"
+                android:layout_height="70dp"
+                android:background="@android:color/white"
+                android:orientation="horizontal"
+                android:paddingTop="1px"
+                android:visibility="gone"
+                leon:tabContentStart="0dp"
+                leon:tabGravity="fill"
+                leon:tabIndicatorHeight="0dp"
+                leon:tabMode="fixed"
+                leon:tabPadding="0dp"
+                leon:tabPaddingBottom="0dp"
+                leon:tabPaddingEnd="0dp"
+                leon:tabPaddingStart="0dp"
+                leon:tabPaddingTop="0dp" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/y55"
+                android:background="@color/white"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/menu_tv1"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_gravity="center"
+                    android:layout_weight="1"
+                    android:drawableTop="@drawable/search"
+                    android:gravity="center"
+                    android:padding="10dp"
+                    android:text="代付款" />
+
+                <TextView
+                    android:id="@+id/menu_iv2"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_gravity="center"
+                    android:layout_weight="1"
+                    android:drawableTop="@drawable/search"
+                    android:gravity="center"
+                    android:padding="10dp"
+                    android:text="待发货" />
+
+                <TextView
+                    android:id="@+id/menu_iv3"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_gravity="center"
+                    android:layout_weight="1"
+                    android:drawableTop="@drawable/search"
+                    android:gravity="center"
+                    android:padding="10dp"
+                    android:text="待收货e" />
+
+                <TextView
+                    android:id="@+id/menu_iv4"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_gravity="center"
+                    android:layout_weight="1"
+                    android:drawableTop="@drawable/search"
+                    android:gravity="center"
+                    android:padding="10dp"
+                    android:text="待评价" />
+
+            </LinearLayout>
+
+            <com.leon.lib.settingview.LSettingItem
+                android:id="@+id/me_item_info_collection"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                leon:LtextSize="12"
+                leon:isShowRightText="true"
+                leon:leftIcon="@drawable/market_icon_checkbox_checked"
+                leon:leftIconSize="@dimen/image_height_litter"
+                leon:leftText="@string/item_info_collection"
+                leon:leftTextMarginLeft="10dp"
+                leon:rightText="" />
+
+            <com.leon.lib.settingview.LSettingItem
+                android:id="@+id/me_item_info_address"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                leon:LtextSize="12"
+                leon:isShowRightText="true"
+                leon:leftIcon="@drawable/market_icon_checkbox_checked"
+                leon:leftIconSize="@dimen/image_height_litter"
+                leon:leftText="@string/item_info_address"
+                leon:leftTextMarginLeft="10dp"
+                leon:rightText="" />
+
+            <com.leon.lib.settingview.LSettingItem
+                android:id="@+id/me_item_info_redenvelope"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                leon:LtextSize="12"
+                leon:isShowRightText="true"
+                leon:leftIcon="@drawable/market_icon_checkbox_checked"
+                leon:leftIconSize="@dimen/image_height_litter"
+                leon:leftText="@string/item_info_redenvelope"
+                leon:leftTextMarginLeft="10dp"
+                leon:rightText="" />
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/y10"
+                android:background="@color/gray" />
+
+            <com.leon.lib.settingview.LSettingItem
+                android:id="@+id/me_item_info_aftersales"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                leon:LtextSize="12"
+                leon:isShowRightText="true"
+                leon:leftIcon="@drawable/market_icon_checkbox_checked"
+                leon:leftIconSize="@dimen/image_height_litter"
+                leon:leftText="可售后商品"
+                leon:leftTextMarginLeft="10dp"
+                leon:rightText="" />
+
+            <com.leon.lib.settingview.LSettingItem
+                android:id="@+id/me_item_info_aftersales_list"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                leon:LtextSize="12"
+                leon:isShowRightText="true"
+                leon:leftIcon="@drawable/market_icon_checkbox_checked"
+                leon:leftIconSize="@dimen/image_height_litter"
+                leon:leftText="可售后列表"
+                leon:leftTextMarginLeft="10dp"
+                leon:rightText="" />
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/y10"
+                android:background="@color/gray" />
+
+            <com.leon.lib.settingview.LSettingItem
+                android:id="@+id/me_item_info_recommendation"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                leon:LtextSize="12"
+                leon:isShowRightText="true"
+                leon:leftIcon="@drawable/market_icon_checkbox_checked"
+                leon:leftIconSize="@dimen/image_height_litter"
+                leon:leftText="@string/item_info_recommendation"
+                leon:leftTextMarginLeft="10dp"
+                leon:rightText="" />
+
+            <com.leon.lib.settingview.LSettingItem
+                android:id="@+id/me_item_info_money"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                leon:LtextSize="12"
+                leon:isShowRightText="true"
+                leon:leftIcon="@drawable/market_icon_checkbox_checked"
+                leon:leftIconSize="@dimen/image_height_litter"
+                leon:leftText="我的资金"
+                leon:leftTextMarginLeft="10dp"
+                leon:rightText="" />
+
+
+            <com.leon.lib.settingview.LSettingItem
+                android:id="@+id/me_item_info_help"
+
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                leon:LtextSize="12"
+                leon:isShowRightText="true"
+                leon:leftIcon="@drawable/market_icon_checkbox_checked"
+                leon:leftIconSize="@dimen/image_height_litter"
+                leon:leftText="使用帮助"
+                leon:leftTextMarginLeft="10dp"
+                leon:rightText="" />
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/y10"
+                android:background="@color/gray" />
+
+            <com.leon.lib.settingview.LSettingItem
+                android:id="@+id/me_item_info_popularize"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                leon:LtextSize="12"
+                leon:isShowRightText="true"
+                leon:leftIcon="@drawable/market_icon_checkbox_checked"
+                leon:leftIconSize="@dimen/image_height_litter"
+                leon:leftText="我的推荐广大二维码"
+                leon:leftTextMarginLeft="10dp"
+                leon:rightText="" />
+
+        </LinearLayout>
+    </android.support.v4.widget.NestedScrollView>
+</FrameLayout>
