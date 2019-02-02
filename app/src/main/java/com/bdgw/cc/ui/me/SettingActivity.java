@@ -17,6 +17,7 @@ import butterknife.BindView;
 import butterknife.OnClick;
 import me.goldze.common.base.mvvm.base.BaseActivity;
 import me.goldze.common.constants.ARouterConfig;
+import me.goldze.common.utils.ActivityToActivity;
 import me.goldze.common.utils.SharePreferenceUtil;
 import me.goldze.common.utils.ToastUtils;
 import me.goldze.common.widget.dialog.MaterialDialogUtils;
@@ -56,6 +57,7 @@ public class SettingActivity extends BaseActivity {
                 break;
             case R.id.miv_1:
                 KLog.i("关于我们");
+                ActivityToActivity.toActivity(ARouterConfig.Me.ABOUTUSACTIVITY);
                 break;
             case R.id.tv_exit:
                 KLog.i("退出");

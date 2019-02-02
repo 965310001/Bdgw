@@ -1,7 +1,6 @@
 package me.goldze.common.base.mvvm.base.test;
 
 import android.content.pm.ActivityInfo;
-import android.content.pm.PackageManager;
 import android.os.Bundle;
 import android.support.annotation.ColorRes;
 import android.support.annotation.LayoutRes;
@@ -15,7 +14,6 @@ import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import com.gyf.barlibrary.ImmersionBar;
-import com.socks.library.KLog;
 import com.tqzhang.stateview.core.LoadManager;
 import com.tqzhang.stateview.stateview.BaseStateControl;
 import com.xuexiang.xui.widget.edittext.materialedittext.MaterialEditText;
@@ -88,36 +86,36 @@ public abstract class BaseActivity extends FragmentActivity implements View.OnCl
         }
 
         /*封装*/
-        try {
-            ActivityInfo info = getPackageManager().getActivityInfo(getComponentName(), PackageManager.GET_META_DATA);
-            boolean isBack = Boolean.getBoolean(info.metaData.getString("back"));
-            boolean isActionBar = Boolean.getBoolean(info.metaData.getString("isActionBar"));
-            KLog.i(isBack + " " + isActionBar);
-
-            if (isActionBar) {
-                ivBack = findViewById(R.id.iv_back);
-                tvTitle = findViewById(R.id.tv_title);
-                rlTitleBar = findViewById(R.id.rl_title_bar);
-                rlTitleBar.setVisibility(View.VISIBLE);
-
-                tvTitle.setText(getTitle());
-
-                ivBack.setOnClickListener(new View.OnClickListener() {
-                    @Override
-                    public void onClick(View v) {
-                        finish();
-                    }
-                });
-
-                if (!isBack) {
-                    ivBack.setVisibility(isBack ? View.VISIBLE : View.GONE);
-                }
-            }
-
-
-        } catch (PackageManager.NameNotFoundException e) {
-            e.printStackTrace();
-        }
+//        try {
+//            ActivityInfo info = getPackageManager().getActivityInfo(getComponentName(), PackageManager.GET_META_DATA);
+//            boolean isBack = Boolean.getBoolean(info.metaData.getString("back"));
+//            boolean isActionBar = Boolean.getBoolean(info.metaData.getString("isActionBar"));
+//            KLog.i(isBack + " " + isActionBar);
+//
+//            if (isActionBar) {
+//                ivBack = findViewById(R.id.iv_back);
+//                tvTitle = findViewById(R.id.tv_title);
+//                rlTitleBar = findViewById(R.id.rl_title_bar);
+//                rlTitleBar.setVisibility(View.VISIBLE);
+//
+//                tvTitle.setText(getTitle());
+//
+//                ivBack.setOnClickListener(new View.OnClickListener() {
+//                    @Override
+//                    public void onClick(View v) {
+//                        finish();
+//                    }
+//                });
+//
+//                if (!isBack) {
+//                    ivBack.setVisibility(isBack ? View.VISIBLE : View.GONE);
+//                }
+//            }
+//
+//
+//        } catch (PackageManager.NameNotFoundException e) {
+//            e.printStackTrace();
+//        }
 
         /*沉浸式状态栏*/
         initImmersionBar(android.R.color.holo_blue_light);

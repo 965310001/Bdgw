@@ -65,7 +65,8 @@
         <activity
             android:name=".ui.me.ExtractActivity"
             android:label="提现">
-            <!--是否显示后退-->
+
+            <!-- 是否显示后退 -->
             <meta-data
                 android:name="back"
                 android:value="false" />
@@ -73,6 +74,15 @@
                 android:name="isActionBar"
                 android:value="false" />
         </activity>
+        <activity
+            android:name=".ui.me.AboutUsActivity"
+            android:label="关于我们" />
+        <activity
+            android:name=".ui.me.CustomerServiceActivity"
+            android:label="客服中心" />
+        <activity android:name=".ui.me.StationActivity" />
+        <activity android:name=".ui.me.PhyClassActivity" />
+        <activity android:name=".ui.me.InformationActivity"></activity>
     </application>
 
 </manifest>

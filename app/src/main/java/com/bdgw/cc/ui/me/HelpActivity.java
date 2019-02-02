@@ -8,12 +8,12 @@ import android.widget.TextView;
 
 import com.alibaba.android.arouter.facade.annotation.Route;
 import com.bdgw.cc.R;
-import com.socks.library.KLog;
 
 import butterknife.BindView;
 import butterknife.OnClick;
 import me.goldze.common.base.mvvm.base.BaseActivity;
 import me.goldze.common.constants.ARouterConfig;
+import me.goldze.common.utils.ActivityToActivity;
 
 @Route(path = ARouterConfig.Me.HELPACTIVITY)
 public class HelpActivity extends BaseActivity {
@@ -46,19 +46,19 @@ public class HelpActivity extends BaseActivity {
                 finish();
                 break;
             case R.id.miv_1:
-                KLog.i("关于我们");
+                ActivityToActivity.toActivity(ARouterConfig.Me.ABOUTUSACTIVITY);
                 break;
             case R.id.miv_2:
-                KLog.i("关于我们");
+                ActivityToActivity.toActivity(ARouterConfig.Me.CUSTOMERSERVICEACTIVITY);
                 break;
             case R.id.miv_3:
-                KLog.i("关于我们");
+                ActivityToActivity.toActivity(ARouterConfig.Me.STATIONACTIVITY);
                 break;
             case R.id.miv_4:
-                KLog.i("关于我们");
+                ActivityToActivity.toActivity(ARouterConfig.Me.INFORMATIONACTIVITY);
                 break;
             case R.id.miv_5:
-                KLog.i("关于我们");
+                ActivityToActivity.toActivity(ARouterConfig.Me.PHYCLASSACTIVITY);
                 break;
         }
     }

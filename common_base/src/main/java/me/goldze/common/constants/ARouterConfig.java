@@ -132,6 +132,20 @@ public interface ARouterConfig {
         //提交售后
         String ASKACTIVITY = "/me/AskActivity";
 
+        //关于我们
+        String ABOUTUSACTIVITY = "/me/AboutUsActivity";
+
+        //客服中心
+        String CUSTOMERSERVICEACTIVITY = "/me/CustomerServiceActivity";
+
+        //站内公告
+        String STATIONACTIVITY = "/me/StationActivity";
+
+        //资讯
+        String INFORMATIONACTIVITY = "/me/InformationActivity";
+
+        //系统分类
+        String PHYCLASSACTIVITY = "/me/PhyClassActivity";
 
     }
 
