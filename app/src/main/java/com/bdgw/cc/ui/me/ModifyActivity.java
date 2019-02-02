@@ -58,7 +58,8 @@ public class ModifyActivity extends BaseActivity {
 
     @Autowired
     int status; //增：0    改：1
-   private String name, phone, address, details;
+
+    private String name, phone, address, details;
 
     private List<ProvinceInfo> options1Items = new ArrayList<>();//省
     private List<List<String>> options2Items = new ArrayList<>();//市

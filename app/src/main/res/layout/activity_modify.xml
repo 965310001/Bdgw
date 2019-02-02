@@ -81,7 +81,6 @@
             android:layout_height="40dp"
             android:gravity="center"
             android:orientation="horizontal"
-
             android:padding="@dimen/smallerPadding">
 
             <TextView
@@ -91,14 +90,12 @@
                 android:text="联系地址"
                 android:textSize="@dimen/text_14" />
 
-
             <TextView
                 android:id="@+id/tv_address"
-                android:layout_width="wrap_content"
+                android:layout_width="match_parent"
                 android:layout_height="60dp"
                 android:layout_marginStart="10dp"
-                android:layout_weight="1"
-                android:layout_marginEnd="@drawable/icon_more"
+                android:drawableRight="@drawable/icon_more"
                 android:gravity="center_vertical"
                 android:hint="请输入联系地址"
                 android:textSize="@dimen/text_14" />

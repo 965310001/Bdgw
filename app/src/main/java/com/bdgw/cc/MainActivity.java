@@ -15,12 +15,15 @@ import com.heima.tabview.library.TabView;
 import com.heima.tabview.library.TabViewChild;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import me.goldze.common.activity.BottomNavigationActivity;
 import me.goldze.common.base.mvvm.base.BaseFragment;
 import me.goldze.common.constants.ARouterConfig;
 import me.goldze.common.manage.AppManager;
+import me.goldze.common.utils.ActivityToActivity;
 import me.goldze.common.utils.PermissionsUtils;
 import me.goldze.common.utils.ResourcesUtils;
 import me.goldze.common.utils.ToastUtils;
@@ -39,8 +42,9 @@ public class MainActivity extends BottomNavigationActivity {
         super.initData();
 
         //提现
-//        startActivity(new Intent(this, ExtractActivity.class));
-
+        Map<String, Object> map = new HashMap<>();
+        map.put("status", 0);
+        ActivityToActivity.toActivity(ARouterConfig.Me.MODIFYACTIVITY, map);
         /*售后列表*/
 //        startActivity(new Intent(this, AfterSalesListActivity.class));
 
