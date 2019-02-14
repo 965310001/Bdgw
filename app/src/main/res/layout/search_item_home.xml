@@ -11,8 +11,8 @@
         tools:text="111" />
     <ImageView
         android:id="@+id/iv_icon"
-        android:layout_width="@dimen/big_image"
-        android:layout_height="@dimen/big_image"
+        android:layout_width="@dimen/image_height_big"
+        android:layout_height="@dimen/image_height_big"
         android:layout_centerHorizontal="true"
         tools:src="@drawable/ic_launcher_background" />
 

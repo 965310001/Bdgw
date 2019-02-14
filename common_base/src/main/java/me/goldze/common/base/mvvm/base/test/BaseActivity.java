@@ -44,10 +44,10 @@ public abstract class BaseActivity extends FragmentActivity implements View.OnCl
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-
         /*竖屏*/
         setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);
+        super.onCreate(savedInstanceState);
+
         /*android软键盘挡住输入框问题*/
         getWindow().setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_ADJUST_PAN);
 
@@ -118,7 +118,7 @@ public abstract class BaseActivity extends FragmentActivity implements View.OnCl
 //        }
 
         /*沉浸式状态栏*/
-        initImmersionBar(android.R.color.holo_blue_light);
+        initImmersionBar(R.color.colorPrimaryDark);
 
         initViews(savedInstanceState);
         initData();

@@ -1,10 +1,12 @@
 package me.goldze.common.base.mvvm.base;
 
+import android.content.pm.ActivityInfo;
 import android.os.Bundle;
 import android.support.annotation.LayoutRes;
 import android.support.annotation.Nullable;
 import android.support.v4.app.FragmentActivity;
 import android.view.View;
+import android.view.WindowManager;
 
 import com.tqzhang.stateview.core.LoadManager;
 import com.tqzhang.stateview.stateview.BaseStateControl;
@@ -25,6 +27,8 @@ public abstract class BaseActivity extends FragmentActivity {
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);
+        getWindow().setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_ADJUST_PAN);
 
         initStatusBar();
         //设置布局内容

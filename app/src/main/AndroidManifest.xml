@@ -17,52 +17,53 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".MainActivity">
+        <activity android:screenOrientation="portrait" android:name=".MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".ui.RegisterActivity" />
-        <activity android:name=".ui.LoginActivity" />
-        <activity android:name=".ui.RetrieveActivity" />
-        <activity android:name=".ui.home.PreferentialActivity" />
-        <activity android:name=".ui.home.IntegralActivity" />
-        <activity android:name=".ui.home.OrderActivity" />
-        <activity android:name=".ui.home.RedActivity" />
+        <activity android:screenOrientation="portrait" android:name=".ui.RegisterActivity" />
+        <activity android:screenOrientation="portrait" android:name=".ui.LoginActivity" />
+        <activity android:screenOrientation="portrait" android:name=".ui.RetrieveActivity" />
+        <activity android:screenOrientation="portrait" android:name=".ui.home.PreferentialActivity" />
+        <activity android:screenOrientation="portrait" android:name=".ui.home.IntegralActivity" />
+        <activity android:screenOrientation="portrait" android:name=".ui.home.OrderActivity" />
+        <activity android:screenOrientation="portrait" android:name=".ui.home.RedActivity" />
         <!-- <activity -->
         <!-- android:name=".MainActivity" -->
         <!-- android:launchMode="singleInstance" /> -->
-        <activity android:name=".ui.SearchActivity" />
-        <activity android:name=".ui.home.SearchListActivity" />
-        <activity android:name=".ui.home.ShoppingDetailsActivity" />
-        <activity android:name=".ui.me.AddressListActivity" />
-        <activity android:name=".ui.me.ModifyActivity" />
-        <activity android:name=".ui.classify.BuyActivity" />
-        <activity android:name=".ui.classify.DistributionActivity" />
-        <activity android:name=".ui.me.FundsActivity" />
-        <activity android:name=".ui.me.ExtractListActivity" />
-        <activity android:name=".ui.me.HelpActivity" />
-        <activity android:name=".ui.me.CollectionActivity" />
+        <activity android:screenOrientation="portrait" android:name=".ui.SearchActivity" />
+        <activity android:screenOrientation="portrait" android:name=".ui.home.SearchListActivity" />
+        <activity android:screenOrientation="portrait" android:name=".ui.home.ShoppingDetailsActivity" />
+        <activity android:screenOrientation="portrait" android:name=".ui.me.AddressListActivity" />
+        <activity android:screenOrientation="portrait" android:name=".ui.me.ModifyActivity" />
+        <activity android:screenOrientation="portrait" android:name=".ui.classify.BuyActivity" />
+        <activity android:screenOrientation="portrait" android:name=".ui.classify.DistributionActivity" />
+        <activity android:screenOrientation="portrait" android:name=".ui.me.FundsActivity" />
+        <activity android:screenOrientation="portrait" android:name=".ui.me.ExtractListActivity" />
+        <activity android:screenOrientation="portrait" android:name=".ui.me.HelpActivity" />
+        <activity android:screenOrientation="portrait" android:name=".ui.me.CollectionActivity" />
         <!-- <activity android:name=".ui.me.RedEnvelopeActivity" /> -->
-        <activity android:name=".ui.me.RecommendationActivity" />
-        <activity android:name=".ui.me.DimensionalCodesActivity" />
-        <activity android:name=".ui.home.ShoppingActivity" />
-        <activity android:name=".ui.classify.ProductsActivity" />
-        <activity android:name=".ui.me.DefiniteActivity" />
-        <activity android:name=".ui.me.IntegralRecordActivity" />
-        <activity android:name=".ui.me.SettingActivity" />
-        <activity android:name=".ui.me.PersonInfoActivity" />
-        <activity android:name=".ui.shopping.DeliveryActivity" />
-        <activity android:name=".ui.shopping.OrderDetailsActivity" />
-        <activity android:name=".ui.shopping.EvaluationActivity" />
-        <activity android:name=".test.TestBaseActivity" />
-        <activity android:name=".ui.me.AfterSalesListActivity" />
+        <activity android:screenOrientation="portrait" android:name=".ui.me.RecommendationActivity" />
+        <activity android:screenOrientation="portrait" android:name=".ui.me.DimensionalCodesActivity" />
+        <activity android:screenOrientation="portrait" android:name=".ui.home.ShoppingActivity" />
+        <activity android:screenOrientation="portrait" android:name=".ui.classify.ProductsActivity" />
+        <activity android:screenOrientation="portrait" android:name=".ui.me.DefiniteActivity" />
+        <activity android:screenOrientation="portrait" android:name=".ui.me.IntegralRecordActivity" />
+        <activity android:screenOrientation="portrait" android:name=".ui.me.SettingActivity" />
+        <activity android:screenOrientation="portrait" android:name=".ui.me.PersonInfoActivity" />
+        <activity android:screenOrientation="portrait" android:name=".ui.shopping.DeliveryActivity" />
+        <activity android:screenOrientation="portrait" android:name=".ui.shopping.OrderDetailsActivity" />
+        <activity android:screenOrientation="portrait" android:name=".ui.shopping.EvaluationActivity" />
+        <activity android:screenOrientation="portrait" android:name=".test.TestBaseActivity" />
+        <activity android:screenOrientation="portrait" android:name=".ui.me.AfterSalesListActivity" />
         <activity android:name=".ui.me.AfterSalesDetailsDctivity" />
-        <activity android:name=".ui.me.AfterSalesActivity" />
+        <activity android:screenOrientation="portrait" android:name=".ui.me.AfterSalesActivity" />
         <activity android:name=".ui.me.AskActivity" />
         <activity
+            android:screenOrientation="portrait"
             android:name=".ui.me.ExtractActivity"
             android:label="提现">
 
@@ -75,14 +76,16 @@
                 android:value="false" />
         </activity>
         <activity
+            android:screenOrientation="portrait"
             android:name=".ui.me.AboutUsActivity"
             android:label="关于我们" />
         <activity
+            android:screenOrientation="portrait"
             android:name=".ui.me.CustomerServiceActivity"
             android:label="客服中心" />
-        <activity android:name=".ui.me.StationActivity" />
-        <activity android:name=".ui.me.PhyClassActivity" />
-        <activity android:name=".ui.me.InformationActivity"></activity>
+        <activity android:screenOrientation="portrait" android:name=".ui.me.StationActivity" />
+        <activity android:screenOrientation="portrait" android:name=".ui.me.PhyClassActivity" />
+        <activity android:screenOrientation="portrait" android:name=".ui.me.InformationActivity"/>
     </application>
 
 </manifest>
