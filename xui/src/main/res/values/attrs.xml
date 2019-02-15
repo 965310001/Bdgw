@@ -1,5 +1,20 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+    <!--观察者按钮-->
+    <declare-styleable name="ObserverButton">
+        <!--默认背景-->
+        <attr name="defaultBgColor" format="color|reference" />
+        <attr name="defaultBgResource" format="color|reference" />
+        <!--可以点击的背景-->
+        <attr name="pressBgColor" format="color|reference" />
+        <attr name="pressBgResource" format="color|reference" />
+        <!--默认字体颜色-->
+        <attr name="defaultTextColor" format="color" />
+        <!--可以点击的字体颜色-->
+        <attr name="pressTextColor" format="color" />
+    </declare-styleable>
+
+
     <declare-styleable name="TitleBar">
         <!-- 标题栏背景 图片或颜色 -->
         <attr name="titleBarColor" format="color" />
@@ -98,9 +113,9 @@
     </declare-styleable>
 
     <declare-styleable name="MultiStatusView">
-        <attr name="msv_emptyLayoutId" format="reference"/>
-        <attr name="msv_loadingLayoutId" format="reference"/>
-        <attr name="msv_retryLayoutId" format="reference"/>
-        <attr name="msv_retryBtnId" format="integer"/>
+        <attr name="msv_emptyLayoutId" format="reference" />
+        <attr name="msv_loadingLayoutId" format="reference" />
+        <attr name="msv_retryLayoutId" format="reference" />
+        <attr name="msv_retryBtnId" format="integer" />
     </declare-styleable>
 </resources>

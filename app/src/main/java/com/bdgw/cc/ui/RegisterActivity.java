@@ -22,6 +22,7 @@ import me.goldze.common.utils.ActivityToActivity;
 import me.goldze.common.utils.ProgressFragment;
 import me.goldze.common.utils.RegexUtils;
 import me.goldze.common.utils.ToastUtils;
+import me.goldze.xui.button.TextChangeUtils;
 
 
 /**
@@ -44,6 +45,9 @@ public class RegisterActivity extends BaseActivity {
     @BindView(R.id.ed_register_repassword)
     MaterialEditText edRepassword;
 
+    @BindView(R.id.btn_register)
+    TextView btnRegister;
+
     String phone, password, repassword;
 
     ProgressFragment progressFragment;
@@ -61,6 +65,8 @@ public class RegisterActivity extends BaseActivity {
         ivBack.setVisibility(View.VISIBLE);
         rlTitleBar.setVisibility(View.VISIBLE);
         tvTitle.setText("注册");
+
+        TextChangeUtils.observer(btnRegister, edPhone, edPassword, edRepassword);
     }
 
     @OnClick({R.id.iv_back, R.id.btn_register, R.id.tv_to_login})

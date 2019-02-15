@@ -3,6 +3,7 @@ package com.bdgw.cc.ui;
 import android.os.Bundle;
 import android.text.TextUtils;
 import android.view.View;
+import android.widget.TextView;
 
 import com.alibaba.android.arouter.facade.annotation.Route;
 import com.bdgw.cc.R;
@@ -21,6 +22,7 @@ import me.goldze.common.utils.ProgressFragment;
 import me.goldze.common.utils.RegexUtils;
 import me.goldze.common.utils.SharePreferenceUtil;
 import me.goldze.common.utils.ToastUtils;
+import me.goldze.xui.button.TextChangeUtils;
 
 /**
  * 登录
@@ -32,6 +34,8 @@ public class LoginActivity extends AbsLifecycleActivity<LoginViewModel> {
     MaterialEditText etPhone;
     @BindView(R.id.ed_password)
     MaterialEditText etPassword;
+    @BindView(R.id.btn_login)
+    TextView btnLogin;
 
     private String phone, password;
 
@@ -49,6 +53,8 @@ public class LoginActivity extends AbsLifecycleActivity<LoginViewModel> {
         loadManager.showSuccess();
 
         progressFragment = new ProgressFragment();
+
+        TextChangeUtils.observer(btnLogin,etPhone,etPassword);
     }
 
     @OnClick({R.id.tv_to_register, R.id.btn_login, R.id.tv_retrievet})
