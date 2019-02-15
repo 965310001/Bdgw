@@ -13,8 +13,7 @@
 
     <com.heima.tabview.library.TabView
         android:id="@+id/tabView"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        style="@style/width_warp_height_warp"
         app:imageViewTextViewMargin="2dip"
         app:tab_imageViewHeight="30dp"
         app:tab_imageViewWidth="30dp"

@@ -1,31 +1,29 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="match_parent"
-    android:layout_height="wrap_content">
+    xmlns:tools="http://schemas.android.com/tools"
+    style="@style/width_match_height_warp">
 
     <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        style="@style/width_match_height_warp"
+        android:layout_margin="10dp"
         android:layout_marginTop="10dp"
         android:background="@color/white"
         android:orientation="vertical"
-        android:layout_margin="10dp">
+        android:padding="@dimen/dp_10">
 
         <ImageView
             android:id="@+id/iv_img"
-            android:layout_width="140dp"
-            android:layout_height="140dp" />
+            android:layout_width="@dimen/x120"
+            android:layout_height="@dimen/y90"
+            android:layout_gravity="center" />
 
         <TextView
             android:id="@+id/tv_title"
-            style="@style/TextStyle"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:autoSizeTextType="uniform"
+            style="@style/TextStyle_14"
+            android:layout_marginTop="@dimen/dp_4"
             android:ellipsize="end"
-            android:maxLines="1"
-            android:text="1111"
-            android:textSize="12sp" />
+            android:gravity="start"
+            tools:text="11111111111111111111111111111111111111111111" />
 
         <RelativeLayout
             android:layout_width="match_parent"
@@ -34,23 +32,23 @@
 
             <TextView
                 android:id="@+id/tv_price"
-                style="@style/TextStyle"
+                style="@style/TextStyle_14"
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                android:layout_height="@dimen/dp_24"
                 android:layout_alignParentBottom="true"
-                android:maxLines="2"
-                android:textColor="@color/light_yellow" />
+                android:gravity="start"
+                android:textColor="@color/light_yellow"
+                tools:text="2999" />
 
             <TextView
                 android:id="@+id/tv_old_price"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                style="@style/TextStyle_12"
+                android:layout_height="@dimen/dp_24"
                 android:layout_alignParentBottom="true"
                 android:layout_marginStart="5dp"
                 android:layout_toEndOf="@+id/tv_price"
-                android:gravity="center_vertical"
                 android:textColor="@color/gray"
-                android:textSize="12sp" />
+                tools:text="399" />
 
             <ImageView
                 android:id="@+id/iv_add_cart"

@@ -1,26 +1,24 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="match_parent"
-    android:layout_height="wrap_content"
+    style="@style/width_match_height_warp"
+    android:gravity="center"
     android:orientation="vertical"
     android:paddingTop="@dimen/space_10"
     android:paddingBottom="@dimen/space_10">
 
     <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="35dp"
-        android:layout_gravity="center_horizontal">
+        android:layout_height="@dimen/x24">
 
         <ImageView
             android:id="@+id/iv_classify"
-            android:layout_width="32dp"
-            android:layout_height="32dp"
+            android:layout_width="@dimen/x24"
+            android:layout_height="match_parent"
             android:layout_centerInParent="true" />
 
         <ImageView
             android:id="@+id/answer_home_new_imv"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            style="@style/width_warp_height_warp"
             android:layout_alignParentRight="true"
             android:src="@drawable/ic_launcher_background"
             android:visibility="invisible" />
@@ -28,11 +26,8 @@
 
     <TextView
         android:id="@+id/tv_classify"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center_horizontal"
+        style="@style/TextStyle_12"
         android:layout_marginTop="5dp"
         android:text="图库"
-        android:textColor="@color/color_666666"
-        android:textSize="@dimen/text_size_12" />
+        android:textColor="@color/color_666666" />
 </LinearLayout>

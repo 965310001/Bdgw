@@ -19,11 +19,11 @@
     <dimen name="concise_img_margin_bottom">8dp</dimen>
 
     <!--通用-->
-    <dimen name="space_13">13.0dip</dimen>
-    <dimen name="space_12">12.0dip</dimen>
-    <dimen name="space_10">10.0dip</dimen>
-    <dimen name="space_7">7.0dip</dimen>
-    <dimen name="space_4">4.0dip</dimen>
+    <dimen name="space_13">13dp</dimen>
+    <dimen name="space_12">12dp</dimen>
+    <dimen name="space_10">10dp</dimen>
+    <dimen name="space_7">7dp</dimen>
+    <dimen name="space_4">4dp</dimen>
 
     <dimen name="header_size_list_card">40dp</dimen>
 
