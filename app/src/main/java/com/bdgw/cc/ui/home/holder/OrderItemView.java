@@ -53,8 +53,7 @@ public class OrderItemView extends AbsItemHolder<OrderInfo.OrdersBean, OrderItem
     protected void onBindViewHolder(@NonNull final ViewHolder holder, @NonNull final OrderInfo.OrdersBean bean) {
         status = bean.getStatus();
         ImageUtils.loadImage(holder.ivImg, bean.getThumb());
-        holder.tvPrice.setText("(共计1件商品) 合计 : ￥ " + bean.getTotal()
-                + " (含运费:￥144.00)" + bean.getShippingprice());
+        holder.tvPrice.setText("(共计1件商品)合计:￥ " + bean.getTotal() + "(含运费:￥144.00)" + bean.getShippingprice());
         KLog.i(status + " " + status);
         holder.tvState.setText(Constants.Order.ORDER_STATUS[status]);
 

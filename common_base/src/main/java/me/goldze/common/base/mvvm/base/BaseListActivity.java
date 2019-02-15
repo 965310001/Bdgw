@@ -1,15 +1,19 @@
 package me.goldze.common.base.mvvm.base;
 
 import android.os.Bundle;
+import android.support.design.widget.FloatingActionButton;
 import android.support.v7.widget.DividerItemDecoration;
+import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.support.v7.widget.StaggeredGridLayoutManager;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import com.bumptech.glide.Glide;
+import com.socks.library.KLog;
 import com.trecyclerview.TRecyclerView;
 import com.trecyclerview.adapter.DelegateAdapter;
 import com.trecyclerview.adapter.ItemData;
@@ -25,6 +29,8 @@ import me.goldze.common.R;
 import me.goldze.common.R2;
 import me.goldze.common.base.core.banner.BannerList;
 import me.goldze.common.utils.Utils;
+
+import static android.view.View.VISIBLE;
 
 /**
  * @author GuoFeng
@@ -45,6 +51,9 @@ public abstract class BaseListActivity extends BaseActivity implements OnRefresh
     @BindView(R2.id.iv_back)
     protected ImageView ivBack;
 
+    @BindView(R2.id.float_btn)
+    protected FloatingActionButton floatBtn;
+
     protected RecyclerView.LayoutManager layoutManager;
 
     protected DelegateAdapter adapter;
@@ -60,6 +69,11 @@ public abstract class BaseListActivity extends BaseActivity implements OnRefresh
     protected ItemData oldItems;
 
     protected ItemData newItems;
+
+    int lastItemPosition;
+
+    //是否向上滑动
+    private boolean isSlidingUpward;
 
     @Override
     public int getLayoutId() {
@@ -85,10 +99,72 @@ public abstract class BaseListActivity extends BaseActivity implements OnRefresh
                 }
             }
         });
+
+        /*滑动显示到顶部*/
+        mRecyclerView.addOnScrollListener(new RecyclerView.OnScrollListener() {
+            @Override
+            public void onScrollStateChanged(RecyclerView recyclerView, int newState) {
+                super.onScrollStateChanged(recyclerView, newState);
+                if (newState == RecyclerView.SCROLL_STATE_IDLE) {
+                    if (layoutManager instanceof GridLayoutManager) {
+                        lastItemPosition = ((GridLayoutManager) layoutManager).findLastVisibleItemPosition();
+                    } else if (layoutManager instanceof LinearLayoutManager) {
+                        lastItemPosition = ((LinearLayoutManager) layoutManager).findLastVisibleItemPosition();
+                    } else if (layoutManager instanceof StaggeredGridLayoutManager) {
+                        int[] lastPositions = new int[((StaggeredGridLayoutManager) layoutManager).getSpanCount()];
+                        ((StaggeredGridLayoutManager) layoutManager).findLastVisibleItemPositions(lastPositions);
+                        lastItemPosition = findMax(lastPositions);
+                    }
+                    if (lastItemPosition + 1 == adapter.getItemCount()
+                            && isLoadMore) {
+                        /*加载更多数据*/
+                        KLog.i("加载更多数据");
+                        if (isSlidingUpward) onLoadMore();
+                    }
+                }
+            }
+
+            @Override
+            public void onScrolled(RecyclerView recyclerView, int dx, int dy) {
+                super.onScrolled(recyclerView, dx, dy);
+                if (!mRecyclerView.canScrollVertically(1)) {
+                    floatBtn.show();//滑动到底部
+                } else if (!mRecyclerView.canScrollVertically(-1)) {
+                    floatBtn.hide();//滑动到顶部
+                }else if (recyclerView.getScrollState() == RecyclerView.SCROLL_STATE_SETTLING) {//滚动状态
+                    if (dy < 0 && floatBtn.getVisibility() == View.GONE) {
+                        floatBtn.show();//向下滚动状态
+                    }
+//                    else {
+//                        floatBtn.hide();
+//                    }
+                }
+                isSlidingUpward = dy > 0;
+            }
+        });
+        floatBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                mRecyclerView.smoothScrollToPosition(0);
+            }
+        });
+
+
         mRecyclerView.addItemDecoration(new DividerItemDecoration(this, DividerItemDecoration
                 .VERTICAL));
 
         onRefresh();
+    }
+
+
+    private int findMax(int[] lastPositions) {
+        int max = lastPositions[0];
+        for (int value : lastPositions) {
+            if (value > max) {
+                max = value;
+            }
+        }
+        return max;
     }
 
     @Override
@@ -104,7 +180,6 @@ public abstract class BaseListActivity extends BaseActivity implements OnRefresh
         isLoadMore = false;
         getRemoteData();
     }
-
 
     @Override
     protected void onStateRefresh() {
@@ -155,12 +230,12 @@ public abstract class BaseListActivity extends BaseActivity implements OnRefresh
     }
 
     protected void setTitle(String titleName) {
-        mTitleBar.setVisibility(View.VISIBLE);
+        mTitleBar.setVisibility(VISIBLE);
         mTitle.setText(titleName);
     }
 
     protected void showBack() {
-        ivBack.setVisibility(View.VISIBLE);
+        ivBack.setVisibility(VISIBLE);
     }
 
 
@@ -176,8 +251,8 @@ public abstract class BaseListActivity extends BaseActivity implements OnRefresh
     protected void getRemoteData() {
     }
 
-    @OnClick(R2.id.iv_back)
-    public void onClick() {
+    @OnClick({R2.id.iv_back})
+    public void onClick(View v) {
         finish();
     }
 }

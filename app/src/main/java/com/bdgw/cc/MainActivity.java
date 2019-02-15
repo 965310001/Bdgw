@@ -55,6 +55,8 @@ public class MainActivity extends BottomNavigationActivity {
 
         //购买界面
 //        ActivityToActivity.toActivity(ARouterConfig.classify.BUYACTIVITY);
+//
+//        ActivityToActivity.toActivity(ARouterConfig.Me.COLLECTIONACTIVITY);
         //我的资金
 //        ActivityToActivity.toActivity(ARouterConfig.Me.FUNDSACTIVITY);
 

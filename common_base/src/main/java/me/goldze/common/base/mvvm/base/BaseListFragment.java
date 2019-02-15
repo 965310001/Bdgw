@@ -1,13 +1,18 @@
 package me.goldze.common.base.mvvm.base;
 
 import android.os.Bundle;
+import android.support.design.widget.FloatingActionButton;
 import android.support.v7.widget.DividerItemDecoration;
+import android.support.v7.widget.GridLayoutManager;
+import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.support.v7.widget.StaggeredGridLayoutManager;
 import android.view.View;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import com.bumptech.glide.Glide;
+import com.socks.library.KLog;
 import com.trecyclerview.TRecyclerView;
 import com.trecyclerview.adapter.DelegateAdapter;
 import com.trecyclerview.adapter.ItemData;
@@ -31,6 +36,8 @@ public abstract class BaseListFragment<T extends AbsViewModel> extends AbsLifecy
 
     protected TRecyclerView mRecyclerView;
 
+    protected FloatingActionButton floatBtn;
+
     protected RelativeLayout mTitleBar;
 
     protected TextView mTitle;
@@ -51,6 +58,11 @@ public abstract class BaseListFragment<T extends AbsViewModel> extends AbsLifecy
 
     protected ItemData newItems;
 
+    private int lastItemPosition;
+
+    //是否向上滑动
+    private boolean isSlidingUpward;
+
     @Override
     public int getLayoutResId() {
         return R.layout.fragment_list;
@@ -65,8 +77,10 @@ public abstract class BaseListFragment<T extends AbsViewModel> extends AbsLifecy
     public void initView(Bundle state) {
         super.initView(state);
         mRecyclerView = getViewById(R.id.recycler_view);
+        floatBtn = getViewById(R.id.float_btn);
         mTitleBar = getViewById(R.id.rl_title_bar);
         mTitle = getViewById(R.id.tv_title);
+
         oldItems = new ItemData();
         newItems = new ItemData();
         adapter = createAdapter();
@@ -89,6 +103,71 @@ public abstract class BaseListFragment<T extends AbsViewModel> extends AbsLifecy
                 }
             }
         });
+
+        /*滑动显示到顶部*/
+        mRecyclerView.addOnScrollListener(new RecyclerView.OnScrollListener() {
+            @Override
+            public void onScrollStateChanged(RecyclerView recyclerView, int newState) {
+                super.onScrollStateChanged(recyclerView, newState);
+                if (newState == RecyclerView.SCROLL_STATE_IDLE) {
+                    if (layoutManager instanceof GridLayoutManager) {
+                        lastItemPosition = ((GridLayoutManager) layoutManager).findLastVisibleItemPosition();
+                    } else if (layoutManager instanceof LinearLayoutManager) {
+                        lastItemPosition = ((LinearLayoutManager) layoutManager).findLastVisibleItemPosition();
+                    } else if (layoutManager instanceof StaggeredGridLayoutManager) {
+                        int[] lastPositions = new int[((StaggeredGridLayoutManager) layoutManager).getSpanCount()];
+                        ((StaggeredGridLayoutManager) layoutManager).findLastVisibleItemPositions(lastPositions);
+                        lastItemPosition = findMax(lastPositions);
+                    }
+                    if (lastItemPosition + 1 == adapter.getItemCount()
+                            && isLoadMore) {
+                        /*加载更多数据*/
+                        KLog.i("加载更多数据");
+                        if (isSlidingUpward) onLoadMore();
+                    }
+                }
+
+            }
+
+            @Override
+            public void onScrolled(RecyclerView recyclerView, int dx, int dy) {
+                super.onScrolled(recyclerView, dx, dy);
+
+                if (!mRecyclerView.canScrollVertically(1)) {
+                    if (dy > 0 && floatBtn.getVisibility() == View.GONE) {
+                        floatBtn.show();//滑动到底部
+                    }
+                } else if (!mRecyclerView.canScrollVertically(-1)) {
+                    floatBtn.hide();//滑动到顶部
+                } else if (recyclerView.getScrollState() == RecyclerView.SCROLL_STATE_SETTLING) {//滚动状态
+                    if (dy < 0 && floatBtn.getVisibility() == View.GONE) {
+                        floatBtn.show();//向下滚动状态
+                    }
+//                    else {
+//                        floatBtn.hide();
+//                    }
+                }
+                isSlidingUpward = dy > 0;
+                KLog.i("" + isSlidingUpward + dy);
+            }
+        });
+        floatBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                mRecyclerView.smoothScrollToPosition(0);
+            }
+        });
+    }
+
+
+    private int findMax(int[] lastPositions) {
+        int max = lastPositions[0];
+        for (int value : lastPositions) {
+            if (value > max) {
+                max = value;
+            }
+        }
+        return max;
     }
 
     @Override

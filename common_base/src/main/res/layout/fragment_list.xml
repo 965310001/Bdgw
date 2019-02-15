@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
-
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:focusable="true"
@@ -9,18 +9,29 @@
 
     <include layout="@layout/item_title_layout" />
 
-    <LinearLayout
+    <android.support.design.widget.CoordinatorLayout
         android:id="@+id/content_layout"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="vertical">
 
-        <com.trecyclerview.TRecyclerView
-            android:id="@+id/recycler_view"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:scrollbars="none" />
-    </LinearLayout>
+        <android.support.design.widget.FloatingActionButton
+            android:id="@+id/float_btn"
+            android:layout_width="@dimen/dp_40"
+            android:layout_height="@dimen/dp_40"
+            android:layout_gravity="bottom|end"
+            android:layout_margin="16dp"
+            android:clickable="true"
+            android:src="@drawable/ic_launcher"
+            android:visibility="gone"
+            app:elevation="5dp"
+            app:fabSize="mini"
+            app:pressedTranslationZ="25dp"
+            app:rippleColor="@color/orange" />
+
+        <include layout="@layout/trecyclerview_base" />
+
+    </android.support.design.widget.CoordinatorLayout>
 </LinearLayout>
 
 
