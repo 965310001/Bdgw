@@ -43,7 +43,7 @@ public class DefiniteItemFragment extends BaseListFragment<OrderItemViewModel> {
 
     @Override
     protected void getRemoteData() {
-        loadManager.showSuccess();
+        showSuccess();
 
         setData(ApiData.getDefinite(status).getBalances());
 
@@ -64,7 +64,7 @@ public class DefiniteItemFragment extends BaseListFragment<OrderItemViewModel> {
 //            if (oldItems.size() > 0) {
 //                setData(oldItems);
 //            } else {
-//                loadManager.showStateView(ErrorState.class);
+//                showStateView(ErrorState.class);
 //            }
 //        }
     }

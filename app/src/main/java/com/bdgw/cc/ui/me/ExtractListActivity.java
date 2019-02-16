@@ -24,7 +24,7 @@ public class ExtractListActivity extends BaseListActivity {
     @Override
     protected void initData() {
         super.initData();
-        loadManager.showSuccess();
+        showSuccess();
         getRemoteData();
     }
 

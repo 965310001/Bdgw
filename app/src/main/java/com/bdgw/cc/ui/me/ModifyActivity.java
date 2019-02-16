@@ -75,7 +75,7 @@ public class ModifyActivity extends BaseActivity {
     @Override
     protected void initViews(Bundle savedInstanceState) {
 
-        loadManager.showSuccess();
+        showSuccess();
 
         ARouter.getInstance().inject(this);
 

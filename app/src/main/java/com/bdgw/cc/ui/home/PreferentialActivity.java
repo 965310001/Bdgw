@@ -22,7 +22,7 @@ public class PreferentialActivity extends BaseActivity {
 
     @Override
     protected void initViews(Bundle savedInstanceState) {
-        loadManager.showSuccess();
+        showSuccess();
         setTitle("优惠活动");
         KLog.i("优惠活动");
     }

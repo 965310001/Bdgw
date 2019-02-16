@@ -42,7 +42,7 @@ public class SettingActivity extends BaseActivity {
 
     @Override
     protected void initViews(Bundle savedInstanceState) {
-        loadManager.showSuccess();
+        showSuccess();
 
         ivBack.setVisibility(View.VISIBLE);
         rlTitleBar.setVisibility(View.VISIBLE);

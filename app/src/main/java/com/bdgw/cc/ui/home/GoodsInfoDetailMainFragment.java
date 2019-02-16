@@ -60,7 +60,7 @@ public class GoodsInfoDetailMainFragment extends BaseFragment {
 
     @Override
     public void initView(Bundle state) {
-        loadManager.showSuccess();
+        showSuccess();
         tabTextList = new ArrayList<>();
         tabTextList.add(tvGoodsDetail);
         tabTextList.add(tvGoodsConfig);

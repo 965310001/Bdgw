@@ -71,7 +71,7 @@ public class SearchActivity extends BaseActivity {
     protected void initViews(Bundle savedInstanceState) {
 
         dataObserver();
-        loadManager.showSuccess();
+        showSuccess();
 
         ivSearch.setVisibility(View.VISIBLE);
         edInput.setVisibility(View.VISIBLE);

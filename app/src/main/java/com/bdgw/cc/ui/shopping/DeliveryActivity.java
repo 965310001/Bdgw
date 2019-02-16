@@ -28,7 +28,7 @@ public class DeliveryActivity extends BaseListActivity {
         super.initViews(savedInstanceState);
         ARouter.getInstance().inject(this);
 
-        loadManager.showSuccess();
+        showSuccess();
         KLog.i("物流" + id);
 
         showBack();

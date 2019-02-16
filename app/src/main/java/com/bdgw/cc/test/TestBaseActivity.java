@@ -29,7 +29,7 @@ public class TestBaseActivity extends BaseActivity {
     @Override
     protected void initViews(Bundle savedInstanceState) {
 
-        loadManager.showSuccess();
+        showSuccess();
 
         textView2.setText("textView2");
         button2.setText("button2");

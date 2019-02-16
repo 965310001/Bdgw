@@ -21,7 +21,7 @@ public class StationActivity extends BaseActivity {
 
     @Override
     protected void initViews(Bundle savedInstanceState) {
-        loadManager.showSuccess();
+        showSuccess();
         setTitle("站内公告");
     }
 }

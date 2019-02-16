@@ -36,7 +36,7 @@ public class FundsActivity extends ActionBarActivity {
         tvExtractList.setOnClickListener(listener);
         tvDefinite.setOnClickListener(listener);
 
-        loadManager.showSuccess();
+        showSuccess();
 
         setTitleText("可用资金");
 

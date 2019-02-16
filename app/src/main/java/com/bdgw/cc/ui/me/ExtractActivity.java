@@ -49,7 +49,7 @@ public class ExtractActivity extends BaseActivity {
 
     @Override
     protected void initViews(Bundle savedInstanceState) {
-        loadManager.showSuccess();
+        showSuccess();
 
         tvTotalMoney.setText("10000000000000000000000");
     }

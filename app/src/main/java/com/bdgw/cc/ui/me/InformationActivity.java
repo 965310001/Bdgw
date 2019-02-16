@@ -21,7 +21,7 @@ public class InformationActivity extends BaseActivity {
 
     @Override
     protected void initViews(Bundle savedInstanceState) {
-        loadManager.showSuccess();
+        showSuccess();
         setTitle("扁担资讯");
     }
 

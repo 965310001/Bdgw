@@ -77,7 +77,7 @@ public class AddressListActivity extends BaseActivity implements OnRefreshListen
 
     @Override
     protected void initViews(Bundle savedInstanceState) {
-        loadManager.showSuccess();
+        showSuccess();
 
         Intent intent = getIntent();
         if (intent != null) {

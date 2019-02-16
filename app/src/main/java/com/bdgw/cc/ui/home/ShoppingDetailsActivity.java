@@ -67,7 +67,7 @@ public class ShoppingDetailsActivity extends BaseActivity {
     protected void initViews(Bundle savedInstanceState) {
         ARouter.getInstance().inject(this);
 
-        loadManager.showSuccess();
+        showSuccess();
         KLog.i("商品" + id);
 
         getGoodsInfo();

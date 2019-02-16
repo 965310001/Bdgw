@@ -21,6 +21,6 @@ public class CustomerServiceActivity extends BaseActivity {
 
     @Override
     protected void initViews(Bundle savedInstanceState) {
-        loadManager.showSuccess();
+        showSuccess();
     }
 }

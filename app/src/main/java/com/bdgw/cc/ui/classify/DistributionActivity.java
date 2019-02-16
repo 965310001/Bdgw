@@ -29,7 +29,7 @@ public class DistributionActivity extends BaseListActivity implements OnItemClic
     @Override
     protected void initData() {
         super.initData();
-        loadManager.showSuccess();
+        showSuccess();
         getRemoteData();
     }
 

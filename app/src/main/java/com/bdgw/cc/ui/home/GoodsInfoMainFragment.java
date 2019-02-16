@@ -94,7 +94,7 @@ public class GoodsInfoMainFragment extends BaseFragment implements SlideLayout.O
 
     @Override
     public void initView(Bundle state) {
-        loadManager.showSuccess();
+        showSuccess();
 
         ccvClick.setCurrCount(1);
         ccvClick.setMinCount(1);

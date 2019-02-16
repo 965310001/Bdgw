@@ -22,7 +22,7 @@ public class RecommendationActivity extends BaseActivity {
 
     @Override
     protected void initViews(Bundle savedInstanceState) {
-        loadManager.showSuccess();
+        showSuccess();
         setTitle("我的推荐");
 
         KLog.i("我的推荐");

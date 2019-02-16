@@ -22,16 +22,19 @@ import com.xuexiang.xui.widget.edittext.materialedittext.MaterialEditText;
 
 import butterknife.ButterKnife;
 import butterknife.Unbinder;
+import me.goldze.common.ILoadManager;
 import me.goldze.common.R;
+import me.goldze.common.base.mvvm.stateview.ErrorState;
+import me.goldze.common.base.mvvm.stateview.LoadingState;
 
 /**
  * @author GuoFeng
  * @date :2019/1/16 14:40
  * @description: 基类Activity
  */
-public abstract class BaseActivity extends FragmentActivity implements View.OnClickListener {
+public abstract class BaseActivity extends FragmentActivity implements View.OnClickListener, ILoadManager {
 
-    protected LoadManager loadManager;
+    private LoadManager loadManager;
 
     ImageView ivBack;
     MaterialEditText edSearch;
@@ -125,6 +128,47 @@ public abstract class BaseActivity extends FragmentActivity implements View.OnCl
         initViews(savedInstanceState);
         initData();
     }
+
+    /************************************************** LoadManager start *****************************************************/
+    /*加载数据成功*/
+    @Override
+    public void showSuccess() {
+        loadManager.showSuccess();
+    }
+
+    /*加载数据失败*/
+    @Override
+    public void showErrorState() {
+        showErrorState(ErrorState.class);
+    }
+
+    @Override
+    public void showErrorState(Class<? extends BaseStateControl> stateView) {
+        loadManager.showStateView(stateView);
+    }
+
+    /*正在加载数据*/
+    @Override
+    public void showLoadingState() {
+        showLoadingState(LoadingState.class);
+    }
+
+    @Override
+    public void showLoadingState(Class<? extends BaseStateControl> stateView) {
+        loadManager.showStateView(stateView);
+    }
+
+    @Override
+    public void showStateView(Class<? extends BaseStateControl> stateView) {
+
+    }
+
+    @Override
+    public void showStateView(Class<? extends BaseStateControl> stateView, Object tag) {
+        loadManager.showStateView(stateView, tag);
+    }
+
+    /************************************************** LoadManager end *****************************************************/
 
     /*字体适配*/
     @Override

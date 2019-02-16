@@ -63,7 +63,7 @@ public class MeFragment extends AbsLifecycleFragment<LoginViewModel> {
     @Override
     public void initView(Bundle state) {
         super.initView(state);
-        loadManager.showSuccess();
+        showSuccess();
 
         tvUserIntegral.setText(String.format(getString(R.string.user_integral), 200));
         ImageUtils.loadImageCircle(ivUserHead,

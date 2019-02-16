@@ -42,7 +42,7 @@ public abstract class HorizontalTabActivity extends BaseActivity {
 
     @Override
     protected void initViews(Bundle savedInstanceState) {
-        loadManager.showSuccess();
+        showSuccess();
         mEasyIndicator.setTabTitles(getTabTitles());
         mEasyIndicator.setViewPager(mViewPager,
                 new FragmentAdapter<>(getSupportFragmentManager(),

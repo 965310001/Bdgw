@@ -37,7 +37,7 @@ public class RedItemFragment extends BaseListFragment<RedItemViewModel> implemen
     @Override
     public void initView(Bundle state) {
         super.initView(state);
-        loadManager.showSuccess();
+        showSuccess();
     }
 
     @Override

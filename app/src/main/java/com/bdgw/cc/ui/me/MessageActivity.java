@@ -21,7 +21,7 @@ public class MessageActivity extends BaseActivity {
 
     @Override
     protected void initViews(Bundle savedInstanceState) {
-        loadManager.showSuccess();
+        showSuccess();
         setTitle("站内信");
     }
 

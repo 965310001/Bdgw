@@ -25,7 +25,7 @@ public class AfterSalesListActivity extends BaseListActivity implements OnItemCl
         super.initViews(savedInstanceState);
         ARouter.getInstance().inject(this);
 
-        loadManager.showSuccess();
+        showSuccess();
 
         showBack();
         setTitle("售后列表");

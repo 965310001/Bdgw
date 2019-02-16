@@ -38,7 +38,7 @@ public class GoodsInfoWebFragment extends BaseFragment {
 
     @Override
     public void initView(Bundle state) {
-        loadManager.showSuccess();
+        showSuccess();
         initWebView();
     }
 

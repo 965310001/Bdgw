@@ -72,7 +72,7 @@ public class AskActivity extends BaseActivity {
         ARouter.getInstance().inject(this);
         KLog.i(data);
 
-        loadManager.showSuccess();
+        showSuccess();
 
         ivBack.setVisibility(View.VISIBLE);
         rlTitleBar.setVisibility(View.VISIBLE);

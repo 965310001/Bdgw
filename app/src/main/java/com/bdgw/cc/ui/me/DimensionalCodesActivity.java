@@ -22,7 +22,7 @@ public class DimensionalCodesActivity extends BaseActivity {
 
     @Override
     protected void initViews(Bundle savedInstanceState) {
-        loadManager.showSuccess();
+        showSuccess();
         setTitle("我的推广二维码");
 
         KLog.i("我的推广二维码");

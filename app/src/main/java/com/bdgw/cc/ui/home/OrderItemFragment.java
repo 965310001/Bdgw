@@ -18,7 +18,6 @@ import java.util.HashMap;
 import java.util.Map;
 
 import me.goldze.common.base.mvvm.base.BaseListFragment;
-import me.goldze.common.base.mvvm.stateview.ErrorState;
 import me.goldze.common.constants.ARouterConfig;
 import me.goldze.common.utils.ActivityToActivity;
 
@@ -78,7 +77,7 @@ public class OrderItemFragment extends BaseListFragment<OrderItemViewModel> impl
 ////                            if (oldItems.size() > 0) {
 ////                                setData(oldItems);
 ////                            } else {
-////                                loadManager.showStateView(ErrorState.class);
+////                                showStateView(ErrorState.class);
 ////                            }
 ////                        }
 ////
@@ -88,7 +87,7 @@ public class OrderItemFragment extends BaseListFragment<OrderItemViewModel> impl
 
     @Override
     protected void getRemoteData() {
-        loadManager.showSuccess();
+        showSuccess();
         String status = getArguments().getString(STATUS);
         OrderInfo orderInfo = ApiData.getOrderInfo();
         if (orderInfo.getPaged().getMore() == 1) {
@@ -106,7 +105,7 @@ public class OrderItemFragment extends BaseListFragment<OrderItemViewModel> impl
             if (oldItems.size() > 0) {
                 setData(oldItems);
             } else {
-                loadManager.showStateView(ErrorState.class);
+                showErrorState();
             }
         }
     }

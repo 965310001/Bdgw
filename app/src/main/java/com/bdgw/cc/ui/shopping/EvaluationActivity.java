@@ -59,7 +59,7 @@ public class EvaluationActivity extends BaseActivity {
     protected void initViews(Bundle savedInstanceState) {
         ARouter.getInstance().inject(this);
 
-        loadManager.showSuccess();
+        showSuccess();
         ivBack.setVisibility(View.VISIBLE);
         rlTitleBar.setVisibility(View.VISIBLE);
         tvRight.setVisibility(View.VISIBLE);

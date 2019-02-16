@@ -23,7 +23,6 @@ import butterknife.BindView;
 import me.goldze.common.R;
 import me.goldze.common.R2;
 import me.goldze.common.base.mvvm.base.BaseActivity;
-import me.goldze.common.base.mvvm.stateview.LoadingState;
 import me.goldze.common.constants.ARouterConfig;
 
 @Route(path = ARouterConfig.WEBVIEWACTIVITY)
@@ -55,7 +54,7 @@ public class WebViewActivity extends BaseActivity implements View.OnClickListene
      /*   String url = getIntent().getStringExtra("URL");
         KLog.i(url + " " + URL);*/
 
-        loadManager.showStateView(LoadingState.class);
+        showLoadingState();
 
         rlTitleBar.setVisibility(View.VISIBLE);
         ivBack.setVisibility(View.VISIBLE);
@@ -102,7 +101,7 @@ public class WebViewActivity extends BaseActivity implements View.OnClickListene
             super.onProgressChanged(view, newProgress);
             KLog.i(newProgress + "'");
             if (newProgress == 100) {
-                loadManager.showSuccess();
+                showSuccess();
             }
         }
     }
@@ -126,7 +125,7 @@ public class WebViewActivity extends BaseActivity implements View.OnClickListene
             super.onPageFinished(view, url);
 
             tvTitle.setText(view.getTitle());
-            loadManager.showSuccess();
+            showSuccess();
         }
     }
 

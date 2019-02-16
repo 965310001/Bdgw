@@ -37,7 +37,7 @@ public class GoodsConfigFragment extends BaseFragment {
 
     @Override
     public void initView(Bundle state) {
-        loadManager.showSuccess();
+        showSuccess();
         listView.setFocusable(false);
 
         List<GoodsConfigBean> data = new ArrayList<>();

@@ -19,15 +19,18 @@ import com.tqzhang.stateview.stateview.BaseStateControl;
 
 import butterknife.ButterKnife;
 import butterknife.Unbinder;
+import me.goldze.common.ILoadManager;
+import me.goldze.common.base.mvvm.stateview.ErrorState;
+import me.goldze.common.base.mvvm.stateview.LoadingState;
 
 /**
  * @author GuoFeng
  * @date :2019/1/16 14:40
  * @description: 基类Activity
  */
-public abstract class BaseActivity extends FragmentActivity {
+public abstract class BaseActivity extends FragmentActivity implements ILoadManager {
 
-    protected LoadManager loadManager;
+    private LoadManager loadManager;
     private Unbinder unBinder;
 
     @Override
@@ -57,6 +60,48 @@ public abstract class BaseActivity extends FragmentActivity {
 
         initData();
     }
+
+    /************************************************** LoadManager start *****************************************************/
+    /*加载数据成功*/
+    @Override
+    public void showSuccess() {
+        loadManager.showSuccess();
+    }
+
+    /*加载数据失败*/
+    @Override
+    public void showErrorState() {
+        showErrorState(ErrorState.class);
+    }
+
+    @Override
+    public void showErrorState(Class<? extends BaseStateControl> stateView) {
+        loadManager.showStateView(stateView);
+    }
+
+    /*正在加载数据*/
+    @Override
+    public void showLoadingState() {
+        showLoadingState(LoadingState.class);
+    }
+
+    @Override
+    public void showLoadingState(Class<? extends BaseStateControl> stateView) {
+        loadManager.showStateView(stateView);
+    }
+
+    @Override
+    public void showStateView(Class<? extends BaseStateControl> stateView) {
+
+    }
+
+    @Override
+    public void showStateView(Class<? extends BaseStateControl> stateView, Object tag) {
+        loadManager.showStateView(stateView, tag);
+    }
+
+    /************************************************** LoadManager end *****************************************************/
+
 
     /*字体适配*/
     @Override
@@ -111,6 +156,8 @@ public abstract class BaseActivity extends FragmentActivity {
 
     }
 
+    /************************************************** Bugtags start *****************************************************/
+
     @Override
     protected void onResume() {
         super.onResume();
@@ -122,12 +169,6 @@ public abstract class BaseActivity extends FragmentActivity {
         super.onPause();
         Bugtags.onPause(this);
     }
-
-//    @Override
-//    public boolean dispatchKeyEvent(KeyEvent event) {
-//        Bugtags.onDispatchKeyEvent(this, event);
-//        return super.dispatchKeyEvent(event);
-//    }
 
     @SuppressLint("RestrictedApi")
     @Override
@@ -142,6 +183,9 @@ public abstract class BaseActivity extends FragmentActivity {
         Bugtags.onDispatchTouchEvent(this, ev);
         return super.dispatchTouchEvent(ev);
     }
+
+    /************************************************** Bugtags end *****************************************************/
+
 
     @Override
     public void onDestroy() {

@@ -22,7 +22,7 @@ public class IntegralActivity extends BaseActivity {
 
     @Override
     protected void initViews(Bundle savedInstanceState) {
-        loadManager.showSuccess();
+        showSuccess();
         setTitle("积分商城");
         KLog.i("积分商城");
     }

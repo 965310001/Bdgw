@@ -15,7 +15,6 @@ import me.goldze.common.R;
 import me.goldze.common.adapter.ViewPagerAdapter;
 import me.goldze.common.base.mvvm.AbsLifecycleFragment;
 import me.goldze.common.base.mvvm.AbsViewModel;
-import me.goldze.common.base.mvvm.stateview.LoadingState;
 import me.goldze.common.widget.NestedViewPager;
 
 /**
@@ -54,7 +53,7 @@ public abstract class BaseViewPagerFragment<T extends AbsViewModel> extends AbsL
     @Override
     public void initView(Bundle state) {
         super.initView(state);
-        loadManager.showStateView(LoadingState.class);
+        showLoadingState();
         mTabLayout = getViewById(R.id.tab_layout);
         mViewPager = getViewById(R.id.view_pager);
         mTitleBar = getViewById(R.id.rl_title_bar);

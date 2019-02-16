@@ -37,7 +37,7 @@ public class ProductsItemFragment extends BaseListFragment<OrderItemViewModel> i
     @Override
     public void initView(Bundle state) {
         super.initView(state);
-        loadManager.showSuccess();
+        showSuccess();
     }
 
     @Override

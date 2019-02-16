@@ -52,7 +52,7 @@ public class SearchItemFragment extends BaseListFragment<OrderItemViewModel> imp
         mViewModel.getOrderData(page,
                 getArguments().getString(STATUS));
 
-        loadManager.showStateView(LoadingState.class);
+        showLoadingState();
 
         ApiRepo.getSearchListData("sab").subscribeWith(new RxSubscriber<SearchInfo>() {
             @Override
@@ -61,7 +61,7 @@ public class SearchItemFragment extends BaseListFragment<OrderItemViewModel> imp
                     page++;
                 }*/
                 KLog.i(searchInfo.toString());
-                loadManager.showSuccess();
+                showSuccess();
                 setData(searchInfo.getData().getDatas());
             }
 

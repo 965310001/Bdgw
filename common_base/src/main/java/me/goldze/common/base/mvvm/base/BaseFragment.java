@@ -13,13 +13,16 @@ import com.tqzhang.stateview.stateview.BaseStateControl;
 
 import butterknife.ButterKnife;
 import butterknife.Unbinder;
+import me.goldze.common.ILoadManager;
+import me.goldze.common.base.mvvm.stateview.ErrorState;
+import me.goldze.common.base.mvvm.stateview.LoadingState;
 
 /**
  * @author GuoFeng
  * @date :2019/1/17 14:57
  * @description: 基类Fragment
  */
-public abstract class BaseFragment extends Fragment {
+public abstract class BaseFragment extends Fragment implements ILoadManager {
 
     private Unbinder unBinder;
 
@@ -27,7 +30,7 @@ public abstract class BaseFragment extends Fragment {
 
     protected FragmentActivity activity;
 
-    protected LoadManager loadManager;
+    private LoadManager loadManager;
 
     protected boolean mIsFirstVisible = true;
 
@@ -49,6 +52,47 @@ public abstract class BaseFragment extends Fragment {
         initView(state);
         return rootView;
     }
+
+    /************************************************** LoadManager start *****************************************************/
+    /*加载数据成功*/
+    @Override
+    public void showSuccess() {
+        loadManager.showSuccess();
+    }
+
+    /*加载数据失败*/
+    @Override
+    public void showErrorState() {
+        showErrorState(ErrorState.class);
+    }
+
+    @Override
+    public void showErrorState(Class<? extends BaseStateControl> stateView) {
+        loadManager.showStateView(stateView);
+    }
+
+    /*正在加载数据*/
+    @Override
+    public void showLoadingState() {
+        showLoadingState(LoadingState.class);
+    }
+
+    @Override
+    public void showLoadingState(Class<? extends BaseStateControl> stateView) {
+        loadManager.showStateView(stateView);
+    }
+
+    @Override
+    public void showStateView(Class<? extends BaseStateControl> stateView) {
+
+    }
+
+    @Override
+    public void showStateView(Class<? extends BaseStateControl> stateView, Object tag) {
+        loadManager.showStateView(stateView, tag);
+    }
+
+    /************************************************** LoadManager end *****************************************************/
 
     @Override
     public void onViewCreated(View view, Bundle savedInstanceState) {

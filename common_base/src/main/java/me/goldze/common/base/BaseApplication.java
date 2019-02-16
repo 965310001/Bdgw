@@ -2,6 +2,7 @@ package me.goldze.common.base;
 
 import android.app.Activity;
 import android.app.Application;
+import android.content.ComponentCallbacks2;
 import android.content.Context;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
@@ -10,6 +11,7 @@ import android.support.multidex.MultiDex;
 import com.alibaba.android.arouter.launcher.ARouter;
 import com.bugtags.library.Bugtags;
 import com.bugtags.library.BugtagsOptions;
+import com.bumptech.glide.Glide;
 import com.socks.library.KLog;
 import com.tqzhang.stateview.core.LoadState;
 
@@ -69,7 +71,6 @@ public abstract class BaseApplication extends Application implements Runnable {
                 build();
 
         Bugtags.addUserStep("custom step");
-
         Bugtags.start(BuildConfig.BUGTAGS_APPKEY, this, Bugtags.BTGInvocationEventNone, options);
     }
 
@@ -145,5 +146,13 @@ public abstract class BaseApplication extends Application implements Runnable {
         });
     }
 
-
+    /*当应用所有UI隐藏时应该释放UI上所有占用的资源*/
+    @Override
+    public void onTrimMemory(int level) {
+        super.onTrimMemory(level);
+        if (ComponentCallbacks2.TRIM_MEMORY_UI_HIDDEN == level) {
+            Glide.get(this).clearMemory();
+            Glide.get(this).onTrimMemory(level);
+        }
+    }
 }

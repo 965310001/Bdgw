@@ -14,10 +14,9 @@ import com.tqzhang.stateview.stateview.BaseStateControl;
 import java.util.ArrayList;
 import java.util.List;
 
-import me.goldze.common.base.mvvm.base.BaseFragment;
 import me.goldze.common.base.event.LiveBus;
+import me.goldze.common.base.mvvm.base.BaseFragment;
 import me.goldze.common.base.mvvm.stateview.ErrorState;
-import me.goldze.common.base.mvvm.stateview.LoadingState;
 import me.goldze.common.base.mvvm.stateview.StateConstants;
 import me.goldze.common.utils.TUtil;
 
@@ -110,19 +109,19 @@ public abstract class AbsLifecycleFragment<T extends AbsViewModel> extends BaseF
     }
 
     protected void showError(Class<? extends BaseStateControl> stateView, Object tag) {
-        loadManager.showStateView(stateView, tag);
+        showStateView(stateView, tag);
     }
 
     protected void showError(Class<? extends BaseStateControl> stateView) {
         showError(stateView, null);
     }
 
-    protected void showSuccess() {
-        loadManager.showSuccess();
-    }
+//    protected void showSuccess() {
+//        showSuccess();
+//    }
 
     protected void showLoading() {
-        loadManager.showStateView(LoadingState.class);
+        showLoadingState();
     }
 
 

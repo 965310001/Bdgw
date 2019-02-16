@@ -25,7 +25,6 @@ import butterknife.BindView;
 import butterknife.OnClick;
 import me.goldze.common.base.event.LiveBus;
 import me.goldze.common.base.mvvm.base.BaseFragment;
-import me.goldze.common.base.mvvm.stateview.LoadingState;
 import me.goldze.common.constants.ARouterConfig;
 import me.goldze.common.utils.ActivityToActivity;
 
@@ -69,7 +68,7 @@ public class ClassifyFragment extends BaseFragment implements OnItemClickListene
 
     @Override
     public void initView(Bundle state) {
-        loadManager.showStateView(LoadingState.class);
+        showLoadingState();
 
         tvTitle.setText("分类");
         rlTitleBar.setVisibility(View.VISIBLE);
@@ -96,7 +95,7 @@ public class ClassifyFragment extends BaseFragment implements OnItemClickListene
     protected void lazyLoad() {
         super.lazyLoad();
 
-        loadManager.showSuccess();
+        showSuccess();
 
         ClassificationInfo info = ApiData.getClasszInfo();
         leftData.clear();
@@ -112,7 +111,7 @@ public class ClassifyFragment extends BaseFragment implements OnItemClickListene
 //            @Override
 //            public void onSuccess(ClassificationInfo info) {
 //                KLog.i(info.toString());
-//                loadManager.showSuccess();
+//                showSuccess();
 //                leftData.clear();
 //                rightData.clear();
 //                leftData.addAll(info.getData());
@@ -125,7 +124,7 @@ public class ClassifyFragment extends BaseFragment implements OnItemClickListene
 //            @Override
 //            public void onFailure(String msg) {
 //                KLog.i(msg);
-//                loadManager.showStateView(ErrorState.class);
+//                showStateView(ErrorState.class);
 //            }
 //        });
     }
@@ -207,7 +206,7 @@ public class ClassifyFragment extends BaseFragment implements OnItemClickListene
 //
 //    @Override
 //    public void initView(Bundle state) {
-//        loadManager.showStateView(LoadingState.class);
+//        showStateView(LoadingState.class);
 //
 //        tvTitle.setText("分类");
 //        rlTitleBar.setVisibility(View.VISIBLE);
@@ -237,7 +236,7 @@ public class ClassifyFragment extends BaseFragment implements OnItemClickListene
 //            @Override
 //            public void onSuccess(ClassificationInfo info) {
 //                KLog.i(info.toString());
-//                loadManager.showSuccess();
+//                showSuccess();
 //                leftData.clear();
 //                rightData.clear();
 //                leftData.addAll(info.getData());
@@ -250,7 +249,7 @@ public class ClassifyFragment extends BaseFragment implements OnItemClickListene
 //            @Override
 //            public void onFailure(String msg) {
 //                KLog.i(msg);
-//                loadManager.showStateView(ErrorState.class);
+//                showStateView(ErrorState.class);
 //            }
 //        });
 //    }

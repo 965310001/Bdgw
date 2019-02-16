@@ -68,7 +68,7 @@ public class ShoppingFragment extends BaseFragment {
 
     @Override
     public void initView(Bundle state) {
-        loadManager.showSuccess();
+        showSuccess();
 
         rlTitleBar.setVisibility(View.VISIBLE);
         tvTitle.setVisibility(View.VISIBLE);
@@ -158,10 +158,10 @@ public class ShoppingFragment extends BaseFragment {
         int count = ShoppingCartUtils.getCartCount();
         if (count < 1) {
             tvRight.setVisibility(View.GONE);
-            loadManager.showStateView(ErrorState.class);
+            showErrorState();
 //            tvCount.setVisibility(View.GONE);
         } else {
-            loadManager.showSuccess();
+            showSuccess();
             tvRight.setVisibility(View.VISIBLE);
 //            tvCount.setVisibility(View.VISIBLE);
 //            tvCount.setText(String.valueOf(count));

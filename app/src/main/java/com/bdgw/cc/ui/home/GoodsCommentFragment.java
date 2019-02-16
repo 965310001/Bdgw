@@ -58,7 +58,7 @@ public class GoodsCommentFragment extends BaseFragment {
 
     @Override
     public void initView(Bundle state) {
-        loadManager.showSuccess();
+        showSuccess();
 
         adapter = new GoodsCommentAdapter(getContext(), commentList);
         recycleView.setLayoutManager(new LinearLayoutManager(getContext()));

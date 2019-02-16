@@ -22,7 +22,7 @@ public class PhyClassActivity extends BaseActivity {
 
     @Override
     protected void initViews(Bundle savedInstanceState) {
-        loadManager.showSuccess();
+        showSuccess();
         setTitle("系统分类");
     }
 }

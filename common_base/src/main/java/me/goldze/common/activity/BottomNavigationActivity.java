@@ -27,7 +27,7 @@ public abstract class BottomNavigationActivity extends BaseActivity {
 
     @Override
     protected void initViews(Bundle savedInstanceState) {
-        loadManager.showSuccess();
+        showSuccess();
     }
 
     //init Bottom tabBar
@@ -37,7 +37,7 @@ public abstract class BottomNavigationActivity extends BaseActivity {
 
         TabView tabView = findViewById(R.id.tabView);
         tabView.setTabViewChild(tabViewChildren, fragmentManager);
-        if (null == listener) {
+        if (null != listener) {
             tabView.setOnTabChildClickListener(listener);
         }
     }

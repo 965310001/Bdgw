@@ -35,7 +35,7 @@ public class OrderDetailsActivity extends BaseListActivity implements OnItemClic
     protected void initViews(Bundle savedInstanceState) {
         super.initViews(savedInstanceState);
         ARouter.getInstance().inject(this);
-        loadManager.showSuccess();
+        showSuccess();
 
         setTitle("订单详情");
         showBack();

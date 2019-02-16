@@ -59,7 +59,7 @@ public class RegisterActivity extends BaseActivity {
 
     @Override
     protected void initViews(Bundle savedInstanceState) {
-        loadManager.showSuccess();
+        showSuccess();
         progressFragment = new ProgressFragment();
 
         ivBack.setVisibility(View.VISIBLE);

@@ -27,7 +27,7 @@ public class CollectionActivity extends BaseListActivity implements OnItemClickL
     @Override
     protected void initData() {
         super.initData();
-        loadManager.showSuccess();
+        showSuccess();
         getRemoteData();
     }
 

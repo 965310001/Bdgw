@@ -13,7 +13,6 @@ import com.tqzhang.stateview.stateview.BaseStateControl;
 
 import me.goldze.common.base.mvvm.base.BaseActivity;
 import me.goldze.common.base.mvvm.stateview.ErrorState;
-import me.goldze.common.base.mvvm.stateview.LoadingState;
 import me.goldze.common.base.mvvm.stateview.StateConstants;
 import me.goldze.common.utils.TUtil;
 
@@ -49,23 +48,21 @@ public abstract class AbsLifecycleActivity<T extends AbsViewModel> extends BaseA
     }
 
 
-
     protected void showError(Class<? extends BaseStateControl> stateView, Object tag) {
-        loadManager.showStateView(stateView, tag);
+        showStateView(stateView, tag);
     }
 
     protected void showError(Class<? extends BaseStateControl> stateView) {
         showError(stateView, null);
     }
 
-    protected void showSuccess() {
-        loadManager.showSuccess();
-    }
+//    protected void showSuccess() {
+//        showSuccess();
+//    }
 
     protected void showLoading() {
-        loadManager.showStateView(LoadingState.class);
+        showLoadingState();
     }
-
 
     protected Observer observer = new Observer<String>() {
         @Override

@@ -20,7 +20,7 @@ public class AfterSalesActivity extends BaseListActivity {
     protected void initViews(Bundle savedInstanceState) {
         super.initViews(savedInstanceState);
 
-        loadManager.showSuccess();
+        showSuccess();
 
         showBack();
         setTitle("可售后商品");

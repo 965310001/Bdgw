@@ -57,7 +57,7 @@ public class PersonInfoActivity extends BaseActivity implements MaterialDialog.I
 
     @Override
     protected void initViews(Bundle savedInstanceState) {
-        loadManager.showSuccess();
+        showSuccess();
 
         ivBack.setVisibility(View.VISIBLE);
         rlTitleBar.setVisibility(View.VISIBLE);

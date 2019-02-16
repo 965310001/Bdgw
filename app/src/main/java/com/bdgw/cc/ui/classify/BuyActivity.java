@@ -86,7 +86,7 @@ public class BuyActivity extends BaseActivity {
     protected void initViews(Bundle savedInstanceState) {
         ARouter.getInstance().inject(this);
 
-        loadManager.showSuccess();
+        showSuccess();
 
         rlTitleBar.setVisibility(View.VISIBLE);
         ivBack.setVisibility(View.VISIBLE);

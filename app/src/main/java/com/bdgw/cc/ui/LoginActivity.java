@@ -50,7 +50,7 @@ public class LoginActivity extends AbsLifecycleActivity<LoginViewModel> {
     public void initViews(Bundle savedInstanceState) {
         super.initViews(savedInstanceState);
 
-        loadManager.showSuccess();
+        showSuccess();
 
         progressFragment = new ProgressFragment();
 
