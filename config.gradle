@@ -143,6 +143,9 @@ ext {
             "converter_gson"        : "com.squareup.retrofit2:converter-gson:2.4.0",
 
             "lsettingviewlibrary"   : "com.leon:lsettingviewlibrary:1.7.0",
+
+            //bugtags
+            "bugtags-lib"                      : "com.bugtags.library:bugtags-lib:latest.integration",
 //                    //图片缩放
 //                    "photoview"                      : "com.github.chrisbanes.photoview:library:1.2.4",
 //                    //SmartRefreshLayout

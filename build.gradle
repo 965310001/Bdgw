@@ -20,7 +20,7 @@ buildscript {
 
 
         //bugtags
-//        classpath 'com.bugtags.library:bugtags-gradle:latest.integration'
+        classpath 'com.bugtags.library:bugtags-gradle:latest.integration'
     }
 }
 

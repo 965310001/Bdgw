@@ -1,5 +1,6 @@
 package me.goldze.common.base.mvvm.base;
 
+import android.annotation.SuppressLint;
 import android.content.pm.ActivityInfo;
 import android.content.res.Configuration;
 import android.content.res.Resources;
@@ -7,9 +8,12 @@ import android.os.Bundle;
 import android.support.annotation.LayoutRes;
 import android.support.annotation.Nullable;
 import android.support.v4.app.FragmentActivity;
+import android.view.KeyEvent;
+import android.view.MotionEvent;
 import android.view.View;
 import android.view.WindowManager;
 
+import com.bugtags.library.Bugtags;
 import com.tqzhang.stateview.core.LoadManager;
 import com.tqzhang.stateview.stateview.BaseStateControl;
 
@@ -105,6 +109,38 @@ public abstract class BaseActivity extends FragmentActivity {
     /*隐藏进度条*/
     public void hideProgressBar() {
 
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+        Bugtags.onResume(this);
+    }
+
+    @Override
+    protected void onPause() {
+        super.onPause();
+        Bugtags.onPause(this);
+    }
+
+//    @Override
+//    public boolean dispatchKeyEvent(KeyEvent event) {
+//        Bugtags.onDispatchKeyEvent(this, event);
+//        return super.dispatchKeyEvent(event);
+//    }
+
+    @SuppressLint("RestrictedApi")
+    @Override
+    public boolean dispatchKeyEvent(KeyEvent event) {
+        Bugtags.onDispatchKeyEvent(this, event);
+        return super.dispatchKeyEvent(event);
+    }
+
+    @Override
+    public boolean dispatchTouchEvent(MotionEvent ev) {
+        //注：回调 3
+        Bugtags.onDispatchTouchEvent(this, ev);
+        return super.dispatchTouchEvent(ev);
     }
 
     @Override

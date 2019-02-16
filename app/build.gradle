@@ -11,7 +11,7 @@ apply plugin: 'org.greenrobot.greendao' // apply plugin
 //    mappingUploadEnabled true
 //}
 android {
-//    useLibrary 'org.apache.http.legacy'
+    useLibrary 'org.apache.http.legacy'
 
     compileSdkVersion rootProject.ext.versions.compileSdkVersion
     defaultConfig {
@@ -87,6 +87,8 @@ dependencies {
 
     implementation rootProject.ext.dependencies['glide']
     annotationProcessor rootProject.ext.dependencies['glide_compiler']
+    //bugtags
+    implementation rootProject.ext.dependencies['bugtags-lib']
 
 //    implementation 'com.bugtags.library:bugtags-lib:latest.integration'
 
@@ -100,4 +102,15 @@ dependencies {
 //    androidTestImplementation 'com.android.support.test:runner:1.0.2'
 //    testImplementation 'junit:junit:4.12'
 
+}
+//Bugtags
+//应用 Bugtags 插件，插件只支持 2.1.3 及以下的 ios 版本
+apply plugin: 'com.bugtags.library.plugin'
+
+//Bugtags 插件配置
+bugtags {
+    //自动上传符号表功能配置，如果需要根据 build varint 配置，请参考帮助中心->符号表->Android 符号表->配置自动上传符号表
+    appKey "1b855532c67c269c8369e086e32e62aa"  //这里是你的 appKey
+    appSecret "45ce686f6f76382d26cb0eba2673405d"    //这里是你的 appSecret，管理员在设置页可以查看
+    mappingUploadEnabled true
 }

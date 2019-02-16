@@ -8,6 +8,8 @@ import android.support.annotation.NonNull;
 import android.support.multidex.MultiDex;
 
 import com.alibaba.android.arouter.launcher.ARouter;
+import com.bugtags.library.Bugtags;
+import com.bugtags.library.BugtagsOptions;
 import com.socks.library.KLog;
 import com.tqzhang.stateview.core.LoadState;
 
@@ -56,6 +58,20 @@ public abstract class BaseApplication extends Application implements Runnable {
                 .register(new LoadingState())
                 .setDefaultCallback(LoadingState.class)
                 .build();
+
+
+        //Bugtags
+        BugtagsOptions options = new BugtagsOptions.Builder().
+                trackingLocation(true).//是否获取位置
+                trackingCrashLog(true).//是否收集crash
+                trackingConsoleLog(true).//是否收集console log
+                trackingUserSteps(true).//是否收集用户操作步骤
+                enableCapturePlus(true).
+                build();
+
+        Bugtags.addUserStep("custom step");
+
+        Bugtags.start("1b855532c67c269c8369e086e32e62aa", this, Bugtags.BTGInvocationEventNone, options);
     }
 
 
