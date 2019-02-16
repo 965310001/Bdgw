@@ -19,6 +19,15 @@
         <item name="android:activityCloseExitAnimation">@anim/fade_out</item>
     </style>
 
+    <!--启动优化-->
+    <style name="AppFirstColdStartTheme" parent="AppTheme">
+        <item name="android:windowBackground">@color/orange</item>
+        <item name="android:colorBackgroundCacheHint">@null</item>
+        <item name="android:windowIsTranslucent">false</item>
+        <item name="android:windowNoTitle">true</item>
+        <item name="android:screenOrientation">portrait</item>
+        <item name="android:windowDisablePreview">true</item>
+    </style>
 
     <!--字体默认10-->
     <style name="TextStyle_10" parent="width_warp_height_warp">
@@ -29,7 +38,6 @@
     <!--字体默认12-->
     <style name="TextStyle_12" parent="TextStyle_10">
         <item name="android:textSize">@dimen/text_size_12</item>
-        <item name="android:autoSizeTextType" tools:targetApi="o">uniform</item>
     </style>
 
     <!--字体默认14-->

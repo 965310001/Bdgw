@@ -109,7 +109,6 @@ dependencies {
     implementation rootProject.ext.dependencies['glide']
     annotationProcessor rootProject.ext.dependencies['glide_compiler']
 
-
     //bugtags
     implementation rootProject.ext.dependencies['bugtags-lib']
 

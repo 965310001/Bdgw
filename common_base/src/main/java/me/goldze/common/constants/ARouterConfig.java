@@ -10,6 +10,9 @@ public interface ARouterConfig {
     /*webViewActivity*/
     String WEBVIEWACTIVITY = "/commom_base/WebViewActivity";
 
+    /*过渡界面*/
+    String SPLASHACTIVITY = "/app/SplashActivity";
+
     /*主界面*/
     String MAINACTIVITY = "/app/MainActivity";
 
