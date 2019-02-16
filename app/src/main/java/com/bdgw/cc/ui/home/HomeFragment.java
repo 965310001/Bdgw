@@ -126,7 +126,7 @@ public class HomeFragment extends BaseListFragment<MViewModel>
 //                KLog.i(((VendorInfo.GoodsInfo) object).getGoodsName());
                 Map<String, String> map = new HashMap<>();
                 map.put("id", info.getGoodsId());
-                ActivityToActivity.toActivity(ARouterConfig.home.ShoppingDetailsActivity, map);
+                ActivityToActivity.toActivity(ARouterConfig.home.SHOPPINGDETAILSACTIVITY, map);
             }
 
         }

@@ -82,7 +82,7 @@ public class ShoppingCartAdapter extends BaseRecyclerAdapter<VendorInfo> impleme
             KLog.i(v.getTag());
             Map<String, String> map = new HashMap<>();
             map.put("id", String.valueOf(v.getTag()));
-            ActivityToActivity.toActivity(ARouterConfig.home.ShoppingDetailsActivity, map);
+            ActivityToActivity.toActivity(ARouterConfig.home.SHOPPINGDETAILSACTIVITY, map);
         }
     }
 

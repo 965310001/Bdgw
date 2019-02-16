@@ -35,7 +35,7 @@ import static android.view.View.VISIBLE;
 /**
  * 商品详情
  */
-@Route(path = ARouterConfig.home.ShoppingDetailsActivity)
+@Route(path = ARouterConfig.home.SHOPPINGDETAILSACTIVITY)
 public class ShoppingDetailsActivity extends BaseActivity {
 
     @Autowired

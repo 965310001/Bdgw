@@ -63,6 +63,6 @@ public class CollectionActivity extends BaseListActivity implements OnItemClickL
         GoodsInfo data = (GoodsInfo) object;
         Map<String, String> map = new HashMap<>();
         map.put("id", data.getGoodsId());
-        ActivityToActivity.toActivity(ARouterConfig.home.ShoppingDetailsActivity, map);
+        ActivityToActivity.toActivity(ARouterConfig.home.SHOPPINGDETAILSACTIVITY, map);
     }
 }

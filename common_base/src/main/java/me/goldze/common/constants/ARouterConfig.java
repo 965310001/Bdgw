@@ -27,7 +27,7 @@ public interface ARouterConfig {
         /*搜索列表*/
         String SEARCHLISTACTIVITY = "/home/SearchListActivity";
         /*商品详情*/
-        String ShoppingDetailsActivity = "/home/ShoppingDetailsActivity";
+        String SHOPPINGDETAILSACTIVITY = "/home/ShoppingDetailsActivity";
 
         //四个menu的
         /*优惠活动*/

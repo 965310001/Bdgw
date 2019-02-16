@@ -108,7 +108,7 @@ public class SearchItemFragment extends BaseListFragment<OrderItemViewModel> imp
 
         Map<String, String> map = new HashMap<>();
         map.put("id", String.valueOf(datasBean.getId()));
-        ActivityToActivity.toActivity(ARouterConfig.home.ShoppingDetailsActivity, map);
+        ActivityToActivity.toActivity(ARouterConfig.home.SHOPPINGDETAILSACTIVITY, map);
     }
 
 }
