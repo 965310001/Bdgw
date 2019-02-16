@@ -1,30 +1,28 @@
-package com.bdgw.cc.ui.home;
+package com.bdgw.cc.ui.me;
 
 import android.os.Bundle;
 
 import com.alibaba.android.arouter.facade.annotation.Route;
 import com.bdgw.cc.R;
-import com.socks.library.KLog;
 
 import me.goldze.common.base.mvvm.base.test.BaseActivity;
 import me.goldze.common.constants.ARouterConfig;
 
 /**
- * 积分商城
+ * 站内信
  */
-@Route(path = ARouterConfig.home.INTEGRALACTIVITY)
-public class IntegralActivity extends BaseActivity {
+@Route(path = ARouterConfig.Me.MESSAGEACTIVITY)
+public class MessageActivity extends BaseActivity {
 
     @Override
     protected int getLayoutId() {
-        return R.layout.activity_integral;
+        return R.layout.activity_message;
     }
 
     @Override
     protected void initViews(Bundle savedInstanceState) {
         loadManager.showSuccess();
-        setTitle("积分商城");
-        KLog.i("积分商城");
+        setTitle("站内信");
     }
 
 }

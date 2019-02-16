@@ -23,7 +23,8 @@
             android:layout_marginTop="@dimen/dp_4"
             android:ellipsize="end"
             android:gravity="start"
-            tools:text="11111111111111111111111111111111111111111111" />
+            android:maxLines="2"
+            tools:text="联想ThinkPad 翼480(04CD)" />
 
         <RelativeLayout
             android:layout_width="match_parent"
@@ -31,22 +32,26 @@
             android:layout_marginTop="4dp">
 
             <TextView
-                android:id="@+id/tv_price"
                 style="@style/TextStyle_14"
-                android:layout_width="wrap_content"
+                android:id="@+id/tv_price"
                 android:layout_height="@dimen/dp_24"
                 android:layout_alignParentBottom="true"
                 android:gravity="start"
                 android:textColor="@color/light_yellow"
-                tools:text="2999" />
+                android:maxLines="1"
+                android:layout_marginTop="@dimen/dp_2"
+                tools:text="299299299299" />
 
             <TextView
+                style="@style/TextStyle_10"
+                android:maxLines="1"
                 android:id="@+id/tv_old_price"
-                style="@style/TextStyle_12"
                 android:layout_height="@dimen/dp_24"
                 android:layout_alignParentBottom="true"
                 android:layout_marginStart="5dp"
+                android:layout_toLeftOf="@id/iv_add_cart"
                 android:layout_toEndOf="@+id/tv_price"
+                android:gravity="center_vertical"
                 android:textColor="@color/gray"
                 tools:text="399" />
 
