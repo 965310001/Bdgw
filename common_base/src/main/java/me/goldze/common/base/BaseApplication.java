@@ -59,7 +59,6 @@ public abstract class BaseApplication extends Application implements Runnable {
                 .setDefaultCallback(LoadingState.class)
                 .build();
 
-
         //Bugtags
         BugtagsOptions options = new BugtagsOptions.Builder().
                 trackingLocation(true).//是否获取位置
@@ -71,9 +70,8 @@ public abstract class BaseApplication extends Application implements Runnable {
 
         Bugtags.addUserStep("custom step");
 
-        Bugtags.start("1b855532c67c269c8369e086e32e62aa", this, Bugtags.BTGInvocationEventNone, options);
+        Bugtags.start(BuildConfig.BUGTAGS_APPKEY, this, Bugtags.BTGInvocationEventNone, options);
     }
-
 
     @Override
     protected void attachBaseContext(Context base) {
