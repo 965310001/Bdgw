@@ -13,6 +13,7 @@ import com.bugtags.library.Bugtags;
 import com.bugtags.library.BugtagsOptions;
 import com.bumptech.glide.Glide;
 import com.socks.library.KLog;
+import com.squareup.leakcanary.LeakCanary;
 import com.tqzhang.stateview.core.LoadState;
 
 import me.goldze.common.BuildConfig;
@@ -72,6 +73,12 @@ public abstract class BaseApplication extends Application implements Runnable {
 
         Bugtags.addUserStep("custom step");
         Bugtags.start(BuildConfig.BUGTAGS_APPKEY, this, Bugtags.BTGInvocationEventNone, options);
+
+
+        /*LeakCanary 内存泄漏检测*/
+        if (!LeakCanary.isInAnalyzerProcess(this)) {
+            LeakCanary.install(this);
+        }
     }
 
     @Override
@@ -97,8 +104,9 @@ public abstract class BaseApplication extends Application implements Runnable {
      * @param runnable    用于初始化第三方库，防止耗时初始化操作
      */
     public static synchronized void setApplication(@NonNull Application application, @NonNull Runnable runnable) {
-        runnable.run();
+        Utils.init(application);
         setApplication(application);
+        runnable.run();
     }
 
     /**
@@ -107,7 +115,6 @@ public abstract class BaseApplication extends Application implements Runnable {
      * @param application
      */
     public static synchronized void setApplication(@NonNull Application application) {
-        Utils.init(application);
         application.registerActivityLifecycleCallbacks(new Application.ActivityLifecycleCallbacks() {
             @Override
             public void onActivityCreated(Activity activity, Bundle savedInstanceState) {

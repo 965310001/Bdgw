@@ -5,6 +5,7 @@ import android.content.Context;
 import com.xuexiang.xui.XUI;
 
 import me.goldze.common.base.BaseApplication;
+import me.goldze.common.utils.Utils;
 import uk.co.chrisjenx.calligraphy.CalligraphyContextWrapper;
 
 /**
@@ -17,7 +18,7 @@ public class MyApplication extends BaseApplication {
     @Override
     public void run() {
         //xui
-        XUI.init(this);
+        XUI.init(Utils.getApplication());
         XUI.debug(BuildConfig.DEBUG);  //开启UI框架调试日志
     }
 
