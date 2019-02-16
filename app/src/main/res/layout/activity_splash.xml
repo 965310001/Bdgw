@@ -3,16 +3,18 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/red"
     tools:context=".SplashActivity">
 
     <TextView
         android:id="@+id/tv_time"
-        android:layout_width="@dimen/dp_32"
-        android:layout_height="@dimen/dp_32"
+        android:layout_width="@dimen/dp_42"
+        android:layout_height="@dimen/dp_42"
         android:layout_alignParentRight="true"
         android:layout_margin="@dimen/dp_8"
-        android:background="@color/white"
+        android:background="@drawable/tv_circle_bg"
         android:gravity="center"
+        android:textSize="@dimen/text_12"
         tools:text="3秒" />
 
 </RelativeLayout>
