@@ -86,8 +86,10 @@ public abstract class BaseListFragment<T extends AbsViewModel> extends AbsLifecy
         adapter = createAdapter();
         mRecyclerView.setAdapter(adapter);
         mRecyclerView.setLayoutManager(createLayoutManager());
-        mRecyclerView.addItemDecoration(new DividerItemDecoration(getContext(),
-                DividerItemDecoration.VERTICAL));
+        if (isItemDecoration()) {
+            mRecyclerView.addItemDecoration(new DividerItemDecoration(getContext(),
+                    DividerItemDecoration.VERTICAL));
+        }
         mRecyclerView.addOnRefreshListener(this);
         mRecyclerView.addOnScrollStateListener(new OnScrollStateListener() {
             @Override
@@ -157,6 +159,10 @@ public abstract class BaseListFragment<T extends AbsViewModel> extends AbsLifecy
                 mRecyclerView.smoothScrollToPosition(0);
             }
         });
+    }
+
+    protected boolean isItemDecoration() {
+        return true;
     }
 
 

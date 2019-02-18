@@ -30,7 +30,7 @@
             android:maxLines="1"
             android:padding="10dp"
             android:text="点击相机后执行MultiImageSelector.create().count(MAX_PIC - imageUrls.size()).start(this, REQUEST_CODE_PICTURE); 调出选择图片界面, 选择完成会进入onActivityResult方法 我们就在该方法中处理选中的晒单图集合 回调的onActivityResult后核心的处理在handleCommentPicList方法里"
-            android:textSize="@dimen/text_size_12" />
+            android:textSize="@dimen/text_12" />
 
         <TextView
             android:id="@+id/tv_price"
@@ -42,7 +42,7 @@
             android:padding="10dp"
             android:text="点击相机后执行MultiImageSelector.create().count(MAX_PIC - imageUrls.size()).start(this, REQUEST_CODE_PICTURE); 调出选择图片界面, 选择完成会进入onActivityResult方法 我们就在该方法中处理选中的晒单图集合 回调的onActivityResult后核心的处理在handleCommentPicList方法里"
             android:textColor="@color/orange"
-            android:textSize="@dimen/text_size_12" />
+            android:textSize="@dimen/text_12" />
     </RelativeLayout>
 
     <View style="@style/HorizontalLine" />

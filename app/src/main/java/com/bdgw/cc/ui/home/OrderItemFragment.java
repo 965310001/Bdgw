@@ -44,6 +44,11 @@ public class OrderItemFragment extends BaseListFragment<OrderItemViewModel> impl
     }
 
     @Override
+    protected boolean isItemDecoration() {
+        return false;
+    }
+
+    @Override
     protected void onStateRefresh() {
         super.onStateRefresh();
         getRemoteData();
@@ -138,7 +143,7 @@ public class OrderItemFragment extends BaseListFragment<OrderItemViewModel> impl
 //        map.put("id", "" + ((OrderInfo.OrdersBean) o).getGoodsid());
         KLog.i("订单详情");
 
-        ActivityToActivity.toActivity(ARouterConfig.Shopping.ORDERDETAILSACTIVITY, "id",100);
+        ActivityToActivity.toActivity(ARouterConfig.Shopping.ORDERDETAILSACTIVITY, "id", 100);
 
 
     }

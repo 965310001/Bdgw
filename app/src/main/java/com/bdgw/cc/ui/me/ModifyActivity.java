@@ -30,6 +30,7 @@ import me.goldze.common.utils.ProgressFragment;
 import me.goldze.common.utils.RegexUtils;
 import me.goldze.common.utils.ToastUtils;
 import me.goldze.common.utils.Utils;
+import me.goldze.xui.button.TextChangeUtils;
 
 /**
  * 收货地址的增删改查
@@ -52,6 +53,8 @@ public class ModifyActivity extends BaseActivity {
     TextView tvAddress;
     @BindView(R.id.ed_details)
     MaterialEditText edDetails;
+    @BindView(R.id.tv_save)
+    TextView tvSave;
 
     @Autowired
     AddressInfo data;
@@ -90,6 +93,8 @@ public class ModifyActivity extends BaseActivity {
             tvTitle.setText("修改收货地址");
             setAddress();
         }
+
+        TextChangeUtils.observer(tvSave, edName, edPhone, tvAddress, edDetails);
     }
 
     private void setAddress() {

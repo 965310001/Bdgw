@@ -2,8 +2,7 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
+    style="@style/width_match_height_match"
     android:focusable="true"
     android:focusableInTouchMode="true"
     android:orientation="vertical"
@@ -12,8 +11,7 @@
     <include layout="@layout/item_title_layout" />
 
     <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        style="@style/width_match_height_warp"
         android:orientation="vertical">
 
         <LinearLayout
@@ -46,8 +44,7 @@
         <View style="@style/HorizontalLine" />
 
         <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            style="@style/width_match_height_warp"
             android:orientation="horizontal"
             android:padding="@dimen/smallerPadding">
 
@@ -104,9 +101,7 @@
         <View style="@style/HorizontalLine" />
 
         <LinearLayout
-            android:layout_width="match_parent"
-
-            android:layout_height="wrap_content"
+            style="@style/width_match_height_warp"
             android:orientation="horizontal"
             android:padding="@dimen/smallerPadding">
 
@@ -134,8 +129,7 @@
 
     <TextView
         android:id="@+id/tv_save"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        style="@style/width_match_height_warp"
         android:layout_marginLeft="@dimen/tab_bar"
         android:layout_marginTop="@dimen/spacing_bigger"
         android:layout_marginRight="@dimen/tab_bar"

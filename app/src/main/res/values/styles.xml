@@ -29,26 +29,6 @@
         <item name="android:windowDisablePreview">true</item>
     </style>
 
-    <!--字体默认10-->
-    <style name="TextStyle_10" parent="width_warp_height_warp">
-        <item name="android:textSize">@dimen/text_size_10</item>
-        <item name="android:autoSizeTextType" tools:targetApi="o">uniform</item>
-    </style>
-
-    <!--字体默认12-->
-    <style name="TextStyle_12" parent="TextStyle_10">
-        <item name="android:textSize">@dimen/text_size_12</item>
-    </style>
-
-    <!--字体默认14-->
-    <style name="TextStyle_14" parent="TextStyle_10">
-        <item name="android:textSize">@dimen/text_size_14</item>
-    </style>
-
-    <!--字体默认16-->
-    <style name="TextStyle_16" parent="TextStyle_10">
-        <item name="android:textSize">@dimen/text_size_16</item>
-    </style>
 
 
 </resources>

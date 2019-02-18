@@ -95,6 +95,10 @@ public class HomeFragment extends BaseListFragment<MViewModel>
         newItems.clear();
     }
 
+    @Override
+    protected boolean isItemDecoration() {
+        return false;
+    }
 
     @Override
     protected void onVisible() {

@@ -3,7 +3,6 @@ package me.goldze.xui.button;
 import android.text.Editable;
 import android.text.TextUtils;
 import android.text.TextWatcher;
-import android.widget.EditText;
 import android.widget.TextView;
 
 import java.util.ArrayList;
@@ -18,18 +17,22 @@ public class TextChangeUtils implements TextWatcher {
 
     private boolean canPress;
     private final TextView textView;
-    private final List<EditText> editTextList;
+    private List<TextView> textViewList;
 
-    public static void observer(TextView textView, EditText... editTexts) {
-        new TextChangeUtils(textView, editTexts);
+    public static void observer(TextView... textViews) {
+        if (null == textViews || textViews.length < 2) {
+            new Exception("textViews 的长度必须大于2");
+            return;
+        }
+        new TextChangeUtils(textViews[0], textViews);
     }
 
-    private TextChangeUtils(TextView textView, EditText... editTexts) {
-        editTextList = new ArrayList<>();
+    private TextChangeUtils(TextView textView, TextView... textViews) {
+        textViewList = new ArrayList<>();
         this.textView = textView;
-        for (EditText editText : editTexts) {
-            editText.addTextChangedListener(this);
-            editTextList.add(editText);
+        for (TextView textView1 : textViews) {
+            textView1.addTextChangedListener(this);
+            textViewList.add(textView1);
         }
         initView();
     }
@@ -43,8 +46,8 @@ public class TextChangeUtils implements TextWatcher {
      */
     private void checkEditText() {
         canPress = true;
-        for (EditText et : editTextList) {
-            if (TextUtils.isEmpty(et.getText().toString().trim())) {
+        for (TextView tv : textViewList) {
+            if (TextUtils.isEmpty(tv.getText().toString().trim())) {
                 canPress = false;
                 break;
             }

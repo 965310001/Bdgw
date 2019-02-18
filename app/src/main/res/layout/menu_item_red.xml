@@ -33,7 +33,7 @@
             android:layout_height="wrap_content"
             android:maxLines="1"
             android:text="时间"
-            android:textSize="@dimen/text_size_14" />
+            android:textSize="@dimen/text_14" />
 
         <TextView
             android:id="@+id/tv_name"
@@ -41,7 +41,7 @@
             android:layout_height="wrap_content"
             android:maxLines="1"
             android:text="时间"
-            android:textSize="@dimen/text_size_14" />
+            android:textSize="@dimen/text_14" />
     </LinearLayout>
 
 

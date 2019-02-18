@@ -29,8 +29,7 @@
 
             <LinearLayout
                 android:id="@+id/ll_checked_view"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                style="@style/width_warp_height_warp"
                 android:layout_centerVertical="true"
                 android:gravity="center">
 
@@ -52,8 +51,7 @@
 
             <TextView
                 android:id="@+id/tv_total"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                style="@style/width_warp_height_warp"
                 android:layout_centerVertical="true"
                 android:layout_marginStart="8dp"
                 android:layout_toEndOf="@+id/ll_checked_view"

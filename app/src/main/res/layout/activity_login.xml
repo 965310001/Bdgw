@@ -9,8 +9,7 @@
 
     <TextView
         android:id="@+id/layout_shimmer"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        style="@style/width_warp_height_warp"
         android:layout_marginTop="80dp"
         android:text="@string/app_name"
         android:textColor="@color/primary_dark"
@@ -88,8 +87,7 @@
 
     <TextView
         android:id="@+id/tv_to_register"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        style="@style/width_warp_height_warp"
         android:layout_marginEnd="@dimen/tab_bar"
         android:paddingTop="@dimen/spacing_bigger"
         android:paddingBottom="@dimen/spacing_bigger"
@@ -101,17 +99,14 @@
 
     <TextView
         android:id="@+id/tv_retrievet"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        style="@style/width_warp_height_warp"
         android:layout_marginLeft="40dp"
-        app:layout_constraintLeft_toLeftOf="parent"
-
         android:paddingTop="@dimen/spacing_bigger"
         android:paddingBottom="@dimen/spacing_bigger"
         android:text="忘记密码"
         android:textColor="@color/primary"
         android:textSize="@dimen/text_14"
-
+        app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/btn_login" />
 
 </android.support.constraint.ConstraintLayout>

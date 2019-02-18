@@ -3,7 +3,6 @@
     <!--登录-->
     <color name="primary_text">#212121</color>
     <color name="primary">#009688</color>
-    <!--<color name="text">@color/white</color>-->
     <color name="third_text">#999999</color>
     <color name="secondary_text">#757575</color>
     <color name="primary_light">#757575</color>
@@ -11,9 +10,6 @@
     <color name="primary_dark">#282727</color>
 
     <color name="divider">#dedede</color>
-
-    <!-- ************************* 通用 ********************* -->
-    <!--<color name="white">#fff</color>-->
 
     <!-- ************************ 公司主题色 *****************-->
     <color name="orange_light">#ffd39b</color>

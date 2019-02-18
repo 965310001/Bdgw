@@ -1,12 +1,18 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<android.support.v7.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    style="@style/width_match_height_warp">
+    style="@style/width_match_height_warp"
+    android:layout_marginLeft="@dimen/dp_4"
+    android:layout_marginTop="@dimen/dp_6"
+    android:layout_marginRight="@dimen/dp_4"
+    android:background="@color/gray"
+    app:cardBackgroundColor="@color/white"
+    app:cardCornerRadius="@dimen/dp_4"
+    app:contentPadding="@dimen/dp_5">
 
     <LinearLayout
         style="@style/width_match_height_warp"
-        android:layout_margin="10dp"
-        android:layout_marginTop="10dp"
         android:background="@color/white"
         android:orientation="vertical"
         android:padding="@dimen/dp_10">
@@ -32,26 +38,26 @@
             android:layout_marginTop="4dp">
 
             <TextView
-                style="@style/TextStyle_14"
                 android:id="@+id/tv_price"
+                style="@style/TextStyle_14"
                 android:layout_height="@dimen/dp_24"
                 android:layout_alignParentBottom="true"
-                android:gravity="start"
-                android:textColor="@color/light_yellow"
-                android:maxLines="1"
                 android:layout_marginTop="@dimen/dp_2"
+                android:gravity="start"
+                android:maxLines="1"
+                android:textColor="@color/light_yellow"
                 tools:text="299299299299" />
 
             <TextView
-                style="@style/TextStyle_10"
-                android:maxLines="1"
                 android:id="@+id/tv_old_price"
+                style="@style/TextStyle_10"
                 android:layout_height="@dimen/dp_24"
                 android:layout_alignParentBottom="true"
                 android:layout_marginStart="5dp"
                 android:layout_toLeftOf="@id/iv_add_cart"
                 android:layout_toEndOf="@+id/tv_price"
                 android:gravity="center_vertical"
+                android:maxLines="1"
                 android:textColor="@color/gray"
                 tools:text="399" />
 
@@ -64,5 +70,4 @@
                 android:background="@drawable/market_icon_add_cart" />
         </RelativeLayout>
     </LinearLayout>
-</LinearLayout>
-
+</android.support.v7.widget.CardView>

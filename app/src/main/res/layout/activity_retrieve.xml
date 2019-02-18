@@ -2,19 +2,17 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:orientation="vertical"
+    style="@style/width_match_height_match"
     android:focusable="true"
     android:focusableInTouchMode="true"
+    android:orientation="vertical"
     tools:context=".ui.RetrieveActivity">
 
     <include layout="@layout/item_title_layout" />
 
     <com.xuexiang.xui.widget.edittext.materialedittext.MaterialEditText
         android:id="@+id/ed_change_phone"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        style="@style/width_match_height_warp"
         android:layout_marginLeft="@dimen/tab_bar"
         android:layout_marginTop="@dimen/tab_bar"
         android:layout_marginRight="@dimen/tab_bar"
@@ -38,14 +36,12 @@
 
 
     <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        style="@style/width_match_height_warp"
         android:orientation="horizontal">
 
         <com.xuexiang.xui.widget.edittext.materialedittext.MaterialEditText
             android:id="@+id/ed_change_code"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            style="@style/width_match_height_warp"
             android:layout_marginLeft="@dimen/tab_bar"
             android:layout_marginTop="@dimen/spacing"
             android:layout_weight="4"
@@ -67,6 +63,7 @@
             android:id="@+id/tv_countdown"
             android:layout_width="80dp"
             android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/dp_10"
             android:layout_marginTop="@dimen/spacing_bigger"
             android:layout_marginRight="@dimen/tab_bar"
             android:background="@drawable/btn_login"
@@ -85,8 +82,7 @@
 
     <com.xuexiang.xui.widget.edittext.materialedittext.MaterialEditText
         android:id="@+id/ed_change_password"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        style="@style/width_match_height_warp"
         android:layout_marginLeft="@dimen/tab_bar"
         android:layout_marginTop="@dimen/spacing"
         android:layout_marginRight="@dimen/tab_bar"
@@ -110,8 +106,7 @@
 
     <TextView
         android:id="@+id/tv_register"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        style="@style/width_match_height_warp"
         android:layout_marginLeft="@dimen/tab_bar"
         android:layout_marginTop="@dimen/spacing_bigger"
         android:layout_marginRight="@dimen/tab_bar"
@@ -121,9 +116,6 @@
         android:paddingBottom="@dimen/spacing_bigger"
         android:text="确定"
         android:textColor="@color/white"
-        android:textSize="@dimen/text_16"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/ed_register_repassword" />
+        android:textSize="@dimen/text_16" />
 
 </LinearLayout>

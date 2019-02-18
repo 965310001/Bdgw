@@ -20,6 +20,7 @@ import me.goldze.common.constants.ARouterConfig;
 import me.goldze.common.utils.ProgressFragment;
 import me.goldze.common.utils.RegexUtils;
 import me.goldze.common.utils.ToastUtils;
+import me.goldze.xui.button.TextChangeUtils;
 
 /**
  * 忘记密码
@@ -41,6 +42,8 @@ public class RetrieveActivity extends BaseActivity {
     MaterialEditText edChangePassword;
     @BindView(R.id.ed_change_code)
     MaterialEditText edChangeCode;
+    @BindView(R.id.tv_register)
+    TextView tvRegister;
 
     private ProgressFragment progressFragment;
     private String phone, password, code;
@@ -61,6 +64,10 @@ public class RetrieveActivity extends BaseActivity {
         ivBack.setVisibility(View.VISIBLE);
         rlTitleBar.setVisibility(View.VISIBLE);
         tvTitle.setText("密码找回");
+
+        TextChangeUtils.observer(tvCountdown, edChangePhone);
+
+        TextChangeUtils.observer(tvRegister, edChangePhone, edChangeCode, edChangePassword);
     }
 
     @OnClick({R.id.iv_back, R.id.tv_countdown, R.id.tv_register})
@@ -98,7 +105,11 @@ public class RetrieveActivity extends BaseActivity {
                 if (TextUtils.isEmpty(phone)) {
                     edChangePhone.setError("请输入手机号");
                 } else {
-                    getSureCode();
+                    if (!RegexUtils.isMobileExact(phone)) {
+                        ToastUtils.showLong("请输入正确的手机号");
+                    } else {
+                        getSureCode();
+                    }
                 }
                 break;
         }
@@ -111,7 +122,6 @@ public class RetrieveActivity extends BaseActivity {
         ToastUtils.showLong("正在修改");
         finish();
     }
-
 
     private boolean checkIsNull() {
         phone = edChangePhone.getText().toString().trim();
@@ -129,12 +139,14 @@ public class RetrieveActivity extends BaseActivity {
                     String value = String.valueOf((int) (millisUntilFinished / 1000));
                     tvCountdown.setText(value);
                     tvCountdown.setEnabled(false);
+                    edChangePhone.setEnabled(false);
                 }
 
                 @Override
                 public void onFinish() {
                     tvCountdown.setText("获取验证码");
                     tvCountdown.setEnabled(true);
+                    edChangePhone.setEnabled(true);
                 }
             };
         }

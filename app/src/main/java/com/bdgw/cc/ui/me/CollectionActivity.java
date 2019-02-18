@@ -52,6 +52,11 @@ public class CollectionActivity extends BaseListActivity implements OnItemClickL
     }
 
     @Override
+    protected boolean isItemDecoration() {
+        return false;
+    }
+
+    @Override
     protected DelegateAdapter createAdapter() {
         return AdapterPool.newInstance().getProductsAdapter(this)
                 .setOnItemClickListener(this)

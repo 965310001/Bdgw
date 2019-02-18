@@ -1,8 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
+    style="@style/width_match_height_match"
     android:orientation="vertical">
     <!-- 用户点评 -->
     <LinearLayout
@@ -16,10 +15,8 @@
 
         <TextView
             android:id="@+id/tv_comment_count"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:textColor="@color/black"
-            android:textSize="12sp" />
+            style="@style/TextStyle_12"
+            android:textColor="@color/black" />
 
         <LinearLayout
             android:layout_width="0dp"
@@ -30,10 +27,8 @@
 
             <TextView
                 android:id="@+id/tv_praise_rate"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:textColor="@color/black"
-                android:textSize="12sp" />
+                style="@style/TextStyle_12"
+                android:textColor="@color/black" />
 
             <ImageView
                 android:id="@+id/iv_right"
@@ -58,6 +53,5 @@
 
     <android.support.v7.widget.RecyclerView
         android:id="@+id/recycle_view"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content" />
+        style="@style/width_match_height_warp" />
 </LinearLayout>

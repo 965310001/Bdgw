@@ -131,7 +131,7 @@ public abstract class BaseListActivity extends BaseActivity implements OnRefresh
                     floatBtn.show();//滑动到底部
                 } else if (!mRecyclerView.canScrollVertically(-1)) {
                     floatBtn.hide();//滑动到顶部
-                }else if (recyclerView.getScrollState() == RecyclerView.SCROLL_STATE_SETTLING) {//滚动状态
+                } else if (recyclerView.getScrollState() == RecyclerView.SCROLL_STATE_SETTLING) {//滚动状态
                     if (dy < 0 && floatBtn.getVisibility() == View.GONE) {
                         floatBtn.show();//向下滚动状态
                     }
@@ -149,13 +149,16 @@ public abstract class BaseListActivity extends BaseActivity implements OnRefresh
             }
         });
 
-
-        mRecyclerView.addItemDecoration(new DividerItemDecoration(this, DividerItemDecoration
-                .VERTICAL));
-
+        if (isItemDecoration()) {
+            mRecyclerView.addItemDecoration(new DividerItemDecoration(this, DividerItemDecoration
+                    .VERTICAL));
+        }
         onRefresh();
     }
 
+    protected boolean isItemDecoration() {
+        return true;
+    }
 
     private int findMax(int[] lastPositions) {
         int max = lastPositions[0];

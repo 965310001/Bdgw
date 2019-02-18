@@ -1,18 +1,15 @@
 <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:leon="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
+    style="@style/width_match_height_match"
     tools:context=".ui.me.MeFragment">
 
     <android.support.v4.widget.NestedScrollView
         android:id="@+id/content_layout"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        style="@style/width_match_height_match">
 
         <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
+            style="@style/width_match_height_match"
             android:orientation="vertical">
 
             <RelativeLayout
@@ -45,8 +42,7 @@
 
                 <TextView
                     android:id="@+id/tv_login"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
+                    style="@style/width_warp_height_warp"
                     android:layout_below="@id/iv_user_head"
                     android:layout_centerHorizontal="true"
                     android:layout_marginTop="20dp"
@@ -56,8 +52,7 @@
 
                 <TextView
                     android:id="@+id/tv_user_integral"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
+                    style="@style/width_warp_height_warp"
                     android:layout_alignParentStart="true"
                     android:layout_alignParentBottom="true"
                     android:gravity="center"
@@ -67,8 +62,7 @@
 
                 <TextView
                     android:id="@+id/tv_integral_record"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
+                    style="@style/width_warp_height_warp"
                     android:layout_alignParentEnd="true"
                     android:layout_alignParentBottom="true"
                     android:text="积分记录"
@@ -92,8 +86,7 @@
 
             <com.leon.lib.settingview.LSettingItem
                 android:id="@+id/me_item_info_order"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                style="@style/width_match_height_warp"
                 leon:LtextSize="12"
                 leon:isShowRightText="true"
                 leon:leftIcon="@drawable/market_icon_checkbox_checked"
@@ -171,13 +164,11 @@
                     android:gravity="center"
                     android:padding="10dp"
                     android:text="待评价" />
-
             </LinearLayout>
 
             <com.leon.lib.settingview.LSettingItem
                 android:id="@+id/me_item_info_collection"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                style="@style/width_match_height_warp"
                 leon:LtextSize="12"
                 leon:isShowRightText="true"
                 leon:leftIcon="@drawable/market_icon_checkbox_checked"
@@ -188,8 +179,7 @@
 
             <com.leon.lib.settingview.LSettingItem
                 android:id="@+id/me_item_info_address"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                style="@style/width_match_height_warp"
                 leon:LtextSize="12"
                 leon:isShowRightText="true"
                 leon:leftIcon="@drawable/market_icon_checkbox_checked"
@@ -200,10 +190,10 @@
 
             <com.leon.lib.settingview.LSettingItem
                 android:id="@+id/me_item_info_redenvelope"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                style="@style/width_match_height_warp"
                 leon:LtextSize="12"
                 leon:isShowRightText="true"
+                leon:isShowUnderLine="false"
                 leon:leftIcon="@drawable/market_icon_checkbox_checked"
                 leon:leftIconSize="@dimen/image_height_litter"
                 leon:leftText="@string/item_info_redenvelope"
@@ -212,13 +202,12 @@
 
             <View
                 android:layout_width="match_parent"
-                android:layout_height="@dimen/y10"
-                android:background="@color/gray" />
+                android:layout_height="@dimen/basicPaddingSize"
+                android:background="@color/line_color" />
 
             <com.leon.lib.settingview.LSettingItem
                 android:id="@+id/me_item_info_aftersales"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                style="@style/width_match_height_warp"
                 leon:LtextSize="12"
                 leon:isShowRightText="true"
                 leon:leftIcon="@drawable/market_icon_checkbox_checked"
@@ -229,10 +218,10 @@
 
             <com.leon.lib.settingview.LSettingItem
                 android:id="@+id/me_item_info_aftersales_list"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                style="@style/width_match_height_warp"
                 leon:LtextSize="12"
                 leon:isShowRightText="true"
+                leon:isShowUnderLine="false"
                 leon:leftIcon="@drawable/market_icon_checkbox_checked"
                 leon:leftIconSize="@dimen/image_height_litter"
                 leon:leftText="可售后列表"
@@ -241,13 +230,12 @@
 
             <View
                 android:layout_width="match_parent"
-                android:layout_height="@dimen/y10"
-                android:background="@color/gray" />
+                android:layout_height="@dimen/basicPaddingSize"
+                android:background="@color/line_color" />
 
             <com.leon.lib.settingview.LSettingItem
                 android:id="@+id/me_item_info_recommendation"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                style="@style/width_match_height_warp"
                 leon:LtextSize="12"
                 leon:isShowRightText="true"
                 leon:leftIcon="@drawable/market_icon_checkbox_checked"
@@ -258,8 +246,7 @@
 
             <com.leon.lib.settingview.LSettingItem
                 android:id="@+id/me_item_info_money"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                style="@style/width_match_height_warp"
                 leon:LtextSize="12"
                 leon:isShowRightText="true"
                 leon:leftIcon="@drawable/market_icon_checkbox_checked"
@@ -268,14 +255,12 @@
                 leon:leftTextMarginLeft="10dp"
                 leon:rightText="" />
 
-
             <com.leon.lib.settingview.LSettingItem
                 android:id="@+id/me_item_info_help"
-
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                style="@style/width_match_height_warp"
                 leon:LtextSize="12"
                 leon:isShowRightText="true"
+                leon:isShowUnderLine="false"
                 leon:leftIcon="@drawable/market_icon_checkbox_checked"
                 leon:leftIconSize="@dimen/image_height_litter"
                 leon:leftText="使用帮助"
@@ -284,13 +269,12 @@
 
             <View
                 android:layout_width="match_parent"
-                android:layout_height="@dimen/y10"
-                android:background="@color/gray" />
+                android:layout_height="@dimen/basicPaddingSize"
+                android:background="@color/line_color" />
 
             <com.leon.lib.settingview.LSettingItem
                 android:id="@+id/me_item_info_popularize"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                style="@style/width_match_height_warp"
                 leon:LtextSize="12"
                 leon:isShowRightText="true"
                 leon:leftIcon="@drawable/market_icon_checkbox_checked"
