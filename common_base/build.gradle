@@ -28,6 +28,10 @@ android {
                 includeCompileClasspath = true
             }
         }
+
+        /*svg*/
+        vectorDrawables.useSupportLibrary = true
+
     }
 
     buildTypes {

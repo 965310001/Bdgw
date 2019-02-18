@@ -32,38 +32,10 @@ import me.goldze.common.utils.ToastUtils;
 public class MainActivity extends BottomNavigationActivity {
 
     private long mExitTime;
-//    private final long EXIT_TIME = 2000;
 
     @Override
     protected void initData() {
         super.initData();
-
-        //提现
-//        Map<String, Object> map = new HashMap<>();
-//        map.put("status", 0);
-//        ActivityToActivity.toActivity(ARouterConfig.Me.MODIFYACTIVITY, map);
-        /*售后列表*/
-//        startActivity(new Intent(this, AfterSalesListActivity.class));
-
-        /*我要售后*/
-//        startActivity(new Intent(this, AfterSalesActivity.class));
-
-//        startActivity(new Intent(this, TestBaseActivity.class));
-
-        /*物流*/
-//        ActivityToActivity.toActivity(ARouterConfig.Shopping.DELIVERYACTIVITY);
-
-        //购买界面
-//        ActivityToActivity.toActivity(ARouterConfig.classify.BUYACTIVITY);
-//
-//        ActivityToActivity.toActivity(ARouterConfig.Me.COLLECTIONACTIVITY);
-        //我的资金
-//        ActivityToActivity.toActivity(ARouterConfig.Me.FUNDSACTIVITY);
-
-        // TODO: 2019/1/24 测试商品详情
-//        Map<String, String> map = new HashMap<>();
-//        map.put("id","1");
-//        ActivityToActivity.toActivity(ARouterConfig.home.ShoppingDetailsActivity, map);
 
         List<TabViewChild> tabViewChildList = new ArrayList<>();
 

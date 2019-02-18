@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:focusable="true"
@@ -17,15 +18,19 @@
 
         <android.support.design.widget.FloatingActionButton
             android:id="@+id/float_btn"
-            android:layout_width="@dimen/dp_38"
-            android:layout_height="@dimen/dp_38"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
             android:layout_gravity="bottom|end"
             android:layout_margin="16dp"
             android:clickable="true"
-            android:src="@drawable/ic_launcher"
+            android:scaleType="center"
+            android:src="@drawable/ic_back_to_top"
             android:visibility="gone"
+            app:backgroundTint="@color/white"
+            app:borderWidth="0dp"
             app:fabSize="mini"
-            app:rippleColor="@color/orange" />
+
+            tools:ignore="VectorDrawableCompat" />
 
         <include layout="@layout/trecyclerview_base" />
 

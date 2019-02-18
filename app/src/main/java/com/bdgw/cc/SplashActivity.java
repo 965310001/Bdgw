@@ -21,7 +21,6 @@ import me.goldze.common.utils.ActivityToActivity;
 /**
  * 过渡界面
  */
-
 @Route(path = ARouterConfig.SPLASHACTIVITY)
 public class SplashActivity extends BaseActivity {
 

@@ -13,10 +13,20 @@
 
     <!--自定义动画-->
     <style name="FadeActivity" parent="@android:style/Animation.Activity">
-        <item name="android:activityOpenEnterAnimation">@anim/fade_in</item>
-        <item name="android:activityOpenExitAnimation">@anim/fade_out</item>
-        <item name="android:activityCloseEnterAnimation">@anim/fade_in</item>
-        <item name="android:activityCloseExitAnimation">@anim/fade_out</item>
+        <!--<item name="android:activityOpenEnterAnimation">@anim/fade_in</item>-->
+        <!--<item name="android:activityOpenExitAnimation">@anim/fade_out</item>-->
+        <!--<item name="android:activityCloseEnterAnimation">@anim/fade_in</item>-->
+        <!--<item name="android:activityCloseExitAnimation">@anim/fade_out</item>-->
+
+        <!-- 新Activity 进入 -->
+        <item name="android:activityOpenEnterAnimation">@anim/in_from_right</item>
+        <!-- 旧Activity退出 -->
+        <item name="android:activityOpenExitAnimation">@anim/out_to_left</item>
+        <!-- 新Activity退出 -->
+        <item name="android:activityCloseEnterAnimation">@anim/in_from_right</item>
+        <!-- 旧Activity进入 -->
+        <item name="android:activityCloseExitAnimation">@anim/in_from_right</item>
+
     </style>
 
     <!--启动优化-->
@@ -28,7 +38,6 @@
         <item name="android:screenOrientation">portrait</item>
         <item name="android:windowDisablePreview">true</item>
     </style>
-
 
 
 </resources>
