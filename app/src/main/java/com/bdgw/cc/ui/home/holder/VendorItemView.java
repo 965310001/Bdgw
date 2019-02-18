@@ -3,10 +3,8 @@ package com.bdgw.cc.ui.home.holder;
 import android.content.Context;
 import android.graphics.Paint;
 import android.support.annotation.NonNull;
-import android.support.v7.widget.RecyclerView;
 import android.view.View;
 import android.widget.ImageView;
-import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import com.bdgw.cc.R;
@@ -17,7 +15,6 @@ import com.trecyclerview.holder.AbsHolder;
 import com.trecyclerview.holder.AbsItemHolder;
 
 import me.goldze.common.base.event.LiveBus;
-import me.goldze.common.utils.DisplayUtil;
 import me.goldze.common.utils.ImageUtils;
 
 /**
@@ -27,11 +24,11 @@ import me.goldze.common.utils.ImageUtils;
  */
 public class VendorItemView extends AbsItemHolder<GoodsInfo, VendorItemView.ViewHolder> {
 
-    private int commonWidth;
+//    private int commonWidth;
 
     public VendorItemView(Context context) {
         super(context);
-        commonWidth = (int) ((float) DisplayUtil.getScreenWidth(mContext) / 2);
+//        commonWidth = (int) ((float) DisplayUtil.getScreenWidth(mContext) / 2);
     }
 
     @Override
@@ -41,13 +38,13 @@ public class VendorItemView extends AbsItemHolder<GoodsInfo, VendorItemView.View
 
     @Override
     public ViewHolder createViewHolder(View view) {
-        return new VendorItemView.ViewHolder(view);
+        return new ViewHolder(view);
     }
 
     @Override
     protected void onBindViewHolder(@NonNull ViewHolder holder, @NonNull final GoodsInfo data) {
-        LinearLayout.LayoutParams params = new LinearLayout.LayoutParams(
-                commonWidth, (int) (0.56 * commonWidth));
+//        LinearLayout.LayoutParams params = new LinearLayout.LayoutParams(
+//                commonWidth, (int) (0.56 * commonWidth));
 //        holder.mLiveLayout.setLayoutParams(params);
 
         ImageUtils.loadImage((ImageView) holder.getViewById(R.id.iv_img), data.getGoodsMasterImg());
@@ -96,11 +93,11 @@ public class VendorItemView extends AbsItemHolder<GoodsInfo, VendorItemView.View
 
     public static class ViewHolder extends AbsHolder {
 
-        private RecyclerView recyclerView;
+        /*private RecyclerView recyclerView;*/
 
         ViewHolder(@NonNull View itemView) {
             super(itemView);
-            recyclerView = getViewById(R.id.recycler_view);
+            /*recyclerView = getViewById(R.id.recycler_view);*/
         }
     }
 }
