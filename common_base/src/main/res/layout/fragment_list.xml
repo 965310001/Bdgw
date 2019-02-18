@@ -17,16 +17,14 @@
 
         <android.support.design.widget.FloatingActionButton
             android:id="@+id/float_btn"
-            android:layout_width="@dimen/dp_40"
-            android:layout_height="@dimen/dp_40"
+            android:layout_width="@dimen/dp_38"
+            android:layout_height="@dimen/dp_38"
             android:layout_gravity="bottom|end"
             android:layout_margin="16dp"
             android:clickable="true"
             android:src="@drawable/ic_launcher"
             android:visibility="gone"
-            app:elevation="5dp"
             app:fabSize="mini"
-            app:pressedTranslationZ="25dp"
             app:rippleColor="@color/orange" />
 
         <include layout="@layout/trecyclerview_base" />

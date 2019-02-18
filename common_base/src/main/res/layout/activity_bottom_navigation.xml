@@ -20,9 +20,9 @@
         app:tab_tabViewBackgroundColor="@color/white"
         app:tab_tabViewDefaultPosition="0"
         app:tab_tabViewGravity="bottom"
-        app:tab_tabViewHeight="52dp"
+        app:tab_tabViewHeight="50dp"
         app:tab_textViewSelColor="@color/orange"
-        app:tab_textViewSize="14sp"
+        app:tab_textViewSize="@dimen/text_12"
         app:tab_textViewUnSelColor="@color/dark" />
 
 </LinearLayout>

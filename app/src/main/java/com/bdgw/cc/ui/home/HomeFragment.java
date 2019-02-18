@@ -6,6 +6,7 @@ import android.support.annotation.Nullable;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.StaggeredGridLayoutManager;
 import android.view.View;
+import android.widget.TextView;
 
 import com.bdgw.cc.R;
 import com.bdgw.cc.ui.ApiData;
@@ -23,6 +24,7 @@ import com.trecyclerview.listener.OnItemClickListener;
 import java.util.HashMap;
 import java.util.Map;
 
+import butterknife.BindView;
 import me.goldze.common.base.mvvm.base.BaseListFragment;
 import me.goldze.common.constants.ARouterConfig;
 import me.goldze.common.utils.ActivityToActivity;
@@ -30,8 +32,10 @@ import me.goldze.common.utils.ActivityToActivity;
 /**
  * 首页
  */
-public class HomeFragment extends BaseListFragment<MViewModel>
-        implements OnItemClickListener {
+public class HomeFragment extends BaseListFragment<MViewModel> implements OnItemClickListener {
+
+    @BindView(R.id.tv_right)
+    TextView tvRight;
 
     public HomeFragment() {
     }
@@ -44,6 +48,14 @@ public class HomeFragment extends BaseListFragment<MViewModel>
     public void initView(Bundle state) {
         super.initView(state);
         setTitle(getResources().getString(R.string.main_home));
+        tvRight.setVisibility(View.VISIBLE);
+        tvRight.setText("登录");
+        tvRight.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                ActivityToActivity.toActivity(ARouterConfig.LOGINACTIVITY);
+            }
+        });
     }
 
     @Override

@@ -17,7 +17,6 @@ import java.util.HashMap;
 import java.util.Map;
 
 import me.goldze.common.base.mvvm.base.BaseListFragment;
-import me.goldze.common.base.mvvm.stateview.LoadingState;
 import me.goldze.common.constants.ARouterConfig;
 import me.goldze.common.http.rx.RxSubscriber;
 import me.goldze.common.utils.ActivityToActivity;
