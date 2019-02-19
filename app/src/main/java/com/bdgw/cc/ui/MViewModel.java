@@ -47,7 +47,7 @@ public class MViewModel extends AbsViewModel<MViewModel.MRepository> {
 
         public void getBannerData() {
             homeMerge = new HomeMerge();
-            addDisposable(apiService.getBannerData().compose(RxSchedulers.io_main())
+            addDisposable(apiService.getBannerData(1,1,1).compose(RxSchedulers.io_main())
                     .subscribeWith(new MRxSubscriber(Constants.EVENT_KEY_HOME, Constants.EVENT_KEY_WORK_LIST_STATE)));
         }
 

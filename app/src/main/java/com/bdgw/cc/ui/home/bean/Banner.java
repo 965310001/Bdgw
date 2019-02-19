@@ -1,5 +1,7 @@
 package com.bdgw.cc.ui.home.bean;
 
+import com.google.gson.annotations.SerializedName;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -20,6 +22,7 @@ public class Banner extends BaseBean {
 
     private int errorCode;
     private String errorMsg;
+    @SerializedName("banners")
     private List<DataBean> data;
 
     public int getErrorCode() {
@@ -49,17 +52,17 @@ public class Banner extends BaseBean {
     public List<String> getImags() {
         List<String> imags = new ArrayList<>();
         for (DataBean bean : data) {
-            imags.add(bean.getImagePath());
+            imags.add(bean.getPhoto().getThumb());
         }
         return imags;
     }
 
-    public String getTitle(int postion) {
-        return data.get(postion).getTitle();
-    }
+//    public String getTitle(int postion) {
+//        return data.get(postion).getTitle();
+//    }
 
     public String getUrl(int postion) {
-        return data.get(postion).getUrl();
+        return data.get(postion).getLink();
     }
 
     private static class DataBean {
@@ -74,77 +77,177 @@ public class Banner extends BaseBean {
          * url : http://www.wanandroid.com/blog/show/2
          */
 
-        private String desc;
-        private int id;
-        private String imagePath;
-        private int isVisible;
-        private int order;
-        private String title;
-        private int type;
-        private String url;
+//        private String desc;
+//        private int id;
+//        private String imagePath;
+//        private int isVisible;
+//        private int order;
+//        private String title;
+//        private int type;
+//        private String url;
+//
+//        public String getDesc() {
+//            return desc;
+//        }
+//
+//        public void setDesc(String desc) {
+//            this.desc = desc;
+//        }
+//
+//        public int getId() {
+//            return id;
+//        }
+//
+//        public void setId(int id) {
+//            this.id = id;
+//        }
+//
+//        public String getImagePath() {
+//            return imagePath;
+//        }
+//
+//        public void setImagePath(String imagePath) {
+//            this.imagePath = imagePath;
+//        }
+//
+//        public int getIsVisible() {
+//            return isVisible;
+//        }
+//
+//        public void setIsVisible(int isVisible) {
+//            this.isVisible = isVisible;
+//        }
+//
+//        public int getOrder() {
+//            return order;
+//        }
+//
+//        public void setOrder(int order) {
+//            this.order = order;
+//        }
+//
+//        public String getTitle() {
+//            return title;
+//        }
+//
+//        public void setTitle(String title) {
+//            this.title = title;
+//        }
+//
+//        public int getType() {
+//            return type;
+//        }
+//
+//        public void setType(int type) {
+//            this.type = type;
+//        }
+//
+//        private String getUrl() {
+//            return url;
+//        }
+//
+//        public void setUrl(String url) {
+//            this.url = url;
+//        }
 
-        public String getDesc() {
-            return desc;
+        /**
+         * id : 0
+         * photo : {"width":null,"height":null,"thumb":"http://www.biandanwang.cc/data/afficheimg/20161114nraqzu.jpg","large":"http://www.biandanwang.cc/data/afficheimg/20161114nraqzu.jpg"}
+         * link : http://yunqi.shopex.cn
+         * title :
+         * sort : 0
+         */
+
+//        private int id;
+        private PhotoBean photo;
+        private String link;
+//        private String title;
+//        private String sort;
+
+//        public int getId() {
+//            return id;
+//        }
+//
+//        public void setId(int id) {
+//            this.id = id;
+//        }
+
+        public PhotoBean getPhoto() {
+            return photo;
         }
 
-        public void setDesc(String desc) {
-            this.desc = desc;
+        public void setPhoto(PhotoBean photo) {
+            this.photo = photo;
         }
 
-        public int getId() {
-            return id;
+        public String getLink() {
+            return link;
         }
 
-        public void setId(int id) {
-            this.id = id;
+        public void setLink(String link) {
+            this.link = link;
         }
 
-        public String getImagePath() {
-            return imagePath;
-        }
+//        public String getTitle() {
+//            return title;
+//        }
+//
+//        public void setTitle(String title) {
+//            this.title = title;
+//        }
 
-        public void setImagePath(String imagePath) {
-            this.imagePath = imagePath;
-        }
+//        public String getSort() {
+//            return sort;
+//        }
+//
+//        public void setSort(String sort) {
+//            this.sort = sort;
+//        }
 
-        public int getIsVisible() {
-            return isVisible;
-        }
+        public static class PhotoBean {
+            /**
+             * width : null
+             * height : null
+             * thumb : http://www.biandanwang.cc/data/afficheimg/20161114nraqzu.jpg
+             * large : http://www.biandanwang.cc/data/afficheimg/20161114nraqzu.jpg
+             */
 
-        public void setIsVisible(int isVisible) {
-            this.isVisible = isVisible;
-        }
+//            private Object width;
+//            private Object height;
+            private String thumb;
+//            private String large;
 
-        public int getOrder() {
-            return order;
-        }
+//            public Object getWidth() {
+//                return width;
+//            }
+//
+//            public void setWidth(Object width) {
+//                this.width = width;
+//            }
+//
+//            public Object getHeight() {
+//                return height;
+//            }
+//
+//            public void setHeight(Object height) {
+//                this.height = height;
+//            }
 
-        public void setOrder(int order) {
-            this.order = order;
-        }
+            public String getThumb() {
+                return thumb;
+            }
 
-        public String getTitle() {
-            return title;
-        }
+            public void setThumb(String thumb) {
+                this.thumb = thumb;
+            }
 
-        public void setTitle(String title) {
-            this.title = title;
-        }
+          /*  public String getLarge() {
+                return large;
+            }
 
-        public int getType() {
-            return type;
-        }
-
-        public void setType(int type) {
-            this.type = type;
-        }
-
-        private String getUrl() {
-            return url;
-        }
-
-        public void setUrl(String url) {
-            this.url = url;
+            public void setLarge(String large) {
+                this.large = large;
+            }*/
         }
     }
 }

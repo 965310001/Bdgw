@@ -46,7 +46,7 @@ public class SplashActivity extends BaseActivity {
                     @Override
                     public void accept(Long aLong) throws Exception {
                         if (aLong <= count && !timer.isDisposed()) {
-                            KLog.i("" + aLong);
+                            /*KLog.i("" + aLong);*/
                             tvTime.setText((count - aLong) + "秒");
                         } else {
                             ActivityToActivity.toActivity(ARouterConfig.MAINACTIVITY);

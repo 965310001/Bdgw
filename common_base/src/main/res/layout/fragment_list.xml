@@ -29,7 +29,7 @@
             app:backgroundTint="@color/white"
             app:borderWidth="0dp"
             app:fabSize="mini"
-
+app:rippleColor="@color/white"
             tools:ignore="VectorDrawableCompat" />
 
         <include layout="@layout/trecyclerview_base" />

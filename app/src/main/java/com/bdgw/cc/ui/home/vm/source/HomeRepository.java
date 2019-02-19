@@ -28,7 +28,7 @@ public class HomeRepository extends BaseRepository {
     ApiService apiService = RetrofitClient.getInstance().getApiService();
 
     public void loadBannerData() {
-        mBannerObservable = apiService.getBannerData();
+        mBannerObservable = apiService.getBannerData(1,1,1);
     }
 
     public void loadHomeData(String id) {

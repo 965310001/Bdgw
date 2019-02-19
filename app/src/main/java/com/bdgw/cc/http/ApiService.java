@@ -1,6 +1,7 @@
 package com.bdgw.cc.http;
 
 
+import com.bdgw.cc.BuildConfig;
 import com.bdgw.cc.ui.HotKeyInfo;
 import com.bdgw.cc.ui.UserInfo;
 import com.bdgw.cc.ui.bean.AppInfo;
@@ -31,7 +32,7 @@ public interface ApiService {
 
         /*http://api.biandanwang.cc/v2/*/
         /*http://wanandroid.com/*/
-        String Base_URL = "http://wanandroid.com/";
+        String Base_URL = BuildConfig.APP_URL;
 
         /*-------------------------------------------------------------------首页---------------------------------------------------*/
         /*登录*/
@@ -42,10 +43,13 @@ public interface ApiService {
         String CHECKUPDATE = "";
 
         interface home {
+//            String BANNER = "/banner/json";
+//            String HOME_LIST = "/banner/json";
+
             /*轮播图*/
-            String BANNER = "/banner/json";
+            String BANNER = "/v2/ecapi.banner.list";
             /*首页数据*/
-            String HOME_LIST = "/banner/json";
+            String HOME_LIST = "/v2/ecapi.home.product.list";
             /*订单*/
             String ORDER_LIST = "/v2/ecapi.order.list";
             /*红包*/
@@ -103,7 +107,10 @@ public interface ApiService {
 
     /*轮播图*/
     @POST(Api.home.BANNER)
-    Flowable<Banner> getBannerData();
+    @FormUrlEncoded
+    Flowable<Banner> getBannerData(@Field("page") int page,
+                                   @Field("per_page") int per_page,
+                                   @Field("source_type") int source_type);
 
     /*首页数据*/
     @POST(Api.home.HOME_LIST)
