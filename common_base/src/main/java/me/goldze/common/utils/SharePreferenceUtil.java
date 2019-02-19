@@ -67,8 +67,8 @@ public class SharePreferenceUtil {
         getPreferences().edit().putString(KEY_USER, new Gson().toJson(object)).apply();
     }
 
-    public static Object getUser() {
-        return new Gson().fromJson(getPreferences().getString(KEY_USER, null), Object.class);
+    public static Object getUser(Class clazz) {
+        return new Gson().fromJson(getPreferences().getString(KEY_USER, null), clazz);
     }
 
     public static void saveNoImage(boolean isChecked) {

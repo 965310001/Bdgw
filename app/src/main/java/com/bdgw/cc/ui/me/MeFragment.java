@@ -144,11 +144,13 @@ public class MeFragment extends AbsLifecycleFragment<LoginViewModel> {
     }
 
     private void setUser() {
-        UserInfo data = (UserInfo) SharePreferenceUtil.getUser();
-        if (null == data) {
-            KLog.i("userinfo 没有数据");
-        } else {
+        UserInfo data = (UserInfo) SharePreferenceUtil.getUser(UserInfo.class);
+        if (null != data) {
             // TODO: 2019/2/1 设置用户信息
+            KLog.i("设置用户信息");
+            ImageUtils.loadImage(ivUserHead, data.getUser().getAvatar().getThumb());
+        } else {
+            KLog.i("userinfo 没有数据");
         }
     }
 

@@ -36,7 +36,7 @@ public interface ApiService {
 
         /*-------------------------------------------------------------------首页---------------------------------------------------*/
         /*登录*/
-        String LOGIN = "/user/login";
+        String LOGIN = "/v2/ecapi.auth.signin";
         /*注册*/
         String REGISTER = "/user/register";
         /*检查更新*/
@@ -89,7 +89,7 @@ public interface ApiService {
     //Observable Flowable
     @FormUrlEncoded
     @POST(Api.LOGIN)
-    Flowable<BaseResponse<UserInfo>> login(@Field("username") String userName,
+    Flowable<UserInfo> login(@Field("username") String userName,
                                            @Field("password") String password);
 
 
@@ -109,13 +109,11 @@ public interface ApiService {
     @POST(Api.home.BANNER)
     @FormUrlEncoded
     Flowable<Banner> getBannerData(@Field("page") int page,
-                                   @Field("per_page") int per_page,
-                                   @Field("source_type") int source_type);
+                                   @Field("per_page") int per_page);
 
     /*首页数据*/
     @POST(Api.home.HOME_LIST)
-    @FormUrlEncoded
-    Flowable<HomeList> getHomeData(@Field("id") String id);
+    Flowable<HomeList> getHomeData();
 
     /*订单*/
     @FormUrlEncoded

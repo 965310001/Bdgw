@@ -9,6 +9,7 @@ import com.bdgw.cc.ui.home.bean.Banner;
 import com.bdgw.cc.ui.home.bean.HomeList;
 import com.bdgw.cc.ui.home.bean.HomeMerge;
 
+import io.reactivex.Flowable;
 import me.goldze.common.base.mvvm.AbsViewModel;
 import me.goldze.common.base.mvvm.base.BaseRepository;
 import me.goldze.common.base.mvvm.stateview.StateConstants;
@@ -17,7 +18,7 @@ import me.goldze.common.http.rx.RxSubscriber;
 
 /**
  * @author GuoFeng
- * @date : 2019/1/22 16:24
+ * @date : 2019/1/22 16:24EVENT_KEY_HOME
  * @description: 主ViewModel
  */
 public class MViewModel extends AbsViewModel<MViewModel.MRepository> {
@@ -45,10 +46,21 @@ public class MViewModel extends AbsViewModel<MViewModel.MRepository> {
         ApiService apiService = RetrofitClient.getInstance().getApiService();
         private HomeMerge homeMerge;
 
+        private Flowable<Banner> mBannerObservable;
+        private Flowable<HomeList> mHomeListObservable;
+
+
         public void getBannerData() {
             homeMerge = new HomeMerge();
-            addDisposable(apiService.getBannerData(1,1,1).compose(RxSchedulers.io_main())
+            mBannerObservable = apiService.getBannerData(1, 1);
+            mHomeListObservable = apiService.getHomeData();
+            addDisposable(Flowable.concat(mBannerObservable, mHomeListObservable)
+                    .compose(RxSchedulers.io_main())
                     .subscribeWith(new MRxSubscriber(Constants.EVENT_KEY_HOME, Constants.EVENT_KEY_WORK_LIST_STATE)));
+
+//            addDisposable(addDisposable(Flowable.concat(mHomeListObservable, mBannerObservable)
+//                    .compose(RxSchedulers.io_main())
+//                    .subscribeWith(new MRxSubscriber(Constants.EVENT_KEY_HOME, Constants.EVENT_KEY_WORK_LIST_STATE)));
         }
 
         class MRxSubscriber extends RxSubscriber<Object> {
@@ -57,12 +69,12 @@ public class MViewModel extends AbsViewModel<MViewModel.MRepository> {
             public void onSuccess(Object object) {
                 if (object instanceof Banner) {
                     homeMerge.banner = (Banner) object;
-                    sendData(state, homeMerge);
-                    showPageState(listState, StateConstants.SUCCESS_STATE);
+                    /*sendData(state, homeMerge);*/
+                    /*showPageState(listState, StateConstants.SUCCESS_STATE);*/
                 } else if (object instanceof HomeList) {
                     homeMerge.homeList = (HomeList) object;
                     sendData(state, homeMerge);
-                    showPageState(listState, StateConstants.SUCCESS_STATE);
+                    /*showPageState(listState, StateConstants.SUCCESS_STATE);*/
                 }
             }
 

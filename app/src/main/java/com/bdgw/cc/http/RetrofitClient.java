@@ -17,6 +17,7 @@ import me.goldze.common.http.cookie.CookieJarImpl;
 import me.goldze.common.http.cookie.store.PersistentCookieStore;
 import me.goldze.common.http.interceptor.BaseInterceptor;
 import me.goldze.common.http.interceptor.CacheInterceptor;
+import me.goldze.common.http.interceptor.ParameteInterceptor;
 import me.goldze.common.http.interceptor.logging.Level;
 import me.goldze.common.http.interceptor.logging.LoggingInterceptor;
 import me.goldze.common.utils.Utils;
@@ -90,6 +91,7 @@ public class RetrofitClient {
         OkHttpClient okHttpClient = new OkHttpClient.Builder()
                 .cookieJar(new CookieJarImpl(new PersistentCookieStore(Utils.getContext())))
                 .addInterceptor(new BaseInterceptor(headers))
+                .addInterceptor(new ParameteInterceptor())
                 .addInterceptor(new CacheInterceptor(Utils.getContext()))
                 .sslSocketFactory(sslParams.sSLSocketFactory, sslParams.trustManager)
                 .addInterceptor(new LoggingInterceptor

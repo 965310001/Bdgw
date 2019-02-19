@@ -1,5 +1,7 @@
 package com.bdgw.cc.ui.shopping.bean;
 
+import com.google.gson.annotations.SerializedName;
+
 import org.greenrobot.greendao.annotation.Entity;
 import org.greenrobot.greendao.annotation.Generated;
 import org.greenrobot.greendao.annotation.Id;
@@ -16,16 +18,30 @@ import me.goldze.common.base.bean.BaseBean;
  */
 @Entity
 public class GoodsInfo extends BaseBean {
-
     @Id
+    @SerializedName("goods_id")
     private String goodsId;
+    @SerializedName("goods_name")
     private String goodsName;
+    @SerializedName("show_price")
     private String goodsPrice;//商品当前价格
     private String goodsOldPrice;//老价格
+    @SerializedName("goods_image")
     private String goodsMasterImg;//商品主图
     private String praiseRate;//好评率
     private String commentCount;//用户点评数
+    @SerializedName("goods_number")
     private int num;//数量
+
+//    private String goods_img;
+    private int is_promote;
+    private int promote_start_date;
+    private int promote_end_date;
+//    private int goods_number;
+    private String goods_thumb;
+    private int sales_count;
+//    private String show_price;
+    /*private String goods_image;*/
 
     //该字段不入库
     @Transient
@@ -35,9 +51,10 @@ public class GoodsInfo extends BaseBean {
     private List<String> goodsHeadImg;//商品头图
     String vendorId;//供应商ID
 
-    @Generated(hash = 931718353)
+    @Generated(hash = 325643493)
     public GoodsInfo(String goodsId, String goodsName, String goodsPrice, String goodsOldPrice, String goodsMasterImg, String praiseRate,
-            String commentCount, int num, String vendorId) {
+            String commentCount, int num, int is_promote, int promote_start_date, int promote_end_date, String goods_thumb, int sales_count,
+            String vendorId) {
         this.goodsId = goodsId;
         this.goodsName = goodsName;
         this.goodsPrice = goodsPrice;
@@ -46,6 +63,11 @@ public class GoodsInfo extends BaseBean {
         this.praiseRate = praiseRate;
         this.commentCount = commentCount;
         this.num = num;
+        this.is_promote = is_promote;
+        this.promote_start_date = promote_start_date;
+        this.promote_end_date = promote_end_date;
+        this.goods_thumb = goods_thumb;
+        this.sales_count = sales_count;
         this.vendorId = vendorId;
     }
 
@@ -156,6 +178,46 @@ public class GoodsInfo extends BaseBean {
                 ", goodsHeadImg=" + goodsHeadImg +
                 ", vendorId='" + vendorId + '\'' +
                 '}';
+    }
+
+    public int getIs_promote() {
+        return this.is_promote;
+    }
+
+    public void setIs_promote(int is_promote) {
+        this.is_promote = is_promote;
+    }
+
+    public int getPromote_start_date() {
+        return this.promote_start_date;
+    }
+
+    public void setPromote_start_date(int promote_start_date) {
+        this.promote_start_date = promote_start_date;
+    }
+
+    public int getPromote_end_date() {
+        return this.promote_end_date;
+    }
+
+    public void setPromote_end_date(int promote_end_date) {
+        this.promote_end_date = promote_end_date;
+    }
+
+    public String getGoods_thumb() {
+        return this.goods_thumb;
+    }
+
+    public void setGoods_thumb(String goods_thumb) {
+        this.goods_thumb = goods_thumb;
+    }
+
+    public int getSales_count() {
+        return this.sales_count;
+    }
+
+    public void setSales_count(int sales_count) {
+        this.sales_count = sales_count;
     }
 
 }

@@ -13,13 +13,11 @@ import com.xuexiang.xui.widget.edittext.materialedittext.MaterialEditText;
 
 import butterknife.BindView;
 import butterknife.OnClick;
-import me.goldze.common.base.bean.BaseResponse;
 import me.goldze.common.base.mvvm.AbsLifecycleActivity;
 import me.goldze.common.constants.ARouterConfig;
 import me.goldze.common.http.rx.RxSubscriber;
 import me.goldze.common.utils.ActivityToActivity;
 import me.goldze.common.utils.ProgressFragment;
-import me.goldze.common.utils.RegexUtils;
 import me.goldze.common.utils.SharePreferenceUtil;
 import me.goldze.common.utils.ToastUtils;
 import me.goldze.xui.button.TextChangeUtils;
@@ -54,7 +52,9 @@ public class LoginActivity extends AbsLifecycleActivity<LoginViewModel> {
 
         progressFragment = new ProgressFragment();
 
-        TextChangeUtils.observer(btnLogin,etPhone,etPassword);
+        TextChangeUtils.observer(btnLogin, etPhone, etPassword);
+        etPhone.setText("139280079711");
+        etPassword.setText("123456");
     }
 
     @OnClick({R.id.tv_to_register, R.id.btn_login, R.id.tv_retrievet})
@@ -70,15 +70,17 @@ public class LoginActivity extends AbsLifecycleActivity<LoginViewModel> {
 
             case R.id.btn_login:
                 if (checkIsNull()) {
-                    if (TextUtils.isEmpty(phone)) {
+                   /* if (TextUtils.isEmpty(phone)) {
                         etPhone.setError("请输入手机号");
-                    }
+                    }*/
                     if (TextUtils.isEmpty(password)) {
                         etPassword.setError("请输入密码");
                     }
-                } else if (!RegexUtils.isMobileExact(phone)) {
+                }
+               /* else if (!RegexUtils.isMobileExact(phone)) {
                     ToastUtils.showLong("请输入正确的手机号");
-                } else if (password.length() < 6 || password.length() > 15) {
+                }*/
+                else if (password.length() < 6 || password.length() > 15) {
                     ToastUtils.showLong("密码必须在6-15位");
                 } else {
                     if (!progressFragment.isVisible()) {
@@ -91,24 +93,17 @@ public class LoginActivity extends AbsLifecycleActivity<LoginViewModel> {
     }
 
     private void login(final String phone, String password) {
-        ApiRepo.login(phone, password).subscribeWith(new RxSubscriber<BaseResponse<UserInfo>>() {
+        ApiRepo.login(phone, password).subscribeWith(new RxSubscriber<UserInfo>() {
 
             @Override
-            public void onSuccess(BaseResponse<UserInfo> response) {
+            public void onSuccess(UserInfo response) {
                 if (progressFragment.getDialog().isShowing()) {
                     progressFragment.dismiss();
                 }
-
-                KLog.i(response.getErrorMsg() + response.getErrorCode());
-
                 if (!response.isSuccess()) {
                     ToastUtils.showLong(response.getErrorMsg());
                 } else {
-                    SharePreferenceUtil.saveUser(response.getData());
-                    if (phone.equals("15949629529")) {
-                        ActivityToActivity.toActivity(ARouterConfig.MAINACTIVITY);
-                        finish();
-                    }
+                    SharePreferenceUtil.saveUser(response);
                     ActivityToActivity.toActivity(ARouterConfig.MAINACTIVITY);
                     finish();
                 }

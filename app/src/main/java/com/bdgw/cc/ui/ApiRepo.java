@@ -21,8 +21,8 @@ public final class ApiRepo {
     /*-------------------------------------------------------------------首页----------------------------------------------------------------*/
 
     /*登录*/
-    public static Flowable<BaseResponse<UserInfo>> login(String phone, String password) {
-        return apiService.login(phone, password).compose(RxSchedulers.<BaseResponse<UserInfo>>io_main());
+    public static Flowable<UserInfo> login(String phone, String password) {
+        return apiService.login(phone, password).compose(RxSchedulers.<UserInfo>io_main());
     }
 
     /*注册*/

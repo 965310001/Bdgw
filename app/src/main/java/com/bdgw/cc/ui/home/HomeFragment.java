@@ -9,7 +9,6 @@ import android.view.View;
 import android.widget.TextView;
 
 import com.bdgw.cc.R;
-import com.bdgw.cc.ui.ApiData;
 import com.bdgw.cc.ui.Constants;
 import com.bdgw.cc.ui.MViewModel;
 import com.bdgw.cc.ui.adapter.AdapterPool;
@@ -86,6 +85,7 @@ public class HomeFragment extends BaseListFragment<MViewModel> implements OnItem
                     @Override
                     public void onChanged(@Nullable HomeMerge homeMerge) {
                         if (null != homeMerge) {
+                            showSuccess();
                             addItems(homeMerge);
                         }
                     }
@@ -96,10 +96,13 @@ public class HomeFragment extends BaseListFragment<MViewModel> implements OnItem
         newItems.add(homeMergeVo.banner);
         newItems.add(new CatagoryInfo());
 
-        newItems.add(new TypeInfo("热门推荐"));
-        newItems.addAll(ApiData.getGoodsInfos());
+        /*newItems.addAll(ApiData.getGoodsInfos());*/
+        newItems.add(new TypeInfo("精品推荐"));
+        newItems.addAll(homeMergeVo.homeList.getGood_products());
         newItems.add(new TypeInfo("销量排行"));
-        newItems.addAll(ApiData.getGoodsInfos());
+        newItems.addAll(homeMergeVo.homeList.getHot_products());
+        newItems.add(new TypeInfo("新品上架"));
+        newItems.addAll(homeMergeVo.homeList.getRecently_products());
 
         oldItems.clear();
         oldItems.addAll(newItems);
