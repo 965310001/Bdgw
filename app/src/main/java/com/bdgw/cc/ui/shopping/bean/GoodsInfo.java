@@ -18,9 +18,12 @@ import me.goldze.common.base.bean.BaseBean;
  */
 @Entity
 public class GoodsInfo extends BaseBean {
+    @SerializedName("product")
+    private GoodsInfo data;
     @Id
     @SerializedName("goods_id")
-    private String goodsId;
+    private long goodsId;
+//    private String goodsId;
     @SerializedName("goods_name")
     private String goodsName;
     @SerializedName("show_price")
@@ -52,7 +55,7 @@ public class GoodsInfo extends BaseBean {
     String vendorId;//供应商ID
 
     @Generated(hash = 325643493)
-    public GoodsInfo(String goodsId, String goodsName, String goodsPrice, String goodsOldPrice, String goodsMasterImg, String praiseRate,
+    public GoodsInfo(long goodsId, String goodsName, String goodsPrice, String goodsOldPrice, String goodsMasterImg, String praiseRate,
             String commentCount, int num, int is_promote, int promote_start_date, int promote_end_date, String goods_thumb, int sales_count,
             String vendorId) {
         this.goodsId = goodsId;
@@ -75,11 +78,19 @@ public class GoodsInfo extends BaseBean {
     public GoodsInfo() {
     }
 
-    public String getGoodsId() {
+    public GoodsInfo getData() {
+        return data;
+    }
+
+    public void setData(GoodsInfo data) {
+        this.data = data;
+    }
+
+    public long getGoodsId() {
         return goodsId;
     }
 
-    public void setGoodsId(String goodsId) {
+    public void setGoodsId(long goodsId) {
         this.goodsId = goodsId;
     }
 

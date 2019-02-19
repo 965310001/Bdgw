@@ -4,7 +4,9 @@ import com.bdgw.cc.http.ApiService;
 import com.bdgw.cc.http.RetrofitClient;
 import com.bdgw.cc.ui.classify.bean.ClassificationInfo;
 import com.bdgw.cc.ui.home.bean.SearchInfo;
+import com.bdgw.cc.ui.home.holder.CatagoryInfo;
 import com.bdgw.cc.ui.me.bean.AddressInfo;
+import com.bdgw.cc.ui.shopping.bean.GoodsInfo;
 
 import io.reactivex.Flowable;
 import me.goldze.common.base.bean.BaseResponse;
@@ -30,8 +32,13 @@ public final class ApiRepo {
         return apiService.register(phone, password, repassword).compose(RxSchedulers.<BaseResponse<UserInfo>>io_main());
     }
 
+    /*菜单*/
+    public static Flowable<CatagoryInfo> getMenu() {
+        return apiService.getMenu().compose(RxSchedulers.<CatagoryInfo>io_main());
+    }
 
-    /*搜索体系*/
+
+    /*热搜*/
     public static Flowable<HotKeyInfo> getHotKeys() {
         return apiService.getHotkeyData().compose(RxSchedulers.<HotKeyInfo>io_main());
     }
@@ -42,9 +49,21 @@ public final class ApiRepo {
     }
 
     /*-------------------------------------------------------------------分类---------------------------------------------------*/
+
+
+    /*-------------------------------------------------------------------购物车---------------------------------------------------*/
     /*左边listview*/
     public static Flowable<ClassificationInfo> getTreeData() {
-        return apiService.getTreeData().compose(RxSchedulers.<ClassificationInfo>io_main());
+        return apiService.getTreeData(1, 10, 1).compose(RxSchedulers.<ClassificationInfo>io_main());
+    }
+
+//    public static Flowable<ClassificationInfo> getTreeRightData(int category) {
+//        return apiService.getTreeRightData(category).compose(RxSchedulers.<ClassificationInfo>io_main());
+//    }
+
+    /*商品详情*/
+    public static Flowable<GoodsInfo> getProduct(long product) {
+        return apiService.getProduct(product).compose(RxSchedulers.<GoodsInfo>io_main());
     }
 
 

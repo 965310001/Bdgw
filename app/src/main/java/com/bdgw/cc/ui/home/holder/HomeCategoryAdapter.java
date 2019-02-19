@@ -3,7 +3,6 @@ package com.bdgw.cc.ui.home.holder;
 import android.content.Context;
 import android.support.annotation.Nullable;
 import android.widget.ImageView;
-import android.widget.TextView;
 
 import com.bdgw.cc.R;
 
@@ -24,12 +23,14 @@ public class HomeCategoryAdapter extends BaseRecyclerAdapter<CatagoryInfo.Catago
         super(context, list, R.layout.item_classify);
     }
 
-    @Override
-    protected void convert(BaseViewHolder holder, final CatagoryInfo.Catagory catagory, int position, List payloads) {
-        ImageView categroyIcon = holder.getView(R.id.iv_classify);
-        TextView categroyName = holder.getView(R.id.tv_classify);
+    ImageView categroyIcon;
 
-        categroyName.setText(catagory.title);
-        ImageUtils.loadImage(categroyIcon, catagory.resId);
+    @Override
+    protected void convert(BaseViewHolder holder, final CatagoryInfo.Catagory data, int position, List payloads) {
+        categroyIcon = holder.getView(R.id.iv_classify);
+        holder.setText(R.id.tv_classify, data.getTitle());
+
+        data.setLink("https://img14.360buyimg.com/focus/s140x140_jfs/t27136/183/1628977274/31007/a6f7ed55/5be6ebd8Nb07ef492.png");
+        ImageUtils.loadImage(categroyIcon, data.getLink());
     }
 }

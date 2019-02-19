@@ -1,133 +1,1077 @@
 {
-  "data": [
+  "categories": [
     {
-      "children": [
+      "icon": "https://img14.360buyimg.com/focus/s140x140_jfs/t27136/183/1628977274/31007/a6f7ed55/5be6ebd8Nb07ef492.png",
+      "id": 797,
+      "name": "网络/办公/安防",
+      "desc": "",
+      "more": 1,
+      "categories": [
         {
-          "children": [
+          "icon": "https://img14.360buyimg.com/focus/s140x140_jfs/t27136/183/1628977274/31007/a6f7ed55/5be6ebd8Nb07ef492.png",
+          "id": 1437,
+          "name": "办公机器",
+          "desc": "",
+          "more": 0,
+          "categories": [
             {
-              "courseId": 13,
-              "id": 26,
-              "name": "夹克",
-              "order": 15000,
-              "parentChapterId": 25,
-              "userControlSetTop": false,
-              "visible": 1
+              "icon": "https://img14.360buyimg.com/focus/s140x140_jfs/t27136/183/1628977274/31007/a6f7ed55/5be6ebd8Nb07ef492.png",
+              "id": 1447,
+              "name": "打印机",
+              "desc": "",
+              "more": 0
             },
             {
-              "courseId": 13,
-              "id": 26,
-              "name": "T恤",
-              "order": 15000,
-              "parentChapterId": 25,
-              "userControlSetTop": false,
-              "visible": 1
+              "icon": "https://img14.360buyimg.com/focus/s140x140_jfs/t27136/183/1628977274/31007/a6f7ed55/5be6ebd8Nb07ef492.png",
+              "id": 1448,
+              "name": "多功能一体机",
+              "desc": "",
+              "more": 0
             },
             {
-              "courseId": 13,
-              "id": 26,
-              "name": "针织衫",
-              "order": 15000,
-              "parentChapterId": 25,
-              "userControlSetTop": false,
-              "visible": 1
+              "icon": "https://img14.360buyimg.com/focus/s140x140_jfs/t27136/183/1628977274/31007/a6f7ed55/5be6ebd8Nb07ef492.png",
+              "id": 1449,
+              "name": "投影机",
+              "desc": "",
+              "more": 0
             },
             {
-              "courseId": 13,
-              "id": 26,
-              "name": "衬衫",
-              "order": 15000,
-              "parentChapterId": 25,
-              "userControlSetTop": false,
-              "visible": 1
+              "icon": "https://img14.360buyimg.com/focus/s140x140_jfs/t27136/183/1628977274/31007/a6f7ed55/5be6ebd8Nb07ef492.png",
+              "id": 1450,
+              "name": "复印机",
+              "desc": "",
+              "more": 0
+            },
+            {
+              "icon": "https://img14.360buyimg.com/focus/s140x140_jfs/t27136/183/1628977274/31007/a6f7ed55/5be6ebd8Nb07ef492.png",
+              "id": 1451,
+              "name": "扫描设备",
+              "desc": "",
+              "more": 0
+            },
+            {
+              "icon": "https://img14.360buyimg.com/focus/s140x140_jfs/t27136/183/1628977274/31007/a6f7ed55/5be6ebd8Nb07ef492.png",
+              "id": 1453,
+              "name": "点钞、验钞机",
+              "desc": "",
+              "more": 0
+            },
+            {
+              "icon": "https://img14.360buyimg.com/focus/s140x140_jfs/t27136/183/1628977274/31007/a6f7ed55/5be6ebd8Nb07ef492.png",
+              "id": 1454,
+              "name": "碎纸机",
+              "desc": "",
+              "more": 0
+            },
+            {
+              "icon": "https://img14.360buyimg.com/focus/s140x140_jfs/t27136/183/1628977274/31007/a6f7ed55/5be6ebd8Nb07ef492.png",
+              "id": 1455,
+              "name": "考勤、门禁",
+              "desc": "",
+              "more": 0
+            },
+            {
+              "icon": "https://img14.360buyimg.com/focus/s140x140_jfs/t27136/183/1628977274/31007/a6f7ed55/5be6ebd8Nb07ef492.png",
+              "id": 1456,
+              "name": "收银机",
+              "desc": "",
+              "more": 0
+            },
+            {
+              "icon": "https://img14.360buyimg.com/focus/s140x140_jfs/t27136/183/1628977274/31007/a6f7ed55/5be6ebd8Nb07ef492.png",
+              "id": 1457,
+              "name": "会议音频视频",
+              "desc": "",
+              "more": 0
+            },
+            {
+              "icon": "https://img14.360buyimg.com/focus/s140x140_jfs/t27136/183/1628977274/31007/a6f7ed55/5be6ebd8Nb07ef492.png",
+              "id": 1458,
+              "name": "装订、封装机",
+              "desc": "",
+              "more": 0
+            },
+            {
+              "icon": "https://img14.360buyimg.com/focus/s140x140_jfs/t27136/183/1628977274/31007/a6f7ed55/5be6ebd8Nb07ef492.png",
+              "id": 1504,
+              "name": "传真机",
+              "desc": "",
+              "more": 0
             }
-          ],
-          "courseId": 13,
-          "id": 60,
-          "name": "热卖选购",
-          "order": 1000,
-          "parentChapterId": 150,
-          "userControlSetTop": false,
-          "visible": 1
+          ]
         },
         {
-          "children": [
+          "icon": "https://img14.360buyimg.com/focus/s140x140_jfs/t27136/183/1628977274/31007/a6f7ed55/5be6ebd8Nb07ef492.png",
+          "id": 1438,
+          "name": "安防监控",
+          "desc": "",
+          "more": 0,
+          "categories": [
             {
-              "courseId": 13,
-              "id": 26,
-              "name": "新品T恤",
-              "order": 15000,
-              "parentChapterId": 25,
-              "userControlSetTop": false,
-              "visible": 1
+              "icon": "https://img14.360buyimg.com/focus/s140x140_jfs/t27136/183/1628977274/31007/a6f7ed55/5be6ebd8Nb07ef492.png",
+              "id": 1459,
+              "name": "网络枪机",
+              "desc": "",
+              "more": 0
             },
             {
-              "courseId": 13,
-              "id": 26,
-              "name": "短袖T恤",
-              "order": 15000,
-              "parentChapterId": 25,
-              "userControlSetTop": false,
-              "visible": 1
+              "icon": "https://img14.360buyimg.com/focus/s140x140_jfs/t27136/183/1628977274/31007/a6f7ed55/5be6ebd8Nb07ef492.png",
+              "id": 1460,
+              "name": "网络半球",
+              "desc": "",
+              "more": 0
             },
             {
-              "courseId": 13,
-              "id": 26,
-              "name": "新品衬衫",
-              "order": 15000,
-              "parentChapterId": 25,
-              "userControlSetTop": false,
-              "visible": 1
+              "icon": "https://img14.360buyimg.com/focus/s140x140_jfs/t27136/183/1628977274/31007/a6f7ed55/5be6ebd8Nb07ef492.png",
+              "id": 1461,
+              "name": "智能球机",
+              "desc": "",
+              "more": 0
+            },
+            {
+              "icon": "https://img14.360buyimg.com/focus/s140x140_jfs/t27136/183/1628977274/31007/a6f7ed55/5be6ebd8Nb07ef492.png",
+              "id": 1462,
+              "name": "智能摄像头",
+              "desc": "",
+              "more": 0
+            },
+            {
+              "icon": "https://img14.360buyimg.com/focus/s140x140_jfs/t27136/183/1628977274/31007/a6f7ed55/5be6ebd8Nb07ef492.png",
+              "id": 1463,
+              "name": "硬盘录像机",
+              "desc": "",
+              "more": 0
+            },
+            {
+              "icon": "https://img14.360buyimg.com/focus/s140x140_jfs/t27136/183/1628977274/31007/a6f7ed55/5be6ebd8Nb07ef492.png",
+              "id": 1464,
+              "name": "监控配件",
+              "desc": "",
+              "more": 0
+            },
+            {
+              "icon": "https://img14.360buyimg.com/focus/s140x140_jfs/t27136/183/1628977274/31007/a6f7ed55/5be6ebd8Nb07ef492.png",
+              "id": 1465,
+              "name": "同轴高清",
+              "desc": "",
+              "more": 0
+            },
+            {
+              "icon": "https://img14.360buyimg.com/focus/s140x140_jfs/t27136/183/1628977274/31007/a6f7ed55/5be6ebd8Nb07ef492.png",
+              "id": 1500,
+              "name": "模拟监控",
+              "desc": "",
+              "more": 0
             }
-          ],
-          "courseId": 13,
-          "id": 169,
-          "name": "男士内搭",
-          "order": 1001,
-          "parentChapterId": 150,
-          "userControlSetTop": false,
-          "visible": 1
+          ]
+        },
+        {
+          "icon": "https://img14.360buyimg.com/focus/s140x140_jfs/t27136/183/1628977274/31007/a6f7ed55/5be6ebd8Nb07ef492.png",
+          "id": 1441,
+          "name": "文具",
+          "desc": "",
+          "more": 0,
+          "categories": [
+            {
+              "icon": "https://img14.360buyimg.com/focus/s140x140_jfs/t27136/183/1628977274/31007/a6f7ed55/5be6ebd8Nb07ef492.png",
+              "id": 1477,
+              "name": "书写工具",
+              "desc": "",
+              "more": 0
+            },
+            {
+              "icon": "https://img14.360buyimg.com/focus/s140x140_jfs/t27136/183/1628977274/31007/a6f7ed55/5be6ebd8Nb07ef492.png",
+              "id": 1478,
+              "name": "文件管理",
+              "desc": "",
+              "more": 0
+            },
+            {
+              "icon": "https://img14.360buyimg.com/focus/s140x140_jfs/t27136/183/1628977274/31007/a6f7ed55/5be6ebd8Nb07ef492.png",
+              "id": 1479,
+              "name": "本册/便签",
+              "desc": "",
+              "more": 0
+            },
+            {
+              "icon": "https://img14.360buyimg.com/focus/s140x140_jfs/t27136/183/1628977274/31007/a6f7ed55/5be6ebd8Nb07ef492.png",
+              "id": 1480,
+              "name": "学生文具",
+              "desc": "",
+              "more": 0
+            },
+            {
+              "icon": "https://img14.360buyimg.com/focus/s140x140_jfs/t27136/183/1628977274/31007/a6f7ed55/5be6ebd8Nb07ef492.png",
+              "id": 1481,
+              "name": "办公文具",
+              "desc": "",
+              "more": 0
+            },
+            {
+              "icon": "https://img14.360buyimg.com/focus/s140x140_jfs/t27136/183/1628977274/31007/a6f7ed55/5be6ebd8Nb07ef492.png",
+              "id": 1482,
+              "name": "计算器",
+              "desc": "",
+              "more": 0
+            },
+            {
+              "icon": "https://img14.360buyimg.com/focus/s140x140_jfs/t27136/183/1628977274/31007/a6f7ed55/5be6ebd8Nb07ef492.png",
+              "id": 1483,
+              "name": "画具画材",
+              "desc": "",
+              "more": 0
+            },
+            {
+              "icon": "https://img14.360buyimg.com/focus/s140x140_jfs/t27136/183/1628977274/31007/a6f7ed55/5be6ebd8Nb07ef492.png",
+              "id": 1484,
+              "name": "财会用品",
+              "desc": "",
+              "more": 0
+            }
+          ]
+        },
+        {
+          "icon": "https://img14.360buyimg.com/focus/s140x140_jfs/t27136/183/1628977274/31007/a6f7ed55/5be6ebd8Nb07ef492.png",
+          "id": 1443,
+          "name": "办公耗材",
+          "desc": "",
+          "more": 0,
+          "categories": [
+            {
+              "icon": "https://img14.360buyimg.com/focus/s140x140_jfs/t27136/183/1628977274/31007/a6f7ed55/5be6ebd8Nb07ef492.png",
+              "id": 1466,
+              "name": "硒鼓",
+              "desc": "",
+              "more": 0
+            },
+            {
+              "icon": "https://img14.360buyimg.com/focus/s140x140_jfs/t27136/183/1628977274/31007/a6f7ed55/5be6ebd8Nb07ef492.png",
+              "id": 1467,
+              "name": "碳粉",
+              "desc": "",
+              "more": 0
+            },
+            {
+              "icon": "https://img14.360buyimg.com/focus/s140x140_jfs/t27136/183/1628977274/31007/a6f7ed55/5be6ebd8Nb07ef492.png",
+              "id": 1468,
+              "name": "墨盒/墨水",
+              "desc": "",
+              "more": 0
+            },
+            {
+              "icon": "https://img14.360buyimg.com/focus/s140x140_jfs/t27136/183/1628977274/31007/a6f7ed55/5be6ebd8Nb07ef492.png",
+              "id": 1469,
+              "name": "纸类",
+              "desc": "",
+              "more": 0
+            },
+            {
+              "icon": "https://img14.360buyimg.com/focus/s140x140_jfs/t27136/183/1628977274/31007/a6f7ed55/5be6ebd8Nb07ef492.png",
+              "id": 1470,
+              "name": "刻录碟/光盘",
+              "desc": "",
+              "more": 0
+            },
+            {
+              "icon": "https://img14.360buyimg.com/focus/s140x140_jfs/t27136/183/1628977274/31007/a6f7ed55/5be6ebd8Nb07ef492.png",
+              "id": 1503,
+              "name": "色带架/色带芯",
+              "desc": "",
+              "more": 0
+            }
+          ]
+        },
+        {
+          "icon": "https://img14.360buyimg.com/focus/s140x140_jfs/t27136/183/1628977274/31007/a6f7ed55/5be6ebd8Nb07ef492.png",
+          "id": 1471,
+          "name": "网络产品",
+          "desc": "",
+          "more": 0,
+          "categories": [
+            {
+              "icon": "https://img14.360buyimg.com/focus/s140x140_jfs/t27136/183/1628977274/31007/a6f7ed55/5be6ebd8Nb07ef492.png",
+              "id": 1472,
+              "name": "路由器",
+              "desc": "",
+              "more": 0
+            },
+            {
+              "icon": "https://img14.360buyimg.com/focus/s140x140_jfs/t27136/183/1628977274/31007/a6f7ed55/5be6ebd8Nb07ef492.png",
+              "id": 1473,
+              "name": "交换机",
+              "desc": "",
+              "more": 0
+            },
+            {
+              "icon": "https://img14.360buyimg.com/focus/s140x140_jfs/t27136/183/1628977274/31007/a6f7ed55/5be6ebd8Nb07ef492.png",
+              "id": 1474,
+              "name": "机顶盒",
+              "desc": "",
+              "more": 0
+            },
+            {
+              "icon": "https://img14.360buyimg.com/focus/s140x140_jfs/t27136/183/1628977274/31007/a6f7ed55/5be6ebd8Nb07ef492.png",
+              "id": 1475,
+              "name": "网卡",
+              "desc": "",
+              "more": 0
+            },
+            {
+              "icon": "https://img14.360buyimg.com/focus/s140x140_jfs/t27136/183/1628977274/31007/a6f7ed55/5be6ebd8Nb07ef492.png",
+              "id": 1476,
+              "name": "网络配件",
+              "desc": "",
+              "more": 0
+            },
+            {
+              "icon": "https://img14.360buyimg.com/focus/s140x140_jfs/t27136/183/1628977274/31007/a6f7ed55/5be6ebd8Nb07ef492.png",
+              "id": 1493,
+              "name": "AP/信号增强",
+              "desc": "",
+              "more": 0
+            },
+            {
+              "icon": "https://img14.360buyimg.com/focus/s140x140_jfs/t27136/183/1628977274/31007/a6f7ed55/5be6ebd8Nb07ef492.png",
+              "id": 1494,
+              "name": "光纤类/光猫",
+              "desc": "",
+              "more": 0
+            }
+          ]
         }
-      ],
-      "courseId": 13,
-      "id": 150,
-      "name": "男装",
-      "order": 1,
-      "parentChapterId": 0,
-      "userControlSetTop": false,
-      "visible": 1
+      ]
     },
     {
-      "children": [
+      "icon": "https://img14.360buyimg.com/focus/s140x140_jfs/t27136/183/1628977274/31007/a6f7ed55/5be6ebd8Nb07ef492.png",
+      "id": 786,
+      "name": "电脑相关/网吧",
+      "desc": "",
+      "more": 1,
+      "categories": [
         {
-          "children": [
+          "icon": "https://img14.360buyimg.com/focus/s140x140_jfs/t27136/183/1628977274/31007/a6f7ed55/5be6ebd8Nb07ef492.png",
+          "id": 1390,
+          "name": "电脑整机",
+          "desc": "",
+          "more": 0,
+          "categories": [
             {
-              "courseId": 13,
-              "id": 26,
-              "name": "打底衫",
-              "order": 15000,
-              "parentChapterId": 25,
-              "userControlSetTop": false,
-              "visible": 1
+              "icon": "https://img14.360buyimg.com/focus/s140x140_jfs/t27136/183/1628977274/31007/a6f7ed55/5be6ebd8Nb07ef492.png",
+              "id": 1393,
+              "name": "笔记本",
+              "desc": "",
+              "more": 0
+            },
+            {
+              "icon": "https://img14.360buyimg.com/focus/s140x140_jfs/t27136/183/1628977274/31007/a6f7ed55/5be6ebd8Nb07ef492.png",
+              "id": 1394,
+              "name": "台式电脑",
+              "desc": "",
+              "more": 0
+            },
+            {
+              "icon": "https://img14.360buyimg.com/focus/s140x140_jfs/t27136/183/1628977274/31007/a6f7ed55/5be6ebd8Nb07ef492.png",
+              "id": 1395,
+              "name": "平板电脑",
+              "desc": "",
+              "more": 0
+            },
+            {
+              "icon": "https://img14.360buyimg.com/focus/s140x140_jfs/t27136/183/1628977274/31007/a6f7ed55/5be6ebd8Nb07ef492.png",
+              "id": 1505,
+              "name": "一体机",
+              "desc": "",
+              "more": 0
             }
-          ],
-          "courseId": 13,
-          "id": 60,
-          "name": "上装",
-          "order": 1000,
-          "parentChapterId": 150,
-          "userControlSetTop": false,
-          "visible": 1
+          ]
+        },
+        {
+          "icon": "https://img14.360buyimg.com/focus/s140x140_jfs/t27136/183/1628977274/31007/a6f7ed55/5be6ebd8Nb07ef492.png",
+          "id": 1391,
+          "name": "电脑配件",
+          "desc": "",
+          "more": 0,
+          "categories": [
+            {
+              "icon": "https://img14.360buyimg.com/focus/s140x140_jfs/t27136/183/1628977274/31007/a6f7ed55/5be6ebd8Nb07ef492.png",
+              "id": 1396,
+              "name": "主板",
+              "desc": "",
+              "more": 0
+            },
+            {
+              "icon": "https://img14.360buyimg.com/focus/s140x140_jfs/t27136/183/1628977274/31007/a6f7ed55/5be6ebd8Nb07ef492.png",
+              "id": 1397,
+              "name": "内存",
+              "desc": "",
+              "more": 0
+            },
+            {
+              "icon": "https://img14.360buyimg.com/focus/s140x140_jfs/t27136/183/1628977274/31007/a6f7ed55/5be6ebd8Nb07ef492.png",
+              "id": 1398,
+              "name": "CPU",
+              "desc": "",
+              "more": 0
+            },
+            {
+              "icon": "https://img14.360buyimg.com/focus/s140x140_jfs/t27136/183/1628977274/31007/a6f7ed55/5be6ebd8Nb07ef492.png",
+              "id": 1399,
+              "name": "硬盘",
+              "desc": "",
+              "more": 0
+            },
+            {
+              "icon": "https://img14.360buyimg.com/focus/s140x140_jfs/t27136/183/1628977274/31007/a6f7ed55/5be6ebd8Nb07ef492.png",
+              "id": 1400,
+              "name": "SSD固态硬盘",
+              "desc": "",
+              "more": 0
+            },
+            {
+              "icon": "https://img14.360buyimg.com/focus/s140x140_jfs/t27136/183/1628977274/31007/a6f7ed55/5be6ebd8Nb07ef492.png",
+              "id": 1401,
+              "name": "机箱",
+              "desc": "",
+              "more": 0
+            },
+            {
+              "icon": "https://img14.360buyimg.com/focus/s140x140_jfs/t27136/183/1628977274/31007/a6f7ed55/5be6ebd8Nb07ef492.png",
+              "id": 1402,
+              "name": "电脑电源",
+              "desc": "",
+              "more": 0
+            },
+            {
+              "icon": "https://img14.360buyimg.com/focus/s140x140_jfs/t27136/183/1628977274/31007/a6f7ed55/5be6ebd8Nb07ef492.png",
+              "id": 1403,
+              "name": "刻录机/光驱",
+              "desc": "",
+              "more": 0
+            },
+            {
+              "icon": "https://img14.360buyimg.com/focus/s140x140_jfs/t27136/183/1628977274/31007/a6f7ed55/5be6ebd8Nb07ef492.png",
+              "id": 1404,
+              "name": "显卡",
+              "desc": "",
+              "more": 0
+            },
+            {
+              "icon": "https://img14.360buyimg.com/focus/s140x140_jfs/t27136/183/1628977274/31007/a6f7ed55/5be6ebd8Nb07ef492.png",
+              "id": 1405,
+              "name": "声卡/扩展卡",
+              "desc": "",
+              "more": 0
+            },
+            {
+              "icon": "https://img14.360buyimg.com/focus/s140x140_jfs/t27136/183/1628977274/31007/a6f7ed55/5be6ebd8Nb07ef492.png",
+              "id": 1406,
+              "name": "显示器",
+              "desc": "",
+              "more": 0
+            },
+            {
+              "icon": "https://img14.360buyimg.com/focus/s140x140_jfs/t27136/183/1628977274/31007/a6f7ed55/5be6ebd8Nb07ef492.png",
+              "id": 1407,
+              "name": "散热及配件",
+              "desc": "",
+              "more": 0
+            }
+          ]
+        },
+        {
+          "icon": "https://img14.360buyimg.com/focus/s140x140_jfs/t27136/183/1628977274/31007/a6f7ed55/5be6ebd8Nb07ef492.png",
+          "id": 1392,
+          "name": "外设产品",
+          "desc": "",
+          "more": 0,
+          "categories": [
+            {
+              "icon": "https://img14.360buyimg.com/focus/s140x140_jfs/t27136/183/1628977274/31007/a6f7ed55/5be6ebd8Nb07ef492.png",
+              "id": 1408,
+              "name": "键鼠",
+              "desc": "",
+              "more": 0
+            },
+            {
+              "icon": "https://img14.360buyimg.com/focus/s140x140_jfs/t27136/183/1628977274/31007/a6f7ed55/5be6ebd8Nb07ef492.png",
+              "id": 1409,
+              "name": "读卡器、HUB",
+              "desc": "",
+              "more": 0
+            },
+            {
+              "icon": "https://img14.360buyimg.com/focus/s140x140_jfs/t27136/183/1628977274/31007/a6f7ed55/5be6ebd8Nb07ef492.png",
+              "id": 1410,
+              "name": "音箱、音响",
+              "desc": "",
+              "more": 0
+            },
+            {
+              "icon": "https://img14.360buyimg.com/focus/s140x140_jfs/t27136/183/1628977274/31007/a6f7ed55/5be6ebd8Nb07ef492.png",
+              "id": 1411,
+              "name": "耳机、耳塞",
+              "desc": "",
+              "more": 0
+            },
+            {
+              "icon": "https://img14.360buyimg.com/focus/s140x140_jfs/t27136/183/1628977274/31007/a6f7ed55/5be6ebd8Nb07ef492.png",
+              "id": 1412,
+              "name": "插座、排插",
+              "desc": "",
+              "more": 0
+            },
+            {
+              "icon": "https://img14.360buyimg.com/focus/s140x140_jfs/t27136/183/1628977274/31007/a6f7ed55/5be6ebd8Nb07ef492.png",
+              "id": 1413,
+              "name": "线缆类",
+              "desc": "",
+              "more": 0
+            },
+            {
+              "icon": "https://img14.360buyimg.com/focus/s140x140_jfs/t27136/183/1628977274/31007/a6f7ed55/5be6ebd8Nb07ef492.png",
+              "id": 1414,
+              "name": "电脑摄像头",
+              "desc": "",
+              "more": 0
+            },
+            {
+              "icon": "https://img14.360buyimg.com/focus/s140x140_jfs/t27136/183/1628977274/31007/a6f7ed55/5be6ebd8Nb07ef492.png",
+              "id": 1415,
+              "name": "手写板",
+              "desc": "",
+              "more": 0
+            },
+            {
+              "icon": "https://img14.360buyimg.com/focus/s140x140_jfs/t27136/183/1628977274/31007/a6f7ed55/5be6ebd8Nb07ef492.png",
+              "id": 1416,
+              "name": "电脑工具/清洁",
+              "desc": "",
+              "more": 0
+            },
+            {
+              "icon": "https://img14.360buyimg.com/focus/s140x140_jfs/t27136/183/1628977274/31007/a6f7ed55/5be6ebd8Nb07ef492.png",
+              "id": 1417,
+              "name": "鼠标垫",
+              "desc": "",
+              "more": 0
+            },
+            {
+              "icon": "https://img14.360buyimg.com/focus/s140x140_jfs/t27136/183/1628977274/31007/a6f7ed55/5be6ebd8Nb07ef492.png",
+              "id": 1418,
+              "name": "麦克风录音笔",
+              "desc": "",
+              "more": 0
+            },
+            {
+              "icon": "https://img14.360buyimg.com/focus/s140x140_jfs/t27136/183/1628977274/31007/a6f7ed55/5be6ebd8Nb07ef492.png",
+              "id": 1419,
+              "name": "笔记本配件",
+              "desc": "",
+              "more": 0
+            },
+            {
+              "icon": "https://img14.360buyimg.com/focus/s140x140_jfs/t27136/183/1628977274/31007/a6f7ed55/5be6ebd8Nb07ef492.png",
+              "id": 1422,
+              "name": "游戏设备",
+              "desc": "",
+              "more": 0
+            },
+            {
+              "icon": "https://img14.360buyimg.com/focus/s140x140_jfs/t27136/183/1628977274/31007/a6f7ed55/5be6ebd8Nb07ef492.png",
+              "id": 1444,
+              "name": "U盘、卡类",
+              "desc": "",
+              "more": 0
+            },
+            {
+              "icon": "https://img14.360buyimg.com/focus/s140x140_jfs/t27136/183/1628977274/31007/a6f7ed55/5be6ebd8Nb07ef492.png",
+              "id": 1502,
+              "name": "硬盘盒",
+              "desc": "",
+              "more": 0
+            },
+            {
+              "icon": "https://img14.360buyimg.com/focus/s140x140_jfs/t27136/183/1628977274/31007/a6f7ed55/5be6ebd8Nb07ef492.png",
+              "id": 1524,
+              "name": "UPS电源/电池",
+              "desc": "",
+              "more": 0
+            },
+            {
+              "icon": "https://img14.360buyimg.com/focus/s140x140_jfs/t27136/183/1628977274/31007/a6f7ed55/5be6ebd8Nb07ef492.png",
+              "id": 1750,
+              "name": "集线/分线/分配器",
+              "desc": "",
+              "more": 0
+            }
+          ]
+        },
+        {
+          "icon": "https://img14.360buyimg.com/focus/s140x140_jfs/t27136/183/1628977274/31007/a6f7ed55/5be6ebd8Nb07ef492.png",
+          "id": 1516,
+          "name": "网吧产品",
+          "desc": "",
+          "more": 0,
+          "categories": [
+            {
+              "icon": "https://img14.360buyimg.com/focus/s140x140_jfs/t27136/183/1628977274/31007/a6f7ed55/5be6ebd8Nb07ef492.png",
+              "id": 1517,
+              "name": "网吧主机",
+              "desc": "",
+              "more": 0
+            },
+            {
+              "icon": "https://img14.360buyimg.com/focus/s140x140_jfs/t27136/183/1628977274/31007/a6f7ed55/5be6ebd8Nb07ef492.png",
+              "id": 1518,
+              "name": "网吧显示器",
+              "desc": "",
+              "more": 0
+            },
+            {
+              "icon": "https://img14.360buyimg.com/focus/s140x140_jfs/t27136/183/1628977274/31007/a6f7ed55/5be6ebd8Nb07ef492.png",
+              "id": 1519,
+              "name": "网吧键鼠",
+              "desc": "",
+              "more": 0
+            },
+            {
+              "icon": "https://img14.360buyimg.com/focus/s140x140_jfs/t27136/183/1628977274/31007/a6f7ed55/5be6ebd8Nb07ef492.png",
+              "id": 1520,
+              "name": "网吧耳机",
+              "desc": "",
+              "more": 0
+            },
+            {
+              "icon": "https://img14.360buyimg.com/focus/s140x140_jfs/t27136/183/1628977274/31007/a6f7ed55/5be6ebd8Nb07ef492.png",
+              "id": 1521,
+              "name": "其他",
+              "desc": "",
+              "more": 0
+            },
+            {
+              "icon": "https://img14.360buyimg.com/focus/s140x140_jfs/t27136/183/1628977274/31007/a6f7ed55/5be6ebd8Nb07ef492.png",
+              "id": 1522,
+              "name": "网吧桌椅",
+              "desc": "",
+              "more": 0
+            }
+          ]
         }
-      ],
-      "courseId": 13,
-      "id": 150,
-      "name": "女装",
-      "order": 1,
-      "parentChapterId": 0,
-      "userControlSetTop": false,
-      "visible": 1
+      ]
+    },
+    {
+      "icon": "https://img14.360buyimg.com/focus/s140x140_jfs/t27136/183/1628977274/31007/a6f7ed55/5be6ebd8Nb07ef492.png",
+      "id": 1423,
+      "name": "手机/数码/智能",
+      "desc": "",
+      "more": 1,
+      "categories": [
+        {
+          "icon": "https://img14.360buyimg.com/focus/s140x140_jfs/t27136/183/1628977274/31007/a6f7ed55/5be6ebd8Nb07ef492.png",
+          "id": 1432,
+          "name": "手机配件",
+          "desc": "",
+          "more": 0,
+          "categories": [
+            {
+              "icon": "https://img14.360buyimg.com/focus/s140x140_jfs/t27136/183/1628977274/31007/a6f7ed55/5be6ebd8Nb07ef492.png",
+              "id": 1489,
+              "name": "数据线",
+              "desc": "",
+              "more": 0
+            },
+            {
+              "icon": "https://img14.360buyimg.com/focus/s140x140_jfs/t27136/183/1628977274/31007/a6f7ed55/5be6ebd8Nb07ef492.png",
+              "id": 1490,
+              "name": "充电头/充电器",
+              "desc": "",
+              "more": 0
+            },
+            {
+              "icon": "https://img14.360buyimg.com/focus/s140x140_jfs/t27136/183/1628977274/31007/a6f7ed55/5be6ebd8Nb07ef492.png",
+              "id": 1491,
+              "name": "手机耳机",
+              "desc": "",
+              "more": 0
+            },
+            {
+              "icon": "https://img14.360buyimg.com/focus/s140x140_jfs/t27136/183/1628977274/31007/a6f7ed55/5be6ebd8Nb07ef492.png",
+              "id": 1492,
+              "name": "手机饰品",
+              "desc": "",
+              "more": 0
+            },
+            {
+              "icon": "https://img14.360buyimg.com/focus/s140x140_jfs/t27136/183/1628977274/31007/a6f7ed55/5be6ebd8Nb07ef492.png",
+              "id": 1672,
+              "name": "移动电源",
+              "desc": "",
+              "more": 0
+            },
+            {
+              "icon": "https://img14.360buyimg.com/focus/s140x140_jfs/t27136/183/1628977274/31007/a6f7ed55/5be6ebd8Nb07ef492.png",
+              "id": 1735,
+              "name": "手机电池",
+              "desc": "",
+              "more": 0
+            }
+          ]
+        },
+        {
+          "icon": "https://img14.360buyimg.com/focus/s140x140_jfs/t27136/183/1628977274/31007/a6f7ed55/5be6ebd8Nb07ef492.png",
+          "id": 1434,
+          "name": "摄影摄像",
+          "desc": "",
+          "more": 0,
+          "categories": [
+            {
+              "icon": "https://img14.360buyimg.com/focus/s140x140_jfs/t27136/183/1628977274/31007/a6f7ed55/5be6ebd8Nb07ef492.png",
+              "id": 1506,
+              "name": "数码相机",
+              "desc": "",
+              "more": 0
+            },
+            {
+              "icon": "https://img14.360buyimg.com/focus/s140x140_jfs/t27136/183/1628977274/31007/a6f7ed55/5be6ebd8Nb07ef492.png",
+              "id": 1507,
+              "name": "单反相机",
+              "desc": "",
+              "more": 0
+            },
+            {
+              "icon": "https://img14.360buyimg.com/focus/s140x140_jfs/t27136/183/1628977274/31007/a6f7ed55/5be6ebd8Nb07ef492.png",
+              "id": 1508,
+              "name": "摄像机",
+              "desc": "",
+              "more": 0
+            },
+            {
+              "icon": "https://img14.360buyimg.com/focus/s140x140_jfs/t27136/183/1628977274/31007/a6f7ed55/5be6ebd8Nb07ef492.png",
+              "id": 1509,
+              "name": "镜头",
+              "desc": "",
+              "more": 0
+            },
+            {
+              "icon": "https://img14.360buyimg.com/focus/s140x140_jfs/t27136/183/1628977274/31007/a6f7ed55/5be6ebd8Nb07ef492.png",
+              "id": 1510,
+              "name": "影棚器材",
+              "desc": "",
+              "more": 0
+            }
+          ]
+        },
+        {
+          "icon": "https://img14.360buyimg.com/focus/s140x140_jfs/t27136/183/1628977274/31007/a6f7ed55/5be6ebd8Nb07ef492.png",
+          "id": 1435,
+          "name": "智能产品",
+          "desc": "",
+          "more": 0,
+          "categories": [
+            {
+              "icon": "https://img14.360buyimg.com/focus/s140x140_jfs/t27136/183/1628977274/31007/a6f7ed55/5be6ebd8Nb07ef492.png",
+              "id": 1511,
+              "name": "智能门锁",
+              "desc": "",
+              "more": 0
+            },
+            {
+              "icon": "https://img14.360buyimg.com/focus/s140x140_jfs/t27136/183/1628977274/31007/a6f7ed55/5be6ebd8Nb07ef492.png",
+              "id": 1513,
+              "name": "智能手环",
+              "desc": "",
+              "more": 0
+            },
+            {
+              "icon": "https://img14.360buyimg.com/focus/s140x140_jfs/t27136/183/1628977274/31007/a6f7ed55/5be6ebd8Nb07ef492.png",
+              "id": 1515,
+              "name": "智能手表",
+              "desc": "",
+              "more": 0
+            },
+            {
+              "icon": "https://img14.360buyimg.com/focus/s140x140_jfs/t27136/183/1628977274/31007/a6f7ed55/5be6ebd8Nb07ef492.png",
+              "id": 1525,
+              "name": "太阳能智能灯",
+              "desc": "",
+              "more": 0
+            },
+            {
+              "icon": "https://img14.360buyimg.com/focus/s140x140_jfs/t27136/183/1628977274/31007/a6f7ed55/5be6ebd8Nb07ef492.png",
+              "id": 1747,
+              "name": "无人机",
+              "desc": "",
+              "more": 0
+            }
+          ]
+        },
+        {
+          "icon": "https://img14.360buyimg.com/focus/s140x140_jfs/t27136/183/1628977274/31007/a6f7ed55/5be6ebd8Nb07ef492.png",
+          "id": 1485,
+          "name": "手机",
+          "desc": "",
+          "more": 0,
+          "categories": [
+            {
+              "icon": "https://img14.360buyimg.com/focus/s140x140_jfs/t27136/183/1628977274/31007/a6f7ed55/5be6ebd8Nb07ef492.png",
+              "id": 1486,
+              "name": "智能手机",
+              "desc": "",
+              "more": 0
+            },
+            {
+              "icon": "https://img14.360buyimg.com/focus/s140x140_jfs/t27136/183/1628977274/31007/a6f7ed55/5be6ebd8Nb07ef492.png",
+              "id": 1487,
+              "name": "老人手机",
+              "desc": "",
+              "more": 0
+            },
+            {
+              "icon": "https://img14.360buyimg.com/focus/s140x140_jfs/t27136/183/1628977274/31007/a6f7ed55/5be6ebd8Nb07ef492.png",
+              "id": 1488,
+              "name": "基础功能手机",
+              "desc": "",
+              "more": 0
+            },
+            {
+              "icon": "https://img14.360buyimg.com/focus/s140x140_jfs/t27136/183/1628977274/31007/a6f7ed55/5be6ebd8Nb07ef492.png",
+              "id": 1512,
+              "name": "对讲机",
+              "desc": "",
+              "more": 0
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "icon": "https://img14.360buyimg.com/focus/s140x140_jfs/t27136/183/1628977274/31007/a6f7ed55/5be6ebd8Nb07ef492.png",
+      "id": 1497,
+      "name": "家用/厨房电器",
+      "desc": "",
+      "more": 1,
+      "categories": [
+        {
+          "icon": "https://img14.360buyimg.com/focus/s140x140_jfs/t27136/183/1628977274/31007/a6f7ed55/5be6ebd8Nb07ef492.png",
+          "id": 1499,
+          "name": "家用电器",
+          "desc": "",
+          "more": 0,
+          "categories": [
+            {
+              "icon": "https://img14.360buyimg.com/focus/s140x140_jfs/t27136/183/1628977274/31007/a6f7ed55/5be6ebd8Nb07ef492.png",
+              "id": 1535,
+              "name": "电视机",
+              "desc": "",
+              "more": 0
+            }
+          ]
+        },
+        {
+          "icon": "https://img14.360buyimg.com/focus/s140x140_jfs/t27136/183/1628977274/31007/a6f7ed55/5be6ebd8Nb07ef492.png",
+          "id": 1526,
+          "name": "厨房用具",
+          "desc": "",
+          "more": 0,
+          "categories": [
+            {
+              "icon": "https://img14.360buyimg.com/focus/s140x140_jfs/t27136/183/1628977274/31007/a6f7ed55/5be6ebd8Nb07ef492.png",
+              "id": 1527,
+              "name": "高压锅",
+              "desc": "",
+              "more": 0
+            },
+            {
+              "icon": "https://img14.360buyimg.com/focus/s140x140_jfs/t27136/183/1628977274/31007/a6f7ed55/5be6ebd8Nb07ef492.png",
+              "id": 1528,
+              "name": "电饭煲",
+              "desc": "",
+              "more": 0
+            },
+            {
+              "icon": "https://img14.360buyimg.com/focus/s140x140_jfs/t27136/183/1628977274/31007/a6f7ed55/5be6ebd8Nb07ef492.png",
+              "id": 1529,
+              "name": "炒锅",
+              "desc": "",
+              "more": 0
+            },
+            {
+              "icon": "https://img14.360buyimg.com/focus/s140x140_jfs/t27136/183/1628977274/31007/a6f7ed55/5be6ebd8Nb07ef492.png",
+              "id": 1530,
+              "name": "汤锅",
+              "desc": "",
+              "more": 0
+            },
+            {
+              "icon": "https://img14.360buyimg.com/focus/s140x140_jfs/t27136/183/1628977274/31007/a6f7ed55/5be6ebd8Nb07ef492.png",
+              "id": 1531,
+              "name": "炖锅",
+              "desc": "",
+              "more": 0
+            },
+            {
+              "icon": "https://img14.360buyimg.com/focus/s140x140_jfs/t27136/183/1628977274/31007/a6f7ed55/5be6ebd8Nb07ef492.png",
+              "id": 1532,
+              "name": "电磁炉",
+              "desc": "",
+              "more": 0
+            },
+            {
+              "icon": "https://img14.360buyimg.com/focus/s140x140_jfs/t27136/183/1628977274/31007/a6f7ed55/5be6ebd8Nb07ef492.png",
+              "id": 1533,
+              "name": "蒸锅",
+              "desc": "",
+              "more": 0
+            },
+            {
+              "icon": "https://img14.360buyimg.com/focus/s140x140_jfs/t27136/183/1628977274/31007/a6f7ed55/5be6ebd8Nb07ef492.png",
+              "id": 1534,
+              "name": "电热水壶",
+              "desc": "",
+              "more": 0
+            },
+            {
+              "icon": "https://img14.360buyimg.com/focus/s140x140_jfs/t27136/183/1628977274/31007/a6f7ed55/5be6ebd8Nb07ef492.png",
+              "id": 1737,
+              "name": "绞肉机",
+              "desc": "",
+              "more": 0
+            },
+            {
+              "icon": "https://img14.360buyimg.com/focus/s140x140_jfs/t27136/183/1628977274/31007/a6f7ed55/5be6ebd8Nb07ef492.png",
+              "id": 1738,
+              "name": "破壁机",
+              "desc": "",
+              "more": 0
+            },
+            {
+              "icon": "https://img14.360buyimg.com/focus/s140x140_jfs/t27136/183/1628977274/31007/a6f7ed55/5be6ebd8Nb07ef492.png",
+              "id": 1739,
+              "name": "料理机",
+              "desc": "",
+              "more": 0
+            },
+            {
+              "icon": "https://img14.360buyimg.com/focus/s140x140_jfs/t27136/183/1628977274/31007/a6f7ed55/5be6ebd8Nb07ef492.png",
+              "id": 1740,
+              "name": "多用途锅",
+              "desc": "",
+              "more": 0
+            },
+            {
+              "icon": "https://img14.360buyimg.com/focus/s140x140_jfs/t27136/183/1628977274/31007/a6f7ed55/5be6ebd8Nb07ef492.png",
+              "id": 1741,
+              "name": "电热饭盒",
+              "desc": "",
+              "more": 0
+            },
+            {
+              "icon": "https://img14.360buyimg.com/focus/s140x140_jfs/t27136/183/1628977274/31007/a6f7ed55/5be6ebd8Nb07ef492.png",
+              "id": 1742,
+              "name": "酸奶机",
+              "desc": "",
+              "more": 0
+            }
+          ]
+        },
+        {
+          "icon": "https://img14.360buyimg.com/focus/s140x140_jfs/t27136/183/1628977274/31007/a6f7ed55/5be6ebd8Nb07ef492.png",
+          "id": 1743,
+          "name": "生活电器",
+          "desc": "",
+          "more": 0,
+          "categories": [
+            {
+              "icon": "https://img14.360buyimg.com/focus/s140x140_jfs/t27136/183/1628977274/31007/a6f7ed55/5be6ebd8Nb07ef492.png",
+              "id": 1744,
+              "name": "电话机",
+              "desc": "",
+              "more": 0
+            },
+            {
+              "icon": "https://img14.360buyimg.com/focus/s140x140_jfs/t27136/183/1628977274/31007/a6f7ed55/5be6ebd8Nb07ef492.png",
+              "id": 1745,
+              "name": "加湿器",
+              "desc": "",
+              "more": 0
+            },
+            {
+              "icon": "https://img14.360buyimg.com/focus/s140x140_jfs/t27136/183/1628977274/31007/a6f7ed55/5be6ebd8Nb07ef492.png",
+              "id": 1746,
+              "name": "电风扇",
+              "desc": "",
+              "more": 0
+            },
+            {
+              "icon": "https://img14.360buyimg.com/focus/s140x140_jfs/t27136/183/1628977274/31007/a6f7ed55/5be6ebd8Nb07ef492.png",
+              "id": 1749,
+              "name": "吸尘器",
+              "desc": "",
+              "more": 0
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "icon": "https://img14.360buyimg.com/focus/s140x140_jfs/t27136/183/1628977274/31007/a6f7ed55/5be6ebd8Nb07ef492.png",
+      "id": 799,
+      "name": "汽车配件/用品",
+      "desc": "",
+      "more": 1,
+      "categories": [
+        {
+          "icon": "https://img14.360buyimg.com/focus/s140x140_jfs/t27136/183/1628977274/31007/a6f7ed55/5be6ebd8Nb07ef492.png",
+          "id": 1446,
+          "name": "汽车用品",
+          "desc": "",
+          "more": 0,
+          "categories": [
+            {
+              "icon": "https://img14.360buyimg.com/focus/s140x140_jfs/t27136/183/1628977274/31007/a6f7ed55/5be6ebd8Nb07ef492.png",
+              "id": 1583,
+              "name": "汽车保养",
+              "desc": "",
+              "more": 0
+            },
+            {
+              "icon": "https://img14.360buyimg.com/focus/s140x140_jfs/t27136/183/1628977274/31007/a6f7ed55/5be6ebd8Nb07ef492.png",
+              "id": 1611,
+              "name": "汽车装饰",
+              "desc": "",
+              "more": 0
+            },
+            {
+              "icon": "https://img14.360buyimg.com/focus/s140x140_jfs/t27136/183/1628977274/31007/a6f7ed55/5be6ebd8Nb07ef492.png",
+              "id": 1732,
+              "name": "车载电器",
+              "desc": "",
+              "more": 0
+            },
+            {
+              "icon": "https://img14.360buyimg.com/focus/s140x140_jfs/t27136/183/1628977274/31007/a6f7ed55/5be6ebd8Nb07ef492.png",
+              "id": 1733,
+              "name": "美容清洁",
+              "desc": "",
+              "more": 0
+            },
+            {
+              "icon": "https://img14.360buyimg.com/focus/s140x140_jfs/t27136/183/1628977274/31007/a6f7ed55/5be6ebd8Nb07ef492.png",
+              "id": 1734,
+              "name": "安全驾驶",
+              "desc": "",
+              "more": 0
+            }
+          ]
+        }
+      ]
     }
   ],
-  "errorCode": 0,
-  "errorMsg": ""
+  "paged": {
+    "total": 5,
+    "page": "1",
+    "size": "12",
+    "more": 0
+  },
+  "error_code": 0
 }

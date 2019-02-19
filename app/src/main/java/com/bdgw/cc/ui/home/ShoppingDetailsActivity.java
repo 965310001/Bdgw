@@ -9,6 +9,7 @@ import com.alibaba.android.arouter.facade.annotation.Route;
 import com.alibaba.android.arouter.launcher.ARouter;
 import com.bdgw.cc.R;
 import com.bdgw.cc.ui.ApiData;
+import com.bdgw.cc.ui.ApiRepo;
 import com.bdgw.cc.ui.shopping.ShoppingCartUtils;
 import com.bdgw.cc.ui.shopping.bean.GoodsInfo;
 import com.socks.library.KLog;
@@ -24,6 +25,7 @@ import me.goldze.common.base.bean.HorizontalTabTitle;
 import me.goldze.common.base.mvvm.base.BaseActivity;
 import me.goldze.common.base.mvvm.base.BaseFragment;
 import me.goldze.common.constants.ARouterConfig;
+import me.goldze.common.http.rx.RxSubscriber;
 import me.goldze.common.utils.ActivityToActivity;
 import me.goldze.common.utils.ToastUtils;
 import me.goldze.common.widget.NoScrollViewPager;
@@ -95,6 +97,22 @@ public class ShoppingDetailsActivity extends BaseActivity {
                 this.goodsInfo = info;
             }
         }
+
+        ApiRepo.getProduct(Long.parseLong(id)).subscribeWith(new RxSubscriber<GoodsInfo>() {
+            @Override
+            public void onSuccess(GoodsInfo info) {
+                KLog.i(info.toString());
+                showSuccess();
+                goodsInfo = info;
+            }
+
+            @Override
+            public void onFailure(String msg) {
+                KLog.i(msg);
+                showErrorState();
+            }
+        });
+
     }
 
     @Override

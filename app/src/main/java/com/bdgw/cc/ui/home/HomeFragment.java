@@ -36,6 +36,9 @@ public class HomeFragment extends BaseListFragment<MViewModel> implements OnItem
     @BindView(R.id.tv_right)
     TextView tvRight;
 
+    /*菜单*/
+    private CatagoryInfo menus;
+
     public HomeFragment() {
     }
 
@@ -92,11 +95,10 @@ public class HomeFragment extends BaseListFragment<MViewModel> implements OnItem
                 });
     }
 
+
     private void addItems(HomeMerge homeMergeVo) {
         newItems.add(homeMergeVo.banner);
-        newItems.add(new CatagoryInfo());
-
-        /*newItems.addAll(ApiData.getGoodsInfos());*/
+        newItems.add(homeMergeVo.catagoryInfo);
         newItems.add(new TypeInfo("精品推荐"));
         newItems.addAll(homeMergeVo.homeList.getGood_products());
         newItems.add(new TypeInfo("销量排行"));

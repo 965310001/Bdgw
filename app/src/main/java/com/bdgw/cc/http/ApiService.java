@@ -11,14 +11,15 @@ import com.bdgw.cc.ui.home.bean.HomeList;
 import com.bdgw.cc.ui.home.bean.OrderInfo;
 import com.bdgw.cc.ui.home.bean.RedItemInfo;
 import com.bdgw.cc.ui.home.bean.SearchInfo;
+import com.bdgw.cc.ui.home.holder.CatagoryInfo;
 import com.bdgw.cc.ui.me.bean.AddressInfo;
+import com.bdgw.cc.ui.shopping.bean.GoodsInfo;
 
 import io.reactivex.Flowable;
 import io.reactivex.Observable;
 import me.goldze.common.base.bean.BaseResponse;
 import retrofit2.http.Field;
 import retrofit2.http.FormUrlEncoded;
-import retrofit2.http.GET;
 import retrofit2.http.POST;
 
 /**
@@ -50,13 +51,16 @@ public interface ApiService {
             String BANNER = "/v2/ecapi.banner.list";
             /*首页数据*/
             String HOME_LIST = "/v2/ecapi.home.product.list";
+            /*菜单*/
+            String HOME_MENU = "/v2/ecapi.site.menu";
+
             /*订单*/
             String ORDER_LIST = "/v2/ecapi.order.list";
             /*红包*/
             String RED_LIST = "/v2/ecapi.cashgift.list";
 
-            /*搜索*/
-            String HOTKEY_LIST = "/hotkey/json";
+            /*热搜*/
+            String HOTKEY_LIST = "/v2/ecapi.search.keyword.list";
 
             /*搜索list*/
             String SEARCH_LIST = "/article/query/0/json";
@@ -65,12 +69,13 @@ public interface ApiService {
         /*-------------------------------------------------------------------分类---------------------------------------------------*/
         interface classify {
             //双listview
-            String TREE = "/tree/json";
+            String TREE = "/v2/ecapi.category.list";
         }
 
         /*-------------------------------------------------------------------购物车-------------------------------------------------*/
         interface shopping {
 
+            String PRODUCT="/v2/ecapi.product.get";
         }
         /*-------------------------------------------------------------------我的---------------------------------------------------*/
 
@@ -90,7 +95,7 @@ public interface ApiService {
     @FormUrlEncoded
     @POST(Api.LOGIN)
     Flowable<UserInfo> login(@Field("username") String userName,
-                                           @Field("password") String password);
+                             @Field("password") String password);
 
 
     /*注册*/
@@ -99,6 +104,10 @@ public interface ApiService {
     Flowable<BaseResponse<UserInfo>> register(@Field("username") String userName,
                                               @Field("password") String password,
                                               @Field("repassword") String repassword);
+
+    /*菜单*/
+    @POST(Api.home.HOME_MENU)
+    Flowable<CatagoryInfo> getMenu();
 
 
     /*检查更新*/
@@ -129,8 +138,8 @@ public interface ApiService {
                                      @Field("per_page") String per_page,
                                      @Field("status") String status);
 
-    /*搜索*/
-    @GET(Api.home.HOTKEY_LIST)
+    /*热搜*/
+    @POST(Api.home.HOTKEY_LIST)
     Flowable<HotKeyInfo> getHotkeyData();
 
     /*搜索list*/
@@ -138,13 +147,25 @@ public interface ApiService {
     @POST(Api.home.SEARCH_LIST)
     Flowable<SearchInfo> getSearchListData(@Field("k") String k);
 
-    /*-------------------------------------------------------------------分类---------------------------------------------------*/
     /*双listview*/
-    @GET(Api.classify.TREE)
-    Flowable<ClassificationInfo> getTreeData();
+    @FormUrlEncoded
+    @POST(Api.classify.TREE)
+    Flowable<ClassificationInfo> getTreeData(@Field("page") int page,
+                                             @Field("per_page") int per_page,
+                                             @Field("top_level") int top_level);
+    /*-------------------------------------------------------------------分类---------------------------------------------------*/
 
+    /*双listview右边*/
+//    @POST(Api.classify.TREE)
+//    Flowable<ClassificationInfo> getTreeRightData(@Field("category") int category);
 
     /*-------------------------------------------------------------------购物车-------------------------------------------------*/
+    /*商品详情*/
+    @FormUrlEncoded
+    @POST(Api.shopping.PRODUCT)
+    Flowable<GoodsInfo> getProduct(@Field("product") long id);
+
+
     /*-------------------------------------------------------------------我的---------------------------------------------------*/
 
     @FormUrlEncoded

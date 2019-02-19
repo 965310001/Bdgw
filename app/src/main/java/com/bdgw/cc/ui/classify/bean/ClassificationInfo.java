@@ -1,5 +1,7 @@
 package com.bdgw.cc.ui.classify.bean;
 
+import com.google.gson.annotations.SerializedName;
+
 import java.util.List;
 
 import me.goldze.common.base.bean.BaseBean;
@@ -19,7 +21,8 @@ public class ClassificationInfo extends BaseBean {
 
     private int errorCode;
     private String errorMsg;
-    private List<DataBean> data;
+    @SerializedName("categories")
+    private List<DataBean> data;//左边
 
     public int getErrorCode() {
         return errorCode;
@@ -46,33 +49,11 @@ public class ClassificationInfo extends BaseBean {
     }
 
     public static class DataBean {
-        /**
-         * children : [{"children":[{"children":[],"courseId":13,"id":26,"name":"基础UI控件","order":15000,"parentChapterId":25,"userControlSetTop":false,"visible":1},{"children":[],"courseId":13,"id":27,"name":"ListView&GridView","order":15001,"parentChapterId":25,"userControlSetTop":false,"visible":1}],"courseId":13,"id":60,"name":"Android Studio相关","order":1000,"parentChapterId":150,"userControlSetTop":false,"visible":1},{"children":[{"children":[],"courseId":13,"id":26,"name":"基础UI控件","order":15000,"parentChapterId":25,"userControlSetTop":false,"visible":1},{"children":[],"courseId":13,"id":26,"name":"基础UI控件","order":15000,"parentChapterId":25,"userControlSetTop":false,"visible":1}],"courseId":13,"id":169,"name":"gradle","order":1001,"parentChapterId":150,"userControlSetTop":false,"visible":1}]
-         * courseId : 13
-         * id : 150
-         * name : 开发环境
-         * order : 1
-         * parentChapterId : 0
-         * userControlSetTop : false
-         * visible : 1
-         */
 
-        private int courseId;
         private int id;
         private String name;
-        private int order;
-        private int parentChapterId;
-        private boolean userControlSetTop;
-        private int visible;
+        @SerializedName("categories")
         private List<ChildrenBeanX> children;
-
-        public int getCourseId() {
-            return courseId;
-        }
-
-        public void setCourseId(int courseId) {
-            this.courseId = courseId;
-        }
 
         public int getId() {
             return id;
@@ -90,38 +71,6 @@ public class ClassificationInfo extends BaseBean {
             this.name = name;
         }
 
-        public int getOrder() {
-            return order;
-        }
-
-        public void setOrder(int order) {
-            this.order = order;
-        }
-
-        public int getParentChapterId() {
-            return parentChapterId;
-        }
-
-        public void setParentChapterId(int parentChapterId) {
-            this.parentChapterId = parentChapterId;
-        }
-
-        public boolean isUserControlSetTop() {
-            return userControlSetTop;
-        }
-
-        public void setUserControlSetTop(boolean userControlSetTop) {
-            this.userControlSetTop = userControlSetTop;
-        }
-
-        public int getVisible() {
-            return visible;
-        }
-
-        public void setVisible(int visible) {
-            this.visible = visible;
-        }
-
         public List<ChildrenBeanX> getChildren() {
             return children;
         }
@@ -130,42 +79,12 @@ public class ClassificationInfo extends BaseBean {
             this.children = children;
         }
 
-        public static class ChildrenBeanX {
-            /**
-             * children : [{"children":[],"courseId":13,"id":26,"name":"基础UI控件","order":15000,"parentChapterId":25,"userControlSetTop":false,"visible":1},{"children":[],"courseId":13,"id":27,"name":"ListView&GridView","order":15001,"parentChapterId":25,"userControlSetTop":false,"visible":1}]
-             * courseId : 13
-             * id : 60
-             * name : Android Studio相关
-             * order : 1000
-             * parentChapterId : 150
-             * userControlSetTop : false
-             * visible : 1
-             */
+        public static class ChildrenBeanX {//右边最上面
 
-            private int courseId;
-            private int id;
             private String name;
-            private int order;
-            private int parentChapterId;
-            private boolean userControlSetTop;
-            private int visible;
+
+            @SerializedName("categories")
             private List<ChildrenBean> children;
-
-            public int getCourseId() {
-                return courseId;
-            }
-
-            public void setCourseId(int courseId) {
-                this.courseId = courseId;
-            }
-
-            public int getId() {
-                return id;
-            }
-
-            public void setId(int id) {
-                this.id = id;
-            }
 
             public String getName() {
                 return name;
@@ -173,38 +92,6 @@ public class ClassificationInfo extends BaseBean {
 
             public void setName(String name) {
                 this.name = name;
-            }
-
-            public int getOrder() {
-                return order;
-            }
-
-            public void setOrder(int order) {
-                this.order = order;
-            }
-
-            public int getParentChapterId() {
-                return parentChapterId;
-            }
-
-            public void setParentChapterId(int parentChapterId) {
-                this.parentChapterId = parentChapterId;
-            }
-
-            public boolean isUserControlSetTop() {
-                return userControlSetTop;
-            }
-
-            public void setUserControlSetTop(boolean userControlSetTop) {
-                this.userControlSetTop = userControlSetTop;
-            }
-
-            public int getVisible() {
-                return visible;
-            }
-
-            public void setVisible(int visible) {
-                this.visible = visible;
             }
 
             public List<ChildrenBean> getChildren() {
@@ -215,33 +102,11 @@ public class ClassificationInfo extends BaseBean {
                 this.children = children;
             }
 
-            public static class ChildrenBean {
-                /**
-                 * children : []
-                 * courseId : 13
-                 * id : 26
-                 * name : 基础UI控件
-                 * order : 15000
-                 * parentChapterId : 25
-                 * userControlSetTop : false
-                 * visible : 1
-                 */
+            public static class ChildrenBean {//右边最下面
 
-                private int courseId;
                 private int id;
+                private String icon;
                 private String name;
-                private int order;
-                private int parentChapterId;
-                private boolean userControlSetTop;
-                private int visible;
-
-                public int getCourseId() {
-                    return courseId;
-                }
-
-                public void setCourseId(int courseId) {
-                    this.courseId = courseId;
-                }
 
                 public int getId() {
                     return id;
@@ -259,38 +124,13 @@ public class ClassificationInfo extends BaseBean {
                     this.name = name;
                 }
 
-                public int getOrder() {
-                    return order;
+                public String getIcon() {
+                    return icon;
                 }
 
-                public void setOrder(int order) {
-                    this.order = order;
+                public void setIcon(String icon) {
+                    this.icon = icon;
                 }
-
-                public int getParentChapterId() {
-                    return parentChapterId;
-                }
-
-                public void setParentChapterId(int parentChapterId) {
-                    this.parentChapterId = parentChapterId;
-                }
-
-                public boolean isUserControlSetTop() {
-                    return userControlSetTop;
-                }
-
-                public void setUserControlSetTop(boolean userControlSetTop) {
-                    this.userControlSetTop = userControlSetTop;
-                }
-
-                public int getVisible() {
-                    return visible;
-                }
-
-                public void setVisible(int visible) {
-                    this.visible = visible;
-                }
-
             }
         }
     }

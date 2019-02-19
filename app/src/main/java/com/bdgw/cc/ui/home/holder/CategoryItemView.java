@@ -22,12 +22,10 @@ import me.goldze.common.utils.ActivityToActivity;
  */
 public class CategoryItemView extends AbsItemHolder<CatagoryInfo, CategoryItemView.ViewHolder> {
 
-    private final HomeCategoryAdapter adapter;
+    private HomeCategoryAdapter adapter;
 
     public CategoryItemView(Context context) {
         super(context);
-
-        adapter = new HomeCategoryAdapter(mContext, new CatagoryInfo().getCatagorys());
     }
 
     @Override
@@ -36,8 +34,9 @@ public class CategoryItemView extends AbsItemHolder<CatagoryInfo, CategoryItemVi
     }
 
     @Override
-    protected void onBindViewHolder(@NonNull ViewHolder holder, @NonNull CatagoryInfo catagoryInfo) {
-        GridLayoutManager layoutManager = new GridLayoutManager(mContext, 4);
+    protected void onBindViewHolder(@NonNull ViewHolder holder, @NonNull final CatagoryInfo data) {
+        adapter = new HomeCategoryAdapter(mContext, data.getData());
+        GridLayoutManager layoutManager = new GridLayoutManager(mContext, 5);
         holder.recyclerView.setLayoutManager(layoutManager);
         holder.recyclerView.setAdapter(adapter);
         holder.recyclerView.setNestedScrollingEnabled(false);
@@ -45,7 +44,7 @@ public class CategoryItemView extends AbsItemHolder<CatagoryInfo, CategoryItemVi
         adapter.setOnItemClickListener(new BaseRecyclerAdapter.OnItemClickListener() {
             @Override
             public void onItemClickListener(View v, int position) {
-                ActivityToActivity.toActivity(ARouterConfig.home.MAIN_MENU_ITEM[position]);
+                ActivityToActivity.toActivity(ARouterConfig.classify.PRODUCTSACTIVITY, "id", data.getData().get(position));
             }
         });
     }

@@ -1,44 +1,56 @@
 package com.bdgw.cc.ui.home.holder;
 
-import android.content.res.TypedArray;
+import com.google.gson.annotations.SerializedName;
 
-import com.bdgw.cc.R;
-
-import java.util.ArrayList;
 import java.util.List;
 
-import me.goldze.common.utils.ResourcesUtils;
+import me.goldze.common.base.bean.BaseBean;
 
 /**
  * @author GuoFeng
  * @date : 2019/1/20 15:58
  * @description: 首页 四个状态栏
  */
-public class CatagoryInfo {
+public class CatagoryInfo extends BaseBean {
 
-    public List<Catagory> getCatagorys() {
+    @SerializedName("menus")
+    private List<Catagory> data;
 
-        List<Catagory> list = new ArrayList<>();
-
-        String[] stringArray = ResourcesUtils.getInstance().getStringArray(R.array.menu_item_title);
-        TypedArray array = ResourcesUtils.getInstance().obtainTypedArray(R.array.menu_item_icon);
-
-        for (int i = 0; i < stringArray.length; i++) {
-            list.add(new Catagory(stringArray[i], array.getResourceId(i, 0)));
-        }
-        return list;
+    public List<Catagory> getData() {
+        return data;
     }
 
-    class Catagory {
-        String title;
-        int resId;
+    public void setData(List<Catagory> data) {
+        this.data = data;
+    }
 
-        public Catagory() {
+    class Catagory extends BaseBean {
+        private String title;
+        private String link;
+        private int id;
+
+        public String getTitle() {
+            return title;
         }
 
-        private Catagory(String tvName, int tvIcon) {
-            this.title = tvName;
-            this.resId = tvIcon;
+        public void setTitle(String title) {
+            this.title = title;
+        }
+
+        public String getLink() {
+            return link;
+        }
+
+        public void setLink(String link) {
+            this.link = link;
+        }
+
+        public int getId() {
+            return id;
+        }
+
+        public void setId(int id) {
+            this.id = id;
         }
     }
 

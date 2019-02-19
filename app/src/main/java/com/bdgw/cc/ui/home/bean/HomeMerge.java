@@ -1,5 +1,7 @@
 package com.bdgw.cc.ui.home.bean;
 
+import com.bdgw.cc.ui.home.holder.CatagoryInfo;
+
 /**
  * @author GuoFeng
  * @date : 2019/1/20 14:45
@@ -8,4 +10,5 @@ package com.bdgw.cc.ui.home.bean;
 public class HomeMerge {
     public Banner banner;
     public HomeList homeList;
+    public CatagoryInfo catagoryInfo;
 }

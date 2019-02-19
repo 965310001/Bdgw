@@ -8,6 +8,7 @@ import com.bdgw.cc.http.RetrofitClient;
 import com.bdgw.cc.ui.home.bean.Banner;
 import com.bdgw.cc.ui.home.bean.HomeList;
 import com.bdgw.cc.ui.home.bean.HomeMerge;
+import com.bdgw.cc.ui.home.holder.CatagoryInfo;
 
 import io.reactivex.Flowable;
 import me.goldze.common.base.mvvm.AbsViewModel;
@@ -48,13 +49,16 @@ public class MViewModel extends AbsViewModel<MViewModel.MRepository> {
 
         private Flowable<Banner> mBannerObservable;
         private Flowable<HomeList> mHomeListObservable;
+        private Flowable<CatagoryInfo> mCatagoryListObservable;
 
 
         public void getBannerData() {
             homeMerge = new HomeMerge();
             mBannerObservable = apiService.getBannerData(1, 1);
             mHomeListObservable = apiService.getHomeData();
-            addDisposable(Flowable.concat(mBannerObservable, mHomeListObservable)
+            mCatagoryListObservable = apiService.getMenu();
+
+            addDisposable(Flowable.concat(mBannerObservable, mCatagoryListObservable, mHomeListObservable)
                     .compose(RxSchedulers.io_main())
                     .subscribeWith(new MRxSubscriber(Constants.EVENT_KEY_HOME, Constants.EVENT_KEY_WORK_LIST_STATE)));
 
@@ -69,12 +73,11 @@ public class MViewModel extends AbsViewModel<MViewModel.MRepository> {
             public void onSuccess(Object object) {
                 if (object instanceof Banner) {
                     homeMerge.banner = (Banner) object;
-                    /*sendData(state, homeMerge);*/
-                    /*showPageState(listState, StateConstants.SUCCESS_STATE);*/
+                } else if (object instanceof CatagoryInfo) {
+                    homeMerge.catagoryInfo = (CatagoryInfo) object;
                 } else if (object instanceof HomeList) {
                     homeMerge.homeList = (HomeList) object;
                     sendData(state, homeMerge);
-                    /*showPageState(listState, StateConstants.SUCCESS_STATE);*/
                 }
             }
 

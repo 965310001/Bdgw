@@ -8,7 +8,7 @@ import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import com.bdgw.cc.R;
-import com.bdgw.cc.ui.ApiData;
+import com.bdgw.cc.ui.ApiRepo;
 import com.bdgw.cc.ui.Constants;
 import com.bdgw.cc.ui.adapter.AdapterPool;
 import com.bdgw.cc.ui.classify.bean.ClassificationInfo;
@@ -18,14 +18,12 @@ import com.trecyclerview.adapter.DelegateAdapter;
 import com.trecyclerview.adapter.ItemData;
 import com.trecyclerview.listener.OnItemClickListener;
 
-import java.util.HashMap;
-import java.util.Map;
-
 import butterknife.BindView;
 import butterknife.OnClick;
 import me.goldze.common.base.event.LiveBus;
 import me.goldze.common.base.mvvm.base.BaseFragment;
 import me.goldze.common.constants.ARouterConfig;
+import me.goldze.common.http.rx.RxSubscriber;
 import me.goldze.common.utils.ActivityToActivity;
 
 /**
@@ -95,38 +93,36 @@ public class ClassifyFragment extends BaseFragment implements OnItemClickListene
     protected void lazyLoad() {
         super.lazyLoad();
 
-        showSuccess();
-
-        ClassificationInfo info = ApiData.getClasszInfo();
+        /*showSuccess();*/
+       /* ClassificationInfo info = ApiData.getClasszInfo();
         leftData.clear();
         rightData.clear();
-
         leftData.addAll(info.getData());
         rightData.addAll(info.getData().get(0).getChildren());
-
         leftAdapter.notifyDataSetChanged();
-        rightAdapter.notifyDataSetChanged();
+        rightAdapter.notifyDataSetChanged();*/
 
-//        ApiRepo.getTreeData().subscribeWith(new RxSubscriber<ClassificationInfo>() {
-//            @Override
-//            public void onSuccess(ClassificationInfo info) {
-//                KLog.i(info.toString());
-//                showSuccess();
-//                leftData.clear();
-//                rightData.clear();
-//                leftData.addAll(info.getData());
-//                rightData.addAll(info.getData().get(0).getChildren());
-//                KLog.i("右边onSuccess" + rightData.size());
-//                leftAdapter.notifyDataSetChanged();
-//                rightAdapter.notifyDataSetChanged();
-//            }
-//
-//            @Override
-//            public void onFailure(String msg) {
-//                KLog.i(msg);
+        ApiRepo.getTreeData().subscribeWith(new RxSubscriber<ClassificationInfo>() {
+            @Override
+            public void onSuccess(ClassificationInfo info) {
+                KLog.i(info.toString());
+                showSuccess();
+                leftData.clear();
+                rightData.clear();
+                leftData.addAll(info.getData());
+                rightData.addAll(info.getData().get(0).getChildren());
+                KLog.i("右边onSuccess" + rightData.size());
+                leftAdapter.notifyDataSetChanged();
+                rightAdapter.notifyDataSetChanged();
+            }
+
+            @Override
+            public void onFailure(String msg) {
+                KLog.i(msg);
 //                showStateView(ErrorState.class);
-//            }
-//        });
+                showErrorState();
+            }
+        });
     }
 
     @Override
@@ -150,16 +146,18 @@ public class ClassifyFragment extends BaseFragment implements OnItemClickListene
                 rightAdapter.notifyDataSetChanged();
                 leftPostion = postion;
             }
-        } else if (object instanceof ClassificationInfo.DataBean.ChildrenBeanX) {
-            LiveBus.getDefault().postEvent(Constants.Listview.POSTION_RIGHT_EVENT_KEY[0],
-                    Constants.Listview.POSTION_RIGHT_EVENT_KEY[1], postion);
-            rightAdapter.notifyDataSetChanged();
-            ClassificationInfo.DataBean.ChildrenBeanX datasBean = (ClassificationInfo.DataBean.ChildrenBeanX) rightData.get(postion);
-            KLog.i(datasBean.getName() + " ");
-            Map<String, String> map = new HashMap<>();
-            map.put("id", String.valueOf(datasBean.getId()));
-            ActivityToActivity.toActivity(ARouterConfig.classify.PRODUCTSACTIVITY, map);
         }
+//        else if (object instanceof ClassificationInfo.DataBean.ChildrenBeanX) {
+//            LiveBus.getDefault().postEvent(Constants.Listview.POSTION_RIGHT_EVENT_KEY[0],
+//                    Constants.Listview.POSTION_RIGHT_EVENT_KEY[1], postion);
+//            rightAdapter.notifyDataSetChanged();
+//            ClassificationInfo.DataBean.ChildrenBeanX datasBean = (ClassificationInfo.DataBean.ChildrenBeanX) rightData.get(postion);
+//            KLog.i(datasBean.getName() + " ");
+//            Map<String, String> map = new HashMap<>();
+//            map.put("id", String.valueOf(datasBean.getId()));
+//            ActivityToActivity.toActivity(ARouterConfig.classify.PRODUCTSACTIVITY, map);
+//        }
+
     }
 
     @OnClick(R.id.iv_search)

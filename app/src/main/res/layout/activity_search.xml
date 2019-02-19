@@ -11,32 +11,31 @@
 
 
     <!--<me.goldze.xui.TitleBar-->
-        <!--android:id="@+id/title_bar"-->
-        <!--android:layout_width="match_parent"-->
-        <!--android:layout_height="wrap_content"-->
-        <!--android:visibility="gone"-->
-        <!--app:centerCustomView="@layout/layout_header_search"-->
-        <!--app:centerType="customView"-->
-        <!--app:leftBackground="@drawable/bg_button"-->
-        <!--app:leftImageResource="@drawable/ic_back"-->
-        <!--app:leftType="imageView"-->
-        <!--app:rightImageResource="@drawable/ic_search"-->
-        <!--app:rightType="imageView"-->
-        <!--app:showBottomLine="false"-->
-        <!--app:statusBarColor="@color/primary_dark"-->
-        <!--app:statusBarMode="light"-->
-        <!--app:titleBarColor="@color/primary" />-->
+    <!--android:id="@+id/title_bar"-->
+    <!--android:layout_width="match_parent"-->
+    <!--android:layout_height="wrap_content"-->
+    <!--android:visibility="gone"-->
+    <!--app:centerCustomView="@layout/layout_header_search"-->
+    <!--app:centerType="customView"-->
+    <!--app:leftBackground="@drawable/bg_button"-->
+    <!--app:leftImageResource="@drawable/ic_back"-->
+    <!--app:leftType="imageView"-->
+    <!--app:rightImageResource="@drawable/ic_search"-->
+    <!--app:rightType="imageView"-->
+    <!--app:showBottomLine="false"-->
+    <!--app:statusBarColor="@color/primary_dark"-->
+    <!--app:statusBarMode="light"-->
+    <!--app:titleBarColor="@color/primary" />-->
 
     <TextView
         android:id="@+id/tv_hot_title"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:paddingEnd="@dimen/spacing_bigger"
+        android:paddingStart="@dimen/spacing_bigger"
         android:paddingTop="@dimen/spacing_bigger"
         android:text="热搜"
         android:textColor="@color/primary_text"
-        android:textSize="@dimen/text_16"
-        app:layout_constraintTop_toBottomOf="@+id/title_bar" />
+        android:textSize="@dimen/text_16" />
 
     <FrameLayout
         android:id="@+id/layout_flow_or_loading"
