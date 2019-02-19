@@ -36,6 +36,8 @@ public class MeFragment extends AbsLifecycleFragment<LoginViewModel> {
 
     @BindView(R.id.tv_user_integral)
     TextView tvUserIntegral;
+    @BindView(R.id.tv_login)
+    TextView tvLogin;
 
     @BindView(R.id.tabs)
     TabLayout tabs;
@@ -66,8 +68,8 @@ public class MeFragment extends AbsLifecycleFragment<LoginViewModel> {
         showSuccess();
 
         tvUserIntegral.setText(String.format(getString(R.string.user_integral), 200));
-        ImageUtils.loadImageCircle(ivUserHead,
-                "https://cdn2.jianshu.io/assets/default_avatar/5-33d2da32c552b8be9a0548c7a4576607.jpg?imageMogr2/auto-orient/strip|imageView2/1/w/96/h/96");
+//        ImageUtils.loadImageCircle(ivUserHead,
+//                "https://cdn2.jianshu.io/assets/default_avatar/5-33d2da32c552b8be9a0548c7a4576607.jpg?imageMogr2/auto-orient/strip|imageView2/1/w/96/h/96");
 
         new BadgeView(getContext()).bindTarget(menuTv)
                 .setBadgeText("1")
@@ -143,21 +145,33 @@ public class MeFragment extends AbsLifecycleFragment<LoginViewModel> {
         setUser();
     }
 
+    @Override
+    public void onResume() {
+        super.onResume();
+        setUser();
+    }
+
+    boolean isLogin;
+
     private void setUser() {
         UserInfo data = (UserInfo) SharePreferenceUtil.getUser(UserInfo.class);
         if (null != data) {
-            // TODO: 2019/2/1 设置用户信息
             KLog.i("设置用户信息");
-            ImageUtils.loadImage(ivUserHead, data.getUser().getAvatar().getThumb());
+            UserInfo.UserBean avatar = data.getUser();
+            ImageUtils.loadImageCircle(ivUserHead, avatar.getAvatar().getThumb());
+            isLogin = true;
+            tvLogin.setText(avatar.getAlias());
         } else {
-            KLog.i("userinfo 没有数据");
+            isLogin = false;
+            tvLogin.setText("登录/注册");
+            ImageUtils.loadImageCircle(ivUserHead,
+                    "https://cdn2.jianshu.io/assets/default_avatar/5-33d2da32c552b8be9a0548c7a4576607.jpg?imageMogr2/auto-orient/strip|imageView2/1/w/96/h/96");
         }
     }
 
     @Override
     protected void dataObserver() {
         super.dataObserver();
-
         LiveBus.getDefault()
                 .subscribe("EVENT_KEY_WORK_MORE", Result.class)
                 .observeForever(new Observer<Result>() {
@@ -187,7 +201,7 @@ public class MeFragment extends AbsLifecycleFragment<LoginViewModel> {
                 ActivityToActivity.toActivity(ARouterConfig.Me.PERSONINFOACTIVITY);
                 break;
             case R.id.tv_login:
-                ActivityToActivity.toActivity(ARouterConfig.LOGINACTIVITY);
+                ActivityToActivity.toActivity(!isLogin ? ARouterConfig.LOGINACTIVITY : ARouterConfig.Me.PERSONINFOACTIVITY);
                 break;
             case R.id.tv_user_integral:
                 ActivityToActivity.toActivity(ARouterConfig.Me.INTEGRALRECORDACTIVITY, "postion", 0);

@@ -179,15 +179,15 @@ public class ModifyActivity extends BaseActivity {
     /************************************************************省市区************************************************************/
     private void initJsonData() {
         String JsonData = AssetsUtils.getStringFromAssert(Utils.getApplication(), "province.json");
-        List<ProvinceInfo> provinceInfos = new Gson().fromJson(JsonData, new TypeToken<List<ProvinceInfo>>() {
+        options1Items = new Gson().fromJson(JsonData, new TypeToken<List<ProvinceInfo>>() {
         }.getType());
         /**
          * 添加省份数据
          */
-        options1Items = provinceInfos;
+//        options1Items = provinceInfos;
         List<String> cityList, City_AreaList;
         List<List<String>> areaList;
-        for (ProvinceInfo provinceInfo : provinceInfos) { //遍历省份
+        for (ProvinceInfo provinceInfo : options1Items) { //遍历省份
             cityList = new ArrayList<>();//该省的城市列表（第二级）
             areaList = new ArrayList<>();//该省的所有地区列表（第三极）
             for (ProvinceInfo.City city : provinceInfo.getCityList()) {

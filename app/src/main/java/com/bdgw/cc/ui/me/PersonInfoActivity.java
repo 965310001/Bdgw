@@ -13,6 +13,7 @@ import com.afollestad.materialdialogs.DialogAction;
 import com.afollestad.materialdialogs.MaterialDialog;
 import com.alibaba.android.arouter.facade.annotation.Route;
 import com.bdgw.cc.R;
+import com.bdgw.cc.ui.UserInfo;
 import com.socks.library.KLog;
 import com.xuexiang.xui.widget.edittext.materialedittext.MaterialEditText;
 
@@ -23,6 +24,7 @@ import butterknife.BindView;
 import butterknife.OnClick;
 import me.goldze.common.base.mvvm.base.BaseActivity;
 import me.goldze.common.constants.ARouterConfig;
+import me.goldze.common.utils.SharePreferenceUtil;
 import me.goldze.common.utils.ToastUtils;
 import me.goldze.common.widget.MultipleItemView;
 import me.goldze.common.widget.dialog.MaterialDialogUtils;
@@ -42,13 +44,16 @@ public class PersonInfoActivity extends BaseActivity implements MaterialDialog.I
     @BindView(R.id.rl_title_bar)
     RelativeLayout rlTitleBar;
 
-
     @BindView(R.id.miv_1)
     MultipleItemView miv1;
     @BindView(R.id.miv_2)
     MultipleItemView miv2;
     @BindView(R.id.miv_3)
     MultipleItemView miv3;
+
+    private List<String> content = Arrays.asList("男", "女", "保密");
+    private MaterialDialog.Builder inputDialog, listDialog, customDialog;
+    private MaterialEditText edOldPassword, edNewPassword, edNewRePassword;
 
     @Override
     protected int getLayoutId() {
@@ -62,6 +67,19 @@ public class PersonInfoActivity extends BaseActivity implements MaterialDialog.I
         ivBack.setVisibility(View.VISIBLE);
         rlTitleBar.setVisibility(View.VISIBLE);
         tvTitle.setText("设置");
+
+        setUser();
+    }
+
+    private void setUser() {
+        UserInfo data = (UserInfo) SharePreferenceUtil.getUser(UserInfo.class);
+        if (null != data) {
+            KLog.i("设置用户信息");
+            UserInfo.UserBean user = data.getUser();
+
+            miv1.setRightText(user.getAlias());
+            miv2.setLeftText(content.get(user.getSex()));
+        }
     }
 
     @OnClick({R.id.iv_back, R.id.miv_1, R.id.miv_2, R.id.miv_3})
@@ -77,9 +95,6 @@ public class PersonInfoActivity extends BaseActivity implements MaterialDialog.I
                 inputDialog.show();
                 break;
             case R.id.miv_2:
-                if (null == listDialog) {
-                    content = Arrays.asList("男", "女", "保密");
-                }
                 listDialog = MaterialDialogUtils.showSingleListDialog(this, "性别",
                         content, this);
                 listDialog.show();
@@ -98,9 +113,7 @@ public class PersonInfoActivity extends BaseActivity implements MaterialDialog.I
         }
     }
 
-    private List<String> content;
-    private MaterialDialog.Builder inputDialog, listDialog, customDialog;
-    private MaterialEditText edOldPassword, edNewPassword, edNewRePassword;
+
 //    private String oldPassword, newPassword, newRePassword;
 
     @Override

@@ -396,7 +396,7 @@ public class MaterialDialogUtils {
                         InputType.TYPE_TEXT_FLAG_CAP_WORDS)
                 .positiveText("确定")
                 .negativeText("取消")
-                .input("hint", "prefill", true, inputCallback);
+                .input("hint", "", true, inputCallback);
 
         return builder;
     }
