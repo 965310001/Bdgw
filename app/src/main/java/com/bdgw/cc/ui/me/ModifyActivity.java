@@ -16,6 +16,7 @@ import com.bdgw.cc.ui.bean.ProvinceInfo;
 import com.bdgw.cc.ui.me.bean.AddressInfo;
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
+import com.socks.library.KLog;
 import com.xuexiang.xui.widget.edittext.materialedittext.MaterialEditText;
 
 import java.util.ArrayList;
@@ -65,8 +66,8 @@ public class ModifyActivity extends BaseActivity {
     private String name, phone, address, details;
 
     private List<ProvinceInfo> options1Items = new ArrayList<>();//省
-    private List<List<String>> options2Items = new ArrayList<>();//市
-    private List<List<List<String>>> options3Items = new ArrayList<>();//区
+    private List<List<ProvinceInfo.City>> options2Items = new ArrayList<>();//市
+    private List<List<List<ProvinceInfo.City.Area>>> options3Items = new ArrayList<>();//区
 
     ProgressFragment fragment;
 
@@ -185,17 +186,19 @@ public class ModifyActivity extends BaseActivity {
          * 添加省份数据
          */
 //        options1Items = provinceInfos;
-        List<String> cityList, City_AreaList;
-        List<List<String>> areaList;
+        List<ProvinceInfo.City.Area> City_AreaList;
+        List<ProvinceInfo.City> cityList;
+        List<List<ProvinceInfo.City.Area>> areaList;
         for (ProvinceInfo provinceInfo : options1Items) { //遍历省份
             cityList = new ArrayList<>();//该省的城市列表（第二级）
             areaList = new ArrayList<>();//该省的所有地区列表（第三极）
             for (ProvinceInfo.City city : provinceInfo.getCityList()) {
-                cityList.add(city.getName());//添加城市
+//                cityList.add(city.getName());//添加城市
+                cityList.add(city);
                 City_AreaList = new ArrayList<>();//该城市的所有地区列表
                 //如果无地区数据，建议添加空字符串，防止数据为null 导致三个选项长度不匹配造成崩溃
                 if (city.getArea() == null || city.getArea().size() == 0) {
-                    City_AreaList.add("");
+                    City_AreaList.add(null);
                 } else {
                     City_AreaList.addAll(city.getArea());
                 }
@@ -206,6 +209,8 @@ public class ModifyActivity extends BaseActivity {
         }
     }
 
+    String addressId;
+
     public void showPickerView(boolean isDialog) {// 弹出选择器
         initJsonData();
         com.bigkoo.pickerview.OptionsPickerView pvOptions = new com.bigkoo.pickerview.OptionsPickerView.Builder(this,
@@ -214,10 +219,20 @@ public class ModifyActivity extends BaseActivity {
                     @Override
                     public void onOptionsSelect(int options1, int options2, int options3, View v) {
                         //返回的分别是三个级别的选中位置
-                        String tx = options1Items.get(options1).getPickerViewText() +
-                                options2Items.get(options1).get(options2) +
-                                options3Items.get(options1).get(options2).get(options3);
+                        String tx = options1Items.get(options1).getPickerViewText();
+                        addressId = String.valueOf(options1Items.get(options1).getId());
+                        ProvinceInfo.City city = options2Items.get(options1).get(options2);
+                        if (null != city) {
+                            tx = tx.concat(city.getPickerViewText());
+                            addressId = addressId.concat(",").concat(String.valueOf(city.getId()));
+                        }
+                        ProvinceInfo.City.Area area = options3Items.get(options1).get(options2).get(options3);
+                        if (null != area) {
+                            tx = tx.concat(area.getPickerViewText());
+                            addressId = addressId.concat(",").concat(String.valueOf(area.getId()));
+                        }
                         tvAddress.setText(tx);
+                        KLog.i("地址:"+addressId);
                     }
                 })
 
@@ -236,35 +251,35 @@ public class ModifyActivity extends BaseActivity {
     /**
      * @return 获取默认城市的索引
      */
-    private int[] getDefaultCity(String... itmes) {
-        int[] res = new int[3];
-        ProvinceInfo provinceInfo;
-        List<ProvinceInfo.City> cities;
-        ProvinceInfo.City city;
-        List<String> ares;
-        for (int i = 0; i < options1Items.size(); i++) {
-            provinceInfo = options1Items.get(i);
-            if (itmes[0].equals(provinceInfo.getName())) {
-                res[0] = i;
-                cities = provinceInfo.getCityList();
-                for (int j = 0; j < cities.size(); j++) {
-                    city = cities.get(j);
-                    if (itmes[1].equals(city.getName())) {
-                        res[1] = j;
-                        ares = city.getArea();
-                        for (int k = 0; k < ares.size(); k++) {
-                            if (itmes[2].equals(ares.get(k))) {
-                                res[2] = k;
-                                break;
-                            }
-                        }
-                        break;
-                    }
-                }
-                break;
-            }
-        }
-        return res;
-    }
+//    private int[] getDefaultCity(String... itmes) {
+//        int[] res = new int[3];
+//        ProvinceInfo provinceInfo;
+//        List<ProvinceInfo.City> cities;
+//        ProvinceInfo.City city;
+//        List<String> ares;
+//        for (int i = 0; i < options1Items.size(); i++) {
+//            provinceInfo = options1Items.get(i);
+//            if (itmes[0].equals(provinceInfo.getName())) {
+//                res[0] = i;
+//                cities = provinceInfo.getCityList();
+//                for (int j = 0; j < cities.size(); j++) {
+//                    city = cities.get(j);
+//                    if (itmes[1].equals(city.getName())) {
+//                        res[1] = j;
+//                        ares = city.getArea();
+//                        for (int k = 0; k < ares.size(); k++) {
+//                            if (itmes[2].equals(ares.get(k))) {
+//                                res[2] = k;
+//                                break;
+//                            }
+//                        }
+//                        break;
+//                    }
+//                }
+//                break;
+//            }
+//        }
+//        return res;
+//    }
 
 }
