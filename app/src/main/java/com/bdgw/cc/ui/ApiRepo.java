@@ -6,7 +6,7 @@ import com.bdgw.cc.ui.classify.bean.ClassificationInfo;
 import com.bdgw.cc.ui.home.bean.SearchInfo;
 import com.bdgw.cc.ui.home.holder.CatagoryInfo;
 import com.bdgw.cc.ui.me.bean.AddressInfo;
-import com.bdgw.cc.ui.shopping.bean.GoodsInfo;
+import com.bdgw.cc.ui.shopping.bean.GoodsListInfo;
 
 import io.reactivex.Flowable;
 import me.goldze.common.base.bean.BaseResponse;
@@ -62,8 +62,8 @@ public final class ApiRepo {
 //    }
 
     /*商品详情*/
-    public static Flowable<GoodsInfo> getProduct(long product) {
-        return apiService.getProduct(product).compose(RxSchedulers.<GoodsInfo>io_main());
+    public static Flowable<GoodsListInfo> getProduct(long product) {
+        return apiService.getProduct(product).compose(RxSchedulers.<GoodsListInfo>io_main());
     }
 
 

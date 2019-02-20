@@ -14,6 +14,7 @@ import me.goldze.common.base.mvvm.base.BaseFragment;
  * 商品详情 - 图文详情 Fragment
  */
 public class GoodsInfoWebFragment extends BaseFragment {
+    private String url;
     @BindView(R.id.hwv_detail)
     public WebView webView;
     private WebSettings webSettings;
@@ -21,8 +22,12 @@ public class GoodsInfoWebFragment extends BaseFragment {
     public GoodsInfoWebFragment() {
     }
 
-    public static GoodsInfoWebFragment newInstance() {
-        return new GoodsInfoWebFragment();
+    public static GoodsInfoWebFragment newInstance(String url) {
+        GoodsInfoWebFragment fragment = new GoodsInfoWebFragment();
+        Bundle bundle = new Bundle();
+        bundle.putString("url", url);
+        fragment.setArguments(bundle);
+        return fragment;
     }
 
 
@@ -43,7 +48,9 @@ public class GoodsInfoWebFragment extends BaseFragment {
     }
 
     private void initWebView() {
-        String url = "http://m.okhqb.com/item/description/1000334264.html?fromApp=true";
+
+        url=getArguments().getString("url");
+
         webView.setFocusable(false);
         webView.loadUrl(url);
         webSettings = webView.getSettings();

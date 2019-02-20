@@ -13,7 +13,7 @@ import com.bdgw.cc.ui.home.bean.RedItemInfo;
 import com.bdgw.cc.ui.home.bean.SearchInfo;
 import com.bdgw.cc.ui.home.holder.CatagoryInfo;
 import com.bdgw.cc.ui.me.bean.AddressInfo;
-import com.bdgw.cc.ui.shopping.bean.GoodsInfo;
+import com.bdgw.cc.ui.shopping.bean.GoodsListInfo;
 
 import io.reactivex.Flowable;
 import io.reactivex.Observable;
@@ -163,7 +163,7 @@ public interface ApiService {
     /*商品详情*/
     @FormUrlEncoded
     @POST(Api.shopping.PRODUCT)
-    Flowable<GoodsInfo> getProduct(@Field("product") long id);
+    Flowable<GoodsListInfo> getProduct(@Field("product") long id);
 
 
     /*-------------------------------------------------------------------我的---------------------------------------------------*/

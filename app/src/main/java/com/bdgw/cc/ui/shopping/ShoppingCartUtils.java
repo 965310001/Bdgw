@@ -73,7 +73,7 @@ public class ShoppingCartUtils {
         if (!updateNum) {
             GoodsInfo query = ShoppingDBFactory.getInstance()
                     .getGoodsInfoManage()
-                    .query(String.valueOf(goodsInfo.getGoodsId()));
+                    .query(goodsInfo.getGoodsId());
             if (query != null) {
                 goodsInfo.setNum(query.getNum() + goodsInfo.getNum());
             }

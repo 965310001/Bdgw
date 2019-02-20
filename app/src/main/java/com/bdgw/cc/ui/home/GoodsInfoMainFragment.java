@@ -16,6 +16,7 @@ import com.bdgw.cc.ui.ApiData;
 import com.bdgw.cc.ui.home.bean.GoodsComment;
 import com.bdgw.cc.ui.shopping.bean.GoodsInfo;
 import com.bigkoo.convenientbanner.ConvenientBanner;
+import com.socks.library.KLog;
 
 import java.util.List;
 
@@ -78,10 +79,6 @@ public class GoodsInfoMainFragment extends BaseFragment implements SlideLayout.O
         return fragment;
     }
 
-    public static GoodsInfoMainFragment newInstance() {
-        return new GoodsInfoMainFragment();
-    }
-
     @Override
     protected int getLayoutResId() {
         return R.layout.fragment_goods_info_main;
@@ -103,6 +100,7 @@ public class GoodsInfoMainFragment extends BaseFragment implements SlideLayout.O
 
         id = getArguments().getString("id");
         goodsInfo = (GoodsInfo) getArguments().getSerializable("goodsInfo");
+        KLog.i(goodsInfo);
 
         //设置文字中间一条横线
         tvOldPrice.getPaint().setFlags(Paint.STRIKE_THRU_TEXT_FLAG);

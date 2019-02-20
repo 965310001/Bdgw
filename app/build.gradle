@@ -116,6 +116,12 @@ dependencies {
     //bugtags
     implementation rootProject.ext.dependencies['bugtags-lib']
 
+    //
+
+    debugImplementation 'com.amitshekhar.android:debug-db:1.0.0'
+
+
+
 //    implementation 'com.bugtags.library:bugtags-lib:latest.integration'
 
     //带有徽标(数字，小红点)的按钮

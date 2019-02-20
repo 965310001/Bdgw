@@ -10,6 +10,8 @@ import android.widget.FrameLayout;
 import android.widget.TextView;
 
 import com.bdgw.cc.R;
+import com.bdgw.cc.ui.shopping.bean.GoodsInfo;
+import com.socks.library.KLog;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -23,6 +25,8 @@ import me.goldze.common.base.mvvm.base.BaseFragment;
  * 顶部为商品详情 商品规格 2个Tba 点击可切换下方Fragment的父 Fragment
  */
 public class GoodsInfoDetailMainFragment extends BaseFragment {
+
+    /*private GoodsInfo data;*/
 
     @BindView(R.id.tv_goods_detail)
     TextView tvGoodsDetail;
@@ -44,8 +48,15 @@ public class GoodsInfoDetailMainFragment extends BaseFragment {
     public GoodsInfoDetailMainFragment() {
     }
 
-    public static GoodsInfoDetailMainFragment newInstance() {
-        return new GoodsInfoDetailMainFragment();
+    String url="https://blog.csdn.net/neverwoods/article/details/52219642";
+
+    public static GoodsInfoDetailMainFragment newInstance(GoodsInfo goodsInfo) {
+        GoodsInfoDetailMainFragment fragment = new GoodsInfoDetailMainFragment();
+        Bundle bundle = new Bundle();
+        bundle.putString("url", goodsInfo.getIntroUrl());
+        KLog.i(goodsInfo.getIntroUrl());
+        fragment.setArguments(bundle);
+        return fragment;
     }
 
     @Override
@@ -60,10 +71,12 @@ public class GoodsInfoDetailMainFragment extends BaseFragment {
 
     @Override
     public void initView(Bundle state) {
+
         showSuccess();
         tabTextList = new ArrayList<>();
         tabTextList.add(tvGoodsDetail);
         tabTextList.add(tvGoodsConfig);
+        /*url = getArguments().getString("url");*/
         setData();
     }
 
@@ -71,7 +84,7 @@ public class GoodsInfoDetailMainFragment extends BaseFragment {
      * 商品信息Fragment页获取完数据执行
      */
     public void setData() {
-        currentFragment = goodsDetailWebFragment = new GoodsInfoWebFragment();
+        currentFragment = goodsDetailWebFragment = GoodsInfoWebFragment.newInstance(url);
         goodsConfigFragment = new GoodsConfigFragment();
         fragmentManager = getChildFragmentManager();
         //默认显示商品详情tab

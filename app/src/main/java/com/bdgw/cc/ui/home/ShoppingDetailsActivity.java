@@ -8,16 +8,14 @@ import com.alibaba.android.arouter.facade.annotation.Autowired;
 import com.alibaba.android.arouter.facade.annotation.Route;
 import com.alibaba.android.arouter.launcher.ARouter;
 import com.bdgw.cc.R;
-import com.bdgw.cc.ui.ApiData;
 import com.bdgw.cc.ui.ApiRepo;
 import com.bdgw.cc.ui.shopping.ShoppingCartUtils;
 import com.bdgw.cc.ui.shopping.bean.GoodsInfo;
+import com.bdgw.cc.ui.shopping.bean.GoodsListInfo;
 import com.socks.library.KLog;
 
 import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
 
 import butterknife.BindView;
 import butterknife.OnClick;
@@ -69,41 +67,40 @@ public class ShoppingDetailsActivity extends BaseActivity {
     protected void initViews(Bundle savedInstanceState) {
         ARouter.getInstance().inject(this);
 
-        showSuccess();
+        /*showSuccess();*/
         KLog.i("商品" + id);
 
         getGoodsInfo();
 
-        List<HorizontalTabTitle> title = new ArrayList<>();
-        title.add(new HorizontalTabTitle("商品"));
-        title.add(new HorizontalTabTitle("详情"));
-        title.add(new HorizontalTabTitle("评价"));
-
-        List<BaseFragment> fragmentList = new ArrayList<>();
-        fragmentList.add(goodsInfoMainFragment = GoodsInfoMainFragment.newInstance(id, goodsInfo));
-        fragmentList.add(new GoodsInfoDetailMainFragment());
-        fragmentList.add(new GoodsCommentFragment());
-        vpContent.setAdapter(new FragmentPagerAdapter(getSupportFragmentManager(), title, fragmentList));
-        vpContent.setOffscreenPageLimit(3);
-        pstsTabs.setViewPager(vpContent);
-
-//        setCartNumber();
+        /*setCartNumber();*/
     }
 
     private void getGoodsInfo() {
-        List<GoodsInfo> arrayList = ApiData.getGoodsInfos();
+        /*List<GoodsInfo> arrayList = ApiData.getGoodsInfos();
         for (GoodsInfo info : arrayList) {
-            if (Long.parseLong(info.getGoodsId()) == Long.parseLong(id)) {
+            if (info.getGoodsId() == Long.parseLong(id)) {
                 this.goodsInfo = info;
             }
         }
-
-        ApiRepo.getProduct(Long.parseLong(id)).subscribeWith(new RxSubscriber<GoodsInfo>() {
+*/
+        showLoadingState();
+        ApiRepo.getProduct(Long.parseLong(id)).subscribeWith(new RxSubscriber<GoodsListInfo>() {
             @Override
-            public void onSuccess(GoodsInfo info) {
-                KLog.i(info.toString());
+            public void onSuccess(GoodsListInfo data) {
                 showSuccess();
-                goodsInfo = info;
+                goodsInfo = data.getData();
+                List<HorizontalTabTitle> title = new ArrayList<>();
+                title.add(new HorizontalTabTitle("商品"));
+                title.add(new HorizontalTabTitle("详情"));
+                title.add(new HorizontalTabTitle("评价"));
+
+                List<BaseFragment> fragmentList = new ArrayList<>();
+                fragmentList.add(goodsInfoMainFragment = GoodsInfoMainFragment.newInstance(id, goodsInfo));
+                fragmentList.add(GoodsInfoDetailMainFragment.newInstance(goodsInfo));
+                fragmentList.add(new GoodsCommentFragment());
+                vpContent.setAdapter(new FragmentPagerAdapter(getSupportFragmentManager(), title, fragmentList));
+                vpContent.setOffscreenPageLimit(3);
+                pstsTabs.setViewPager(vpContent);
             }
 
             @Override
@@ -118,7 +115,7 @@ public class ShoppingDetailsActivity extends BaseActivity {
     @Override
     protected void onResume() {
         super.onResume();
-        setCartNumber();
+        /*setCartNumber();*/
     }
 
     /**
@@ -153,9 +150,9 @@ public class ShoppingDetailsActivity extends BaseActivity {
             }
         } else if (i == R.id.tv_buy_now) {
             //立即购买
-            Map<String, GoodsInfo> map = new HashMap<>();
-            map.put("goodsInfo", goodsInfo);
-            ActivityToActivity.toActivity(ARouterConfig.classify.BUYACTIVITY, map);
+//            Map<String, GoodsInfo> map = new HashMap<>();
+//            map.put("goodsInfo", goodsInfo);
+            ActivityToActivity.toActivity(ARouterConfig.classify.BUYACTIVITY, "goodsInfo", goodsInfo);
         }
     }
 

@@ -146,7 +146,7 @@ public class HomeFragment extends BaseListFragment<MViewModel> implements OnItem
                 GoodsInfo info = (GoodsInfo) object;
 //                KLog.i(((VendorInfo.GoodsInfo) object).getGoodsName());
                 Map<String, String> map = new HashMap<>();
-                map.put("id", info.getGoodsId());
+                map.put("id", ""+info.getGoodsId());
                 ActivityToActivity.toActivity(ARouterConfig.home.SHOPPINGDETAILSACTIVITY, map);
             }
 
