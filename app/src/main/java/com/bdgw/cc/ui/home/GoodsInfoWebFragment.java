@@ -1,11 +1,13 @@
 package com.bdgw.cc.ui.home;
 
+import android.graphics.Bitmap;
 import android.os.Bundle;
 import android.webkit.WebSettings;
 import android.webkit.WebView;
 import android.webkit.WebViewClient;
 
 import com.bdgw.cc.R;
+import com.socks.library.KLog;
 
 import butterknife.BindView;
 import me.goldze.common.base.mvvm.base.BaseFragment;
@@ -43,13 +45,13 @@ public class GoodsInfoWebFragment extends BaseFragment {
 
     @Override
     public void initView(Bundle state) {
-        showSuccess();
+        /*showSuccess();*/
         initWebView();
     }
 
     private void initWebView() {
-
-        url=getArguments().getString("url");
+        url = getArguments().getString("url");
+        KLog.i("initWebView"+url);
 
         webView.setFocusable(false);
         webView.loadUrl(url);
@@ -69,6 +71,13 @@ public class GoodsInfoWebFragment extends BaseFragment {
         public void onPageFinished(WebView view, String url) {
             super.onPageFinished(view, url);
             webSettings.setBlockNetworkImage(false);
+            showSuccess();
+        }
+
+        @Override
+        public void onPageStarted(WebView view, String url, Bitmap favicon) {
+            super.onPageStarted(view, url, favicon);
+            showLoadingState();
         }
 
         @Override

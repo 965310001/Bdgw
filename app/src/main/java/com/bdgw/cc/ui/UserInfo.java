@@ -21,6 +21,16 @@ public class UserInfo extends BaseBean {
     private UserBean user;
     private int error_code;
     private String error_desc;
+    /*购物车数量*/
+    private String quantity;
+
+    public String getQuantity() {
+        return quantity;
+    }
+
+    public void setQuantity(String quantity) {
+        this.quantity = quantity;
+    }
 
     public String getToken() {
         return token;

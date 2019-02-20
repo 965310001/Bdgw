@@ -14,7 +14,6 @@ import com.xuexiang.xui.widget.edittext.materialedittext.MaterialEditText;
 
 import butterknife.BindView;
 import butterknife.OnClick;
-import me.goldze.common.base.bean.BaseResponse;
 import me.goldze.common.base.mvvm.base.BaseActivity;
 import me.goldze.common.constants.ARouterConfig;
 import me.goldze.common.http.rx.RxSubscriber;
@@ -40,15 +39,17 @@ public class RegisterActivity extends BaseActivity {
 
     @BindView(R.id.ed_register_name)
     MaterialEditText edPhone;
+    @BindView(R.id.ed_register_code)
+    MaterialEditText edCode;
     @BindView(R.id.ed_register_password)
     MaterialEditText edPassword;
     @BindView(R.id.ed_register_repassword)
-    MaterialEditText edRepassword;
+    MaterialEditText edInviteCode;
 
     @BindView(R.id.btn_register)
     TextView btnRegister;
 
-    String phone, password, repassword;
+    String phone, code, password, inviteCode;
 
     ProgressFragment progressFragment;
 
@@ -66,7 +67,7 @@ public class RegisterActivity extends BaseActivity {
         rlTitleBar.setVisibility(View.VISIBLE);
         tvTitle.setText("注册");
 
-        TextChangeUtils.observer(btnRegister, edPhone, edPassword, edRepassword);
+        TextChangeUtils.observer(btnRegister, edPhone, edCode, edPassword);
     }
 
     @OnClick({R.id.iv_back, R.id.btn_register, R.id.tv_to_login})
@@ -80,23 +81,26 @@ public class RegisterActivity extends BaseActivity {
                     if (TextUtils.isEmpty(phone)) {
                         edPhone.setError("请输入手机号");
                     }
+                    if (TextUtils.isEmpty(code)) {
+                        edInviteCode.setError("请输入验证码");
+                    }
                     if (TextUtils.isEmpty(password)) {
                         edPassword.setError("请输入密码");
                     }
-                    if (TextUtils.isEmpty(repassword)) {
-                        edRepassword.setError("请输入密码");
-                    }
                 } else if (!RegexUtils.isMobileExact(phone)) {
                     ToastUtils.showLong("请输入正确的手机号");
-                } else if (password.length() < 6 || password.length() > 15) {
+                }
+               /* else if (!password.equals(code)) {
+                    ToastUtils.showLong("验证码长度必须大于4位");
+                }*/
+                else if (password.length() < 6 || password.length() > 15) {
                     ToastUtils.showLong("密码必须在6-15位");
-                } else if (!password.equals(repassword)) {
-                    ToastUtils.showLong("密码不一样");
                 } else {
                     if (!progressFragment.isVisible()) {
                         progressFragment.show(getSupportFragmentManager(), ARouterConfig.REGISTERACTIVITY);
                     }
-                    register(phone, password, repassword);
+
+                    register(phone, code, password, inviteCode);
                 }
                 break;
             case R.id.tv_to_login:
@@ -106,16 +110,16 @@ public class RegisterActivity extends BaseActivity {
         }
     }
 
-    private void register(final String phone, String password, String repassword) {
-        ApiRepo.register(phone, password, repassword).subscribeWith(new RxSubscriber<BaseResponse<UserInfo>>() {
+    private void register(final String phone, String code, String password, String inviteCode) {
+        ApiRepo.register(phone, code, password, inviteCode).subscribeWith(new RxSubscriber<UserInfo>() {
 
             @Override
-            public void onSuccess(BaseResponse<UserInfo> response) {
+            public void onSuccess(UserInfo response) {
                 if (progressFragment.getDialog().isShowing()) {
                     progressFragment.dismiss();
                 }
 
-                KLog.i(response.getErrorMsg() + response.getErrorCode());
+                KLog.i(response.getErrorMsg() + response.getError_desc());
 
                 if (!response.isSuccess()) {
                     ToastUtils.showLong(response.getErrorMsg());
@@ -147,10 +151,11 @@ public class RegisterActivity extends BaseActivity {
 
     private boolean checkIsNull() {
         phone = edPhone.getText().toString().trim();
+        code = edCode.getText().toString().trim();
         password = edPassword.getText().toString().trim();
-        repassword = edRepassword.getText().toString().trim();
+        inviteCode = edInviteCode.getText().toString().trim();
 
         return TextUtils.isEmpty(phone) || TextUtils.isEmpty(password) ||
-                TextUtils.isEmpty(repassword);
+                TextUtils.isEmpty(code);
     }
 }

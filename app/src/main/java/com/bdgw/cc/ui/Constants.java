@@ -71,6 +71,8 @@ public interface Constants {
         String EVENT_SHOPPING_CART_REFRESH = "event_shopping_cart_refresh";
 
 
+        //综合排序，销量排序，新品排序 0,4,5
+        int[] SORT_KEY = {0, 4, 5};
     }
 
     /*-------------------------------------------------------------------我的---------------------------------------------------*/
@@ -79,8 +81,8 @@ public interface Constants {
         String EVENT_EDIT_ADDRESS_CHANGED = "EVENT_EDIT_ADDRESS_CHANGED";
 
         /*资金明细*/
-        String[] DEFINITE_TITLE={"全部", "收入", "支出"};
-        String[] DEFINITE_STATUS={"0","1","2"};
+        String[] DEFINITE_TITLE = {"全部", "收入", "支出"};
+        String[] DEFINITE_STATUS = {"0", "1", "2"};
 
     }
 

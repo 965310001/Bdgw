@@ -1,6 +1,7 @@
 package com.bdgw.cc.ui.home;
 
 import android.os.Bundle;
+import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
@@ -11,7 +12,6 @@ import android.widget.TextView;
 
 import com.bdgw.cc.R;
 import com.bdgw.cc.ui.shopping.bean.GoodsInfo;
-import com.socks.library.KLog;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -48,15 +48,20 @@ public class GoodsInfoDetailMainFragment extends BaseFragment {
     public GoodsInfoDetailMainFragment() {
     }
 
-    String url="https://blog.csdn.net/neverwoods/article/details/52219642";
+    String url;
 
     public static GoodsInfoDetailMainFragment newInstance(GoodsInfo goodsInfo) {
         GoodsInfoDetailMainFragment fragment = new GoodsInfoDetailMainFragment();
         Bundle bundle = new Bundle();
         bundle.putString("url", goodsInfo.getIntroUrl());
-        KLog.i(goodsInfo.getIntroUrl());
         fragment.setArguments(bundle);
         return fragment;
+    }
+
+    @Override
+    public void setArguments(@Nullable Bundle args) {
+        super.setArguments(args);
+        url = getArguments().getString("url");
     }
 
     @Override
@@ -76,7 +81,7 @@ public class GoodsInfoDetailMainFragment extends BaseFragment {
         tabTextList = new ArrayList<>();
         tabTextList.add(tvGoodsDetail);
         tabTextList.add(tvGoodsConfig);
-        /*url = getArguments().getString("url");*/
+
         setData();
     }
 
@@ -84,7 +89,8 @@ public class GoodsInfoDetailMainFragment extends BaseFragment {
      * 商品信息Fragment页获取完数据执行
      */
     public void setData() {
-        currentFragment = goodsDetailWebFragment = GoodsInfoWebFragment.newInstance(url);
+        goodsDetailWebFragment = GoodsInfoWebFragment.newInstance(url);
+        currentFragment = goodsDetailWebFragment;
         goodsConfigFragment = new GoodsConfigFragment();
         fragmentManager = getChildFragmentManager();
         //默认显示商品详情tab

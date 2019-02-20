@@ -46,6 +46,8 @@ public class CatagoryInfo extends BaseBean {
         }
 
         public int getId() {
+            // TODO: 2019/2/20 删除
+            id=1486;
             return id;
         }
 

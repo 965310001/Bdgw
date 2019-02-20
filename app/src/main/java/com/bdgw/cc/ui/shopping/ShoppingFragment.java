@@ -11,6 +11,7 @@ import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import com.bdgw.cc.R;
+import com.bdgw.cc.ui.ApiRepo;
 import com.bdgw.cc.ui.Constants;
 import com.bdgw.cc.ui.shopping.bean.GoodsInfo;
 import com.bdgw.cc.ui.shopping.bean.VendorInfo;
@@ -23,7 +24,7 @@ import butterknife.BindView;
 import butterknife.OnClick;
 import me.goldze.common.base.event.LiveBus;
 import me.goldze.common.base.mvvm.base.BaseFragment;
-import me.goldze.common.base.mvvm.stateview.ErrorState;
+import me.goldze.common.http.rx.RxSubscriber;
 import me.goldze.common.utils.ToastUtils;
 
 /**
@@ -83,7 +84,8 @@ public class ShoppingFragment extends BaseFragment {
 
         dataObserver();
 
-        cartData();
+        /*cartData();*/
+        getData();
     }
 
     private void dataObserver() {
@@ -134,6 +136,40 @@ public class ShoppingFragment extends BaseFragment {
                 }
                 break;
         }
+    }
+
+    /**
+     * 获取网络数据
+     */
+    private void getData() {
+        ApiRepo.getCartList().subscribeWith(new RxSubscriber<VendorInfo>() {
+
+            @Override
+            public void onSuccess(VendorInfo response) {
+              /*  KLog.i(response.getErrorMsg() + response.getError_desc());
+                if (!response.isSuccess()) {
+                    ToastUtils.showLong(response.getErrorMsg());
+                } else {
+                    setCartNumber(Integer.parseInt(response.getQuantity()));
+                }*/
+                /*要进行转换*/
+            }
+
+            @Override
+            public void onFailure(String msg) {
+                KLog.i(msg);
+                ToastUtils.showLong(msg);
+                /*setCartNumber(0);*/
+            }
+
+            @Override
+            public void onError(Throwable t) {
+                KLog.i(t.getMessage());
+                ToastUtils.showLong("请稍后再试");
+                /*setCartNumber(0);*/
+            }
+        });
+
     }
 
     /**

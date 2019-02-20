@@ -11,19 +11,21 @@ import android.widget.TextView;
 import com.alibaba.android.arouter.facade.annotation.Route;
 import com.alibaba.android.arouter.launcher.ARouter;
 import com.bdgw.cc.R;
+import com.socks.library.KLog;
 import com.xuexiang.xui.widget.edittext.materialedittext.MaterialEditText;
 
 import butterknife.BindView;
 import butterknife.OnClick;
 import me.goldze.common.base.mvvm.base.BaseActivity;
 import me.goldze.common.constants.ARouterConfig;
+import me.goldze.common.http.rx.RxSubscriber;
 import me.goldze.common.utils.ProgressFragment;
 import me.goldze.common.utils.RegexUtils;
 import me.goldze.common.utils.ToastUtils;
 import me.goldze.xui.button.TextChangeUtils;
 
 /**
- * 忘记密码
+ * 密码找回
  */
 @Route(path = ARouterConfig.home.RETRIEVEACTIVITY)
 public class RetrieveActivity extends BaseActivity {
@@ -118,9 +120,48 @@ public class RetrieveActivity extends BaseActivity {
 
     // TODO: 2019/2/1 修改密码
     private void change() {
-        progressFragment.dismiss();
-        ToastUtils.showLong("正在修改");
-        finish();
+        /*progressFragment.dismiss();*/
+//        ToastUtils.showLong("正在修改");
+//        finish();
+
+        if (!progressFragment.isVisible()) {
+            progressFragment.show(getSupportFragmentManager(), ARouterConfig.REGISTERACTIVITY);
+        }
+        ApiRepo.reset(phone, code, password).subscribeWith(new RxSubscriber<UserInfo>() {
+
+            @Override
+            public void onSuccess(UserInfo response) {
+                if (progressFragment.getDialog().isShowing()) {
+                    progressFragment.dismiss();
+                }
+                KLog.i(response.getErrorMsg() + response.getError_desc());
+                if (!response.isSuccess()) {
+                    ToastUtils.showLong(response.getErrorMsg());
+                } else {
+                    finish();
+                }
+            }
+
+            @Override
+            public void onFailure(String msg) {
+                KLog.i(msg);
+                ToastUtils.showLong(msg);
+                if (progressFragment.getDialog().isShowing()) {
+                    progressFragment.dismiss();
+                }
+            }
+
+            @Override
+            public void onError(Throwable t) {
+                KLog.i(t.getMessage());
+                ToastUtils.showLong("请稍后再试");
+                if (progressFragment.getDialog().isShowing()) {
+                    progressFragment.dismiss();
+                }
+            }
+        });
+
+
     }
 
     private boolean checkIsNull() {
@@ -132,6 +173,7 @@ public class RetrieveActivity extends BaseActivity {
 
     /*发送验证码*/
     private void getSureCode() {
+        /*code 表示区号*/
         if (null == countDownTimer) {
             countDownTimer = new CountDownTimer(60000, 1000) {
                 @Override
@@ -150,7 +192,39 @@ public class RetrieveActivity extends BaseActivity {
                 }
             };
         }
-        countDownTimer.start();
+
+        ApiRepo.senCode(phone, code).subscribeWith(new RxSubscriber<UserInfo>() {
+            @Override
+            public void onSuccess(UserInfo response) {
+                if (progressFragment.getDialog().isShowing()) {
+                    progressFragment.dismiss();
+                }
+                KLog.i(response.getErrorMsg() + response.getError_desc());
+                if (!response.isSuccess()) {
+                    ToastUtils.showLong(response.getErrorMsg());
+                } else {
+                    countDownTimer.start();
+                }
+            }
+
+            @Override
+            public void onFailure(String msg) {
+                KLog.i(msg);
+                ToastUtils.showLong(msg);
+                if (progressFragment.getDialog().isShowing()) {
+                    progressFragment.dismiss();
+                }
+            }
+
+            @Override
+            public void onError(Throwable t) {
+                KLog.i(t.getMessage());
+                ToastUtils.showLong("请稍后再试");
+                if (progressFragment.getDialog().isShowing()) {
+                    progressFragment.dismiss();
+                }
+            }
+        });
     }
 
     @Override

@@ -7,6 +7,7 @@ import com.bdgw.cc.ui.home.bean.SearchInfo;
 import com.bdgw.cc.ui.home.holder.CatagoryInfo;
 import com.bdgw.cc.ui.me.bean.AddressInfo;
 import com.bdgw.cc.ui.shopping.bean.GoodsListInfo;
+import com.bdgw.cc.ui.shopping.bean.VendorInfo;
 
 import io.reactivex.Flowable;
 import me.goldze.common.base.bean.BaseResponse;
@@ -28,8 +29,22 @@ public final class ApiRepo {
     }
 
     /*注册*/
-    public static Flowable<BaseResponse<UserInfo>> register(String phone, String password, String repassword) {
-        return apiService.register(phone, password, repassword).compose(RxSchedulers.<BaseResponse<UserInfo>>io_main());
+    public static Flowable<UserInfo> register(String mobile, String code, String password, String inviteCode) {
+        return apiService.register(mobile, code, password, inviteCode)
+                .compose(RxSchedulers.<UserInfo>io_main());
+    }
+
+    /*获取验证码*/
+    public static Flowable<UserInfo> senCode(String mobile, String code) {
+        return apiService.senCode(mobile, code)
+                .compose(RxSchedulers.<UserInfo>io_main());
+    }
+
+
+    /*重置密码*/
+    public static Flowable<UserInfo> reset(String mobile, String code, String password) {
+        return apiService.reset(mobile, code, password)
+                .compose(RxSchedulers.<UserInfo>io_main());
     }
 
     /*菜单*/
@@ -64,6 +79,21 @@ public final class ApiRepo {
     /*商品详情*/
     public static Flowable<GoodsListInfo> getProduct(long product) {
         return apiService.getProduct(product).compose(RxSchedulers.<GoodsListInfo>io_main());
+    }
+
+    /*商品列表*/
+    public static Flowable<GoodsListInfo> getProductList(long product, long page, int sortKey) {
+        return apiService.getProductList(product, page, 20, 0, sortKey, 2).compose(RxSchedulers.<GoodsListInfo>io_main());
+    }
+
+    /*购物车商品数量*/
+    public static Flowable<UserInfo> getCartNum() {
+        return apiService.getCartNum().compose(RxSchedulers.<UserInfo>io_main());
+    }
+
+    /*购物车商品列表*/
+    public static Flowable<VendorInfo> getCartList() {
+        return apiService.getCartList().compose(RxSchedulers.<VendorInfo>io_main());
     }
 
 

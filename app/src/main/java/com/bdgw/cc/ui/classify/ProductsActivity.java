@@ -9,6 +9,7 @@ import com.alibaba.android.arouter.facade.annotation.Route;
 import com.alibaba.android.arouter.launcher.ARouter;
 import com.bdgw.cc.R;
 import com.bdgw.cc.ui.Constants;
+import com.socks.library.KLog;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -37,16 +38,16 @@ public class ProductsActivity extends HorizontalTabActivity {
     protected List<BaseFragment> getTabFragments() {
         List<BaseFragment> list = new ArrayList<>();
         for (int i = 0; i < 3; i++) {
-            list.add(ProductsItemFragment.newInstance(id));
+            KLog.i(id);
+            list.add(ProductsItemFragment.newInstance(id, Constants.Shopping.SORT_KEY[i]));
         }
         return list;
     }
 
     @Override
     protected void initViews(Bundle savedInstanceState) {
-        super.initViews(savedInstanceState);
-
         ARouter.getInstance().inject(this);
+        super.initViews(savedInstanceState);
 
         findViewById(R.id.tv_title).setVisibility(View.GONE);
         findViewById(R.id.ed_search).setVisibility(View.VISIBLE);

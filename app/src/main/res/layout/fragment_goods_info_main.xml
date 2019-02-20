@@ -169,9 +169,14 @@
 
     </android.support.v4.widget.NestedScrollView>
 
-    <!--商品下方 详情Html 和规格介绍-->
-    <fragment
-        class="com.bdgw.cc.ui.home.GoodsInfoDetailMainFragment"
+    <FrameLayout
+        android:id="@+id/fl_fragment"
         android:layout_width="match_parent"
         android:layout_height="wrap_content" />
+
+    <!--商品下方 详情Html 和规格介绍-->
+    <!--<fragment-->
+        <!--class="com.bdgw.cc.ui.home.GoodsInfoDetailMainFragment"-->
+        <!--android:layout_width="match_parent"-->
+        <!--android:layout_height="wrap_content" />-->
 </me.goldze.common.widget.SlideLayout>

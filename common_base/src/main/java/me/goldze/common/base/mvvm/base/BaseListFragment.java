@@ -48,6 +48,8 @@ public abstract class BaseListFragment<T extends AbsViewModel> extends AbsLifecy
 
     protected String lastId = null;
 
+    protected long page = 1;
+
     protected boolean isLoadMore = true;
 
     protected boolean isLoading = true;
@@ -198,6 +200,7 @@ public abstract class BaseListFragment<T extends AbsViewModel> extends AbsLifecy
 
     @Override
     public void onRefresh() {
+        page = 1;
         lastId = null;
         isRefresh = true;
         isLoadMore = false;
@@ -206,6 +209,7 @@ public abstract class BaseListFragment<T extends AbsViewModel> extends AbsLifecy
 
     @Override
     public void onLoadMore() {
+        ++page;
         isLoadMore = true;
         getLoadMoreData();
     }

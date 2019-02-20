@@ -152,7 +152,7 @@ public class AdapterPool {
 
     /*分类列表里面的list*/
     public DelegateAdapter.Builder getProductsAdapter(Context context) {
-        return getNoFootAdapter(new DelegateAdapter.Builder<>()
+        return getAdapter(new DelegateAdapter.Builder<>()
                         .bind(GoodsInfo.class, new ProductsItemHolder(context)),
                 context, ProgressStyle.Pacman);
     }

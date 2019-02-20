@@ -37,7 +37,8 @@ public class ProductsItemHolder extends AbsItemHolder<GoodsInfo, ProductsItemHol
     @Override
     protected void onBindViewHolder(@NonNull ProductsItemHolder.ViewHolder holder, @NonNull GoodsInfo data) {
         holder.tvName.setText(data.getGoodsName());
-        holder.tvPrice.setText(data.getGoodsPrice().concat(" ").concat(data.getGoodsOldPrice()));
+//        holder.tvPrice.setText(data.getGoodsPrice().concat(" ").concat(data.getGoodsOldPrice()));
+        holder.tvPrice.setText(data.getGoodsPrice());
         holder.tvEvaluation.setText("100%".concat("好评"));
         holder.tvNum.setText("销量 ".concat(String.valueOf(data.getNum())));
         holder.ivAddCart.setOnClickListener(new View.OnClickListener() {

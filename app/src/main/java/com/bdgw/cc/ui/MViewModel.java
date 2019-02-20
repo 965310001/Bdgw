@@ -73,8 +73,10 @@ public class MViewModel extends AbsViewModel<MViewModel.MRepository> {
             public void onSuccess(Object object) {
                 if (object instanceof Banner) {
                     homeMerge.banner = (Banner) object;
+                    sendData(state, homeMerge);
                 } else if (object instanceof CatagoryInfo) {
                     homeMerge.catagoryInfo = (CatagoryInfo) object;
+                    sendData(state, homeMerge);
                 } else if (object instanceof HomeList) {
                     homeMerge.homeList = (HomeList) object;
                     sendData(state, homeMerge);

@@ -9,6 +9,7 @@ import com.alibaba.android.arouter.facade.annotation.Route;
 import com.alibaba.android.arouter.launcher.ARouter;
 import com.bdgw.cc.R;
 import com.bdgw.cc.ui.ApiRepo;
+import com.bdgw.cc.ui.UserInfo;
 import com.bdgw.cc.ui.shopping.ShoppingCartUtils;
 import com.bdgw.cc.ui.shopping.bean.GoodsInfo;
 import com.bdgw.cc.ui.shopping.bean.GoodsListInfo;
@@ -72,7 +73,8 @@ public class ShoppingDetailsActivity extends BaseActivity {
 
         getGoodsInfo();
 
-        /*setCartNumber();*/
+        setCartNumber();
+        /*getCartNumber();*/
     }
 
     private void getGoodsInfo() {
@@ -94,10 +96,14 @@ public class ShoppingDetailsActivity extends BaseActivity {
                 title.add(new HorizontalTabTitle("详情"));
                 title.add(new HorizontalTabTitle("评价"));
 
+                GoodsInfoDetailMainFragment mainFragment = GoodsInfoDetailMainFragment.newInstance(data.getData());
+
                 List<BaseFragment> fragmentList = new ArrayList<>();
                 fragmentList.add(goodsInfoMainFragment = GoodsInfoMainFragment.newInstance(id, goodsInfo));
-                fragmentList.add(GoodsInfoDetailMainFragment.newInstance(goodsInfo));
-                fragmentList.add(new GoodsCommentFragment());
+                fragmentList.add(mainFragment);
+                fragmentList.add(GoodsCommentFragment.newInstance());
+                goodsInfoMainFragment.setFragment(mainFragment);
+
                 vpContent.setAdapter(new FragmentPagerAdapter(getSupportFragmentManager(), title, fragmentList));
                 vpContent.setOffscreenPageLimit(3);
                 pstsTabs.setViewPager(vpContent);
@@ -112,11 +118,11 @@ public class ShoppingDetailsActivity extends BaseActivity {
 
     }
 
-    @Override
+ /*   @Override
     protected void onResume() {
         super.onResume();
-        /*setCartNumber();*/
-    }
+        setCartNumber();
+    }*/
 
     /**
      * 设置内容
@@ -156,11 +162,50 @@ public class ShoppingDetailsActivity extends BaseActivity {
         }
     }
 
+    private void getCartNumber() {
+        ApiRepo.getCartNum().subscribeWith(new RxSubscriber<UserInfo>() {
+
+            @Override
+            public void onSuccess(UserInfo response) {
+                KLog.i(response.getErrorMsg() + response.getError_desc());
+                if (!response.isSuccess()) {
+                    ToastUtils.showLong(response.getErrorMsg());
+                } else {
+                    setCartNumber(Integer.parseInt(response.getQuantity()));
+                }
+            }
+
+            @Override
+            public void onFailure(String msg) {
+                KLog.i(msg);
+                ToastUtils.showLong(msg);
+                setCartNumber(0);
+            }
+
+            @Override
+            public void onError(Throwable t) {
+                KLog.i(t.getMessage());
+                ToastUtils.showLong("请稍后再试");
+                setCartNumber(0);
+            }
+        });
+
+    }
+
     /**
      * 设置购物车数量
      */
     private void setCartNumber() {
         int count = ShoppingCartUtils.getCartCount();
+        if (count < 1) {
+            tvCount.setVisibility(View.GONE);
+        } else {
+            tvCount.setVisibility(View.VISIBLE);
+            tvCount.setText(String.valueOf(count));
+        }
+    }
+
+    private void setCartNumber(int count) {
         if (count < 1) {
             tvCount.setVisibility(View.GONE);
         } else {

@@ -14,6 +14,7 @@ import com.bdgw.cc.ui.home.bean.SearchInfo;
 import com.bdgw.cc.ui.home.holder.CatagoryInfo;
 import com.bdgw.cc.ui.me.bean.AddressInfo;
 import com.bdgw.cc.ui.shopping.bean.GoodsListInfo;
+import com.bdgw.cc.ui.shopping.bean.VendorInfo;
 
 import io.reactivex.Flowable;
 import io.reactivex.Observable;
@@ -39,7 +40,12 @@ public interface ApiService {
         /*登录*/
         String LOGIN = "/v2/ecapi.auth.signin";
         /*注册*/
-        String REGISTER = "/user/register";
+        String REGISTER = "/v2/ecapi.auth.mobile.signup";
+        /*重置用户密码*/
+        String RESET = "/v2/ecapi.auth.mobile.reset";
+        /*发送验证码*/
+        String SENDCODE = "/v2/ecapi.auth.mobile.send";
+
         /*检查更新*/
         String CHECKUPDATE = "";
 
@@ -75,7 +81,13 @@ public interface ApiService {
         /*-------------------------------------------------------------------购物车-------------------------------------------------*/
         interface shopping {
 
-            String PRODUCT="/v2/ecapi.product.get";
+            String PRODUCT = "/v2/ecapi.product.get";
+            /*商品列表*/
+            String PRODUCTLIST = "/v2/ecapi.product.list";
+            /*购物车数量*/
+            String CARTNUM = "/v2/ecapi.cart.quantity";
+            /*购物车商品列表*/
+            String CARTLIST = "/v2/ecapi.cart.get";
         }
         /*-------------------------------------------------------------------我的---------------------------------------------------*/
 
@@ -97,13 +109,43 @@ public interface ApiService {
     Flowable<UserInfo> login(@Field("username") String userName,
                              @Field("password") String password);
 
-
-    /*注册*/
+    /**
+     * 注册
+     *
+     * @param mobile     手机号
+     * @param code       验证码
+     * @param password   密码
+     * @param inviteCode 邀请码
+     * @return
+     */
     @FormUrlEncoded
     @POST(Api.REGISTER)
-    Flowable<BaseResponse<UserInfo>> register(@Field("username") String userName,
-                                              @Field("password") String password,
-                                              @Field("repassword") String repassword);
+    Flowable<UserInfo> register(@Field("mobile") String mobile,
+                                @Field("code") String code,
+                                @Field("password") String password,
+                                @Field("invite_code") String inviteCode);
+
+
+    /**
+     * 获取验证码
+     *
+     * @param mobile
+     * @param code   区号
+     * @return
+     */
+    @FormUrlEncoded
+    @POST(Api.SENDCODE)
+    Flowable<UserInfo> senCode(@Field("mobile") String mobile,
+                               @Field("code") String code);
+
+
+    /*重置密码*/
+    @FormUrlEncoded
+    @POST(Api.RESET)
+    Flowable<UserInfo> reset(@Field("mobile") String mobile,
+                             @Field("code") String code,
+                             @Field("password") String password);
+
 
     /*菜单*/
     @POST(Api.home.HOME_MENU)
@@ -164,6 +206,24 @@ public interface ApiService {
     @FormUrlEncoded
     @POST(Api.shopping.PRODUCT)
     Flowable<GoodsListInfo> getProduct(@Field("product") long id);
+
+    /*购物车商品数量*/
+    @POST(Api.shopping.CARTNUM)
+    Flowable<UserInfo> getCartNum(); /*购物车商品数量*/
+
+    /*购物车商品列表*/
+    @POST(Api.shopping.CARTLIST)
+    Flowable<VendorInfo> getCartList();
+
+    /*商品列表*/
+    @FormUrlEncoded
+    @POST(Api.shopping.PRODUCTLIST)
+    Flowable<GoodsListInfo> getProductList(@Field("category") long id,
+                                           @Field("page") long page,
+                                           @Field("per_page") int per_page,
+                                           @Field("is_hot") int is_hot,
+                                           @Field("sort_key") int sort_key,
+                                           @Field("sort_value") int sort_value);
 
 
     /*-------------------------------------------------------------------我的---------------------------------------------------*/

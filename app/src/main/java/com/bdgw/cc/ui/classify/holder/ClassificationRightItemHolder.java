@@ -19,9 +19,6 @@ import com.trecyclerview.holder.AbsHolder;
 import com.trecyclerview.holder.AbsItemHolder;
 import com.trecyclerview.listener.OnItemClickListener;
 
-import java.util.HashMap;
-import java.util.Map;
-
 import me.goldze.common.base.event.LiveBus;
 import me.goldze.common.constants.ARouterConfig;
 import me.goldze.common.utils.ActivityToActivity;
@@ -82,11 +79,11 @@ public class ClassificationRightItemHolder extends AbsItemHolder<ClassificationI
                     public void onItemClick(View view, int postion, Object object) {
                         ClassificationInfo.DataBean.ChildrenBeanX.ChildrenBean data =
                                 dataBean.getChildren().get(postion);
-                        KLog.i(data.getName() + " ");
+                        KLog.i(data.getName() + " " + data.getId());
 
-                        Map<String, String> map = new HashMap<>();
-                        map.put("id", String.valueOf(data.getId()));
-                        ActivityToActivity.toActivity(ARouterConfig.classify.PRODUCTSACTIVITY, map);
+//                        Map<String, String> map = new HashMap<>();
+//                        map.put("id", String.valueOf(data.getId()));
+                        ActivityToActivity.toActivity(ARouterConfig.classify.PRODUCTSACTIVITY, "id", String.valueOf(data.getId()));
                     }
                 }).build();
         adapter.setDatas(dataBean.getChildren());
@@ -99,9 +96,9 @@ public class ClassificationRightItemHolder extends AbsItemHolder<ClassificationI
     }
 
     static class ViewHolder extends AbsHolder {
-        private final  TextView tvText;
+        private final TextView tvText;
         private final MultipleItemView miv;
-        private final  TRecyclerView recyclerView;
+        private final TRecyclerView recyclerView;
 
         private ViewHolder(View itemView) {
             super(itemView);

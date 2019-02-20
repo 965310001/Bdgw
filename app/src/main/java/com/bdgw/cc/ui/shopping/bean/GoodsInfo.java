@@ -206,7 +206,7 @@ public class GoodsInfo extends BaseBean {
                 for (Photos photo : photos) {
                     KLog.i(photo.getLarge());
 
-                    goodsHeadImg.add(photo.getThumb());
+                    goodsHeadImg.add(photo.getLarge());
                 }
             }
         }

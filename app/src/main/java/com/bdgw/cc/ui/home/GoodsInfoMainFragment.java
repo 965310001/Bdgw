@@ -3,6 +3,7 @@ package com.bdgw.cc.ui.home;
 import android.content.Context;
 import android.graphics.Paint;
 import android.os.Bundle;
+import android.support.v4.app.Fragment;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.View;
@@ -79,6 +80,12 @@ public class GoodsInfoMainFragment extends BaseFragment implements SlideLayout.O
         return fragment;
     }
 
+    Fragment fragment;
+
+    public void setFragment(Fragment fragment) {
+        this.fragment = fragment;
+    }
+
     @Override
     protected int getLayoutResId() {
         return R.layout.fragment_goods_info_main;
@@ -121,6 +128,7 @@ public class GoodsInfoMainFragment extends BaseFragment implements SlideLayout.O
     @OnClick({R.id.ll_pull_up, R.id.ll_comment})
     public void onClick(View v) {
         if (v.getId() == R.id.ll_pull_up) {//上拉查看图文详情
+            getChildFragmentManager().beginTransaction().replace(R.id.fl_fragment, fragment).commitAllowingStateLoss();
             svSwitch.smoothOpen(true);
         } else if (v.getId() == R.id.ll_comment) {
             //查看评论

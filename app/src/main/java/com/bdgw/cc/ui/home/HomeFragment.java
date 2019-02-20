@@ -14,14 +14,10 @@ import com.bdgw.cc.ui.MViewModel;
 import com.bdgw.cc.ui.adapter.AdapterPool;
 import com.bdgw.cc.ui.home.bean.HomeMerge;
 import com.bdgw.cc.ui.home.bean.TypeInfo;
-import com.bdgw.cc.ui.home.holder.CatagoryInfo;
 import com.bdgw.cc.ui.shopping.bean.GoodsInfo;
 import com.socks.library.KLog;
 import com.trecyclerview.adapter.DelegateAdapter;
 import com.trecyclerview.listener.OnItemClickListener;
-
-import java.util.HashMap;
-import java.util.Map;
 
 import butterknife.BindView;
 import me.goldze.common.base.mvvm.base.BaseListFragment;
@@ -35,9 +31,6 @@ public class HomeFragment extends BaseListFragment<MViewModel> implements OnItem
 
     @BindView(R.id.tv_right)
     TextView tvRight;
-
-    /*菜单*/
-    private CatagoryInfo menus;
 
     public HomeFragment() {
     }
@@ -75,7 +68,6 @@ public class HomeFragment extends BaseListFragment<MViewModel> implements OnItem
     @Override
     protected void onStateRefresh() {
         super.onStateRefresh();
-
         mViewModel.getHomeData();
     }
 
@@ -97,15 +89,28 @@ public class HomeFragment extends BaseListFragment<MViewModel> implements OnItem
 
 
     private void addItems(HomeMerge homeMergeVo) {
-        newItems.add(homeMergeVo.banner);
-        newItems.add(homeMergeVo.catagoryInfo);
-        newItems.add(new TypeInfo("精品推荐"));
-        newItems.addAll(homeMergeVo.homeList.getGood_products());
-        newItems.add(new TypeInfo("销量排行"));
-        newItems.addAll(homeMergeVo.homeList.getHot_products());
-        newItems.add(new TypeInfo("新品上架"));
-        newItems.addAll(homeMergeVo.homeList.getRecently_products());
+        if (null != homeMergeVo.banner) {
+            newItems.add(homeMergeVo.banner);
+        }
+        if (null != homeMergeVo.catagoryInfo) {
+            newItems.add(homeMergeVo.catagoryInfo);
+        }
 
+        if (null != homeMergeVo.homeList) {
+            if (null != homeMergeVo.homeList.getGood_products() && homeMergeVo.homeList.getGood_products().size() > 0) {
+                newItems.add(new TypeInfo("精品推荐"));
+                newItems.addAll(homeMergeVo.homeList.getGood_products());
+            }
+
+            if (null != homeMergeVo.homeList.getHot_products() && homeMergeVo.homeList.getHot_products().size() > 0) {
+                newItems.add(new TypeInfo("销量排行"));
+                newItems.addAll(homeMergeVo.homeList.getHot_products());
+            }
+            if (null != homeMergeVo.homeList.getRecently_products() && homeMergeVo.homeList.getRecently_products().size() > 0) {
+                newItems.add(new TypeInfo("新品上架"));
+                newItems.addAll(homeMergeVo.homeList.getRecently_products());
+            }
+        }
         oldItems.clear();
         oldItems.addAll(newItems);
         mRecyclerView.refreshComplete(oldItems, true);
@@ -143,11 +148,12 @@ public class HomeFragment extends BaseListFragment<MViewModel> implements OnItem
                /* Intent intent = new Intent(activity, VideoDetailsActivity.class);
                 intent.putExtra("course_id", ((CourseInfoVo) object).courseid);
                 activity.startActivity(intent);*/
-                GoodsInfo info = (GoodsInfo) object;
 //                KLog.i(((VendorInfo.GoodsInfo) object).getGoodsName());
-                Map<String, String> map = new HashMap<>();
-                map.put("id", ""+info.getGoodsId());
-                ActivityToActivity.toActivity(ARouterConfig.home.SHOPPINGDETAILSACTIVITY, map);
+//                Map<String, String> map = new HashMap<>();
+//                map.put("id", "" + info.getGoodsId());
+
+                GoodsInfo info = (GoodsInfo) object;
+                ActivityToActivity.toActivity(ARouterConfig.home.SHOPPINGDETAILSACTIVITY, "id", String.valueOf(info.getGoodsId()));
             }
 
         }

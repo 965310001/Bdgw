@@ -179,7 +179,7 @@ public class SearchActivity extends BaseActivity {
                 @Override
                 public void onClick(View v) {
 //                    toSearchArticleListActivity(entity.getName());
-                    KLog.i(entity.getName());
+                    KLog.i(entity.getName()+entity.getId());
                     edInput.setText(entity.getName());
                     saveSearchKey(entity.getName());
 
