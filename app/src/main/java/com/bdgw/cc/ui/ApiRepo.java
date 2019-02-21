@@ -4,6 +4,7 @@ import com.bdgw.cc.http.ApiService;
 import com.bdgw.cc.http.RetrofitClient;
 import com.bdgw.cc.ui.classify.bean.ClassificationInfo;
 import com.bdgw.cc.ui.classify.bean.ReviewListInfo;
+import com.bdgw.cc.ui.home.bean.RedItemInfo;
 import com.bdgw.cc.ui.home.bean.SearchInfo;
 import com.bdgw.cc.ui.home.holder.CatagoryInfo;
 import com.bdgw.cc.ui.me.bean.AddressInfo;
@@ -53,7 +54,6 @@ public final class ApiRepo {
     public static Flowable<CatagoryInfo> getMenu() {
         return apiService.getMenu().compose(RxSchedulers.<CatagoryInfo>io_main());
     }
-
 
     /*热搜*/
     public static Flowable<HotKeyInfo> getHotKeys() {
@@ -142,5 +142,20 @@ public final class ApiRepo {
     /*站点信息*/
     public static Flowable<SiteInfo> getSite() {
         return apiService.getSite().compose(RxSchedulers.<SiteInfo>io_main());
+    }
+
+    /*获取红包列表*/
+    public static Flowable<RedItemInfo> getRedList(String status, long page) {
+        return apiService.getRedList(status, page, "20").compose(RxSchedulers.<RedItemInfo>io_main());
+    }
+
+    /*我的收藏*/
+    public static Flowable<GoodsListInfo> getLikedList(long page) {
+        return apiService.getLikedList(page, "20").compose(RxSchedulers.<GoodsListInfo>io_main());
+    }
+
+    /*取消收藏*/
+    public static Flowable<UserInfo> getUnlike(long product) {
+        return apiService.getUnlike(product).compose(RxSchedulers.<UserInfo>io_main());
     }
 }

@@ -58,6 +58,8 @@ public abstract class BaseListActivity extends BaseActivity implements OnRefresh
 
     protected DelegateAdapter adapter;
 
+    protected long page = 1;
+
     protected String lastId = null;
 
     protected boolean isLoadMore = true;
@@ -172,12 +174,14 @@ public abstract class BaseListActivity extends BaseActivity implements OnRefresh
 
     @Override
     public void onLoadMore() {
+        ++page;
         isLoadMore = true;
         getLoadMoreData();
     }
 
     @Override
     public void onRefresh() {
+        page = 1;
         lastId = null;
         isRefresh = true;
         isLoadMore = false;

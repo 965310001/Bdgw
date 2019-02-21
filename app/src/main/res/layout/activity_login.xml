@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:focusable="true"
@@ -25,7 +24,7 @@
         android:layout_marginLeft="@dimen/tab_bar"
         android:layout_marginTop="@dimen/tab_bar"
         android:layout_marginRight="@dimen/tab_bar"
-        android:hint="请输入手机号"
+        android:hint="请输入用户名"
         android:inputType="text"
         android:maxLines="1"
         android:textColor="@color/secondary_text"
@@ -38,8 +37,6 @@
         app:met_floatingLabel="normal"
         app:met_floatingLabelText="用户名"
         app:met_floatingLabelTextColor="@color/primary_text"
-        app:met_maxCharacters="11"
-        app:met_minCharacters="11"
         app:met_primaryColor="@color/primary"
         app:met_textColorHint="@color/third_text" />
 

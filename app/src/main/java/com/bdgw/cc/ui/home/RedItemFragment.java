@@ -5,7 +5,7 @@ import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.View;
 
-import com.bdgw.cc.ui.ApiData;
+import com.bdgw.cc.ui.ApiRepo;
 import com.bdgw.cc.ui.Constants;
 import com.bdgw.cc.ui.adapter.AdapterPool;
 import com.bdgw.cc.ui.home.bean.RedItemInfo;
@@ -15,6 +15,7 @@ import com.trecyclerview.adapter.DelegateAdapter;
 import com.trecyclerview.listener.OnItemClickListener;
 
 import me.goldze.common.base.mvvm.base.BaseListFragment;
+import me.goldze.common.http.rx.RxSubscriber;
 
 /**
  * 红包对应Fragment
@@ -51,7 +52,24 @@ public class RedItemFragment extends BaseListFragment<RedItemViewModel> implemen
     protected void getRemoteData() {
         super.getRemoteData();
 
-        setData(ApiData.getRedList());
+        /*setData(ApiData.getRedList());*/
+
+        ApiRepo.getRedList(getArguments().getString(STATUS), page).subscribeWith(new RxSubscriber<RedItemInfo>() {
+            @Override
+            public void onSuccess(RedItemInfo data) {
+                showSuccess();
+                if (null!=data.getCashgifts()&&data.getCashgifts().size()>0) {
+                    setData(data.getCashgifts());
+                }
+            }
+
+            @Override
+            public void onFailure(String msg) {
+                KLog.i(msg);
+                showErrorState();
+            }
+        });
+
     }
 
     @Override
@@ -80,7 +98,7 @@ public class RedItemFragment extends BaseListFragment<RedItemViewModel> implemen
 
     @Override
     public void onItemClick(View view, int i, Object o) {
-        KLog.i(((RedItemInfo.CashgiftsBean) o).getName() + " " + ((RedItemInfo.CashgiftsBean) o).getCondition());
+        /*KLog.i(((RedItemInfo.CashgiftsBean) o).getName() + " " + ((RedItemInfo.CashgiftsBean) o).getCondition());*/
 
         // TODO: 2019/1/22 跳转activity
 

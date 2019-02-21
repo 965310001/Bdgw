@@ -95,7 +95,7 @@ public class AdapterPool {
 
     /*红包*/
     public DelegateAdapter.Builder getRedAdapter(Context context) {
-        return getNoFootAdapter(new DelegateAdapter.Builder().bind(RedItemInfo.CashgiftsBean.class,
+        return getAdapter(new DelegateAdapter.Builder().bind(RedItemInfo.CashgiftsBean.class,
                 new RedItemView(context)),
                 context, ProgressStyle.Pacman);
     }

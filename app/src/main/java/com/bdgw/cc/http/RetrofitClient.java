@@ -2,9 +2,11 @@ package com.bdgw.cc.http;
 
 import android.text.TextUtils;
 
+import com.bdgw.cc.ui.UserInfo;
 import com.socks.library.KLog;
 
 import java.io.File;
+import java.util.HashMap;
 import java.util.Map;
 import java.util.concurrent.TimeUnit;
 
@@ -20,6 +22,7 @@ import me.goldze.common.http.interceptor.CacheInterceptor;
 import me.goldze.common.http.interceptor.ParameteInterceptor;
 import me.goldze.common.http.interceptor.logging.Level;
 import me.goldze.common.http.interceptor.logging.LoggingInterceptor;
+import me.goldze.common.utils.SharePreferenceUtil;
 import me.goldze.common.utils.Utils;
 import okhttp3.Cache;
 import okhttp3.ConnectionPool;
@@ -48,7 +51,7 @@ public class RetrofitClient {
     //必须继承 BaseApplication，或者使用BaseApplication.setApplication
 //    private static Context mContext = Utils.getContext();
 
-//    private static OkHttpClient okHttpClient;
+    //    private static OkHttpClient okHttpClient;
     private static Retrofit retrofit;
     private ApiService apiService;
     private Retrofit.Builder builder;
@@ -87,6 +90,12 @@ public class RetrofitClient {
         } catch (Exception e) {
             KLog.e("Could not create http cache", e);
         }
+        UserInfo data = (UserInfo) SharePreferenceUtil.getUser(UserInfo.class);
+        if (null != data) {
+            KLog.i("TAG",data.getToken());
+            headers = new HashMap<>();
+            headers.put("X-ECAPI-Authorization", data.getToken());
+        }
         HttpsUtils.SSLParams sslParams = HttpsUtils.getSslSocketFactory();
         OkHttpClient okHttpClient = new OkHttpClient.Builder()
                 .cookieJar(new CookieJarImpl(new PersistentCookieStore(Utils.getContext())))
@@ -95,16 +104,16 @@ public class RetrofitClient {
                 .addInterceptor(new CacheInterceptor(Utils.getContext()))
                 .sslSocketFactory(sslParams.sSLSocketFactory, sslParams.trustManager)
                 .addInterceptor(new LoggingInterceptor
-                        .Builder()//构建者模式
-                        .loggable(true) //是否开启日志打印 BuildConfig.DEBUG
-                        .setLevel(Level.BASIC) //打印的等级
-                        .log(Platform.INFO) // 打印类型
-                        .request("Request") // request的Tag
-                        .response("Response")// Response的Tag
-                        // TODO: 2019/1/22 添加token 
+                                .Builder()//构建者模式
+                                .loggable(true) //是否开启日志打印 BuildConfig.DEBUG
+                                .setLevel(Level.BASIC) //打印的等级
+                                .log(Platform.INFO) // 打印类型
+                                .request("Request") // request的Tag
+                                .response("Response")// Response的Tag
+                                // TODO: 2019/1/22 添加token
 //                        .addHeader("X-ECAPI-Authorization","eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1aWQiOjIxNjcsImV4cCI6MTU1MDY1ODQ0NiwicGxhdGZvcm0iOiJtb3ppbGxhIn0.aP1d7r-KkGiLPRHuoE1R8IrZ8cP5YDa3thSnhtO-Ico")
-                        .addHeader("log-header", "I am the log request header.") // 添加打印头, 注意 key 和 value 都不能是中文
-                        .build()
+                                .addHeader("log-header", "I am the log request header.") // 添加打印头, 注意 key 和 value 都不能是中文
+                                .build()
                 ).connectTimeout(DEFAULT_TIMEOUT, TimeUnit.SECONDS)
                 .writeTimeout(DEFAULT_TIMEOUT, TimeUnit.SECONDS)
                 .connectionPool(new ConnectionPool(8, 15, TimeUnit.SECONDS))

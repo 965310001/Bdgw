@@ -35,6 +35,14 @@ public class GoodsInfo extends BaseBean {
     private String goodsMasterImg;//商品主图
     private String praiseRate;//好评率
     private String commentCount;//用户点评数
+
+    @Transient
+    private int amount;
+
+    /*订单id*/
+    @Transient
+    private long id;
+
     @SerializedName("goods_number")
     private int num;//数量
 
@@ -54,6 +62,10 @@ public class GoodsInfo extends BaseBean {
 
     @Transient
     private List<Photos> photos;
+
+    @Transient
+    @SerializedName("product")
+    private Product product;
 
     //该字段不入库
     @Transient
@@ -91,8 +103,8 @@ public class GoodsInfo extends BaseBean {
 
     @Generated(hash = 345740624)
     public GoodsInfo(long goodsId, String goodsName, String goodsPrice, String goodsOldPrice, String goodsMasterImg, String praiseRate,
-            String commentCount, int num, int is_promote, int promote_start_date, int promote_end_date, String goods_thumb, int sales_count,
-            String introUrl, String vendorId) {
+                     String commentCount, int num, int is_promote, int promote_start_date, int promote_end_date, String goods_thumb, int sales_count,
+                     String introUrl, String vendorId) {
         this.goodsId = goodsId;
         this.goodsName = goodsName;
         this.goodsPrice = goodsPrice;
@@ -108,6 +120,23 @@ public class GoodsInfo extends BaseBean {
         this.sales_count = sales_count;
         this.introUrl = introUrl;
         this.vendorId = vendorId;
+    }
+
+
+    public long getId() {
+        return id;
+    }
+
+    public void setId(long id) {
+        this.id = id;
+    }
+
+    public int getAmount() {
+        return amount;
+    }
+
+    public void setAmount(int amount) {
+        this.amount = amount;
     }
 
     public String getIntroUrl() {
@@ -135,6 +164,9 @@ public class GoodsInfo extends BaseBean {
     }
 
     public String getGoodsName() {
+        if (null != product) {
+            this.goodsName = product.getGoodsName();
+        }
         return goodsName;
     }
 
@@ -143,6 +175,9 @@ public class GoodsInfo extends BaseBean {
     }
 
     public String getGoodsPrice() {
+        if (null != product) {
+            this.goodsPrice = product.getShowPrice();
+        }
         return goodsPrice;
     }
 
@@ -159,6 +194,9 @@ public class GoodsInfo extends BaseBean {
     }
 
     public String getGoodsMasterImg() {
+        if (null != product) {
+            goodsMasterImg = product.goodsImage;
+        }
         return goodsMasterImg;
     }
 
@@ -183,6 +221,9 @@ public class GoodsInfo extends BaseBean {
     }
 
     public int getNum() {
+        if (num == 0) {
+            this.num = getAmount();
+        }
         return num;
     }
 
@@ -283,6 +324,59 @@ public class GoodsInfo extends BaseBean {
 
         public void setLarge(String large) {
             this.large = large;
+        }
+    }
+
+    class Product extends BaseBean {
+        @SerializedName("goods_id")
+        private long goodsId;
+        @SerializedName("goods_name")
+        private String goodsName;
+        @SerializedName("goods_stock")
+        private String goodsStock;
+        @SerializedName("goods_image")
+        private String goodsImage;
+        @SerializedName("show_price")
+        private String showPrice;
+
+        public long getGoodsId() {
+            return goodsId;
+        }
+
+        public void setGoodsId(long goodsId) {
+            this.goodsId = goodsId;
+        }
+
+        public String getGoodsName() {
+            return goodsName;
+        }
+
+        public void setGoodsName(String goodsName) {
+            this.goodsName = goodsName;
+        }
+
+        public String getGoodsStock() {
+            return goodsStock;
+        }
+
+        public void setGoodsStock(String goodsStock) {
+            this.goodsStock = goodsStock;
+        }
+
+        public String getGoodsImage() {
+            return goodsImage;
+        }
+
+        public void setGoodsImage(String goodsImage) {
+            this.goodsImage = goodsImage;
+        }
+
+        public String getShowPrice() {
+            return showPrice;
+        }
+
+        public void setShowPrice(String showPrice) {
+            this.showPrice = showPrice;
         }
     }
 }

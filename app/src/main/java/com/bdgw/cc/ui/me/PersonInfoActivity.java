@@ -78,7 +78,7 @@ public class PersonInfoActivity extends BaseActivity implements MaterialDialog.I
             UserInfo.UserBean user = data.getUser();
 
             miv1.setRightText(user.getAlias());
-            miv2.setLeftText(content.get(user.getSex()));
+            miv2.setRightText(content.get(user.getSex()));
         }
     }
 

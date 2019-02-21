@@ -42,7 +42,7 @@ public interface Constants {
     interface Red {
         String[] RED_TABBAR_TITLE = {"未使用", "已使用", "已过期"};
         /*红包状态*/
-        String[] RED_TABBAR_STATUS = {"0", "1", "2"};
+        String[] RED_TABBAR_STATUS = {"1", "2", "3"};
 
         String[] EVENT_KEY_RED_LIST = {"EVENT_KEY_RED_LIST", "EVENT_KEY_RED_LIST_STATE"};
     }

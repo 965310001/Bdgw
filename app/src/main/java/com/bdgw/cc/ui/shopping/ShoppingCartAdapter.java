@@ -51,7 +51,7 @@ public class ShoppingCartAdapter extends BaseRecyclerAdapter<VendorInfo> impleme
 
     @Override
     protected void convert(BaseViewHolder holder, VendorInfo data, int position, List<Object> payloads) {
-        holder.setText(R.id.tv_vendor_name, data.vendorName);
+        holder.setText(R.id.tv_vendor_name, data.getVendorName());
         LinearLayout goodsLayout = holder.getView(R.id.goods_list);
         ImageView ivVendor = holder.getView(R.id.iv_check_vendor);
         ivVendor.setSelected(data.checked);
@@ -137,7 +137,7 @@ public class ShoppingCartAdapter extends BaseRecyclerAdapter<VendorInfo> impleme
                     /*updateCart();*/
 
                     KLog.i("修改数据库的数量");
-                    updateCart(String.valueOf(goodsInfo.getGoodsId()), value);
+                    updateCart(String.valueOf(goodsInfo.getId()), value);
                 }
 
                 @Override

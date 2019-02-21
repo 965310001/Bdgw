@@ -12,8 +12,8 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import com.bdgw.cc.R;
-import com.bdgw.cc.ui.ApiData;
 import com.bdgw.cc.ui.ApiRepo;
+import com.bdgw.cc.ui.UserInfo;
 import com.bdgw.cc.ui.classify.bean.ReviewListInfo;
 import com.bdgw.cc.ui.home.bean.GoodsComment;
 import com.bdgw.cc.ui.shopping.bean.GoodsInfo;
@@ -111,10 +111,11 @@ public class GoodsInfoMainFragment extends BaseFragment implements SlideLayout.O
 
         setGoodsInfo();
         setGoodsHeadImg();
-        commentList(ApiData.getGoodsCommentList());
+        /*commentList(ApiData.getGoodsCommentList());*/
         getReviewList();
     }
 
+    /*商品评价信息*/
     private void getReviewList() {
 //        commentList(ApiData.getGoodsCommentList());
         ApiRepo.getReviewList(String.valueOf(goodsInfo.getGoodsId()), 1).subscribeWith(new RxSubscriber<ReviewListInfo>() {
@@ -157,7 +158,7 @@ public class GoodsInfoMainFragment extends BaseFragment implements SlideLayout.O
     }
 
 
-    @OnClick({R.id.ll_pull_up, R.id.ll_comment})
+    @OnClick({R.id.ll_pull_up, R.id.ll_comment, R.id.iv_like})
     public void onClick(View v) {
         if (v.getId() == R.id.ll_pull_up) {//上拉查看图文详情
             KLog.i("上拉查看图文详情");
@@ -166,7 +167,31 @@ public class GoodsInfoMainFragment extends BaseFragment implements SlideLayout.O
         } else if (v.getId() == R.id.ll_comment) {
             //查看评论
             shoppingDetailsActivity.setCurrentFragment(2);
+        } else if (v.getId() == R.id.iv_like) {
+            /*添加收藏*/
+            getUnlike();
         }
+    }
+
+    private void getUnlike() {
+        ApiRepo.getUnlike(goodsInfo.getGoodsId()).subscribeWith(new RxSubscriber<UserInfo>() {
+            @Override
+            public void onSuccess(UserInfo response) {
+                KLog.i(response.getErrorMsg() + response.getError_desc());
+                if (!response.isSuccess()) {
+                    ToastUtils.showLong(response.getErrorMsg());
+                } else {
+                    /*修改成功*/
+                    /*ToastUtils.showLong("收藏成功");*/
+                }
+            }
+
+            @Override
+            public void onFailure(String msg) {
+                KLog.i(msg);
+            }
+        });
+
     }
 
     /**

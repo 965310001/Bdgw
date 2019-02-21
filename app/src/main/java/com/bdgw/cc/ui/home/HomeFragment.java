@@ -98,6 +98,11 @@ public class HomeFragment extends BaseListFragment<MViewModel> implements OnItem
 
         if (null != homeMergeVo.homeList) {
             if (null != homeMergeVo.homeList.getGood_products() && homeMergeVo.homeList.getGood_products().size() > 0) {
+                newItems.add(new TypeInfo("特价促销"));
+                newItems.addAll(homeMergeVo.homeList.getPromote_goods());
+            }
+
+            if (null != homeMergeVo.homeList.getGood_products() && homeMergeVo.homeList.getGood_products().size() > 0) {
                 newItems.add(new TypeInfo("精品推荐"));
                 newItems.addAll(homeMergeVo.homeList.getGood_products());
             }

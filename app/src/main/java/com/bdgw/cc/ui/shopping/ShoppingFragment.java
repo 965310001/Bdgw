@@ -195,6 +195,7 @@ public class ShoppingFragment extends BaseFragment {
                 } else {
                     /*删除成功*/
                     ShoppingCartUtils.delete(checkedGoods);
+                    adapter.getList().remove(response);
                     adapter.notifyDataSetChanged();
                 }
             }
@@ -219,13 +220,27 @@ public class ShoppingFragment extends BaseFragment {
 
             @Override
             public void onSuccess(VendorInfo response) {
-              /*  KLog.i(response.getErrorMsg() + response.getError_desc());
-                if (!response.isSuccess()) {
-                    ToastUtils.showLong(response.getErrorMsg());
-                } else {
-                    setCartNumber(Integer.parseInt(response.getQuantity()));
-                }*/
-                /*要进行转换*/
+
+                List<VendorInfo> data = null;
+                List<VendorInfo.GoodsGroups> data1 = response.getData();
+                if (null != data1 && data1.size() > 0) {
+                    data = new ArrayList<>();
+                    VendorInfo info;
+                    for (VendorInfo.GoodsGroups goodsGroups : data1) {
+                        info = new VendorInfo(goodsGroups.getShop().getName(),
+                                goodsGroups.getData());
+                        data.add(info);
+                    }
+                }
+
+                if (null != data && data.size() > 0) {
+                    mData.clear();
+                    mData.addAll(data);
+                    adapter.notifyDataSetChanged();
+                    displayResult();
+                }
+                setCartNumber();
+
                 hide(true);
             }
 

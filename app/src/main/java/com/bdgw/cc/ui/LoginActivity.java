@@ -51,7 +51,8 @@ public class LoginActivity extends AbsLifecycleActivity<LoginViewModel> {
         showSuccess();
 
         progressFragment = new ProgressFragment();
-
+        etPhone.setText("18011773705");
+        etPassword.setText("123456");
         TextChangeUtils.observer(btnLogin, etPhone, etPassword);
     }
 
@@ -68,9 +69,9 @@ public class LoginActivity extends AbsLifecycleActivity<LoginViewModel> {
 
             case R.id.btn_login:
                 if (checkIsNull()) {
-                   /* if (TextUtils.isEmpty(phone)) {
-                        etPhone.setError("请输入手机号");
-                    }*/
+                    if (TextUtils.isEmpty(phone)) {
+                        etPhone.setError("请输入用户名");
+                    }
                     if (TextUtils.isEmpty(password)) {
                         etPassword.setError("请输入密码");
                     }

@@ -22,6 +22,7 @@ public class HomeList extends BaseBean {
      */
 
     private int error_code;
+    private List<GoodsInfo> promote_goods;
     private List<GoodsInfo> hot_products;
     private List<GoodsInfo> recently_products;
     private List<GoodsInfo> good_products;
@@ -32,6 +33,14 @@ public class HomeList extends BaseBean {
 
     public void setError_code(int error_code) {
         this.error_code = error_code;
+    }
+
+    public List<GoodsInfo> getPromote_goods() {
+        return promote_goods;
+    }
+
+    public void setPromote_goods(List<GoodsInfo> promote_goods) {
+        this.promote_goods = promote_goods;
     }
 
     public List<GoodsInfo> getHot_products() {

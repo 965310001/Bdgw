@@ -44,11 +44,39 @@
                 android:padding="10dp">
 
                 <!--商品名称-->
-                <TextView
-                    android:id="@+id/tv_goods_name"
-                    style="@style/TextStyle"
-                    android:ellipsize="end"
-                    android:maxLines="2" />
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center">
+
+<!--
+                    <CheckBox
+                        android:id="@+id/tv_like"
+                        android:layout_width="24dp"
+                        android:layout_height="24dp"
+                        android:layout_alignParentRight="true"
+                        android:background="@drawable/ic_launcher" />
+-->
+                    <ImageView
+                        android:layout_alignParentRight="true"
+                        android:id="@+id/iv_like"
+                        android:layout_width="24dp"
+                        android:layout_height="24dp"
+                        android:src="@drawable/market_shopping_cart_selector" />
+
+                    <TextView
+                        android:id="@+id/tv_goods_name"
+                        style="@style/TextStyle"
+                        android:layout_alignParentLeft="true"
+                        android:layout_toLeftOf="@id/iv_like"
+                        android:ellipsize="end"
+                        android:gravity="left"
+                        android:maxLines="1"
+                        android:paddingRight="@dimen/dp_10"
+                        tools:text="手机名称" />
+
+                </RelativeLayout>
+
 
                 <!--商品价格-->
                 <RelativeLayout
@@ -176,7 +204,7 @@
 
     <!--商品下方 详情Html 和规格介绍-->
     <!--<fragment-->
-        <!--class="com.bdgw.cc.ui.home.GoodsInfoDetailMainFragment"-->
-        <!--android:layout_width="match_parent"-->
-        <!--android:layout_height="wrap_content" />-->
+    <!--class="com.bdgw.cc.ui.home.GoodsInfoDetailMainFragment"-->
+    <!--android:layout_width="match_parent"-->
+    <!--android:layout_height="wrap_content" />-->
 </me.goldze.common.widget.SlideLayout>

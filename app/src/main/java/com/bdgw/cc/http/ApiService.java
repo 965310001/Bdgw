@@ -110,6 +110,12 @@ public interface ApiService {
             String UPDATEADDRESS = "//";
             /*站点信息*/
             String SITE = "/v2/ecapi.site.get";
+            /*获取红包列表*/
+            String REDLIST = "/v2/ecapi.cashgift.list";
+            /*我的收藏*/
+            String LIKEDLIST = "/v2/ecapi.product.liked.list";
+            /*取消收藏*/
+            String UNLIKE = "/v2/ecapi.product.unlike";
         }
     }
 
@@ -208,6 +214,7 @@ public interface ApiService {
     Flowable<ClassificationInfo> getTreeData(@Field("page") int page,
                                              @Field("per_page") int per_page,
                                              @Field("top_level") int top_level);
+
     /*-------------------------------------------------------------------分类---------------------------------------------------*/
 
     /*双listview右边*/
@@ -300,4 +307,24 @@ public interface ApiService {
     /*站点信息*/
     @POST(Api.me.SITE)
     Flowable<SiteInfo> getSite();
+
+
+    /*获取红包列表*/
+    @FormUrlEncoded
+    @POST(Api.me.REDLIST)
+    Flowable<RedItemInfo> getRedList(@Field("status") String status,
+                                     @Field("page") long page,
+                                     @Field("per_page") String perPage);
+
+    /*收藏列表*/
+    @FormUrlEncoded
+    @POST(Api.me.LIKEDLIST)
+    Flowable<GoodsListInfo> getLikedList(@Field("page") long page,
+                                         @Field("per_page") String perPage);
+
+    /*取消收藏*/
+    @FormUrlEncoded
+    @POST(Api.me.UNLIKE)
+    Flowable<UserInfo> getUnlike(@Field("product") long product);
+
 }

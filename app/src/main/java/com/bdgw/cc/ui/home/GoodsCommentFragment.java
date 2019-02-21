@@ -8,14 +8,18 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.bdgw.cc.R;
-import com.bdgw.cc.ui.ApiData;
+import com.bdgw.cc.ui.ApiRepo;
+import com.bdgw.cc.ui.classify.bean.ReviewListInfo;
 import com.bdgw.cc.ui.home.bean.GoodsComment;
+import com.socks.library.KLog;
 
 import java.util.ArrayList;
 import java.util.List;
 
 import butterknife.BindView;
 import me.goldze.common.base.mvvm.base.BaseFragment;
+import me.goldze.common.http.rx.RxSubscriber;
+import me.goldze.common.utils.ToastUtils;
 
 /**
  * 商品详情 -商品评价
@@ -42,8 +46,12 @@ public class GoodsCommentFragment extends BaseFragment {
     public GoodsCommentFragment() {
     }
 
-    public static GoodsCommentFragment newInstance() {
-        return new GoodsCommentFragment();
+    public static GoodsCommentFragment newInstance(String id) {
+        GoodsCommentFragment fragment = new GoodsCommentFragment();
+        Bundle bundle=new Bundle();
+        bundle.putString("id",id);
+        fragment.setArguments(bundle);
+        return fragment;
     }
 
     @Override
@@ -70,8 +78,39 @@ public class GoodsCommentFragment extends BaseFragment {
         tvCommentCount.setText("用户点评(999)");
         tvPraiseRate.setText("好评率97.8%");
 
-        commentList(ApiData.getGoodsCommentList());
+        /*commentList(ApiData.getGoodsCommentList());*/
+        getReviewList();
     }
+
+    private void getReviewList() {
+//        commentList(ApiData.getGoodsCommentList());
+        ApiRepo.getReviewList(getArguments().getString("id"), 1).subscribeWith(new RxSubscriber<ReviewListInfo>() {
+
+            @Override
+            public void onSuccess(ReviewListInfo response) {
+//                KLog.i(response.getErrorMsg() + response.getError_desc());
+////                if (!response.isSuccess()) {
+////                    ToastUtils.showLong(response.getErrorMsg());
+////                } else {
+////                }
+                commentList(response.getData());
+            }
+
+            @Override
+            public void onFailure(String msg) {
+                KLog.i(msg);
+                ToastUtils.showLong(msg);
+            }
+
+            @Override
+            public void onError(Throwable t) {
+                KLog.i(t.getMessage());
+                ToastUtils.showLong("请稍后再试");
+            }
+        });
+
+    }
+
 
     void commentList(List<GoodsComment> commentList) {
         this.commentList.addAll(commentList);

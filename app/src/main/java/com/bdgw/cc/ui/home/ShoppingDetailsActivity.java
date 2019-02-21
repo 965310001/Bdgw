@@ -99,7 +99,7 @@ public class ShoppingDetailsActivity extends BaseActivity {
                 List<BaseFragment> fragmentList = new ArrayList<>();
                 fragmentList.add(goodsInfoMainFragment = GoodsInfoMainFragment.newInstance(id, goodsInfo));
                 fragmentList.add(GoodsInfoDetailMainFragment.newInstance(data.getData()));
-                fragmentList.add(GoodsCommentFragment.newInstance());
+                fragmentList.add(GoodsCommentFragment.newInstance(String.valueOf(goodsInfo.getGoodsId())));
 
                 vpContent.setAdapter(new FragmentPagerAdapter(getSupportFragmentManager(), title, fragmentList));
                 vpContent.setOffscreenPageLimit(3);
@@ -170,7 +170,7 @@ public class ShoppingDetailsActivity extends BaseActivity {
                 if (!response.isSuccess()) {
                     ToastUtils.showLong(response.getErrorMsg());
                 } else {
-                    goodsInfo=response.getCartGoods();
+                    goodsInfo = response.getCartGoods();
 //                    goodsInfo.setNum(goodsInfoMainFragment.getGoodsCount());
                     ShoppingCartUtils.addCartGoods(goodsInfo);
                     setCartNumber();
