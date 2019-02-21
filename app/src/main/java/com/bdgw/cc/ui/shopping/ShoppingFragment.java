@@ -13,6 +13,7 @@ import android.widget.TextView;
 import com.bdgw.cc.R;
 import com.bdgw.cc.ui.ApiRepo;
 import com.bdgw.cc.ui.Constants;
+import com.bdgw.cc.ui.UserInfo;
 import com.bdgw.cc.ui.shopping.bean.GoodsInfo;
 import com.bdgw.cc.ui.shopping.bean.VendorInfo;
 import com.socks.library.KLog;
@@ -47,9 +48,12 @@ public class ShoppingFragment extends BaseFragment {
     TextView btnBuy;
     @BindView(R.id.iv_check_all)
     ImageView ivCheckAll;
+    @BindView(R.id.content_layout)
+    RelativeLayout contentLayout;
 
     private List<VendorInfo> mData = new ArrayList<>();
     private ShoppingCartAdapter adapter;
+    private List<GoodsInfo> checkedGoods;
 
     private boolean isEdit;//是否属于编辑状态
 
@@ -86,6 +90,7 @@ public class ShoppingFragment extends BaseFragment {
 
         /*cartData();*/
         getData();
+        hide(false);
     }
 
     private void dataObserver() {
@@ -97,17 +102,21 @@ public class ShoppingFragment extends BaseFragment {
                         displayResult();
                         if (s.equals(Constants.Shopping.EVENT_SHOPPING_CART_CHANGED)) {
                             //购物车有变化
-
                             ivCheckAll.setSelected(ShoppingCartUtils.isAllVendorChecked(mData));
 //                            ivCheckAll.setSelected(ShoppingCartUtils.isAllVendorChecked(ShoppingCartUtils.getLocalData()));
                             adapter.notifyDataSetChanged();
-
                         } else if (s.equals(Constants.Shopping.EVENT_SHOPPING_CART_REFRESH)) {
                             //重新获取购物车数据
                             cartData();
                         }
                     }
                 });
+    }
+
+    /*true 表示隐藏*/
+    private void hide(boolean isHide) {
+        tvRight.setVisibility(!isHide ? View.GONE : View.VISIBLE);
+        contentLayout.setVisibility(!isHide ? View.GONE : View.VISIBLE);
     }
 
     @OnClick({R.id.iv_check_all, R.id.tv_right, R.id.btn_buy})
@@ -122,25 +131,89 @@ public class ShoppingFragment extends BaseFragment {
                 break;
             case R.id.tv_right:
                 onRightChange();
-
                 break;
             case R.id.btn_buy:
-                List<GoodsInfo> checkedGoods = ShoppingCartUtils.getAllCheckedGoods(mData);
+                checkedGoods = ShoppingCartUtils.getAllCheckedGoods(mData);
                 if (checkedGoods.size() > 0) {
                     if (isEdit) {
                         //删除
-                        ShoppingCartUtils.delete(checkedGoods);
+//                        ShoppingCartUtils.delete(checkedGoods);
+                        String ids = "";
+                        for (GoodsInfo checkedGood : checkedGoods) {
+                            ids = ids.concat(String.valueOf(checkedGood.getGoodsId()));
+                        }
+                        delete(ids);
                     } else {
                         ToastUtils.showLong("去结算");
+                        checkoutCart();
                     }
                 }
                 break;
         }
     }
 
-    /**
-     * 获取网络数据
-     */
+    /*购物车--结算*/
+    private void checkoutCart() {
+        ApiRepo.checkoutCart().subscribeWith(new RxSubscriber<UserInfo>() {
+
+            @Override
+            public void onSuccess(UserInfo response) {
+                KLog.i(response.getErrorMsg() + response.getError_desc());
+                if (!response.isSuccess()) {
+                    ToastUtils.showLong(response.getErrorMsg());
+                } else {
+                    /*删除成功*/
+                    /*ShoppingCartUtils.delete(checkedGoods);*/
+//                    adapter.notifyDataSetChanged();
+                    KLog.i("购物车--结算 去结算的界面");
+                }
+            }
+
+            @Override
+            public void onFailure(String msg) {
+                KLog.i(msg);
+                ToastUtils.showLong(msg);
+            }
+
+            @Override
+            public void onError(Throwable t) {
+                KLog.i(t.getMessage());
+                ToastUtils.showLong("请稍后再试");
+            }
+        });
+    }
+
+    /*删除购物车商品*/
+    private void delete(String ids) {
+        ApiRepo.deleteCart(ids).subscribeWith(new RxSubscriber<UserInfo>() {
+
+            @Override
+            public void onSuccess(UserInfo response) {
+                KLog.i(response.getErrorMsg() + response.getError_desc());
+                if (!response.isSuccess()) {
+                    ToastUtils.showLong(response.getErrorMsg());
+                } else {
+                    /*删除成功*/
+                    ShoppingCartUtils.delete(checkedGoods);
+                    adapter.notifyDataSetChanged();
+                }
+            }
+
+            @Override
+            public void onFailure(String msg) {
+                KLog.i(msg);
+                ToastUtils.showLong(msg);
+            }
+
+            @Override
+            public void onError(Throwable t) {
+                KLog.i(t.getMessage());
+                ToastUtils.showLong("请稍后再试");
+            }
+        });
+    }
+
+    /*获取网络数据*/
     private void getData() {
         ApiRepo.getCartList().subscribeWith(new RxSubscriber<VendorInfo>() {
 
@@ -153,12 +226,14 @@ public class ShoppingFragment extends BaseFragment {
                     setCartNumber(Integer.parseInt(response.getQuantity()));
                 }*/
                 /*要进行转换*/
+                hide(true);
             }
 
             @Override
             public void onFailure(String msg) {
                 KLog.i(msg);
                 ToastUtils.showLong(msg);
+                hide(false);
                 /*setCartNumber(0);*/
             }
 
@@ -166,6 +241,7 @@ public class ShoppingFragment extends BaseFragment {
             public void onError(Throwable t) {
                 KLog.i(t.getMessage());
                 ToastUtils.showLong("请稍后再试");
+                hide(false);
                 /*setCartNumber(0);*/
             }
         });

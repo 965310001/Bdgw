@@ -6,6 +6,7 @@ import com.bdgw.cc.ui.HotKeyInfo;
 import com.bdgw.cc.ui.UserInfo;
 import com.bdgw.cc.ui.bean.AppInfo;
 import com.bdgw.cc.ui.classify.bean.ClassificationInfo;
+import com.bdgw.cc.ui.classify.bean.ReviewListInfo;
 import com.bdgw.cc.ui.home.bean.Banner;
 import com.bdgw.cc.ui.home.bean.HomeList;
 import com.bdgw.cc.ui.home.bean.OrderInfo;
@@ -13,6 +14,7 @@ import com.bdgw.cc.ui.home.bean.RedItemInfo;
 import com.bdgw.cc.ui.home.bean.SearchInfo;
 import com.bdgw.cc.ui.home.holder.CatagoryInfo;
 import com.bdgw.cc.ui.me.bean.AddressInfo;
+import com.bdgw.cc.ui.me.bean.SiteInfo;
 import com.bdgw.cc.ui.shopping.bean.GoodsListInfo;
 import com.bdgw.cc.ui.shopping.bean.VendorInfo;
 
@@ -80,7 +82,6 @@ public interface ApiService {
 
         /*-------------------------------------------------------------------购物车-------------------------------------------------*/
         interface shopping {
-
             String PRODUCT = "/v2/ecapi.product.get";
             /*商品列表*/
             String PRODUCTLIST = "/v2/ecapi.product.list";
@@ -88,6 +89,16 @@ public interface ApiService {
             String CARTNUM = "/v2/ecapi.cart.quantity";
             /*购物车商品列表*/
             String CARTLIST = "/v2/ecapi.cart.get";
+            /*删除购物车商品*/
+            String DELETECART = "/v2/ecapi.cart.delete";
+            /*修改购物车商品数量*/
+            String UPDATECART = "/v2/ecapi.cart.update";
+            /*添加商品到购物车*/
+            String ADDCART = "/v2/ecapi.cart.add";
+            /*购物车--结算*/
+            String CHECKOUTCART = "/v2/ecapi.order.checkout";
+            /*商品评价*/
+            String REVIEWLIST = "/v2/ecapi.review.product.list";
         }
         /*-------------------------------------------------------------------我的---------------------------------------------------*/
 
@@ -97,6 +108,8 @@ public interface ApiService {
             String ADDRESSLIST = "//";
             /*地址的增加，修改*/
             String UPDATEADDRESS = "//";
+            /*站点信息*/
+            String SITE = "/v2/ecapi.site.get";
         }
     }
 
@@ -201,6 +214,13 @@ public interface ApiService {
 //    @POST(Api.classify.TREE)
 //    Flowable<ClassificationInfo> getTreeRightData(@Field("category") int category);
 
+    /*商品评价*/
+    @FormUrlEncoded
+    @POST(Api.shopping.REVIEWLIST)
+    Flowable<ReviewListInfo> getReviewList(@Field("product") long id,
+                                           @Field("page") int page,
+                                           @Field("per_page") int perPage);
+
     /*-------------------------------------------------------------------购物车-------------------------------------------------*/
     /*商品详情*/
     @FormUrlEncoded
@@ -214,6 +234,42 @@ public interface ApiService {
     /*购物车商品列表*/
     @POST(Api.shopping.CARTLIST)
     Flowable<VendorInfo> getCartList();
+
+    /*删除购物车商品*/
+    @FormUrlEncoded
+    @POST(Api.shopping.DELETECART)
+    Flowable<UserInfo> deleteCart(@Field("good") String ids);
+
+
+    /*修改购物车商品数量*/
+    @FormUrlEncoded
+    @POST(Api.shopping.UPDATECART)
+    Flowable<UserInfo> updateCart(@Field("good") String id,
+                                  @Field("amount") int amount);
+
+
+    /*添加商品到购物车*/
+    @FormUrlEncoded
+    @POST(Api.shopping.ADDCART)
+    Flowable<GoodsListInfo> addCart(@Field("product") String id,
+                                    @Field("amount") int amount,//数量
+                                    @Field("property") int property);//用户选择的类型
+
+    /*添加商品到购物车*/
+    @FormUrlEncoded
+    @POST(Api.shopping.ADDCART)
+    Flowable<GoodsListInfo> addCart(@Field("product") String id,
+                                    @Field("amount") int amount);
+
+    /*购物车--结算*/
+    @POST(Api.shopping.CHECKOUTCART)
+    Flowable<UserInfo> checkoutCart();
+
+    /*购物车--结算1*/
+//    @FormUrlEncoded
+//    @POST(Api.shopping.UPDATECART)
+//    Flowable<UserInfo> checkoutCart(@Field("good") String id,
+//                                  @Field("amount") int amount);
 
     /*商品列表*/
     @FormUrlEncoded
@@ -241,5 +297,7 @@ public interface ApiService {
                                                  @Field("address") String address,
                                                  @Field("detailed") String detailed);
 
-
+    /*站点信息*/
+    @POST(Api.me.SITE)
+    Flowable<SiteInfo> getSite();
 }

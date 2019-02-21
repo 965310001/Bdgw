@@ -96,13 +96,10 @@ public class ShoppingDetailsActivity extends BaseActivity {
                 title.add(new HorizontalTabTitle("详情"));
                 title.add(new HorizontalTabTitle("评价"));
 
-                GoodsInfoDetailMainFragment mainFragment = GoodsInfoDetailMainFragment.newInstance(data.getData());
-
                 List<BaseFragment> fragmentList = new ArrayList<>();
                 fragmentList.add(goodsInfoMainFragment = GoodsInfoMainFragment.newInstance(id, goodsInfo));
-                fragmentList.add(mainFragment);
+                fragmentList.add(GoodsInfoDetailMainFragment.newInstance(data.getData()));
                 fragmentList.add(GoodsCommentFragment.newInstance());
-                goodsInfoMainFragment.setFragment(mainFragment);
 
                 vpContent.setAdapter(new FragmentPagerAdapter(getSupportFragmentManager(), title, fragmentList));
                 vpContent.setOffscreenPageLimit(3);
@@ -145,12 +142,14 @@ public class ShoppingDetailsActivity extends BaseActivity {
         } else if (i == R.id.tv_add_cart) {
             //加入购物车
             if (goodsInfo != null) {
-                goodsInfo.setNum(goodsInfoMainFragment.getGoodsCount());
-                ShoppingCartUtils.addCartGoods(goodsInfo);
-                setCartNumber();
+//                goodsInfo.setNum(goodsInfoMainFragment.getGoodsCount());
+//                ShoppingCartUtils.addCartGoods(goodsInfo);
+//                setCartNumber();
 //                EventBusUtils.sendEvent(new Event(EventAction.EVENT_SHOPPING_CART_REFRESH));
 //                LiveBus.getDefault().postEvent(Constants.Shopping.EVENT_SHOPPING_CART_REFRESH,
 //                        Constants.Shopping.EVENT_SHOPPING_CART_REFRESH, Constants.Shopping.EVENT_SHOPPING_CART_REFRESH);
+
+                addCart(goodsInfo.getGoodsId(), 1);
             } else {
                 ToastUtils.showLong("没有正经的商品信息~");
             }
@@ -160,6 +159,37 @@ public class ShoppingDetailsActivity extends BaseActivity {
 //            map.put("goodsInfo", goodsInfo);
             ActivityToActivity.toActivity(ARouterConfig.classify.BUYACTIVITY, "goodsInfo", goodsInfo);
         }
+    }
+
+    private void addCart(long id, int amount) {
+        ApiRepo.addCart(String.valueOf(id), amount).subscribeWith(new RxSubscriber<GoodsListInfo>() {
+
+            @Override
+            public void onSuccess(GoodsListInfo response) {
+                KLog.i(response.getErrorMsg() + response.getError_desc());
+                if (!response.isSuccess()) {
+                    ToastUtils.showLong(response.getErrorMsg());
+                } else {
+                    goodsInfo=response.getCartGoods();
+//                    goodsInfo.setNum(goodsInfoMainFragment.getGoodsCount());
+                    ShoppingCartUtils.addCartGoods(goodsInfo);
+                    setCartNumber();
+                }
+            }
+
+            @Override
+            public void onFailure(String msg) {
+                KLog.i(msg);
+                ToastUtils.showLong(msg);
+            }
+
+            @Override
+            public void onError(Throwable t) {
+                KLog.i(t.getMessage());
+                ToastUtils.showLong("请稍后再试");
+            }
+        });
+
     }
 
     private void getCartNumber() {

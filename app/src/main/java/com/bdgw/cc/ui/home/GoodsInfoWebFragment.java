@@ -51,7 +51,7 @@ public class GoodsInfoWebFragment extends BaseFragment {
 
     private void initWebView() {
         url = getArguments().getString("url");
-        KLog.i("initWebView"+url);
+        KLog.i("initWebView:"+url);
 
         webView.setFocusable(false);
         webView.loadUrl(url);

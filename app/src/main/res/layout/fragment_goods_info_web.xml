@@ -6,6 +6,7 @@
     tools:context=".ui.home.GoodsInfoWebFragment">
 
     <FrameLayout
+        android:layout_gravity="center"
         android:id="@+id/content_layout"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content" />
@@ -14,4 +15,5 @@
         android:id="@+id/hwv_detail"
         android:layout_width="match_parent"
         android:layout_height="match_parent" />
+
 </FrameLayout>

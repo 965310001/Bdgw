@@ -22,6 +22,7 @@ import butterknife.BindView;
 import butterknife.OnClick;
 import me.goldze.common.base.event.LiveBus;
 import me.goldze.common.base.mvvm.base.BaseFragment;
+import me.goldze.common.base.mvvm.stateview.ErrorState;
 import me.goldze.common.constants.ARouterConfig;
 import me.goldze.common.http.rx.RxSubscriber;
 import me.goldze.common.utils.ActivityToActivity;
@@ -45,7 +46,7 @@ public class ClassifyFragment extends BaseFragment implements OnItemClickListene
 
     private DelegateAdapter leftAdapter, rightAdapter;
 
-    ItemData oldItems, newItems;
+//    ItemData oldItems, newItems;
 
     private final ItemData leftData = new ItemData();
     private final ItemData rightData = new ItemData();
@@ -66,8 +67,6 @@ public class ClassifyFragment extends BaseFragment implements OnItemClickListene
 
     @Override
     public void initView(Bundle state) {
-        showLoadingState();
-
         tvTitle.setText("分类");
         rlTitleBar.setVisibility(View.VISIBLE);
         ivSearch.setVisibility(View.VISIBLE);
@@ -102,6 +101,7 @@ public class ClassifyFragment extends BaseFragment implements OnItemClickListene
         leftAdapter.notifyDataSetChanged();
         rightAdapter.notifyDataSetChanged();*/
 
+        showLoadingState();
         ApiRepo.getTreeData().subscribeWith(new RxSubscriber<ClassificationInfo>() {
             @Override
             public void onSuccess(ClassificationInfo info) {
@@ -117,9 +117,21 @@ public class ClassifyFragment extends BaseFragment implements OnItemClickListene
             }
 
             @Override
+            protected void onNoNetWork() {
+                super.onNoNetWork();
+                showStateView(ErrorState.class, "1");
+            }
+
+            @Override
+            public void onError(Throwable e) {
+                super.onError(e);
+                KLog.i("onError" + e.toString());
+                showErrorState();
+            }
+
+            @Override
             public void onFailure(String msg) {
                 KLog.i(msg);
-//                showStateView(ErrorState.class);
                 showErrorState();
             }
         });
@@ -127,6 +139,7 @@ public class ClassifyFragment extends BaseFragment implements OnItemClickListene
 
     @Override
     protected void onStateRefresh() {
+        super.onStateRefresh();
         lazyLoad();
     }
 

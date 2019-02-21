@@ -1,5 +1,7 @@
 package com.bdgw.cc.ui.home.bean;
 
+import com.google.gson.annotations.SerializedName;
+
 import me.goldze.common.base.bean.BaseBean;
 
 /**
@@ -10,7 +12,9 @@ import me.goldze.common.base.bean.BaseBean;
 public class GoodsComment extends BaseBean {
 
     public String userHead;
+    @SerializedName("user_name")
     public String userName;
+    @SuppressWarnings("content")
     public String comment;//评论内容
     public float star;//星级
 

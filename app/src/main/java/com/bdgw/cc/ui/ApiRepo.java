@@ -3,9 +3,11 @@ package com.bdgw.cc.ui;
 import com.bdgw.cc.http.ApiService;
 import com.bdgw.cc.http.RetrofitClient;
 import com.bdgw.cc.ui.classify.bean.ClassificationInfo;
+import com.bdgw.cc.ui.classify.bean.ReviewListInfo;
 import com.bdgw.cc.ui.home.bean.SearchInfo;
 import com.bdgw.cc.ui.home.holder.CatagoryInfo;
 import com.bdgw.cc.ui.me.bean.AddressInfo;
+import com.bdgw.cc.ui.me.bean.SiteInfo;
 import com.bdgw.cc.ui.shopping.bean.GoodsListInfo;
 import com.bdgw.cc.ui.shopping.bean.VendorInfo;
 
@@ -64,7 +66,11 @@ public final class ApiRepo {
     }
 
     /*-------------------------------------------------------------------分类---------------------------------------------------*/
-
+    /*商品评价*/
+    public static Flowable<ReviewListInfo> getReviewList(String id, int page) {
+        return apiService.getReviewList(Long.valueOf(id), page, 20)
+                .compose(RxSchedulers.<ReviewListInfo>io_main());
+    }
 
     /*-------------------------------------------------------------------购物车---------------------------------------------------*/
     /*左边listview*/
@@ -96,6 +102,29 @@ public final class ApiRepo {
         return apiService.getCartList().compose(RxSchedulers.<VendorInfo>io_main());
     }
 
+    /*删除购物车商品*/
+    public static Flowable<UserInfo> deleteCart(String ids) {
+        return apiService.deleteCart(ids).compose(RxSchedulers.<UserInfo>io_main());
+    }
+
+    /*修改购物车商品数量*/
+    public static Flowable<UserInfo> updateCart(String id, int amount) {
+        return apiService.updateCart(id, amount).compose(RxSchedulers.<UserInfo>io_main());
+    }
+
+    /*添加商品到购物车*/
+//    public static Flowable<GoodsListInfo> addCart(String id, int amount, int property) {
+//        return apiService.addCart(id, amount, property).compose(RxSchedulers.<GoodsListInfo>io_main());
+//    }
+    /*添加商品到购物车*/
+    public static Flowable<GoodsListInfo> addCart(String id, int amount) {
+        return apiService.addCart(id, amount).compose(RxSchedulers.<GoodsListInfo>io_main());
+    }
+
+    /*购物车--结算*/
+    public static Flowable<UserInfo> checkoutCart() {
+        return apiService.checkoutCart().compose(RxSchedulers.<UserInfo>io_main());
+    }
 
     /*-------------------------------------------------------------------我的---------------------------------------------------*/
     /*地址list*/
@@ -110,5 +139,8 @@ public final class ApiRepo {
                 .compose(RxSchedulers.<BaseResponse<String>>io_main());
     }
 
-
+    /*站点信息*/
+    public static Flowable<SiteInfo> getSite() {
+        return apiService.getSite().compose(RxSchedulers.<SiteInfo>io_main());
+    }
 }

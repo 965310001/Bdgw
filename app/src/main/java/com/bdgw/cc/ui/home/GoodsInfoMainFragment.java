@@ -3,7 +3,6 @@ package com.bdgw.cc.ui.home;
 import android.content.Context;
 import android.graphics.Paint;
 import android.os.Bundle;
-import android.support.v4.app.Fragment;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.View;
@@ -14,6 +13,8 @@ import android.widget.TextView;
 
 import com.bdgw.cc.R;
 import com.bdgw.cc.ui.ApiData;
+import com.bdgw.cc.ui.ApiRepo;
+import com.bdgw.cc.ui.classify.bean.ReviewListInfo;
 import com.bdgw.cc.ui.home.bean.GoodsComment;
 import com.bdgw.cc.ui.shopping.bean.GoodsInfo;
 import com.bigkoo.convenientbanner.ConvenientBanner;
@@ -25,6 +26,8 @@ import butterknife.BindView;
 import butterknife.OnClick;
 import me.goldze.common.adapter.BannerImgAdapter;
 import me.goldze.common.base.mvvm.base.BaseFragment;
+import me.goldze.common.http.rx.RxSubscriber;
+import me.goldze.common.utils.ToastUtils;
 import me.goldze.common.widget.CountClickView;
 import me.goldze.common.widget.SlideLayout;
 
@@ -61,6 +64,7 @@ public class GoodsInfoMainFragment extends BaseFragment implements SlideLayout.O
      */
     GoodsInfo goodsInfo;
     private ShoppingDetailsActivity shoppingDetailsActivity;
+    private GoodsCommentAdapter adapter;
 
     @Override
     public void onAttach(Context context) {
@@ -78,12 +82,6 @@ public class GoodsInfoMainFragment extends BaseFragment implements SlideLayout.O
         bundle.putSerializable("goodsInfo", goodsInfo);
         fragment.setArguments(bundle);
         return fragment;
-    }
-
-    Fragment fragment;
-
-    public void setFragment(Fragment fragment) {
-        this.fragment = fragment;
     }
 
     @Override
@@ -104,7 +102,6 @@ public class GoodsInfoMainFragment extends BaseFragment implements SlideLayout.O
         ccvClick.setMinCount(1);
         svSwitch.setOnSlideDetailsListener(this);
 
-
         id = getArguments().getString("id");
         goodsInfo = (GoodsInfo) getArguments().getSerializable("goodsInfo");
         KLog.i(goodsInfo);
@@ -115,12 +112,47 @@ public class GoodsInfoMainFragment extends BaseFragment implements SlideLayout.O
         setGoodsInfo();
         setGoodsHeadImg();
         commentList(ApiData.getGoodsCommentList());
+        getReviewList();
     }
+
+    private void getReviewList() {
+//        commentList(ApiData.getGoodsCommentList());
+        ApiRepo.getReviewList(String.valueOf(goodsInfo.getGoodsId()), 1).subscribeWith(new RxSubscriber<ReviewListInfo>() {
+
+            @Override
+            public void onSuccess(ReviewListInfo response) {
+//                KLog.i(response.getErrorMsg() + response.getError_desc());
+////                if (!response.isSuccess()) {
+////                    ToastUtils.showLong(response.getErrorMsg());
+////                } else {
+////                }
+                commentList(response.getData());
+            }
+
+            @Override
+            public void onFailure(String msg) {
+                KLog.i(msg);
+                ToastUtils.showLong(msg);
+            }
+
+            @Override
+            public void onError(Throwable t) {
+                KLog.i(t.getMessage());
+                ToastUtils.showLong("请稍后再试");
+            }
+        });
+
+    }
+
 
     @Override
     public void onStateChanged(SlideLayout.Status status) {
         if (shoppingDetailsActivity != null) {
             shoppingDetailsActivity.setViewContent(status == SlideLayout.Status.OPEN);
+            KLog.i("上拉查看图文详情");
+
+            getChildFragmentManager().beginTransaction().replace(R.id.fl_fragment,
+                    GoodsInfoDetailMainFragment.newInstance(goodsInfo)).commitAllowingStateLoss();
         }
     }
 
@@ -128,7 +160,8 @@ public class GoodsInfoMainFragment extends BaseFragment implements SlideLayout.O
     @OnClick({R.id.ll_pull_up, R.id.ll_comment})
     public void onClick(View v) {
         if (v.getId() == R.id.ll_pull_up) {//上拉查看图文详情
-            getChildFragmentManager().beginTransaction().replace(R.id.fl_fragment, fragment).commitAllowingStateLoss();
+            KLog.i("上拉查看图文详情");
+            /*getChildFragmentManager().beginTransaction().replace(R.id.fl_fragment, fragment).commitAllowingStateLoss();*/
             svSwitch.smoothOpen(true);
         } else if (v.getId() == R.id.ll_comment) {
             //查看评论
@@ -168,11 +201,13 @@ public class GoodsInfoMainFragment extends BaseFragment implements SlideLayout.O
         }
     }
 
+
     public void commentList(List<GoodsComment> commentList) {
         if (commentList.size() > 0) {
             tvEmptyComment.setVisibility(View.GONE);
             recyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
-            recyclerView.setAdapter(new GoodsCommentAdapter(getContext(), commentList));
+            adapter = new GoodsCommentAdapter(getContext(), commentList);
+            recyclerView.setAdapter(adapter);
         } else {
             tvEmptyComment.setVisibility(View.VISIBLE);
             tvEmptyComment.setText("暂无精彩评论");

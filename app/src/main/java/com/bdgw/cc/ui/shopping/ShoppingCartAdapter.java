@@ -8,7 +8,9 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import com.bdgw.cc.R;
+import com.bdgw.cc.ui.ApiRepo;
 import com.bdgw.cc.ui.Constants;
+import com.bdgw.cc.ui.UserInfo;
 import com.bdgw.cc.ui.shopping.bean.GoodsInfo;
 import com.bdgw.cc.ui.shopping.bean.VendorInfo;
 import com.socks.library.KLog;
@@ -23,8 +25,10 @@ import me.goldze.common.adapter.BaseRecyclerAdapter;
 import me.goldze.common.base.event.LiveBus;
 import me.goldze.common.base.mvvm.base.BaseViewHolder;
 import me.goldze.common.constants.ARouterConfig;
+import me.goldze.common.http.rx.RxSubscriber;
 import me.goldze.common.utils.ActivityToActivity;
 import me.goldze.common.utils.ImageUtils;
+import me.goldze.common.utils.ToastUtils;
 import me.goldze.common.widget.CountClickView;
 
 /**
@@ -130,7 +134,10 @@ public class ShoppingCartAdapter extends BaseRecyclerAdapter<VendorInfo> impleme
                     goodsInfo.setNum(value);
                     ShoppingCartUtils.updateCartGoodsNum(goodsInfo);
                     //修改本地数据库
-                    updateCart();
+                    /*updateCart();*/
+
+                    KLog.i("修改数据库的数量");
+                    updateCart(String.valueOf(goodsInfo.getGoodsId()), value);
                 }
 
                 @Override
@@ -147,5 +154,34 @@ public class ShoppingCartAdapter extends BaseRecyclerAdapter<VendorInfo> impleme
         LiveBus.getDefault().postEvent(Constants.Shopping.EVENT_SHOPPING_CART_CHANGED,
                 Constants.Shopping.EVENT_SHOPPING_CART_CHANGED,
                 Constants.Shopping.EVENT_SHOPPING_CART_CHANGED);
+    }
+
+    /*修改购物车商品数量*/
+    private void updateCart(String id, int amount) {
+        ApiRepo.updateCart(id, amount).subscribeWith(new RxSubscriber<UserInfo>() {
+
+            @Override
+            public void onSuccess(UserInfo response) {
+                KLog.i(response.getErrorMsg() + response.getError_desc());
+                if (!response.isSuccess()) {
+                    ToastUtils.showLong(response.getErrorMsg());
+                } else {
+                    /*修改成功*/
+                    updateCart();
+                }
+            }
+
+            @Override
+            public void onFailure(String msg) {
+                KLog.i(msg);
+                ToastUtils.showLong(msg);
+            }
+
+            @Override
+            public void onError(Throwable t) {
+                KLog.i(t.getMessage());
+                ToastUtils.showLong("请稍后再试");
+            }
+        });
     }
 }
