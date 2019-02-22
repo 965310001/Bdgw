@@ -14,7 +14,7 @@ import me.goldze.common.base.mvvm.base.test.BaseActivity;
 import me.goldze.common.constants.ARouterConfig;
 import me.goldze.common.utils.ActivityToActivity;
 
-@Route(path = ARouterConfig.Me.FUNDSACTIVITY)
+@Route(path = ARouterConfig.Me.FUNDSACTIVITY, extras = ARouterConfig.LOGIN_NEEDED)
 public class FundsActivity extends BaseActivity {
 
     @BindView(R.id.tv_money)

@@ -1,5 +1,7 @@
 package me.goldze.common.http.interceptor;
 
+import com.socks.library.KLog;
+
 import java.io.IOException;
 import java.util.Map;
 import java.util.Set;
@@ -27,6 +29,7 @@ public class BaseInterceptor implements Interceptor {
         if (headers != null && headers.size() > 0) {
             Set<String> keys = headers.keySet();
             for (String headerKey : keys) {
+                KLog.i("-----------------------------------"+headers.get(headerKey));
                 builder.addHeader(headerKey, headers.get(headerKey)).build();
             }
         }

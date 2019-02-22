@@ -17,7 +17,7 @@ import me.goldze.common.constants.ARouterConfig;
 /**
  * 售后列表
  */
-@Route(path = ARouterConfig.Me.AFTERSALESLISTACTIVITY)
+@Route(path = ARouterConfig.Me.AFTERSALESLISTACTIVITY, extras = ARouterConfig.LOGIN_NEEDED)
 public class AfterSalesListActivity extends BaseListActivity implements OnItemClickListener {
 
     @Override

@@ -44,7 +44,7 @@ public class CategoryItemView extends AbsItemHolder<CatagoryInfo, CategoryItemVi
         adapter.setOnItemClickListener(new BaseRecyclerAdapter.OnItemClickListener() {
             @Override
             public void onItemClickListener(View v, int position) {
-                ActivityToActivity.toActivity(ARouterConfig.classify.PRODUCTSACTIVITY, "id", String.valueOf(data.getData().get(position).getId()));
+                ActivityToActivity.toActivity(ARouterConfig.classify.PRODUCTSACTIVITY, "id", data.getData().get(position).getId());
             }
         });
     }

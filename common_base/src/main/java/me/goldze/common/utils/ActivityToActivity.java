@@ -81,6 +81,15 @@ public final class ActivityToActivity {
         toActivity(activity, clazz, null);
     }
 
+   /* public static void toActivity(Context activity, String url) {
+        *//*toActivity(activity, clazz, null);*//*
+        ARouter.getInstance()
+                .build(url)
+                .withString("URL", url)
+                .navigation(activity, new LoginInterceptor());
+    }
+*/
+
     /**
      * 普通Activity之间跳转
      *

@@ -17,7 +17,7 @@ import me.goldze.common.constants.ARouterConfig;
 /**
  * 订单
  */
-@Route(path = ARouterConfig.home.ORDERACTIVITY)
+@Route(path = ARouterConfig.home.ORDERACTIVITY, extras = ARouterConfig.LOGIN_NEEDED)
 public class OrderActivity extends HorizontalTabActivity {
 
     @Autowired

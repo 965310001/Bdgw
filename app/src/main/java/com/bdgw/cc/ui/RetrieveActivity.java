@@ -61,7 +61,7 @@ public class RetrieveActivity extends BaseActivity {
         showSuccess();
         ARouter.getInstance().inject(this);
 
-        progressFragment = new ProgressFragment();
+        /*progressFragment = new ProgressFragment();*/
 
         ivBack.setVisibility(View.VISIBLE);
         rlTitleBar.setVisibility(View.VISIBLE);
@@ -96,9 +96,10 @@ public class RetrieveActivity extends BaseActivity {
                 } else if (password.length() < 6 || password.length() > 15) {
                     ToastUtils.showLong("密码必须在6-15位");
                 } else {
-                    if (!progressFragment.isVisible()) {
+                   /* if (!progressFragment.isVisible()) {
                         progressFragment.show(getSupportFragmentManager(), ARouterConfig.home.RETRIEVEACTIVITY);
-                    }
+                    }*/
+
                     change();
                 }
                 break;
@@ -124,9 +125,7 @@ public class RetrieveActivity extends BaseActivity {
 //        ToastUtils.showLong("正在修改");
 //        finish();
 
-        if (!progressFragment.isVisible()) {
-            progressFragment.show(getSupportFragmentManager(), ARouterConfig.REGISTERACTIVITY);
-        }
+        progressFragment = ProgressFragment.show(getSupportFragmentManager());
         ApiRepo.reset(phone, code, password).subscribeWith(new RxSubscriber<UserInfo>() {
 
             @Override
@@ -160,8 +159,6 @@ public class RetrieveActivity extends BaseActivity {
                 }
             }
         });
-
-
     }
 
     private boolean checkIsNull() {
@@ -196,9 +193,9 @@ public class RetrieveActivity extends BaseActivity {
         ApiRepo.senCode(phone, code).subscribeWith(new RxSubscriber<UserInfo>() {
             @Override
             public void onSuccess(UserInfo response) {
-                if (progressFragment.getDialog().isShowing()) {
+              /*  if (progressFragment.getDialog().isShowing()) {
                     progressFragment.dismiss();
-                }
+                }*/
                 KLog.i(response.getErrorMsg() + response.getError_desc());
                 if (!response.isSuccess()) {
                     ToastUtils.showLong(response.getErrorMsg());
@@ -211,18 +208,18 @@ public class RetrieveActivity extends BaseActivity {
             public void onFailure(String msg) {
                 KLog.i(msg);
                 ToastUtils.showLong(msg);
-                if (progressFragment.getDialog().isShowing()) {
+               /* if (progressFragment.getDialog().isShowing()) {
                     progressFragment.dismiss();
-                }
+                }*/
             }
 
             @Override
             public void onError(Throwable t) {
                 KLog.i(t.getMessage());
                 ToastUtils.showLong("请稍后再试");
-                if (progressFragment.getDialog().isShowing()) {
+              /*  if (progressFragment.getDialog().isShowing()) {
                     progressFragment.dismiss();
-                }
+                }*/
             }
         });
     }
@@ -230,7 +227,7 @@ public class RetrieveActivity extends BaseActivity {
     @Override
     public void onDestroy() {
         super.onDestroy();
-        if (progressFragment.isVisible()) {
+        if (null != progressFragment && progressFragment.isVisible()) {
             progressFragment.dismiss();
             progressFragment = null;
         }

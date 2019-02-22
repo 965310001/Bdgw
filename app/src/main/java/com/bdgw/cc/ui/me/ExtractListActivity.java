@@ -10,7 +10,7 @@ import com.trecyclerview.adapter.DelegateAdapter;
 import me.goldze.common.base.mvvm.base.BaseListActivity;
 import me.goldze.common.constants.ARouterConfig;
 
-@Route(path = ARouterConfig.Me.EXTRACTLISTACTIVITY)
+@Route(path = ARouterConfig.Me.EXTRACTLISTACTIVITY, extras = ARouterConfig.LOGIN_NEEDED)
 public class ExtractListActivity extends BaseListActivity {
 
     @Override

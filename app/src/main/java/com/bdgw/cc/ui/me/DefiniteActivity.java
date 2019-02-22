@@ -12,7 +12,7 @@ import me.goldze.common.activity.HorizontalTabActivity;
 import me.goldze.common.base.mvvm.base.BaseFragment;
 import me.goldze.common.constants.ARouterConfig;
 
-@Route(path = ARouterConfig.Me.DEFINITEACTIVITY)
+@Route(path = ARouterConfig.Me.DEFINITEACTIVITY, extras = ARouterConfig.LOGIN_NEEDED)
 public class DefiniteActivity extends HorizontalTabActivity {
 
     @Override

@@ -21,7 +21,7 @@ import me.goldze.common.constants.ARouterConfig;
 /**
  * 售后详情
  */
-@Route(path = ARouterConfig.Me.AFTERSALESDETAILSDCTIVITY)
+@Route(path = ARouterConfig.Me.AFTERSALESDETAILSDCTIVITY, extras = ARouterConfig.LOGIN_NEEDED)
 public class AfterSalesDetailsDctivity extends BaseActivity {
 
     @BindView(R.id.iv_back)

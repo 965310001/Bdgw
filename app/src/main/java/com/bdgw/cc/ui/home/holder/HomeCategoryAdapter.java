@@ -30,7 +30,7 @@ public class HomeCategoryAdapter extends BaseRecyclerAdapter<CatagoryInfo.Catago
         categroyIcon = holder.getView(R.id.iv_classify);
         holder.setText(R.id.tv_classify, data.getTitle());
         // TODO: 2019/2/20 删除
-        data.setLink("https://img14.360buyimg.com/focus/s140x140_jfs/t27136/183/1628977274/31007/a6f7ed55/5be6ebd8Nb07ef492.png");
-        ImageUtils.loadImage(categroyIcon, data.getLink());
+//        data.setLink("https://img14.360buyimg.com/focus/s140x140_jfs/t27136/183/1628977274/31007/a6f7ed55/5be6ebd8Nb07ef492.png");
+        ImageUtils.loadImage(categroyIcon, data.getIcon());
     }
 }

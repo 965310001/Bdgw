@@ -32,8 +32,7 @@ import me.goldze.common.widget.dialog.MaterialDialogUtils;
 /**
  * 个人信息
  */
-
-@Route(path = ARouterConfig.Me.PERSONINFOACTIVITY)
+@Route(path = ARouterConfig.Me.PERSONINFOACTIVITY, extras = ARouterConfig.LOGIN_NEEDED)
 public class PersonInfoActivity extends BaseActivity implements MaterialDialog.InputCallback, MaterialDialog.ListCallbackSingleChoice,
         MaterialDialog.SingleButtonCallback {
 

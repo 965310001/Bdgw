@@ -7,6 +7,8 @@ package me.goldze.common.constants;
  */
 public interface ARouterConfig {
 
+    int LOGIN_NEEDED = 200;
+
     /*webViewActivity*/
     String WEBVIEWACTIVITY = "/commom_base/WebViewActivity";
 

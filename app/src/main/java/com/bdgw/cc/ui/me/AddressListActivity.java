@@ -48,7 +48,7 @@ import me.goldze.common.widget.dialog.MaterialDialogUtils;
 /**
  * 管理收货地址
  */
-@Route(path = ARouterConfig.Me.ADDRESSLISTACTIVITY)
+@Route(path = ARouterConfig.Me.ADDRESSLISTACTIVITY, extras = ARouterConfig.LOGIN_NEEDED)
 public class AddressListActivity extends BaseActivity implements OnRefreshListener, OnItemClickListener {
 
     @BindView(R.id.iv_back)

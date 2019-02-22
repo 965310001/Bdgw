@@ -13,7 +13,7 @@ import me.goldze.common.constants.ARouterConfig;
 /**
  * 可售后商品
  */
-@Route(path = ARouterConfig.Me.AFTERSALESACTIVITY)
+@Route(path = ARouterConfig.Me.AFTERSALESACTIVITY, extras = ARouterConfig.LOGIN_NEEDED)
 public class AfterSalesActivity extends BaseListActivity {
 
     @Override

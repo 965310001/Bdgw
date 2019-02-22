@@ -15,7 +15,7 @@ import me.goldze.common.constants.ARouterConfig;
 /**
  * 红包
  */
-@Route(path = ARouterConfig.home.REDACTIVITY)
+@Route(path = ARouterConfig.home.REDACTIVITY, extras = ARouterConfig.LOGIN_NEEDED)
 public class RedActivity extends HorizontalTabActivity {
 
     @Override

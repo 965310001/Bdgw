@@ -21,7 +21,7 @@ import me.goldze.common.utils.ActivityToActivity;
  * 我的收藏
  */
 
-@Route(path = ARouterConfig.Me.COLLECTIONACTIVITY)
+@Route(path = ARouterConfig.Me.COLLECTIONACTIVITY, extras = ARouterConfig.LOGIN_NEEDED)
 public class CollectionActivity extends BaseListActivity implements OnItemClickListener {
 
     @Override
