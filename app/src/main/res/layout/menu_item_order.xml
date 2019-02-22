@@ -21,6 +21,13 @@
             android:textSize="@dimen/text_12"
             tools:text="状态" />
 
+        <TextView
+            android:id="@+id/tv_dsn"
+            style="@style/width_warp_height_warp"
+            android:textColor="@color/gray"
+            android:textSize="@dimen/text_12"
+            tools:text="状态" />
+
         <ImageView
             android:id="@+id/iv_img"
             android:layout_width="@dimen/image_height_big"

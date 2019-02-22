@@ -138,6 +138,8 @@ public class BuyActivity extends BaseActivity {
                 map.put("status", 1);
                 ActivityToActivity.toActivityForResult(this, AddressListActivity.class, map,
                         ADDRESSLISTACTIVITYCODE);
+
+                /*ActivityToActivity.getInstance().toActivity(ARouterConfig.ARouterType.ADDRESSLISTACTIVITY, Integer.MAX_VALUE);*/
                 break;
             case R.id.mv_shopping:
                 /*商品清单*/

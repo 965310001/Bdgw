@@ -7,6 +7,22 @@ package me.goldze.common.constants;
  */
 public interface ARouterConfig {
 
+    enum ARouterType {
+        LOGINACTIVITY(ARouterConfig.LOGINACTIVITY),//登录
+        SPLASHACTIVITY(ARouterConfig.SPLASHACTIVITY),//过渡
+        MAINACTIVITY(ARouterConfig.MAINACTIVITY),//主界面
+        REGISTERACTIVITY(ARouterConfig.REGISTERACTIVITY),//注册
+        SHOPPINGACTIVITY(ARouterConfig.Shopping.SHOPPINGACTIVITY),//
+        ADDRESSLISTACTIVITY(ARouterConfig.Me.ADDRESSLISTACTIVITY),//地址
+        WEBVIEWACTIVITY(ARouterConfig.WEBVIEWACTIVITY);//web
+
+        public String url;
+
+        ARouterType(String url) {
+            this.url = url;
+        }
+    }
+
     int LOGIN_NEEDED = 200;
 
     /*webViewActivity*/

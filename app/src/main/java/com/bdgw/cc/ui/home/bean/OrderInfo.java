@@ -1,5 +1,8 @@
 package com.bdgw.cc.ui.home.bean;
 
+import com.bdgw.cc.ui.shopping.bean.GoodsInfo;
+import com.google.gson.annotations.SerializedName;
+
 import java.util.List;
 
 import me.goldze.common.base.bean.BaseBean;
@@ -103,10 +106,16 @@ public class OrderInfo extends BaseBean {
         private String id;
         private int total;
         private String thumb;
+        @SerializedName("shipping_fee")
         private String shippingprice;
         private String goodsName;
         private int status;
         private int goodsid;
+        /*订单编号*/
+        private long sn;
+
+        @SerializedName("order_goods")
+        private List<GoodsInfo> data;
 
         public String getId() {
             return id;
@@ -162,6 +171,22 @@ public class OrderInfo extends BaseBean {
 
         public void setGoodsName(String goodsName) {
             this.goodsName = goodsName;
+        }
+
+        public List<GoodsInfo> getData() {
+            return data;
+        }
+
+        public void setData(List<GoodsInfo> data) {
+            this.data = data;
+        }
+
+        public long getSn() {
+            return sn;
+        }
+
+        public void setSn(long sn) {
+            this.sn = sn;
         }
     }
 }

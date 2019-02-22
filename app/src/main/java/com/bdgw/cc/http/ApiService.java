@@ -16,6 +16,7 @@ import com.bdgw.cc.ui.home.holder.CatagoryInfo;
 import com.bdgw.cc.ui.me.bean.AddressInfo;
 import com.bdgw.cc.ui.me.bean.SiteInfo;
 import com.bdgw.cc.ui.shopping.bean.GoodsListInfo;
+import com.bdgw.cc.ui.shopping.bean.OrderDetailsInfo;
 import com.bdgw.cc.ui.shopping.bean.VendorInfo;
 
 import io.reactivex.Flowable;
@@ -116,6 +117,8 @@ public interface ApiService {
             String LIKEDLIST = "/v2/ecapi.product.liked.list";
             /*取消收藏*/
             String UNLIKE = "/v2/ecapi.product.unlike";
+            /*订单详情*/
+            String ORDER = "/v2/ecapi.order.get";
         }
     }
 
@@ -188,9 +191,14 @@ public interface ApiService {
     /*订单*/
     @FormUrlEncoded
     @POST(Api.home.ORDER_LIST)
-    Flowable<OrderInfo> getOrderData(@Field("page") int page,
-                                     @Field("per_page") String per_page,
-                                     @Field("status") String status);
+    Flowable<OrderInfo> getOrderListData(@Field("page") long page,
+                                         @Field("per_page") String per_page,
+                                         @Field("status") String status);
+
+    /*订单详情*/
+    @FormUrlEncoded
+    @POST(Api.me.ORDER)
+    Flowable<OrderDetailsInfo> getOrderData(@Field("order") int order);
 
     /*红包*/
     @FormUrlEncoded

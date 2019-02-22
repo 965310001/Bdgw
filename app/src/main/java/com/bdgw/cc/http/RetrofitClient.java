@@ -37,6 +37,9 @@ import retrofit2.converter.gson.GsonConverterFactory;
  */
 public class RetrofitClient {
 
+    /*必须继承 BaseApplication，或者使用BaseApplication.setApplication
+    private static Context mContext = Utils.getContext();*/
+
     //超时时间
     private static final int DEFAULT_TIMEOUT = 20;
     //缓存时间
@@ -46,15 +49,21 @@ public class RetrofitClient {
     //服务端根路径
     private static String BASEURL = ApiService.Api.Base_URL;
 
-    //必须继承 BaseApplication，或者使用BaseApplication.setApplication
-//    private static Context mContext = Utils.getContext();
-
-    //    private static OkHttpClient okHttpClient;
-    private static Retrofit retrofit;
     private ApiService apiService;
     private Retrofit.Builder builder;
 
+    private OkHttpClient okHttpClient;
+    private HttpsUtils.SSLParams sslParams;
+    private CookieJarImpl cookieJar;
+    private BaseInterceptor baseInterceptor;
+    private ParameteInterceptor parameteInterceptor;
+    private TokenInterceptor tokenInterceptor;
+    private LoggingInterceptor loggingInterceptor;
+    private ConnectionPool connectionPool;
+    private CacheInterceptor cacheInterceptor;
+
     private static RetrofitClient INSTANCE;
+    private static Retrofit retrofit;
 
     private Cache cache;
     private File httpCacheDirectory;
@@ -88,28 +97,34 @@ public class RetrofitClient {
         } catch (Exception e) {
             KLog.e("Could not create http cache", e);
         }
-        HttpsUtils.SSLParams sslParams = HttpsUtils.getSslSocketFactory();
-        OkHttpClient okHttpClient = new OkHttpClient.Builder()
-                .cookieJar(new CookieJarImpl(new PersistentCookieStore(Utils.getContext())))
-                .addInterceptor(new BaseInterceptor(headers))
-                .addInterceptor(new ParameteInterceptor())
-                .addInterceptor(new TokenInterceptor())//Token拦截器
-                .addInterceptor(new CacheInterceptor(Utils.getContext()))
-                .sslSocketFactory(sslParams.sSLSocketFactory, sslParams.trustManager)
-                .addInterceptor(new LoggingInterceptor
-                                .Builder()//构建者模式
-                                .loggable(true) //是否开启日志打印 BuildConfig.DEBUG
-                                .setLevel(Level.BASIC) //打印的等级
-                                .log(Platform.INFO) // 打印类型
-                                .request("Request") // request的Tag
-                                .response("Response")// Response的Tag
-                                // TODO: 2019/1/22 添加token
+        sslParams = HttpsUtils.getSslSocketFactory();
+        cookieJar = new CookieJarImpl(new PersistentCookieStore(Utils.getContext()));
+        baseInterceptor = new BaseInterceptor(headers);
+        parameteInterceptor = new ParameteInterceptor();
+        tokenInterceptor = new TokenInterceptor();
+        loggingInterceptor = new LoggingInterceptor
+                .Builder()//构建者模式
+                .loggable(true) //是否开启日志打印 BuildConfig.DEBUG
+                .setLevel(Level.BASIC) //打印的等级
+                .log(Platform.INFO) // 打印类型
+                .request("Request") // request的Tag
+                .response("Response")// Response的Tag
 //                        .addHeader("X-ECAPI-Authorization","eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1aWQiOjIxNjcsImV4cCI6MTU1MDY1ODQ0NiwicGxhdGZvcm0iOiJtb3ppbGxhIn0.aP1d7r-KkGiLPRHuoE1R8IrZ8cP5YDa3thSnhtO-Ico")
-                                .addHeader("log-header", "I am the log request header.") // 添加打印头, 注意 key 和 value 都不能是中文
-                                .build()
-                ).connectTimeout(DEFAULT_TIMEOUT, TimeUnit.SECONDS)
+                .addHeader("log-header", "I am the log request header.") // 添加打印头, 注意 key 和 value 都不能是中文
+                .build();
+        connectionPool = new ConnectionPool(8, 15, TimeUnit.SECONDS);
+        cacheInterceptor = new CacheInterceptor(Utils.getContext());
+        okHttpClient = new OkHttpClient.Builder()
+                .cookieJar(cookieJar)
+                .addInterceptor(baseInterceptor)
+                .addInterceptor(parameteInterceptor)
+                .addInterceptor(tokenInterceptor)//Token拦截器
+                .addInterceptor(cacheInterceptor)
+                .sslSocketFactory(sslParams.sSLSocketFactory, sslParams.trustManager)
+                .addInterceptor(loggingInterceptor)
+                .connectTimeout(DEFAULT_TIMEOUT, TimeUnit.SECONDS)
                 .writeTimeout(DEFAULT_TIMEOUT, TimeUnit.SECONDS)
-                .connectionPool(new ConnectionPool(8, 15, TimeUnit.SECONDS))
+                .connectionPool(connectionPool)
                 // 这里你可以根据自己的机型设置同时连接的个数和时间，我这里8个，和每个保持时间为10s
                 .build();
 

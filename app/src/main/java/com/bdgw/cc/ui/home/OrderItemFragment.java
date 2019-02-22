@@ -5,7 +5,7 @@ import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.View;
 
-import com.bdgw.cc.ui.ApiData;
+import com.bdgw.cc.ui.ApiRepo;
 import com.bdgw.cc.ui.Constants;
 import com.bdgw.cc.ui.adapter.AdapterPool;
 import com.bdgw.cc.ui.home.bean.OrderInfo;
@@ -19,6 +19,7 @@ import java.util.Map;
 
 import me.goldze.common.base.mvvm.base.BaseListFragment;
 import me.goldze.common.constants.ARouterConfig;
+import me.goldze.common.http.rx.RxSubscriber;
 import me.goldze.common.utils.ActivityToActivity;
 
 /**
@@ -92,28 +93,45 @@ public class OrderItemFragment extends BaseListFragment<OrderItemViewModel> impl
 
     @Override
     protected void getRemoteData() {
-        showSuccess();
-        String status = getArguments().getString(STATUS);
-        OrderInfo orderInfo = ApiData.getOrderInfo();
-        if (orderInfo.getPaged().getMore() == 1) {
-//            page++;
-        }
-        if (Integer.parseInt(status) == 0) {
-            setData(orderInfo.getOrders());
-        } else {
-            oldItems.clear();
-            for (OrderInfo.OrdersBean ordersBean : orderInfo.getOrders()) {
-                if (ordersBean.getStatus() == Integer.parseInt(status)) {
-                    oldItems.add(ordersBean);
+        showLoading();
+        /*String status = getArguments().getString(STATUS);*/
+        ApiRepo.getOrderListData(page, getArguments().getString(STATUS)).subscribeWith(new RxSubscriber<OrderInfo>() {
+            @Override
+            public void onSuccess(OrderInfo data) {
+                showSuccess();
+                if (null != data.getOrders() && data.getOrders().size() > 0) {
+                    setData(data.getOrders());
                 }
             }
-            if (oldItems.size() > 0) {
-                setData(oldItems);
-            } else {
+
+            @Override
+            public void onFailure(String msg) {
+                KLog.i(msg);
                 showErrorState();
             }
-        }
+        });
+
+//        OrderInfo orderInfo = ApiData.getOrderInfo();
+//        if (orderInfo.getPaged().getMore() == 1) {
+////            page++;
+//        }
+//        if (Integer.parseInt(status) == 0) {
+//            setData(orderInfo.getOrders());
+//        } else {
+//            oldItems.clear();
+//            for (OrderInfo.OrdersBean ordersBean : orderInfo.getOrders()) {
+//                if (ordersBean.getStatus() == Integer.parseInt(status)) {
+//                    oldItems.add(ordersBean);
+//                }
+//            }
+//            if (oldItems.size() > 0) {
+//                setData(oldItems);
+//            } else {
+//                showErrorState();
+//            }
+//        }
     }
+
 
     @Override
     protected void getLoadMoreData() {

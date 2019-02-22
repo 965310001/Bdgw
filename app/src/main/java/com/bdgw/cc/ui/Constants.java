@@ -30,12 +30,13 @@ public interface Constants {
     interface Order {
         String[] ORDER_TABBAR_TITLE = {"全部", "待付款", "待发货", "待收货", "待评价"};
 
+        /* 100为全部，1.已付款，2.发货中，3.已收货，待评价，4.已完成，5.已取消*/
         /*订单状态*/
-        String[] ORDER_TABBAR_STATUS = {"0", "10", "1", "2", "3"};
+        String[] ORDER_TABBAR_STATUS = {"100", "0", "1", "2", "3"};
 
         String[] EVENT_KEY_ORDER_LIST = {"EVENT_KEY_ORDER_LIST", "EVENT_KEY_ORDER_LIST_STATE"};
 
-        String[] ORDER_STATUS = {"待付款", "已取消", "配送中", "待评价", "待发货"};
+        String[] ORDER_STATUS = {"待付款", "已取消", "待发货", "待评价", "待发货"};
     }
 
     /**

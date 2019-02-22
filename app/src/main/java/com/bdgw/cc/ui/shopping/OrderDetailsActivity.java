@@ -9,6 +9,7 @@ import com.alibaba.android.arouter.facade.annotation.Autowired;
 import com.alibaba.android.arouter.facade.annotation.Route;
 import com.alibaba.android.arouter.launcher.ARouter;
 import com.bdgw.cc.ui.ApiData;
+import com.bdgw.cc.ui.ApiRepo;
 import com.bdgw.cc.ui.adapter.AdapterPool;
 import com.bdgw.cc.ui.shopping.bean.GoodsInfo;
 import com.bdgw.cc.ui.shopping.bean.OrderDetailsInfo;
@@ -21,6 +22,7 @@ import java.util.List;
 import me.goldze.common.base.event.LiveBus;
 import me.goldze.common.base.mvvm.base.BaseListActivity;
 import me.goldze.common.constants.ARouterConfig;
+import me.goldze.common.http.rx.RxSubscriber;
 
 /**
  * 订单详情
@@ -61,9 +63,7 @@ public class OrderDetailsActivity extends BaseListActivity implements OnItemClic
         super.initData();
 
         List<OrderDetailsInfo> datas = ApiData.getOrderDetailsInfos();
-
         newItems.add(datas.get(0).getAddressInfo());
-
         List<GoodsInfo> goodsInfos = datas.get(0).getGoodsInfos();
 //        if (goodsInfos.size() > 3) {
 //            newItems.addAll(goodsInfos.subList(0, 3));
@@ -77,6 +77,27 @@ public class OrderDetailsActivity extends BaseListActivity implements OnItemClic
         oldItems.addAll(newItems);
         mRecyclerView.refreshComplete(oldItems, true);
         newItems.clear();
+    }
+
+    private void getData() {
+        showLoadingState();
+        ApiRepo.getOrderData(id).subscribeWith(new RxSubscriber<OrderDetailsInfo>() {
+            @Override
+            public void onSuccess(OrderDetailsInfo data) {
+                showSuccess();
+               /* if (null != data.getOrders() && data.getOrders().size() > 0) {
+                    setData(data.getOrders());
+                }*/
+                KLog.i("订单详情");
+            }
+
+            @Override
+            public void onFailure(String msg) {
+                KLog.i(msg);
+                showErrorState();
+            }
+        });
+
     }
 
     @Override

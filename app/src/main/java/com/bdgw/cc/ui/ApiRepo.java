@@ -4,12 +4,14 @@ import com.bdgw.cc.http.ApiService;
 import com.bdgw.cc.http.RetrofitClient;
 import com.bdgw.cc.ui.classify.bean.ClassificationInfo;
 import com.bdgw.cc.ui.classify.bean.ReviewListInfo;
+import com.bdgw.cc.ui.home.bean.OrderInfo;
 import com.bdgw.cc.ui.home.bean.RedItemInfo;
 import com.bdgw.cc.ui.home.bean.SearchInfo;
 import com.bdgw.cc.ui.home.holder.CatagoryInfo;
 import com.bdgw.cc.ui.me.bean.AddressInfo;
 import com.bdgw.cc.ui.me.bean.SiteInfo;
 import com.bdgw.cc.ui.shopping.bean.GoodsListInfo;
+import com.bdgw.cc.ui.shopping.bean.OrderDetailsInfo;
 import com.bdgw.cc.ui.shopping.bean.VendorInfo;
 
 import io.reactivex.Flowable;
@@ -157,5 +159,17 @@ public final class ApiRepo {
     /*取消收藏*/
     public static Flowable<UserInfo> getUnlike(long product) {
         return apiService.getUnlike(product).compose(RxSchedulers.<UserInfo>io_main());
+    }
+
+    /*会员中心-订单列表*/
+    public static Flowable<OrderInfo> getOrderListData(long page, String status) {
+        return apiService.getOrderListData(page, "20", status)
+                .compose(RxSchedulers.<OrderInfo>io_main());
+    }
+
+    /*订单详情*/
+    public static Flowable<OrderDetailsInfo> getOrderData(int order) {
+        return apiService.getOrderData(order)
+                .compose(RxSchedulers.<OrderDetailsInfo>io_main());
     }
 }
