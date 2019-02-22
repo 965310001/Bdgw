@@ -6,6 +6,7 @@ import android.view.View;
 import android.widget.TextView;
 
 import com.alibaba.android.arouter.facade.annotation.Route;
+import com.alibaba.android.arouter.launcher.ARouter;
 import com.bdgw.cc.R;
 import com.bdgw.cc.test.LoginViewModel;
 import com.socks.library.KLog;
@@ -37,7 +38,7 @@ public class LoginActivity extends AbsLifecycleActivity<LoginViewModel> {
 
     private String phone, password;
 
-    ProgressFragment progressFragment;
+    private ProgressFragment progressFragment;
 
     @Override
     protected int getLayoutId() {
@@ -47,7 +48,7 @@ public class LoginActivity extends AbsLifecycleActivity<LoginViewModel> {
     @Override
     public void initViews(Bundle savedInstanceState) {
         super.initViews(savedInstanceState);
-
+        ARouter.getInstance().inject(this);
         showSuccess();
 
         progressFragment = new ProgressFragment();
@@ -103,6 +104,7 @@ public class LoginActivity extends AbsLifecycleActivity<LoginViewModel> {
                     ToastUtils.showLong(response.getErrorMsg());
                 } else {
                     SharePreferenceUtil.saveUser(response);
+                    SharePreferenceUtil.saveKeyValue(Constants.TOKEN, response.getToken());
                     ActivityToActivity.toActivity(ARouterConfig.MAINACTIVITY);
                     finish();
                 }

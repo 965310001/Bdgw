@@ -2,11 +2,9 @@ package com.bdgw.cc.http;
 
 import android.text.TextUtils;
 
-import com.bdgw.cc.ui.UserInfo;
 import com.socks.library.KLog;
 
 import java.io.File;
-import java.util.HashMap;
 import java.util.Map;
 import java.util.concurrent.TimeUnit;
 
@@ -20,9 +18,9 @@ import me.goldze.common.http.cookie.store.PersistentCookieStore;
 import me.goldze.common.http.interceptor.BaseInterceptor;
 import me.goldze.common.http.interceptor.CacheInterceptor;
 import me.goldze.common.http.interceptor.ParameteInterceptor;
+import me.goldze.common.http.interceptor.TokenInterceptor;
 import me.goldze.common.http.interceptor.logging.Level;
 import me.goldze.common.http.interceptor.logging.LoggingInterceptor;
-import me.goldze.common.utils.SharePreferenceUtil;
 import me.goldze.common.utils.Utils;
 import okhttp3.Cache;
 import okhttp3.ConnectionPool;
@@ -90,17 +88,12 @@ public class RetrofitClient {
         } catch (Exception e) {
             KLog.e("Could not create http cache", e);
         }
-        UserInfo data = (UserInfo) SharePreferenceUtil.getUser(UserInfo.class);
-        if (null != data) {
-            KLog.i("TAG",data.getToken());
-            headers = new HashMap<>();
-            headers.put("X-ECAPI-Authorization", data.getToken());
-        }
         HttpsUtils.SSLParams sslParams = HttpsUtils.getSslSocketFactory();
         OkHttpClient okHttpClient = new OkHttpClient.Builder()
                 .cookieJar(new CookieJarImpl(new PersistentCookieStore(Utils.getContext())))
                 .addInterceptor(new BaseInterceptor(headers))
                 .addInterceptor(new ParameteInterceptor())
+                .addInterceptor(new TokenInterceptor())//Token拦截器
                 .addInterceptor(new CacheInterceptor(Utils.getContext()))
                 .sslSocketFactory(sslParams.sSLSocketFactory, sslParams.trustManager)
                 .addInterceptor(new LoggingInterceptor

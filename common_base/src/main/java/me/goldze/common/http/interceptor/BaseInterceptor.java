@@ -1,11 +1,14 @@
 package me.goldze.common.http.interceptor;
 
+import android.text.TextUtils;
+
 import com.socks.library.KLog;
 
 import java.io.IOException;
 import java.util.Map;
 import java.util.Set;
 
+import me.goldze.common.utils.SharePreferenceUtil;
 import okhttp3.Interceptor;
 import okhttp3.Request;
 import okhttp3.Response;
@@ -29,9 +32,14 @@ public class BaseInterceptor implements Interceptor {
         if (headers != null && headers.size() > 0) {
             Set<String> keys = headers.keySet();
             for (String headerKey : keys) {
-                KLog.i("-----------------------------------"+headers.get(headerKey));
+                KLog.i("-----------------------------------" + headers.get(headerKey));
                 builder.addHeader(headerKey, headers.get(headerKey)).build();
             }
+        }
+        String token = SharePreferenceUtil.getKeyValue("TOKEN");
+        if (!TextUtils.isEmpty(token)) {
+            KLog.i("TAG", token);
+            builder.addHeader("X-ECAPI-Authorization", token);
         }
         //请求信息
         return chain.proceed(builder.build());

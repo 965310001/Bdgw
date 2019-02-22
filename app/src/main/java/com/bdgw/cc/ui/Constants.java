@@ -6,6 +6,7 @@ package com.bdgw.cc.ui;
  * @description:
  */
 public interface Constants {
+    String TOKEN = "TOKEN";
     String IS_LOGIN = "IS_LOGIN";
     /*-------------------------------------------------------------------首页---------------------------------------------------*/
     String EVENT_KEY_HOME = "event_key_home";
