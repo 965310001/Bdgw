@@ -174,6 +174,7 @@ public class ShoppingDetailsActivity extends BaseActivity {
 //                    goodsInfo.setNum(goodsInfoMainFragment.getGoodsCount());
                     ShoppingCartUtils.addCartGoods(goodsInfo);
                     setCartNumber();
+                    KLog.i("添加购物车成功");
                 }
             }
 

@@ -38,9 +38,10 @@ public class BaseInterceptor implements Interceptor {
         }
         String token = SharePreferenceUtil.getKeyValue("TOKEN");
         if (!TextUtils.isEmpty(token)) {
-            KLog.i("TAG", token);
+            /*KLog.i("TAG", token);*/
             builder.addHeader("X-ECAPI-Authorization", token);
         }
+        KLog.i("-------------------------BaseInterceptor----------------------------");
         //请求信息
         return chain.proceed(builder.build());
     }

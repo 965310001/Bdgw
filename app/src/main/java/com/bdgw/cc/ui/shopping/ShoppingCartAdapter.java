@@ -51,22 +51,26 @@ public class ShoppingCartAdapter extends BaseRecyclerAdapter<VendorInfo> impleme
 
     @Override
     protected void convert(BaseViewHolder holder, VendorInfo data, int position, List<Object> payloads) {
-        holder.setText(R.id.tv_vendor_name, data.getVendorName());
-        LinearLayout goodsLayout = holder.getView(R.id.goods_list);
-        ImageView ivVendor = holder.getView(R.id.iv_check_vendor);
-        ivVendor.setSelected(data.checked);
-        ivVendor.setTag(holder.getLayoutPosition());
-        ivVendor.setOnClickListener(this);
-        goodsLayout.removeAllViews();
+        holder.getView(R.id.ll_vendor).setVisibility(View.GONE);
+        if (null != data.goodsInfos && data.goodsInfos.size() > 0) {
+            holder.getView(R.id.ll_vendor).setVisibility(View.VISIBLE);
+            holder.setText(R.id.tv_vendor_name, data.getVendorName());
+            LinearLayout goodsLayout = holder.getView(R.id.goods_list);
+            ImageView ivVendor = holder.getView(R.id.iv_check_vendor);
+            ivVendor.setSelected(data.checked);
+            ivVendor.setTag(holder.getLayoutPosition());
+            ivVendor.setOnClickListener(this);
+            goodsLayout.removeAllViews();
 
-        for (int i = 0; i < data.goodsInfos.size(); i++) {
-            View view = View.inflate(getContext(), R.layout.market_item_of_shopping_cart_list_goods_list, null);
-            new ViewHolder(view).onBindData(holder.getLayoutPosition(), i);
-            goodsLayout.addView(view);
+            for (int i = 0; i < data.goodsInfos.size(); i++) {
+                View view = View.inflate(getContext(), R.layout.market_item_of_shopping_cart_list_goods_list, null);
+                new ViewHolder(view).onBindData(holder.getLayoutPosition(), i);
+                goodsLayout.addView(view);
 
-            view.setTag(getList().get(holder.getLayoutPosition()).getGoodsInfos().get(i).getGoodsId());
+                view.setTag(getList().get(holder.getLayoutPosition()).getGoodsInfos().get(i).getGoodsId());
 //            getList().get(holder.getLayoutPosition()).getGoodsInfos().get(i).getGoodsId();
-            view.setOnClickListener(this);
+                view.setOnClickListener(this);
+            }
         }
 
     }

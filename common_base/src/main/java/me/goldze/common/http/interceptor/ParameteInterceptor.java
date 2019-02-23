@@ -1,5 +1,7 @@
 package me.goldze.common.http.interceptor;
 
+import com.socks.library.KLog;
+
 import java.io.IOException;
 
 import okhttp3.HttpUrl;
@@ -35,6 +37,7 @@ public class ParameteInterceptor implements Interceptor {
                 .method(oldRequest.method(), oldRequest.body())
                 .url(builder.build())
                 .build();
+        KLog.i("------------ParameteInterceptor-----------------");
         return chain.proceed(newRequest);
     }
 }

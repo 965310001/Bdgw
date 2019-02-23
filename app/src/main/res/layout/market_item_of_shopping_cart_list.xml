@@ -13,6 +13,8 @@
         tools:ignore="RtlSymmetry">
 
         <LinearLayout
+            android:visibility="visible"
+            android:id="@+id/ll_vendor"
             android:layout_width="match_parent"
             android:layout_height="@dimen/dp_44"
             android:gravity="center_vertical">

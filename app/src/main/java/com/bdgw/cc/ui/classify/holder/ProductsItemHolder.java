@@ -8,6 +8,7 @@ import android.widget.TextView;
 
 import com.bdgw.cc.R;
 import com.bdgw.cc.ui.shopping.bean.GoodsInfo;
+import com.socks.library.KLog;
 import com.trecyclerview.holder.AbsHolder;
 import com.trecyclerview.holder.AbsItemHolder;
 
@@ -45,6 +46,7 @@ public class ProductsItemHolder extends AbsItemHolder<GoodsInfo, ProductsItemHol
             @Override
             public void onClick(View v) {
                 // TODO: 2019/1/28   加入购物车
+                KLog.i("加入购物车");
             }
         });
 

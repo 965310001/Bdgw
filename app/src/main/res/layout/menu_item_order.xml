@@ -41,7 +41,6 @@
         <TextView
             android:id="@+id/tv_name"
             style="@style/width_match_height_warp"
-            android:layout_above="@id/tv_name"
             android:layout_below="@id/tv_state"
             android:layout_marginLeft="10dp"
             android:layout_toRightOf="@id/iv_img"
@@ -56,7 +55,7 @@
             android:id="@+id/tv_price"
             style="@style/width_match_height_warp"
             android:layout_below="@id/iv_img"
-            android:gravity="start"
+            android:gravity="right"
             android:maxLines="2"
             android:textColor="@color/orange"
             android:textSize="@dimen/text_14"

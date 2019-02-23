@@ -77,7 +77,7 @@ public class ShoppingFragment extends BaseFragment {
 
         rlTitleBar.setVisibility(View.VISIBLE);
         tvTitle.setVisibility(View.VISIBLE);
-        tvRight.setVisibility(View.VISIBLE);
+//        tvRight.setVisibility(View.VISIBLE);
 
         tvTitle.setText("购物车");
         tvRight.setText("编辑");
@@ -90,7 +90,7 @@ public class ShoppingFragment extends BaseFragment {
 
         /*cartData();*/
         getData();
-        hide(false);
+        /*hide(false);*/
     }
 
     private void dataObserver() {
@@ -107,7 +107,8 @@ public class ShoppingFragment extends BaseFragment {
                             adapter.notifyDataSetChanged();
                         } else if (s.equals(Constants.Shopping.EVENT_SHOPPING_CART_REFRESH)) {
                             //重新获取购物车数据
-                            cartData();
+                            /*cartData();*/
+                            getData();
                         }
                     }
                 });
@@ -115,8 +116,8 @@ public class ShoppingFragment extends BaseFragment {
 
     /*true 表示隐藏*/
     private void hide(boolean isHide) {
-        tvRight.setVisibility(!isHide ? View.GONE : View.VISIBLE);
-        contentLayout.setVisibility(!isHide ? View.GONE : View.VISIBLE);
+        tvRight.setVisibility(isHide ? View.GONE : View.VISIBLE);
+        contentLayout.setVisibility(isHide ? View.GONE : View.VISIBLE);
     }
 
     @OnClick({R.id.iv_check_all, R.id.tv_right, R.id.btn_buy})
@@ -140,8 +141,9 @@ public class ShoppingFragment extends BaseFragment {
 //                        ShoppingCartUtils.delete(checkedGoods);
                         String ids = "";
                         for (GoodsInfo checkedGood : checkedGoods) {
-                            ids = ids.concat(String.valueOf(checkedGood.getGoodsId()));
+                            ids = ids.concat(String.valueOf(checkedGood.getId())).concat(",");
                         }
+                        KLog.i(ids);
                         delete(ids);
                     } else {
                         ToastUtils.showLong("去结算");
@@ -195,8 +197,9 @@ public class ShoppingFragment extends BaseFragment {
                 } else {
                     /*删除成功*/
                     ShoppingCartUtils.delete(checkedGoods);
-                    adapter.getList().remove(response);
+//                    adapter.getList().remove(checkedGoods);
                     adapter.notifyDataSetChanged();
+//                    getData();
                 }
             }
 
@@ -238,10 +241,14 @@ public class ShoppingFragment extends BaseFragment {
                     mData.addAll(data);
                     adapter.notifyDataSetChanged();
                     displayResult();
+                } else {
+                    mData.clear();
+                    /*adapter.getList().clear();*/
+                    adapter.notifyDataSetChanged();
                 }
                 setCartNumber();
 
-                hide(true);
+                /*hide(true);*/
             }
 
             @Override
@@ -266,16 +273,16 @@ public class ShoppingFragment extends BaseFragment {
     /**
      * 获取数据库
      */
-    private void cartData() {
-        List<VendorInfo> data = ShoppingCartUtils.getLocalData();
-        if (data.size() > 0) {
-            mData.clear();
-            mData.addAll(data);
-            adapter.notifyDataSetChanged();
-            displayResult();
-        }
-        setCartNumber();
-    }
+//    private void cartData() {
+//        List<VendorInfo> data = ShoppingCartUtils.getLocalData();
+//        if (data.size() > 0) {
+//            mData.clear();
+//            mData.addAll(data);
+//            adapter.notifyDataSetChanged();
+//            displayResult();
+//        }
+//        setCartNumber();
+//    }
 
 
     /**
@@ -283,13 +290,17 @@ public class ShoppingFragment extends BaseFragment {
      */
     private void setCartNumber() {
         int count = ShoppingCartUtils.getCartCount();
-        if (count < 1) {
-            tvRight.setVisibility(View.GONE);
+        if (count == 0) {
+            hide(true);
             showErrorState();
-//            tvCount.setVisibility(View.GONE);
+            /*tvRight.setVisibility(View.GONE);*/
+            /*tvCount.setVisibility(View.GONE);*/
         } else {
+            hide(false);
             showSuccess();
+/*
             tvRight.setVisibility(View.VISIBLE);
+*/
 //            tvCount.setVisibility(View.VISIBLE);
 //            tvCount.setText(String.valueOf(count));
         }
