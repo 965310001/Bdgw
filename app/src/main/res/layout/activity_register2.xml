@@ -22,11 +22,26 @@
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
+    <TextView
+        android:id="@+id/tv_address"
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:layout_marginLeft="@dimen/tab_bar"
+        android:layout_marginTop="20dp"
+        android:layout_marginRight="@dimen/tab_bar"
+        android:drawableRight="@drawable/icon_more"
+        android:gravity="center_vertical"
+        android:hint="省市区"
+        android:textSize="@dimen/text_14"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/layout_shimmer_register" />
+
+
     <com.xuexiang.xui.widget.edittext.materialedittext.MaterialEditText
-        android:id="@+id/ed_register_name"
+        android:id="@+id/ed_address"
         style="@style/width_match_height_warp"
         android:layout_marginLeft="@dimen/tab_bar"
-        android:layout_marginTop="80dp"
         android:layout_marginRight="@dimen/tab_bar"
         android:hint="详细地址"
         android:inputType="text"
@@ -35,7 +50,7 @@
         android:textSize="@dimen/text_14"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/layout_shimmer_register"
+        app:layout_constraintTop_toBottomOf="@+id/tv_address"
         app:met_baseColor="@color/primary_text"
         app:met_errorColor="@color/red"
         app:met_floatingLabel="normal"
@@ -46,61 +61,31 @@
         app:met_primaryColor="@color/primary"
         app:met_textColorHint="@color/third_text" />
 
-    <LinearLayout
-        android:id="@+id/ll_code"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+    <com.xuexiang.xui.widget.edittext.materialedittext.MaterialEditText
+        android:id="@+id/ed_contacts"
+        style="@style/width_match_height_warp"
         android:layout_marginLeft="@dimen/tab_bar"
+        android:layout_marginTop="@dimen/spacing"
         android:layout_marginRight="@dimen/tab_bar"
-        android:orientation="horizontal"
+        android:layout_weight="1"
+        android:hint="联系人"
+        android:maxLines="1"
+        android:textSize="@dimen/text_14"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/ed_register_name">
-
-        <com.xuexiang.xui.widget.edittext.materialedittext.MaterialEditText
-            android:id="@+id/ed_register_code"
-            style="@style/width_match_height_warp"
-            android:layout_marginTop="@dimen/spacing"
-            android:layout_weight="1"
-            android:hint="联系人"
-            android:maxLines="1"
-            app:met_minCharacters="2"
-            android:textSize="@dimen/text_14"
-            app:layout_constraintLeft_toLeftOf="parent"
-            app:layout_constraintRight_toRightOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/ed_register_name"
-            app:met_baseColor="@color/primary_text"
-            app:met_errorColor="@color/red"
-            app:met_floatingLabel="normal"
-            app:met_floatingLabelText="联系人"
-            app:met_floatingLabelTextColor="@color/primary_text"
-            app:met_primaryColor="@color/primary"
-            app:met_textColorHint="@color/third_text" />
-
-        <TextView
-            android:visibility="gone"
-            android:id="@+id/tv_countdown"
-            android:layout_width="80dp"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="@dimen/dp_10"
-            android:layout_marginTop="@dimen/spacing_bigger"
-            android:background="@drawable/btn_login"
-            android:gravity="center"
-            android:padding="10dp"
-            android:paddingTop="@dimen/spacing_bigger"
-            android:paddingBottom="@dimen/spacing_bigger"
-            android:text="获取验证码"
-            android:textColor="@color/white"
-            android:textSize="@dimen/text_12"
-            app:layout_constraintLeft_toLeftOf="parent"
-            app:layout_constraintRight_toRightOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/ed_register_repassword" />
-
-    </LinearLayout>
+        app:layout_constraintTop_toBottomOf="@+id/ed_address"
+        app:met_baseColor="@color/primary_text"
+        app:met_errorColor="@color/red"
+        app:met_floatingLabel="normal"
+        app:met_floatingLabelText="联系人"
+        app:met_floatingLabelTextColor="@color/primary_text"
+        app:met_minCharacters="2"
+        app:met_primaryColor="@color/primary"
+        app:met_textColorHint="@color/third_text" />
 
 
     <com.xuexiang.xui.widget.edittext.materialedittext.MaterialEditText
-        android:id="@+id/ed_register_password"
+        android:id="@+id/ed_company"
         style="@style/width_match_height_warp"
         android:layout_marginLeft="@dimen/tab_bar"
         android:layout_marginTop="@dimen/spacing"
@@ -111,7 +96,7 @@
         android:textSize="@dimen/text_14"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/ll_code"
+        app:layout_constraintTop_toBottomOf="@id/ed_contacts"
         app:met_baseColor="@color/primary_text"
         app:met_errorColor="@color/red"
         app:met_floatingLabel="normal"
@@ -123,7 +108,7 @@
         app:met_textColorHint="@color/third_text" />
 
     <com.xuexiang.xui.widget.edittext.materialedittext.MaterialEditText
-        android:id="@+id/ed_register_repassword"
+        android:id="@+id/ed_ywyno"
         style="@style/width_match_height_warp"
         android:layout_marginLeft="@dimen/tab_bar"
         android:layout_marginTop="@dimen/spacing"
@@ -133,7 +118,7 @@
         android:textSize="@dimen/text_14"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/ed_register_password"
+        app:layout_constraintTop_toBottomOf="@+id/ed_company"
         app:met_baseColor="@color/primary_text"
         app:met_errorColor="@color/red"
         app:met_floatingLabel="normal"
@@ -157,7 +142,7 @@
         android:textSize="@dimen/text_16"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/ed_register_repassword" />
+        app:layout_constraintTop_toBottomOf="@+id/ed_ywyno" />
 
     <TextView
         android:id="@+id/tv_to_login"

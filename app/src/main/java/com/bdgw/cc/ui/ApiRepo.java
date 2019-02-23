@@ -39,6 +39,13 @@ public final class ApiRepo {
                 .compose(RxSchedulers.<UserInfo>io_main());
     }
 
+    /*注册第二步*/
+    public static Flowable<UserInfo> register2(String mobile, String code, String password, String inviteCode,
+                                               String region, String address, String contacts, String company, String ywyno) {
+        return apiService.register2(mobile, code, password, inviteCode, region, address, contacts, company, ywyno)
+                .compose(RxSchedulers.<UserInfo>io_main());
+    }
+
     /*获取验证码*/
     public static Flowable<UserInfo> senCode(String mobile, String code) {
         return apiService.senCode(mobile, code)

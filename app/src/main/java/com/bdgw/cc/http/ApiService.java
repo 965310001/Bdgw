@@ -147,6 +147,18 @@ public interface ApiService {
                                 @Field("password") String password,
                                 @Field("invite_code") String inviteCode);
 
+    /*注册第二步*/
+    @FormUrlEncoded
+    @POST(Api.REGISTER)
+    Flowable<UserInfo> register2(@Field("mobile") String mobile,
+                                 @Field("code") String code,
+                                 @Field("password") String password,
+                                 @Field("invite_code") String inviteCode,
+                                 @Field("region") String region,
+                                 @Field("address") String address,
+                                 @Field("contacts") String contacts,
+                                 @Field("company") String company,
+                                 @Field("ywyno") String ywyno);
 
     /**
      * 获取验证码

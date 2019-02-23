@@ -14,6 +14,9 @@ import com.socks.library.KLog;
 import com.xuexiang.xui.widget.edittext.materialedittext.MaterialEditText;
 import com.xuexiang.xui.widget.edittext.materialedittext.validation.RegexpValidator;
 
+import java.util.HashMap;
+import java.util.Map;
+
 import butterknife.BindView;
 import butterknife.OnClick;
 import me.goldze.common.base.mvvm.base.BaseActivity;
@@ -113,7 +116,14 @@ public class RegisterActivity extends BaseActivity {
                         progressFragment.show(getSupportFragmentManager(), ARouterConfig.REGISTERACTIVITY);
                     }
 
-                    register(phone, code, password, inviteCode);
+                    /*register(phone, code, password, inviteCode);*/
+
+                    Map<String, String> map = new HashMap<>();
+                    map.put("phone", phone);
+                    map.put("code", code);
+                    map.put("password", password);
+                    map.put("invitecode", inviteCode);
+                    ActivityToActivity.toActivity(ARouterConfig.REGISTERACTIVITY2, map);
                 }
                 break;
             case R.id.tv_to_login:
@@ -194,7 +204,7 @@ public class RegisterActivity extends BaseActivity {
         });
     }
 
-    private void register(final String phone, String code, String password, String inviteCode) {
+    private void register(final String phone, final String code, final String password, final String inviteCode) {
         ApiRepo.register(phone, code, password, inviteCode).subscribeWith(new RxSubscriber<UserInfo>() {
 
             @Override
@@ -208,12 +218,16 @@ public class RegisterActivity extends BaseActivity {
                 if (!response.isSuccess()) {
                     ToastUtils.showLong(response.getErrorMsg());
                 } else {
-                    ActivityToActivity.toActivity(ARouterConfig.LOGINACTIVITY);
-                    finish();
-
+//                    ActivityToActivity.toActivity(ARouterConfig.LOGINACTIVITY);
+//                    finish();
 
                     /*第二部*/
-
+                    Map<String, String> map = new HashMap<>();
+                    map.put("phone", phone);
+                    map.put("code", code);
+                    map.put("password", password);
+                    map.put("invitecode", inviteCode);
+                    ActivityToActivity.toActivity(ARouterConfig.REGISTERACTIVITY2, map);
                 }
             }
 
