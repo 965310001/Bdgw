@@ -63,10 +63,10 @@ android {
 
             /*开启签名*/
             signingConfig signingConfigs.config
-            buildConfigField "String","APP_URL","\"http://api.bdgw.cc/\""
+            buildConfigField "String", "APP_URL", "\"http://api.bdgw.cc/\""
         }
-        debug{
-            buildConfigField "String","APP_URL","\"http://api.biandanwang.cc/\""
+        debug {
+            buildConfigField "String", "APP_URL", "\"http://api.biandanwang.cc/\""
         }
     }
 
@@ -119,8 +119,6 @@ dependencies {
     //
 
     debugImplementation 'com.amitshekhar.android:debug-db:1.0.0'
-
-
 
 //    implementation 'com.bugtags.library:bugtags-lib:latest.integration'
 

@@ -6,6 +6,10 @@ package com.bdgw.cc.ui;
  * @description:
  */
 public interface Constants {
+    /*默认头像链接*/
+    String HEADURL="https://img.zcool.cn/community/01460b57e4a6fa0000012e7ed75e83.png@2o.png";
+
+
     String TOKEN = "TOKEN";
     String IS_LOGIN = "IS_LOGIN";
     /*-------------------------------------------------------------------首页---------------------------------------------------*/

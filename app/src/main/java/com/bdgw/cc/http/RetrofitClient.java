@@ -115,11 +115,11 @@ public class RetrofitClient {
         connectionPool = new ConnectionPool(8, 15, TimeUnit.SECONDS);
         cacheInterceptor = new CacheInterceptor(Utils.getContext());
         okHttpClient = new OkHttpClient.Builder()
+                .addInterceptor(cacheInterceptor)
                 .cookieJar(cookieJar)
                 .addInterceptor(baseInterceptor)
                 .addInterceptor(parameteInterceptor)
                 .addInterceptor(tokenInterceptor)//Token拦截器
-                .addInterceptor(cacheInterceptor)
                 .sslSocketFactory(sslParams.sSLSocketFactory, sslParams.trustManager)
                 .addInterceptor(loggingInterceptor)
                 .connectTimeout(DEFAULT_TIMEOUT, TimeUnit.SECONDS)

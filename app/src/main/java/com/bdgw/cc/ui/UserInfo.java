@@ -1,5 +1,7 @@
 package com.bdgw.cc.ui;
 
+import android.text.TextUtils;
+
 import com.google.gson.annotations.SerializedName;
 
 import me.goldze.common.base.bean.BaseBean;
@@ -72,7 +74,7 @@ public class UserInfo extends BaseBean {
         return error_desc;
     }
 
-    public static class UserBean extends BaseBean{
+    public static class UserBean extends BaseBean {
         /**
          * user_id : 2167
          * user_name : 13928007971
@@ -173,6 +175,9 @@ public class UserInfo extends BaseBean {
         }
 
         public AvatarBean getAvatar() {
+            if (null == avatar) {
+                avatar = new AvatarBean();
+            }
             return avatar;
         }
 
@@ -218,6 +223,9 @@ public class UserInfo extends BaseBean {
             }
 
             public String getThumb() {
+                if (TextUtils.isEmpty(thumb)) {
+                    thumb = Constants.HEADURL;
+                }
                 return thumb;
             }
 
@@ -234,7 +242,6 @@ public class UserInfo extends BaseBean {
             }
         }
     }
-
 
 
 }

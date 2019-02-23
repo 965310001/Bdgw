@@ -1,23 +1,23 @@
-package com.bdgw.cc.ui.home;
+package com.bdgw.cc;
 
 import android.os.Bundle;
 
 import com.alibaba.android.arouter.facade.annotation.Route;
-import com.bdgw.cc.R;
 
-import me.goldze.common.base.mvvm.base.BaseActivity;
+import me.goldze.common.base.mvvm.base.test.BaseActivity;
 import me.goldze.common.constants.ARouterConfig;
 
-@Route(path = ARouterConfig.Shopping.SHOPPINGACTIVITY, extras = ARouterConfig.LOGIN_NEEDED)
-public class ShoppingActivity extends BaseActivity {
+@Route(path = ARouterConfig.REGISTERACTIVITY2)
+public class RegisterActivity2 extends BaseActivity {
 
     @Override
     protected int getLayoutId() {
-        return R.layout.activity_shopping;
+        return R.layout.activity_register2;
     }
 
     @Override
     protected void initViews(Bundle savedInstanceState) {
         showSuccess();
+        setTitle("注册");
     }
 }

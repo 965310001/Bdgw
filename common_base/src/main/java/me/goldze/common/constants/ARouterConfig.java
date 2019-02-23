@@ -7,6 +7,7 @@ package me.goldze.common.constants;
  */
 public interface ARouterConfig {
 
+
     enum ARouterType {
         LOGINACTIVITY(ARouterConfig.LOGINACTIVITY),//登录
         SPLASHACTIVITY(ARouterConfig.SPLASHACTIVITY),//过渡
@@ -39,6 +40,9 @@ public interface ARouterConfig {
 
     //注册
     String REGISTERACTIVITY = "/me/RegisterActivity";
+
+    //第二部注册
+    String REGISTERACTIVITY2 = "/me/RegisterActivity2";
 
 
     /***************************************************************************首页***********************************************************************/

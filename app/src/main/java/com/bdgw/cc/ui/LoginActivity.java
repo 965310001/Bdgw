@@ -52,7 +52,7 @@ public class LoginActivity extends AbsLifecycleActivity<LoginViewModel> {
         showSuccess();
 
         progressFragment = new ProgressFragment();
-        etPhone.setText("18011773705");
+        etPhone.setText("13417514362");
         etPassword.setText("123456");
         TextChangeUtils.observer(btnLogin, etPhone, etPassword);
     }

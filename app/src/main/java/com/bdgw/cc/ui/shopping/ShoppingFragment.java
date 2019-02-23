@@ -89,8 +89,14 @@ public class ShoppingFragment extends BaseFragment {
         dataObserver();
 
         /*cartData();*/
-        getData();
+        /*getData();*/
         /*hide(false);*/
+    }
+
+    @Override
+    public void onResume() {
+        super.onResume();
+        getData();
     }
 
     private void dataObserver() {
@@ -311,6 +317,7 @@ public class ShoppingFragment extends BaseFragment {
     protected void onStateRefresh() {
         super.onStateRefresh();
         // TODO: 2019/1/25 去购买商品
+//        getData();
     }
 
     private void displayResult() {

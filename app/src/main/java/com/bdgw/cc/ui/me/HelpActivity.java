@@ -59,6 +59,7 @@ public class HelpActivity extends BaseActivity {
                 break;
             case R.id.miv_1:
                 ActivityToActivity.toActivity(ARouterConfig.Me.ABOUTUSACTIVITY);
+                /*ActivityToActivity.toActivity(ARouterConfig.WEBVIEWACTIVITY, "URL", data.getData().getAbout_url());*/
                 break;
             case R.id.miv_2:
                 ActivityToActivity.toActivity(ARouterConfig.Me.CUSTOMERSERVICEACTIVITY);

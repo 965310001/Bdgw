@@ -12,6 +12,7 @@ import android.widget.TextView;
 import com.bdgw.cc.R;
 import com.bdgw.cc.http.Result;
 import com.bdgw.cc.test.LoginViewModel;
+import com.bdgw.cc.ui.Constants;
 import com.bdgw.cc.ui.UserInfo;
 import com.leon.lib.settingview.LSettingItem;
 import com.socks.library.KLog;
@@ -165,7 +166,7 @@ public class MeFragment extends AbsLifecycleFragment<LoginViewModel> {
             isLogin = false;
             tvLogin.setText("登录/注册");
             ImageUtils.loadImageCircle(ivUserHead,
-                    "https://cdn2.jianshu.io/assets/default_avatar/5-33d2da32c552b8be9a0548c7a4576607.jpg?imageMogr2/auto-orient/strip|imageView2/1/w/96/h/96");
+                    Constants.HEADURL);
         }
     }
 

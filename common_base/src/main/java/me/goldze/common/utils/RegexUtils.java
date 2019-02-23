@@ -48,6 +48,16 @@ public final class RegexUtils {
     }
 
     /**
+     * 验证密码
+     *
+     * @param input 待验证文本
+     * @return {@code true}: 匹配<br>{@code false}: 不匹配
+     */
+    public static boolean isPassword(final CharSequence input) {
+        return isMatch(RegexConstants.REGEX_PASSWORD, input);
+    }
+
+    /**
      * 验证身份证号码15位
      *
      * @param input 待验证文本
@@ -196,7 +206,7 @@ public final class RegexUtils {
     }
 
 
-    interface RegexConstants {
+    public interface RegexConstants {
         /**
          * 正则：手机号（简单）
          */
@@ -291,6 +301,12 @@ public final class RegexUtils {
          * 正则：负浮点数
          */
         String REGEX_NEGATIVE_FLOAT = "^-[1-9]\\d*\\.\\d*|-0\\.\\d*[1-9]\\d*$";
+
+        /**
+         * 正则：密码（至少包含一个大写字母，至少包含一个小写字母，至少包含一个数字，不能包含空字符）
+         */
+
+        String REGEX_PASSWORD = "^(?![^a-zA-Z]+$)(?!\\D+$).{618}$";
     }
 
 }

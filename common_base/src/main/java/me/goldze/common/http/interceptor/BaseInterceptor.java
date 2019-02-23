@@ -27,7 +27,8 @@ public class BaseInterceptor implements Interceptor {
 
     @Override
     public Response intercept(Chain chain) throws IOException {
-        Request.Builder builder = chain.request()
+        Request request = chain.request();
+        Request.Builder builder = request
                 .newBuilder();
         if (headers != null && headers.size() > 0) {
             Set<String> keys = headers.keySet();
@@ -44,5 +45,6 @@ public class BaseInterceptor implements Interceptor {
         KLog.i("-------------------------BaseInterceptor----------------------------");
         //请求信息
         return chain.proceed(builder.build());
+//        return chain.proceed(request);
     }
 }

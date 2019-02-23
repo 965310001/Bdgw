@@ -19,7 +19,7 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity
-            android:name="SplashActivity"
+            android:name=".SplashActivity"
             android:launchMode="singleTask"
             android:screenOrientation="portrait"
             android:theme="@style/AppFirstColdStartTheme">
@@ -29,12 +29,10 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-
         <activity
             android:name=".MainActivity"
             android:launchMode="singleInstance"
             android:screenOrientation="portrait" />
-
         <activity
             android:name=".ui.RegisterActivity"
             android:launchMode="singleTask"
@@ -213,6 +211,7 @@
             android:name=".ui.me.MessageActivity"
             android:launchMode="singleTask"
             android:screenOrientation="portrait" />
+        <activity android:name=".RegisterActivity2"></activity>
     </application>
 
 </manifest>

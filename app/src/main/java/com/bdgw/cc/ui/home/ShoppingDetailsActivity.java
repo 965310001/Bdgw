@@ -26,6 +26,7 @@ import me.goldze.common.base.mvvm.base.BaseFragment;
 import me.goldze.common.constants.ARouterConfig;
 import me.goldze.common.http.rx.RxSubscriber;
 import me.goldze.common.utils.ActivityToActivity;
+import me.goldze.common.utils.SharePreferenceUtil;
 import me.goldze.common.utils.ToastUtils;
 import me.goldze.common.widget.NoScrollViewPager;
 import me.goldze.common.widget.PagerSlidingTabStrip;
@@ -115,11 +116,11 @@ public class ShoppingDetailsActivity extends BaseActivity {
 
     }
 
- /*   @Override
+    @Override
     protected void onResume() {
         super.onResume();
         setCartNumber();
-    }*/
+    }
 
     /**
      * 设置内容
@@ -227,12 +228,19 @@ public class ShoppingDetailsActivity extends BaseActivity {
      * 设置购物车数量
      */
     private void setCartNumber() {
-        int count = ShoppingCartUtils.getCartCount();
-        if (count < 1) {
+        UserInfo data = (UserInfo) SharePreferenceUtil.getUser(UserInfo.class);
+        if (null != data) {
+            //已经登录了
+            int count = ShoppingCartUtils.getCartCount();
+            if (count < 1) {
+                tvCount.setVisibility(View.GONE);
+            } else {
+                tvCount.setVisibility(View.VISIBLE);
+                tvCount.setText(String.valueOf(count));
+            }
+            KLog.i(count + " 购物车的数量");
+        }else{
             tvCount.setVisibility(View.GONE);
-        } else {
-            tvCount.setVisibility(View.VISIBLE);
-            tvCount.setText(String.valueOf(count));
         }
     }
 

@@ -1,6 +1,7 @@
 package com.bdgw.cc.ui;
 
 import android.os.Bundle;
+import android.os.CountDownTimer;
 import android.text.TextUtils;
 import android.view.View;
 import android.widget.ImageView;
@@ -11,6 +12,7 @@ import com.alibaba.android.arouter.facade.annotation.Route;
 import com.bdgw.cc.R;
 import com.socks.library.KLog;
 import com.xuexiang.xui.widget.edittext.materialedittext.MaterialEditText;
+import com.xuexiang.xui.widget.edittext.materialedittext.validation.RegexpValidator;
 
 import butterknife.BindView;
 import butterknife.OnClick;
@@ -36,7 +38,8 @@ public class RegisterActivity extends BaseActivity {
     TextView tvTitle;
     @BindView(R.id.rl_title_bar)
     RelativeLayout rlTitleBar;
-
+    @BindView(R.id.tv_countdown)
+    TextView tvCountdown;
     @BindView(R.id.ed_register_name)
     MaterialEditText edPhone;
     @BindView(R.id.ed_register_code)
@@ -51,7 +54,9 @@ public class RegisterActivity extends BaseActivity {
 
     String phone, code, password, inviteCode;
 
-    ProgressFragment progressFragment;
+    private ProgressFragment progressFragment;
+
+    private CountDownTimer countDownTimer;
 
     @Override
     protected int getLayoutId() {
@@ -67,10 +72,15 @@ public class RegisterActivity extends BaseActivity {
         rlTitleBar.setVisibility(View.VISIBLE);
         tvTitle.setText("注册");
 
+        TextChangeUtils.observer(tvCountdown, edPhone);
         TextChangeUtils.observer(btnRegister, edPhone, edCode, edPassword);
+
+
+        edPhone.addValidator(new RegexpValidator("请输入正确的手机号码", RegexUtils.RegexConstants.REGEX_MOBILE_EXACT));
+//        edPhone.validate();  判断是否正确
     }
 
-    @OnClick({R.id.iv_back, R.id.btn_register, R.id.tv_to_login})
+    @OnClick({R.id.iv_back, R.id.btn_register, R.id.tv_to_login, R.id.tv_countdown})
     public void onClick(View view) {
         switch (view.getId()) {
             case R.id.iv_back:
@@ -93,6 +103,9 @@ public class RegisterActivity extends BaseActivity {
                /* else if (!password.equals(code)) {
                     ToastUtils.showLong("验证码长度必须大于4位");
                 }*/
+//                else if (!RegexUtils.isPassword(password)) {
+//                    ToastUtils.showLong("至少包含一个大写字母或小字母 不能有空格");
+//                }
                 else if (password.length() < 6 || password.length() > 15) {
                     ToastUtils.showLong("密码必须在6-15位");
                 } else {
@@ -107,7 +120,78 @@ public class RegisterActivity extends BaseActivity {
                 ActivityToActivity.toActivity(ARouterConfig.LOGINACTIVITY);
                 finish();
                 break;
+            case R.id.tv_countdown:
+                phone = edPhone.getText().toString().trim();
+                if (TextUtils.isEmpty(phone)) {
+                    edPhone.setError("请输入手机号");
+                } else {
+                  /*  if (edPhone.validate()) {
+                        KLog.i("输入正确");
+                    }*/
+                    if (!RegexUtils.isMobileExact(phone)) {
+                        ToastUtils.showLong("请输入正确的手机号");
+                    } else {
+                        getSureCode();
+                    }
+                }
+                break;
         }
+    }
+
+    /*发送验证码*/
+    private void getSureCode() {
+        /*code 表示区号*/
+        if (null == countDownTimer) {
+            countDownTimer = new CountDownTimer(60000, 1000) {
+                @Override
+                public void onTick(long millisUntilFinished) {
+                    String value = String.valueOf((int) (millisUntilFinished / 1000));
+                    tvCountdown.setText(value);
+                    tvCountdown.setEnabled(false);
+                    edPhone.setEnabled(false);
+                }
+
+                @Override
+                public void onFinish() {
+                    tvCountdown.setText("获取验证码");
+                    tvCountdown.setEnabled(true);
+                    edPhone.setEnabled(true);
+                }
+            };
+        }
+
+        ApiRepo.senCode(phone, code).subscribeWith(new RxSubscriber<UserInfo>() {
+            @Override
+            public void onSuccess(UserInfo response) {
+              /*  if (progressFragment.getDialog().isShowing()) {
+                    progressFragment.dismiss();
+                }*/
+                KLog.i(response.getErrorMsg() + response.getError_desc());
+                if (!response.isSuccess()) {
+                    ToastUtils.showLong(response.getErrorMsg());
+                } else {
+                    countDownTimer.start();
+                }
+            }
+
+            @Override
+            public void onFailure(String msg) {
+                KLog.i(msg);
+                ToastUtils.showLong(msg);
+               /* if (progressFragment.getDialog().isShowing()) {
+                    progressFragment.dismiss();
+                }*/
+            }
+
+            @Override
+            public void onError(Throwable t) {
+                KLog.i(t.getMessage());
+                ToastUtils.showLong("请稍后再试");
+              /*  if (progressFragment.getDialog().isShowing()) {
+                    progressFragment.dismiss();
+                }*/
+            }
+        });
     }
 
     private void register(final String phone, String code, String password, String inviteCode) {
@@ -126,6 +210,10 @@ public class RegisterActivity extends BaseActivity {
                 } else {
                     ActivityToActivity.toActivity(ARouterConfig.LOGINACTIVITY);
                     finish();
+
+
+                    /*第二部*/
+
                 }
             }
 
@@ -157,5 +245,18 @@ public class RegisterActivity extends BaseActivity {
 
         return TextUtils.isEmpty(phone) || TextUtils.isEmpty(password) ||
                 TextUtils.isEmpty(code);
+    }
+
+    @Override
+    public void onDestroy() {
+        super.onDestroy();
+        if (null != progressFragment && progressFragment.isVisible()) {
+            progressFragment.dismiss();
+            progressFragment = null;
+        }
+        if (null != countDownTimer) {
+            countDownTimer.cancel();
+            countDownTimer = null;
+        }
     }
 }
